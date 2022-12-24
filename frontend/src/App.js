@@ -1,15 +1,11 @@
 import React, {useState} from "react";
-import Kurcina from "./Kurcina";
+import NavBar from './navBar';
 
 function App() {
   
   return (
-    <>
-    
-    <Kurcina />
-    
-    
-    </>
+
+    <NavBar />
     
   );
 }
