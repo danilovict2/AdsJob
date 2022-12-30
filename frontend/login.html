@@ -8,7 +8,7 @@
     <title>Sign Up</title>
 
     <script>
-        function myFunction() {
+        function showPassword() {
   var x = document.getElementById("password");
   if (x.type === "password") {
     x.type = "text";
@@ -17,6 +17,18 @@
   }
 }
     </script>
+<script>
+function navBarSetter() {
+    var navBar = document.getElementById("myTopnav");
+    if (navBar.className === "topnav") {
+        navBar.className += " responsive";
+    }else {
+        navBar.className = "topnav";
+    }
+  
+  }
+</script>
+</script>
 
 </head>
 <body>
@@ -25,7 +37,7 @@
         <a href="#settings"><img class="settings" src="img/gear.png"></a>
         
         <a href="index.html"><img class="home" src="img/home.png" alt=""></a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <img src="img/hamburger.png" width="50px"></a>
+        <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
       </div>
 
 
@@ -47,7 +59,7 @@
 					<label for="chk" aria-hidden="true">Već imate nalog?</label>
 					<input type="text" placeholder="Unesite vaše korisničko ime" required=""><br>
 					<input type="password" name="pswd" placeholder="Unesite vašu lozinku" required id="password">
-                    <label class="showpas">Prikazi lozinku<input type="checkbox" class="pass" onclick="myFunction()"></label>
+                    <label class="showpas">Prikazi lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
                     
                     
 					<button>Prijavi me</button>
