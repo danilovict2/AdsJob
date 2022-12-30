@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=!, initial-scale=1.0">
     <link rel="stylesheet" href="signup.css">
     <title>Sign Up</title>
+
+    <script>
+        function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+    </script>
+
 </head>
 <body>
     <div class="topnav" id="myTopnav">
@@ -15,11 +27,33 @@
         <a href="index.html"><img class="home" src="img/home.png" alt=""></a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <img src="img/hamburger.png" width="50px"></a>
       </div>
-      <div class="signup">
-        <form action="">
-            <input type="text" value="Unesite korisnicko ime">kois
-        </form>
-    </div>
+
+
+    <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form>
+					<label for="chk" aria-hidden="true">Registrujte se</label>
+					<input type="text" name="txt" placeholder="Unesite korisničko ime" required="">
+					<input type="password" name="pswd" placeholder="Unesite lozinku" required="">
+					
+					<button>Registruj me</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Već imate nalog?</label>
+					<input type="text" placeholder="Unesite vaše korisničko ime" required=""><br>
+					<input type="password" name="pswd" placeholder="Unesite vašu lozinku" required id="password">
+                    <label class="showpas">Prikazi lozinku<input type="checkbox" class="pass" onclick="myFunction()"></label>
+                    
+                    
+					<button>Prijavi me</button>
+				</form>
+			</div>
+	</div>
 
     
 </body>
