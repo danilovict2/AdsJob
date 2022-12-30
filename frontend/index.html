@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Home</title>
 
-    <script>
-      function myFunction() {
-var x = document.getElementById("myTopnav");
-if (x.className === "topnav") {
-  x.className += " responsive";
-} else {
-  x.className = "topnav";
-}
-}
-</script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Home</title>
+
+  <script>
+    function navBarSetter() {
+      var navBar = document.getElementById("myTopnav");
+      // Davajte normalna imena funkcijama i promenljivama
+      // ako sam nesto zajebo u imenovanju samo promenite i zajebite
+      // var x, var a function foo i takva sranja
+      if (navBar.className === "topnav") {
+          navBar.className += " responsive";
+      }else {
+          navBar.className = "topnav";
+      }
+    
+    }
+  </script>
 
 </head>
+
 <body>
 
-    <div class="topnav" id="myTopnav">
+  <div class="topnav" id="myTopnav">
 
+    <a href="#settings"><img class="settings" src="img/gear.png"></a>
+
+    <a href="#login"><img class="loginn" src="img/login.png" alt=""></a>
+    <div class="searchbox">
+      <input type="text" placeholder="Search...">
+      <button type="submit"><img src="img/search.png" class="search"></button>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <img src="img/hamburger.png" width="50px"></a>
+  </div>
+
+<<<<<<< HEAD
         <a href="#settings"><img class="settings" src="img/gear.png"></a>
         
         <a href="login.html"><img class="loginn" src="img/login.png" alt=""></a>
@@ -37,5 +54,8 @@ if (x.className === "topnav") {
 
       
       
+=======
+>>>>>>> 47bc2b9b365c880541eceb72e25409231fdf3b2b
 </body>
+
 </html>
