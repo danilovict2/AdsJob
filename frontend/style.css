@@ -4,6 +4,7 @@ body{
     background-color: rgb(255, 255, 255);
 }
 
+
 p{
 display: block;
 }
@@ -49,6 +50,14 @@ input{
   border-radius: 25px;
   font-size: 12pt;
   font-weight: 550;
+}
+
+.home{
+    width:50px;
+    padding-top: 0.8em;
+    padding-right: 2em;
+    padding-left: 0.8rem;
+    float: right;
 }
 
 .loginn{
