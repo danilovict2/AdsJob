@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=!, initial-scale=1.0">
     <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="style.css">
     <title>Sign Up</title>
 
     <script>
@@ -34,9 +35,10 @@ function navBarSetter() {
 <body>
     <div class="topnav" id="myTopnav">
 
-        <a href="#settings"><img class="settings" src="img/gear.png"></a>
         
-        <a href="index.html"><img class="home" src="img/home.png" alt=""></a>
+        <a href="index.html"><img  class="logo" src="img/logo-plc.png" ></a> 
+        <a href="#reviews" class="reviews">Company reviews</a>
+        <a href="#postjob" class="job">Employee | Post job</a>
         <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
       </div>
 
@@ -59,7 +61,7 @@ function navBarSetter() {
 					<label for="chk" aria-hidden="true">Već imate nalog?</label>
 					<input type="text" placeholder="Unesite vaše korisničko ime" required=""><br>
 					<input type="password" name="pswd" placeholder="Unesite vašu lozinku" required id="password">
-                    <label class="showpas">Prikazi lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
+          <label class="showpas">Prikazi lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
                     
                     
 					<button>Prijavi me</button>

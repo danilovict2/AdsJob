@@ -2,8 +2,9 @@ body{
     margin: 0px;
     padding: 0px;
     background-color: rgb(255, 255, 255);
-}
+    font-family: Arial, Helvetica, sans-serif;
 
+}
 
 p{
 display: block;
@@ -32,6 +33,22 @@ button:active{
 
 }
 
+.reviews{
+  font-size: 14pt;
+  color: rgb(255, 255, 255);
+  margin-top: 2rem;
+  padding-left: 5px;
+  margin-left: 2em;
+  position: absolute;
+  text-decoration: none;
+  border-left: solid 4px white;
+}
+
+.reviews:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 .searchbox{
   position: relative;
   background-color: rgb(11, 135, 237);
@@ -57,6 +74,7 @@ input{
     padding-top: 0.8em;
     padding-right: 2em;
     padding-left: 0.8rem;
+    transition: 0.2s;
     float: right;
 }
 
@@ -65,6 +83,7 @@ input{
     padding-top: 0.8em;
     padding-right: 2em;
     padding-left: 0.8rem;
+    transition: 0.2s;
     float: right;
 }
 
@@ -78,27 +97,38 @@ input{
   transition: 0.2s;
 }
 
-.settings{
-    width: 80px;
-    float: left;
-    padding-top: 0.5rem;
-    padding-left: 0.8em;
-
+.job{
+  float: right;
+  font-size: 14pt;
+  position: relative;
+  color: rgb(255, 255, 255);
+  margin-top: 2rem;
+  margin-right: 5px;
+  padding-left: 5px;
+  text-decoration: none;
+  border-left: solid 4px white;
+  transition: 0.2s;
 }
 
-.settings:hover{
+.job:hover{
   transform: scale(1.1);
   transition: 0.2s;
 }
 
-.settings:active{
+.logo{
+  width: 18rem;
+  padding-top: 0.7em;
+  padding-left: 1em;
+  transition: 0.2s;
+}
+
+.logo:hover{
   transform: scale(0.9);
   transition: 0.2s;
 }
 
-
 .topnav {
-  top: 0;
+    top: 0;
     position:fixed;
     width: 100%;
     background-color: #3772FF;
