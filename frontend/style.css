@@ -10,38 +10,15 @@ p{
 display: block;
 }
 
-.search{
-    width: 33px;
-    float: right;
-    margin-right: 8px;
-    background-color: rgb(11, 135, 237);
-}
-
-button{
-  background: none;
-  border: none;
-}
-
-button:hover{
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-
-button:active{
-  transform: scale(0.9);
-  transition: 0.2s;
-
-}
-
 .reviews{
   font-size: 14pt;
-  color: rgb(255, 255, 255);
-  margin-top: 2rem;
+  color: rgb(11, 135, 237);
+  margin-top: 1.5rem;
   padding-left: 5px;
   margin-left: 2em;
   position: absolute;
   text-decoration: none;
-  border-left: solid 4px white;
+  border-left: solid 4px rgb(11, 135, 237);
 }
 
 .reviews:hover{
@@ -49,25 +26,6 @@ button:active{
   transition: 0.2s;
 }
 
-.searchbox{
-  position: relative;
-  background-color: rgb(11, 135, 237);
-  border: white 3px solid;
-  border-radius: 30px;
-  margin-top: 0.6em;
-  display: inline-flex;
-  height: 40px;
-  float: right;
-}
-
-input{
-  width: 300px;
-  outline: none;
-  border:white;
-  border-radius: 25px;
-  font-size: 12pt;
-  font-weight: 550;
-}
 
 .home{
     width:50px;
@@ -80,7 +38,7 @@ input{
 
 .loginn{
     width: 40px;
-    padding-top: 0.8em;
+    padding-top: 0.3em;
     padding-right: 2em;
     padding-left: 0.8rem;
     transition: 0.2s;
@@ -101,12 +59,12 @@ input{
   float: right;
   font-size: 14pt;
   position: relative;
-  color: rgb(255, 255, 255);
-  margin-top: 2rem;
-  margin-right: 5px;
+  color: rgb(11, 135, 237);
+  margin-top: 1.5rem;
+  margin-right: 20px;
   padding-left: 5px;
   text-decoration: none;
-  border-left: solid 4px white;
+  border-left: solid 4px rgb(11, 135, 237);
   transition: 0.2s;
 }
 
@@ -116,14 +74,14 @@ input{
 }
 
 .logo{
-  width: 18rem;
+  width: 10rem;
   padding-top: 0.7em;
   padding-left: 1em;
   transition: 0.2s;
 }
 
 .logo:hover{
-  transform: scale(0.9);
+  transform: scale(1.1);
   transition: 0.2s;
 }
 
@@ -131,8 +89,10 @@ input{
     top: 0;
     position:fixed;
     width: 100%;
-    background-color: #3772FF;
+    height: 4rem;
+    background-color: #ffffff;
     overflow:hidden;
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.377);
   }
 
 
