@@ -1,3 +1,3 @@
-# Projektna-Nedelja
+# AdsJob
 
 Aplikacija za pronalazenje usluga
