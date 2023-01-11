@@ -1,0 +1,85 @@
+.usluga{
+    
+    letter-spacing: 1px;
+    margin-top: 12.5rem;
+    margin-left: 26rem;
+    margin-right: 12rem;
+    border: 1px solid rgb(11, 135, 237);
+    color: rgb(11, 135, 237);
+    border-radius: 10px;
+    width: 30rem;
+    padding: 1em;
+    position:absolute;
+
+}
+
+.usluga-label{
+    display: inline;
+    font-weight: 550;
+    font-size: 15pt;
+    
+
+}
+
+.pretraga{
+    letter-spacing: 1px;
+    margin-top: 13rem;
+    margin-left: 95rem;
+    border: 1px solid rgb(11, 135, 237);
+    background-color:rgb(11, 135, 237) ;
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 1em;
+    position: absolute;
+    transition: 0.2s;
+    cursor:pointer;
+}
+
+.pretraga:hover{
+    background: #2566c8;
+    transition: 0.2s;
+
+}
+
+input.search{
+    border: none;
+    font-size: 12pt;
+    
+}
+
+input.search:focus{
+    border: none;
+    outline: none;
+}
+
+.mesto{
+    letter-spacing: 1px;
+    margin-top: 12.5rem;
+    margin-left: 61rem;
+    border: 1px solid rgb(11, 135, 237);
+    color: rgb(11, 135, 237);
+    border-radius: 10px;
+    width: 30rem;
+    padding: 1em;
+    position: absolute;
+}
+
+.mesto-label{
+    display: inline;
+    font-weight: 550;
+    font-size: 15pt;
+    
+
+}
+
+input.search{
+    border: none;
+    font-size: 12pt;
+    
+}
+
+input.search:focus{
+    border: none;
+    outline: none;
+}
