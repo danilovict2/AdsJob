@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prijava</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="signup.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prijava</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="signup.css">
 
-    <script>
-        function showPassword() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-    </script>
-
-<script>
-function navBarSetter() {
-    var navBar = document.getElementById("myTopnav");
-    if (navBar.className === "topnav") {
-        navBar.className += " responsive";
-    }else {
-        navBar.className = "topnav";
+  <script>
+    function showPassword() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
     }
-  
-  }
-</script>
-</script>
+
+  </script>
+
+  <script>
+    function navBarSetter() {
+      var navBar = document.getElementById("myTopnav");
+      if (navBar.className === "topnav") {
+        navBar.className += " responsive";
+      } else {
+        navBar.className = "topnav";
+      }
+
+    }
+  </script>
+  </script>
 
 </head>
+
 <body>
-    <div class="topnav" id="myTopnav">
-
-        
-        <a href="index.html"><img  class="logo" src="img/logo.png" ></a> 
-        <a href="#reviews" class="reviews">Ocene korisnika</a>
-        <a href="#postjob" class="job">Poslodavci | Objavi oglas</a>
-        <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
-      </div>
+  <div class="topnav" id="myTopnav">
 
 
-    <div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
+    <a href="index.html"><img class="logo" src="img/logo.png"></a>
+    <a href="#reviews" class="reviews">Ocene korisnika</a>
+    <a href="#postjob" class="job">Poslodavci | Objavi oglas</a>
+    <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
+  </div>
 
-			<div class="signup">
-		<form>
-		  <label for="chk" aria-hidden="true">Prijavite se</label>
-		  <input type="email" name="txt" placeholder="Unesite E-mail" required="">
-		  <input type="password" name="pswd" placeholder="Unesite lozinku" id="password" minlength="8">
-          <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
-					
-		  <button>Prijavi me</button> <br>
-          <a href="signin.html" class="nalog">Nemate nalog? Registrujte se</a>
-		</form>
-        
-			</div>
-	</div>
-    
+
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+      <form>
+        <label for="chk" aria-hidden="true">Prijavite se</label>
+        <input type="email" name="txt" placeholder="Unesite E-mail" required="">
+        <input type="password" name="pswd" placeholder="Unesite lozinku" id="password" minlength="8">
+        <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
+
+        <button>Prijavi me</button> <br>
+        <a href="signin.html" class="nalog">Nemate nalog? Registrujte se</a>
+      </form>
+
+    </div>
+  </div>
+
 </body>
+
 </html>
