@@ -1,0 +1,71 @@
+
+.collage-item{
+    width: 25rem;
+    height: 25rem;
+    padding: 20px;
+    display: inline-block;
+    border: 3px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    margin-top: 10rem;
+    margin-left: 30rem;
+}
+
+.collage-item2{
+    width: 25rem;
+    height: 25rem;
+    padding: 20px;
+    border: 3px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    margin-left: 62rem;
+    margin-top: -27.9em;
+}
+
+button{
+    margin-left: 6.6rem;
+    margin-top: 2.5rem;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 8px;
+    background-color: rgb(11, 135, 237);
+    color: white;
+    font-size: 20pt;
+    padding: 5px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+button.post{
+    margin-left: 6.6rem;
+    margin-top: 6rem;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 8px;
+    background-color: rgb(11, 135, 237);
+    color: white;
+    font-size: 20pt;
+    padding: 5px;
+    transition: 0.2s;
+}
+
+button.post:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+button:active{
+    transform: scale(0.9);
+    transition: 0.2s;
+}
+
+button.post:active{
+    transform: scale(0.9);
+    transition: 0.2s;
+}
+
