@@ -53,16 +53,32 @@
     <div class="signup">
       <form>
         <label for="chk" aria-hidden="true">Prijavite se</label>
-        <input type="email" name="txt" placeholder="Unesite E-mail" required="">
+        <input type="text" name="txt" placeholder="Unesite E-mail" required id="email">
         <input type="password" name="pswd" placeholder="Unesite lozinku" id="password" minlength="8">
         <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
 
-        <button>Prijavi me</button> <br>
+        <button onclick="auth()">Prijavi me</button> <br>
         <a href="signin.html" class="nalog">Nemate nalog? Registrujte se</a>
       </form>
 
     </div>
   </div>
+
+  <script>
+    function auth(){
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      if(email == "primer@gmail.com" && password == "primer123"){
+        window.location.href = 'indx-after.html';
+        alert("Uspesno ste se ulogovali!");
+      }
+      else{
+        alert("Netacne informacije! Pokusajte ponovo");
+        return;
+
+      }
+    }
+  </script>
 
 </body>
 
