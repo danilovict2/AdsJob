@@ -8,31 +8,7 @@
   <title>Prijava</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="signup.css">
-
-  <script>
-    function showPassword() {
-      var x = document.getElementById("password");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
-      }
-    }
-
-  </script>
-
-  <script>
-    function navBarSetter() {
-      var navBar = document.getElementById("myTopnav");
-      if (navBar.className === "topnav") {
-        navBar.className += " responsive";
-      } else {
-        navBar.className = "topnav";
-      }
-
-    }
-  </script>
-  </script>
+  <script src="script.js"></script>
 
 </head>
 
@@ -42,7 +18,7 @@
 
     <a href="index.html"><img class="logo" src="img/logo.png"></a>
     <a href="#reviews" class="reviews">Ocene korisnika</a>
-    <a href="#postjob" class="job">Poslodavci | Objavi oglas</a>
+    <a href="#postjob" class="job">Pronađi oglase | Objavi oglas</a>
     <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
   </div>
 
@@ -64,21 +40,7 @@
     </div>
   </div>
 
-  <script>
-    function auth(){
-      var email = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-      if(email == "primer@gmail.com" && password == "primer123"){
-        window.location.href = 'indx-after.html';
-        alert("Uspesno ste se ulogovali!");
-      }
-      else{
-        alert("Netacne informacije! Pokusajte ponovo");
-        return;
-
-      }
-    }
-  </script>
+  
 
 </body>
 
