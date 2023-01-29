@@ -1,0 +1,16 @@
+.profil{
+    float: right;
+    margin-top: 0.9rem;
+    padding-right: 20px;
+    width: 2.5rem;
+    transition: 0.2s;
+}
+
+.profil:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+.profil:active{
+    transform: scale(0.9);
+    transition: 0.2s;
+}
