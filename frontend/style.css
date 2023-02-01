@@ -63,7 +63,8 @@ display: block;
 .job{
   float: right;
   font-size: 14pt;
-  position: relative;
+  position: relative; 
+  display: block;
   color: rgb(11, 135, 237);
   margin-top: 1.5rem;
   padding-left: 5px;
