@@ -1,0 +1,15 @@
+{
+    "name": "adsjob/adsjob",
+    "description": "App for services",
+    "keywords": [""],
+    "license": "",
+    "authors": [],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AdsJob\\": "src/"
+        }
+    }
+}
