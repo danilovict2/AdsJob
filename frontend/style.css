@@ -48,6 +48,12 @@ display: block;
     padding-left: 0.8rem;
     transition: 0.2s;
     float: right;
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+    float: right; 
 }
 
 .loginn:hover{
