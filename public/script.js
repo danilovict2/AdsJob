@@ -41,24 +41,4 @@ function dropDown() {
   }
 }
 
-function enableDropdown(){
-    if(typeof enableDropdown.isEnabled == 'undefined'){
-        enableDropdown.isEnabled = false;
-    }
-    enableDropdown.isEnabled = !enableDropdown.isEnabled;
-    var dropdownContent = document.getElementById("dropdown-content");
-    if(enableDropdown.isEnabled){
-      dropdownContent.style.display = "block";
-    }else{
-      dropdownContent.style.display = "none";
-    }
-}
 
-window.onclick = function(event){
-  if(!event.target.matches('.enableDropdown')){
-    if(enableDropdown.isEnabled){
-      document.getElementById("dropdown-content").style.display = "none";
-    }
-  }
-  
-}
