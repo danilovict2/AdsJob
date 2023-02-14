@@ -9,16 +9,6 @@ function showPassword() {
   }
 }
 
-function navBarSetter() {
-  var navBar = document.getElementById("myTopnav");
-  if (navBar.className === "topnav") {
-    navBar.className += " responsive";
-  } else {
-    navBar.className = "topnav";
-  }
-
-}
-
 function auth() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
@@ -34,13 +24,6 @@ function auth() {
   }
 }
 
-function dropDown() {
-  var click = document.getElementById("list-items");
-  if (click.style.display === "none") {
-    click.style.display = "block";
-  } else {
-    click.style.display = "none";
-  }
-}
+
 
 
