@@ -1,9 +1,11 @@
 function showPassword() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
+  var x = document.getElementsByClassName("password");
+  for(var i=0; i<x.length; ++i){
+    if (x[i].type === "password") {
+      x[i].type = "text";
+    } else {
+      x[i].type = "password";
+    }
   }
 }
 
