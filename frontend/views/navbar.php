@@ -19,7 +19,7 @@
 <body>
     
     <div class="topnav" id="myTopnav">
-        <a href="index.php"><img class="logo" src="img/logo.png"></a>
+        <a href="index.php"><img class="logo" src="../img/logo.png"></a>
         <a href="#reviews" class="reviews">Ocene korisnika</a>
         <!--
       Odradio sam vam celu dropdown mehaniku da ne morate da se jebete sa programiranjem
@@ -30,7 +30,7 @@
     -->
         <span class="dropdown" id="dropdown">
             <span class="select">
-                <a href="#" onclick="enableDropdown()"><img class="loginn" src="img/login.png"></a>
+                <a href="#" onclick="enableDropdown()"><img class="loginn" src="../img/login.png"></a>
             </span>
             <ul class="dropdown-content">
                 <li>My Profile</li>
