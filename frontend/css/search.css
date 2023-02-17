@@ -15,24 +15,46 @@ form{
     border-radius: 10px;
     width: 30rem;
     padding: 1em;
-    align-items: flex-start
- 
+    align-items: flex-start;
+    text-align: center;
 
+ 
 }
-#usluga-mesto{
+.usluga-label{
+    font-weight: 550;
+    font-size: 30pt;
+    margin-top: 45px;
+}
+div.usluga-search{
+   position: relative; 
+   margin: 0;
+}
+
+
+#search-container{
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
+input{
+    background-color: #37b5fe; 
+    height: 3em;
+    margin-left: 7.5em;
+    margin-top: 1em;
+    text-align: center;
+    color: white;
+     width: 300px;
+     outline: none;
+     border:white;
+     border-radius: 25px;
+     font-size: 12pt;
+     font-weight: 550;
+     box-shadow:0px 5px 10px #37b5fea5;
+   }
 
 
 
-.usluga-label{
-    font-weight: 550;
-    font-size: 15pt;
-}
-
-.pretraga{
+input.pretraga{
     letter-spacing: 1px;
     border: 1px solid rgb(11, 135, 237);
     background-color:rgb(11, 135, 237) ;
@@ -57,6 +79,9 @@ input.search{
     font-size: 12pt;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 45px;
     
 }
 
