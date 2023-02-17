@@ -9,24 +9,29 @@ form{
 
 .usluga{
     letter-spacing: 1px;
-    margin-top: 12.5rem;
+    margin-top: 11rem;
     border: 1px solid rgb(11, 135, 237);
     color: rgb(11, 135, 237);
     border-radius: 10px;
     width: 30rem;
-    padding: 1em;
+    padding-left: 10px;
     align-items: flex-start;
     text-align: center;
-
+    display: flex;
+    align-items: center;
+    
+    gap: 10px;
  
 }
 .usluga-label{
     font-weight: 550;
-    font-size: 30pt;
-    margin-top: 45px;
+    font-size: 15pt;
+    
+    
 }
 div.usluga-search{
-   position: relative; 
+   display: flex;
+   align-items: center;
    margin: 0;
 }
 
@@ -36,21 +41,28 @@ div.usluga-search{
     flex-direction: row;
     gap: 50px;
 }
-input{
-    background-color: #37b5fe; 
+input, label.search{
+     
     height: 3em;
-    margin-left: 7.5em;
-    margin-top: 1em;
-    text-align: center;
-    color: white;
-     width: 300px;
-     outline: none;
-     border:white;
-     border-radius: 25px;
-     font-size: 12pt;
-     font-weight: 550;
-     box-shadow:0px 5px 10px #37b5fea5;
-   }
+    
+    text-align: left;
+    
+    color: rgb(100, 100, 100);
+    width: 400px;
+    outline: none;
+    border:white;
+    border-radius: 25px;
+    font-size: 12pt;
+    
+
+}
+label.search{
+    
+}
+.ikonica{
+    margin-right: 10px;
+    margin-top: 5px;
+}
 
 
 
@@ -66,6 +78,8 @@ input.pretraga{
     cursor:pointer;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    width: 150px;
 }
 
 .pretraga:hover{
@@ -74,14 +88,13 @@ input.pretraga{
 
 }
 
-input.search{
+input.search, label.serach{
     border: none;
     font-size: 12pt;
     align-items: center;
     justify-content: center;
     margin: 0;
-    margin-top: 50px;
-    margin-bottom: 45px;
+    margin-right: 5px;
     
 }
 
@@ -111,13 +124,13 @@ input.search:focus{
 
 }
 
-input.search{
+input.search, label.serach{
     border: none;
     font-size: 12pt;
     
 }
-input.search::placeholder{
-    color: rgb(255, 255, 255, 0.4);
+input.search::placeholder, label.search{
+    color: rgba(105, 105, 105, 0.4);
 }
 
 input.search:focus{
