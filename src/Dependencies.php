@@ -15,4 +15,13 @@ $injector->define('Http\HttpRequest', [
 $injector->alias('Http\Response', 'Http\HttpResponse');
 $injector->share('Http\HttpResponse');
 
+$injector->alias('AdsJob\Template\Renderer', 'AdsJob\Template\MustacheRenderer');
+$injector->define('Mustache_Engine', [
+    ':options' => [
+        'loader' => new Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/frontend/views', [
+            'extension' => '.php',
+        ]),
+    ],
+]);
+
 return $injector;
