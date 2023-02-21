@@ -2,13 +2,13 @@
 
 namespace AdsJob\Template;
 
-use Mustache_Engine;
+use \Twig\Environment;
 
-class MustacheRenderer implements Renderer{
+class TwigRenderer implements Renderer{
     
     private $engine;
 
-    public function __construct(Mustache_Engine $engine){
+    public function __construct(Environment $engine){
         $this->engine = $engine;
     }
 

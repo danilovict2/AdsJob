@@ -26,7 +26,7 @@ class Homepage{
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),
         ];
-        $html = $this->renderer->render('index', $data);
+        $html = $this->renderer->render('index.php', $data);
         $this->response->setContent($html);
     }
 }

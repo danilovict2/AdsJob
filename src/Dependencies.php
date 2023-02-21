@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 $injector = new \Auryn\Injector;
 
@@ -15,13 +17,10 @@ $injector->define('Http\HttpRequest', [
 $injector->alias('Http\Response', 'Http\HttpResponse');
 $injector->share('Http\HttpResponse');
 
-$injector->alias('AdsJob\Template\Renderer', 'AdsJob\Template\MustacheRenderer');
-$injector->define('Mustache_Engine', [
-    ':options' => [
-        'loader' => new Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/frontend/views', [
-            'extension' => '.php',
-        ]),
-    ],
-]);
+$injector->alias('AdsJob\Template\Renderer', 'AdsJob\Template\TwigRenderer');
+$injector->define('\Twig\Environment', [
+        ':loader' => new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/frontend/views')
+    ]
+);
 
 return $injector;

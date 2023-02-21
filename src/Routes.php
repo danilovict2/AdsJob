@@ -2,5 +2,6 @@
 
 return [
     ['GET', '/', ['AdsJob\Controllers\Homepage', 'show']],
+    ['GET', '/{slug}' , ['AdsJob\Controllers\Page','show']],
 ];
 
