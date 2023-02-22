@@ -23,4 +23,11 @@ $injector->define('\Twig\Environment', [
     ]
 );
 
+$injector->define('AdsJob\Page\FilePageReader', [
+    ':pageFolder' => __DIR__ . '/../pages',
+]);
+
+$injector->alias('AdsJob\Page\PageReader', 'AdsJob\Page\FilePageReader');
+$injector->share('AdsJob\Page\FilePageReader');
+
 return $injector;

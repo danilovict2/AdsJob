@@ -31,4 +31,5 @@
         </div>
         <input type="submit" class="pretraga" value="Pretraga">
     </form>
+    {{ content }}
 </div>

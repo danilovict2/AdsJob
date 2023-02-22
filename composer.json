@@ -5,7 +5,7 @@
     "license": "",
     "authors": [],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=8.0.0",
         "filp/whoops": "^2.14",
         "patricklouys/http": "~1.4",
         "nikic/fast-route": "^1.3",

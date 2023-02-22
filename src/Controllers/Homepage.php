@@ -8,9 +8,9 @@ use Http\Request;
 
 class Homepage{
 
-    private $request;
-    private $response;
-    private $renderer;
+    private Request $request;
+    private Response $response;
+    private Renderer $renderer;
 
     public function __construct(
         Request $request, 

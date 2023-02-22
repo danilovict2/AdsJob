@@ -6,7 +6,7 @@ use \Twig\Environment;
 
 class TwigRenderer implements Renderer{
     
-    private $engine;
+    private Environment $engine;
 
     public function __construct(Environment $engine){
         $this->engine = $engine;
