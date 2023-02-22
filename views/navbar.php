@@ -15,7 +15,7 @@
 <body>
     
     <div class="topnav" id="myTopnav">
-        <a href="index.php"><img class="logo" src="../img/logo.png"></a>
+        <a href="/"><img class="logo" src="../img/logo.png"></a>
         <a href="#reviews" class="reviews">Ocene korisnika</a>
         <!--
       Odradio sam vam celu dropdown mehaniku da ne morate da se jebete sa programiranjem
