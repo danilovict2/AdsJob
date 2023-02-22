@@ -1,7 +1,6 @@
-<?php
-require __DIR__ . '/navbar.php';
-?>
-<link rel="stylesheet" href="/../css/search.css">
+{% include('navbar.php') %}
+
+<link rel="stylesheet" href="css/search.css">
 <div class="container">
     <form action="">
         <div id="search-container">

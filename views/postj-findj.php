@@ -1,6 +1,4 @@
-<?php
-require __DIR__ . '/navbar.php';
-?>
+{% include('navbar.php') %}
 
 <div class="container">
     <div>

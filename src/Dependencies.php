@@ -19,7 +19,7 @@ $injector->share('Http\HttpResponse');
 
 $injector->alias('AdsJob\Template\Renderer', 'AdsJob\Template\TwigRenderer');
 $injector->define('\Twig\Environment', [
-        ':loader' => new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/frontend/views')
+        ':loader' => new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/views')
     ]
 );
 
