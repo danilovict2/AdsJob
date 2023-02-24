@@ -19,7 +19,6 @@ form{
     text-align: center;
     display: flex;
     align-items: center;
-    
     gap: 10px;
  
 }
@@ -42,20 +41,17 @@ div.usluga-search{
     gap: 50px;
 }
 input, label.search{
-     
     height: 3em;
-    
     text-align: left;
-    
     color: rgb(100, 100, 100);
     width: 400px;
     outline: none;
     border:white;
     border-radius: 25px;
     font-size: 12pt;
-    
-
 }
+
+
 
 .ikonica{
     margin-right: 10px;

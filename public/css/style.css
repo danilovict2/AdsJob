@@ -44,7 +44,7 @@ p {
 }
 
 .loginn {
-  width: 40px;
+  width: 50px;
   padding-top: 0.3em;
   padding-right: 2em;
   padding-left: 0.8rem;
@@ -69,10 +69,9 @@ p {
   display: block;
   color: rgb(11, 135, 237);
   margin-top: 1.5rem;
-  padding-left: 5px;
+  padding-right: 5px;
   margin-right: 30px;
   text-decoration: none;
-  border-left: solid 4px rgb(11, 135, 237);
   transition: 0.2s;
 }
 
@@ -83,6 +82,19 @@ p {
 
 .job:active {
   transform: scale(0.9);
+  transition: 0.2s;
+}
+
+.prijavise{
+  float: right;
+  font-size: 14pt;
+  position: relative;
+  display: block;
+  color: rgb(11, 135, 237);
+  margin-top: 1.5rem;
+  padding-right: 5px;
+  margin-right: 30px;
+  text-decoration: none;
   transition: 0.2s;
 }
 

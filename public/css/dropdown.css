@@ -5,19 +5,39 @@
 
 .dropdown-content{
     list-style: none;
-    padding: 0;
+    background-color:rgb(11, 135, 237);
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left:-3.5em;
     position: absolute;
     top: 3em;
-    width: 100%;
     z-index: 1;
     display: none;
+    border-radius: 10px;
+    text-align: justify;
 }
 
 .dropdown-content li{
     margin: 0.3em 0;
     cursor: pointer;
+    padding-top:5px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .dropdown-content-open{
     display: block;
+    width: 10em;
+}
+
+.dropdown-content li a{
+    text-decoration: none;
+    color: white;
+    font-size: 15pt;
+    
+}
+
+.dropdown-content li:hover{
+    background-color:rgb(8, 96, 167);
 }
