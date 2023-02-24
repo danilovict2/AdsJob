@@ -1,5 +1,6 @@
 {% include('navbar.php') %}
 
+<link rel="stylesheet" href="css/findj.css">
 <div class="container">
     <div>
         <div class="collage-item">

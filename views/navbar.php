@@ -34,7 +34,7 @@
                 <li>My ratings</li>
             </ul>
         </span>
-        <a href="postj-findj.php" class="job">Pronađi oglase | Objavi oglas</a>
+        <a href="/post-find-job" class="job">Pronađi oglase | Objavi oglas</a>
         <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
     </div>
 </body>
