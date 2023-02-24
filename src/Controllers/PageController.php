@@ -7,7 +7,7 @@ use AdsJob\Template\Renderer;
 use Http\Response;
 use \AdsJob\Page\InvalidPageException;
 
-class Page{
+class PageController{
 
     private Response $response;
     private Renderer $renderer;
