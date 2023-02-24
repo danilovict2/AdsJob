@@ -38,6 +38,10 @@
             
             </ul>
         </span>
+<<<<<<< HEAD
+=======
+        <a href="/post-find-job" class="job">Pronađi oglase | Objavi oglas</a>
+>>>>>>> 9ff87e0722618eb42982f3814a5b241b87739e0f
         <a href="javascript:void(0);" class="icon" onclick="navBarSetter()"> <img src="img/hamburger.png" width="50px"></a>
     </div>
 </body>

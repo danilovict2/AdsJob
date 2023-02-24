@@ -1,5 +1,6 @@
 {% include('navbar.php') %}
 
+<link rel="stylesheet" href="css/login-register.css">
 <div class="container">
     <div class="main">
         <input type="checkbox" id="chk" aria-hidden="true">
