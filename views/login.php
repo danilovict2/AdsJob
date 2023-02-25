@@ -13,7 +13,7 @@
                 <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
 
                 <button onclick="auth()">Prijavi me</button> <br>
-                <a href="signin.html" class="nalog">Nemate nalog? Registrujte se</a>
+                <a href="register.php" class="nalog">Nemate nalog? Registrujte se</a>
             </form>
 
         </div>
