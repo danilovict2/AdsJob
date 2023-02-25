@@ -5,6 +5,7 @@ return [
     ['GET', '/post-find-job', ['AdsJob\Controllers\FrontendController', 'showPostFindJob']], //renders views/post-find-job.php
     ['GET', '/login', ['AdsJob\Controllers\FrontendController', 'showLogin']], //renders views/login.php
     ['GET', '/register', ['AdsJob\Controllers\FrontendController', 'showRegister']], //renders views/register.php
+    ['GET', '/profile/{user_id}', ['AdsJob\Controllers\ProfileController', 'index']], //renders profile.php
     ['GET', '/{slug}' , ['AdsJob\Controllers\PageController','show']],
 ];
 
