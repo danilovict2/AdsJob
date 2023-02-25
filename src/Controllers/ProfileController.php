@@ -26,7 +26,7 @@ class ProfileController{
 
     public function index($params){
         $user_id = $params['user_id'];
-        $html = $this->renderer->render('profile.php');
+        $html = $this->renderer->render('profile.html.twig');
         $this->response->setContent($html);
     }
 }

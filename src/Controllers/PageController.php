@@ -33,7 +33,7 @@ class PageController{
             return $this->response->setContent('404 - Page not found');
         }
 
-        $html = $this->renderer->render('index.php', $data);
+        $html = $this->renderer->render('index.html.twig', $data);
         $this->response->setContent($html);
     }
 }

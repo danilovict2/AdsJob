@@ -26,22 +26,22 @@ class FrontendController{
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),
         ];
-        $html = $this->renderer->render('index.php', $data);
+        $html = $this->renderer->render('index.html.twig', $data);
         $this->response->setContent($html);
     }
 
     public function showPostFindJob(){
-        $html = $this->renderer->render('post-find-job.php');
+        $html = $this->renderer->render('post-find-job.html.twig');
         $this->response->setContent($html);
     }
 
     public function showLogin(){
-        $html = $this->renderer->render('login.php');
+        $html = $this->renderer->render('login.html.twig');
         $this->response->setContent($html);
     }
 
     public function showRegister(){
-        $html = $this->renderer->render('register.php');
+        $html = $this->renderer->render('register.html.twig');
         $this->response->setContent($html);
     }
 }
