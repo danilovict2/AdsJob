@@ -30,4 +30,6 @@ $injector->define('AdsJob\Page\FilePageReader', [
 $injector->alias('AdsJob\Page\PageReader', 'AdsJob\Page\FilePageReader');
 $injector->share('AdsJob\Page\FilePageReader');
 
+$injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
+
 return $injector;

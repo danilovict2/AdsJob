@@ -3,7 +3,7 @@
 namespace AdsJob\Controllers;
 
 use AdsJob\Page\PageReader;
-use AdsJob\Template\Renderer;
+use AdsJob\Template\FrontendRenderer;
 use Http\Response;
 use Http\Request;
 
@@ -11,13 +11,13 @@ class ProfileController{
 
     private Request $request;
     private Response $response;
-    private Renderer $renderer;
+    private FrontendRenderer $renderer;
     private PageReader $reader;
 
     public function __construct(
         Request $request, 
         Response $response,
-        Renderer $renderer
+        FrontendRenderer $renderer
     ){
         $this->request = $request;
         $this->response = $response;
@@ -26,7 +26,7 @@ class ProfileController{
 
     public function index($params){
         $user_id = $params['user_id'];
-        $html = $this->renderer->render('profile.html.twig');
+        $html = $this->renderer->render('profile.html');
         $this->response->setContent($html);
     }
 }
