@@ -6,5 +6,58 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: rgb(11, 135, 237);
 }
-   
+
+.container{
+    text-align: center;
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.izmeniProfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 8em;
+}
+
+h2{
+    text-align: left;
+    margin-left: 80px;
+}
+
+.profileIkonica{
+    width: 8em;
+    margin-left: 250px;
+}
+
+.info , .lokacija{
+    margin-left: -215px;
+    font-weight: bold;
+}
+
+ul{
+    list-style: none;
+    text-align: left;
+    
+}
+
+li{
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    margin: 15px;
+    font-size: 25pt;
+    padding: 5px;
+}
+
+input , label{
+    border: 0px;
+    outline:0px;
+    font-size: 15pt;
+    vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0);
+}
