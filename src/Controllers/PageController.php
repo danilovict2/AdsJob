@@ -9,7 +9,7 @@ use \AdsJob\Page\InvalidPageException;
 
 class PageController extends Controller{
     
-    public function show($params){
+    public function show(array $params) : void{
         $slug = $params['slug'];
 
         try {
