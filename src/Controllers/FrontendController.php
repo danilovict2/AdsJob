@@ -2,25 +2,8 @@
 
 namespace AdsJob\Controllers;
 
-use AdsJob\Template\FrontendRenderer;
-use Http\Response;
-use Http\Request;
 
-class FrontendController{
-
-    private Request $request;
-    private Response $response;
-    private FrontendRenderer $renderer;
-
-    public function __construct(
-        Request $request, 
-        Response $response,
-        FrontendRenderer $renderer
-    ){
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-    }
+class FrontendController extends Controller{
 
     public function index(){
         $data = [
