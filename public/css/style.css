@@ -99,6 +99,11 @@ p {
   transition: 0.2s;
 }
 
+.prijavise:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 .logo {
   width: 10rem;
   padding-top: 0.7em;
