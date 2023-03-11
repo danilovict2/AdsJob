@@ -32,4 +32,8 @@ $injector->share('AdsJob\Page\FilePageReader');
 
 $injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
 
+$injector->define('AdsJob\Database\DB', [
+    ':config' => require(__DIR__ . '/../Config.php')
+]);
+
 return $injector;
