@@ -22,7 +22,7 @@ class ProfileController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function edit(array $params){
+    public function edit(array $params) : void{
         $user_id = $params['user_id'];
         $html = $this->renderer->render('editProfile.html');
         $this->response->setContent($html);
