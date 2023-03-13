@@ -9,12 +9,14 @@ function showPassword() {
   }
 }
 
+let usrLoggedIn = false;
+
 function auth() {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
   if (email == "primer@gmail.com" && password == "primer123") {
-    window.location.href = "indx-profile.html";
     alert("Uspesna prijava!");
+    document.querySelector("#dropdown").hidden = false;
 
   }
   else {
@@ -23,6 +25,8 @@ function auth() {
 
   }
 }
+
+
 
 
 
