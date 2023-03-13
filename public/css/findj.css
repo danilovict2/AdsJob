@@ -1,5 +1,11 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+}
 
-.collage-item{
+.collage-item,  .collage-item2{
     width: 25rem;
     height: 25rem;
     padding: 20px;
@@ -7,20 +13,11 @@
     border: 3px solid rgb(11, 135, 237);
     border-radius: 10px;
     margin-top: 10rem;
-    margin-left: 30rem;
 }
 
-.collage-item2{
-    width: 25rem;
-    height: 25rem;
-    padding: 20px;
-    border: 3px solid rgb(11, 135, 237);
-    border-radius: 10px;
-    margin-left: 62rem;
-    margin-top: -27.9em;
-}
 
-button{
+
+button , button.post{
     margin-left: 6.6rem;
     margin-top: 2.5rem;
     border: 2px solid rgb(11, 135, 237);
@@ -69,3 +66,92 @@ button.post:active{
     transition: 0.2s;
 }
 
+
+
+@media  screen and (max-width:500px){  /*Responsive*/
+    .container{
+        gap: 5px;
+        margin:10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .collage-item,  .collage-item2{
+        width: 11rem;
+        height: 13rem;
+        padding: 20px;
+        margin-top: 80px;
+    }
+    button , button.post{
+        font-size: 10px;
+        margin-left: 40px;
+    }
+    .man, .wmn{
+        width: 160px;
+        height: 120px;
+    }
+    
+}
+
+@media  screen and (max-width:710px){  /*Responsive*/
+    .container{
+        gap: 30px;
+        margin:10px;
+    }
+    .collage-item,  .collage-item2{
+        width: 11rem;
+        height: 13rem;
+        padding: 10px;
+    }
+    button , button.post{
+        font-size: 10pt;
+        margin: 40px;
+    }
+    .man, .wmn{
+        width: 160px;
+        height: 120px;
+    }
+    
+}
+
+
+@media  screen and (min-width:710px){  /*Responsive*/
+    .container{
+        gap: 50px;
+    }
+    .collage-item,  .collage-item2{
+        width: 16rem;
+        height: 18rem;
+        padding: 10px;
+    }
+    button , button.post{
+        font-size: 15pt;
+        margin: 55px;
+    }
+    .man, .wmn{
+        width: 230px;
+        height: 150px;
+    }
+    
+}
+
+
+@media  screen and (min-width:1050px){  /*Responsive*/
+    .container{
+        gap: 80px;
+    }
+    .collage-item,  .collage-item2{
+        width: 20rem;
+        height: 25rem;
+        padding: 15px;
+    }
+    button , button.post{
+        font-size: 18pt;
+        margin: 60px;
+    }
+    .man, .wmn{
+        width: 280px;
+        height: 200px;
+        
+    }
+}

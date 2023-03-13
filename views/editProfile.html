@@ -1,0 +1,43 @@
+{% include('navbar.html') %}
+<link rel="stylesheet" href="/css/editProfile.css">
+<div class="container">
+    <div class="izmeniProfil">
+        <h1>Izmeni Profil</h1>
+        <img src="/img/profile.png" class="profileIkonica">
+    </div>
+    <form action="">
+    <div class="info">
+        <h2>-Lični podaci</h2>
+            <ul>
+                <li>
+                <label for="Ime">Ime:</label>
+                <input type="text" id="Ime" >
+                </li>
+                <li>
+                    <label for="Prezime">Prezime:</label>
+                    <input type="text" id="Prezime">
+                </li>
+            </ul>
+        
+    </div>
+    <div class="lokacija">
+        <h2>-Lokacija</h2>
+        <ul>
+            <li>
+            <label for="Ulica">Ulica:</label>
+            <input type="text" id="Ulica" >
+            </li>
+            <li>
+                <label for="Grad">Grad / Naselje:</label>
+                <input type="text" id="Prezime">
+            </li>
+            <li>
+                <label for="postBroj">Poštanski Broj:</label>
+                <input type="text" maxlength="6">
+            </li>
+        </ul>
+        <button class="applyChanges"><input type="submit" value="Potvrdi Izmene"></button>
+
+    </div>
+    </form>
+</div>

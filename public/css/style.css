@@ -6,6 +6,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
 }
 
 p {
@@ -98,6 +99,11 @@ p {
   transition: 0.2s;
 }
 
+.prijavise:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 .logo {
   width: 10rem;
   padding-top: 0.7em;
@@ -116,7 +122,6 @@ p {
   width: 100%;
   height: 4rem;
   background-color: #ffffff;
-  
   box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.377);
 }
 
@@ -130,7 +135,7 @@ p {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 710px) {
   .topnav a:not(:first-child) {
     display: none;
   }
@@ -143,7 +148,7 @@ p {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 710px) {
   .topnav.responsive {
     position: relative;
   }

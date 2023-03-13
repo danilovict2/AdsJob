@@ -1,34 +1,25 @@
-<?php declare (strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace AdsJob\Database;
 use PDO;
 
+
 class DB{
 
-    private PDO $pdo;
+    private $connection;
 
-    public function __construct(){
-        $host = getenv('DB_HOST');
-        $dbname = getenv('DB_DATABASE');
-        $this->pdo = new PDO("mysql:host=$host;dbname=$dbname",getenv('DB_USERNAME'),getenv('DB_PASSWORD'));
+    public function __construct(array $config, string $username = 'root', string $password = ''){
+
+        $dsn = 'mysql:' . http_build_query(data: $config['database'], arg_separator: ';');
+        $this->connection = new PDO($dsn, $username, $password, [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
     }
 
-    public function select(){
-        
+    public function rawQuery(string $query, array $params = []){
+        $statement = $this->connection->prepare($query);
+        $statement->execute($params);
+        return $statement;
     }
-
-    public function insert(){
-
-    }
-    
-    public function update(){
-
-    }
-
-    public function delete(){
-
-    }
-
 }
 
-return new DB();

@@ -7,23 +7,9 @@ use AdsJob\Template\FrontendRenderer;
 use Http\Response;
 use \AdsJob\Page\InvalidPageException;
 
-class PageController{
-
-    private Response $response;
-    private FrontendRenderer $renderer;
-    private PageReader $pageReader;
-
-    public function __construct(
-        Response $response,
-        FrontendRenderer $renderer,
-        PageReader $pageReader
-    ){
-        $this->response = $response;
-        $this->renderer = $renderer;
-        $this->pageReader = $pageReader;
-    }
+class PageController extends Controller{
     
-    public function show($params){
+    public function show(array $params) : void{
         $slug = $params['slug'];
 
         try {
