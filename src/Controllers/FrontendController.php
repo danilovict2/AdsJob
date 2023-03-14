@@ -8,7 +8,7 @@ class FrontendController extends Controller{
     public function index() : void{
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),
-            'id' => $this->database->rawQuery("SELECT id FROM test WHERE id = :id", ['id' => 1])->fetch(),
+            'id' => $this->database->rawQuery("SELECT * FROM test")->fetch(),
         ];
         $html = $this->renderer->render('index.html', $data);
         $this->response->setContent($html);
