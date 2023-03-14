@@ -27,11 +27,6 @@ $injector->define('AdsJob\Database\DB', [
     ':config' => require(__DIR__ . '/../Config.php')
 ]);
 
-$injector->define('AdsJob\Page\DatabasePageReader',[
-    ':database' => $injector->make('AdsJob\Database\DB')
-]);
-$injector->share('AdsJob\Page\DatabasePageReader');
-
 $injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
 
 
