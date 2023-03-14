@@ -10,8 +10,6 @@ class FrontendController extends Controller{
             'name' => $this->request->getParameter('name', 'stranger'),
             'id' => $this->database->rawQuery("SELECT id FROM test WHERE id = :id", ['id' => 1])->fetch(),
         ];
-        /*var_dump($data);
-        die();*/
         $html = $this->renderer->render('index.html', $data);
         $this->response->setContent($html);
     }

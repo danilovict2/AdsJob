@@ -2,14 +2,11 @@
 
 namespace AdsJob\Controllers;
 
-use AdsJob\Page\PageReader;
-use AdsJob\Template\FrontendRenderer;
-use Http\Response;
 use \AdsJob\Page\InvalidPageException;
 
 class PageController extends Controller{
     
-    public function show(array $params) : void{
+    public function show(array $params){
         $slug = $params['slug'];
 
         try {

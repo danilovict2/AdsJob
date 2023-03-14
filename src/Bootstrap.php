@@ -35,8 +35,8 @@ $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPath());
 switch ($routeInfo[0]) {
     case \FastRoute\Dispatcher::NOT_FOUND:
-        $response->setContent('404 - Page not found');
-        $response->setStatusCode(404);
+        $controller = $injector->make('\AdsJob\Controllers\ErrorController');
+        $controller->error404();
         break;
     case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $response->setContent('405 - Method not allowed');
