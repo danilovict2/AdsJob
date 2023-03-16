@@ -10,6 +10,5 @@ return [
     ['GET', '/p/create', ['AdsJob\Controllers\JobController', 'create']],
     ['GET', '/profile/{user_id}/reviews', ['AdsJob\Controllers\ProfileController', 'reviews']],
     ['GET', '/profile/{user_id}/edit', ['AdsJob\Controllers\ProfileController', 'edit']],
-    ['GET', '/{slug}' , ['AdsJob\Controllers\PageController','show']],
 ];
 

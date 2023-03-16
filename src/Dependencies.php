@@ -23,17 +23,12 @@ $injector->define('\Twig\Environment', [
     ]
 );
 
-$injector->define('AdsJob\Page\FilePageReader', [
-    ':pageFolder' => __DIR__ . '/../pages',
-]);
-
-$injector->alias('AdsJob\Page\PageReader', 'AdsJob\Page\FilePageReader');
-$injector->share('AdsJob\Page\FilePageReader');
-
-$injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
-
 $injector->define('AdsJob\Database\DB', [
     ':config' => require(__DIR__ . '/../Config.php')
 ]);
+
+$injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
+
+
 
 return $injector;
