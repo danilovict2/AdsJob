@@ -10,6 +10,7 @@ return [
     ['GET', '/profile/{user_id}/reviews', ['AdsJob\Controllers\ProfileController', 'reviews']],
     ['GET', '/profile/{user_id}/edit', ['AdsJob\Controllers\ProfileController', 'edit']],
     ['GET', '/p/create', ['AdsJob\Controllers\JobController', 'create']],
-    ['GET', '/p/{job_id}', ['AdsJob\Controllers\JobController', 'show']]
+    ['GET', '/p/{job_id}', ['AdsJob\Controllers\JobController', 'show']],
+    ['POST', '/user/store', ['AdsJob\Controllers\UserController', 'store']],
 ];
 
