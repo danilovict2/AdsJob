@@ -6,10 +6,6 @@ class User extends Model{
 
     protected string $email, $firstName, $lastName, $password, $confirmPassword;
 
-    public function register(){
-
-    }
-
     protected function rules() : array{
         return [
             'firstName' => [self::RULE_REQUIRED],
@@ -18,5 +14,9 @@ class User extends Model{
             'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
             'confirmPassword' => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']],
         ];
+    }
+
+    public function hasError($attribute){
+        return $this->errors[$attribute] ?? false;
     }
 }
