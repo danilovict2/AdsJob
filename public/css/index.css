@@ -161,6 +161,11 @@ input.search:focus{
     background-color: #fff;
 
 }
+.usluga-pop:hover{
+   transform: scale(1.03);
+   transition: 0.2s;
+   cursor: pointer;
+}
 .usluga-pop > p {
     width: fit-content;
 }
