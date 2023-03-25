@@ -6,106 +6,22 @@ body{
     overflow: hidden;
 }
 
-.signup{
+.container{
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-h1{
-    display: flex;
-    justify-content: center;
-    margin-top: 4em;
-}
-
-.nalog{
-    color:#37b5fe;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 1em;
-    margin-left: 10.5rem;
 }
 
 .main{
-        margin: 12em 43em;
-        width: 550px;
-        height: fit-content;
-        padding-bottom: 4em;
-        overflow: hidden;
-        border: #0053b2 4px solid;
-        border-radius: 40px;
-        box-shadow: 0px 10px 50px #37b5fea5;
-    }
-#chk{
-        display: none;
-    }
-.signup{
-        width:100%;
-        height: 100%;
-    }
-    
-label{
-        color: #37b5fe;
-        font-size: 2.3em;
-        justify-content: center;
-        display: flex;
-        margin: 60px;
-        padding-top: 10px;
-        font-weight: bold;
-        transition: .5s ease-in-out;
-    }
-input{
-       background-color: #37b5fe; 
-       height: 3em;
-       margin-left: 7.5em;
-       margin-top: 1em;
-       text-align: center;
-       color: white;
-        width: 300px;
-        outline: none;
-        border:white;
-        border-radius: 25px;
-        font-size: 12pt;
-        font-weight: 550;
-        box-shadow:0px 5px 10px #37b5fea5;
-      }
+    position: relative;
+    background-image: linear-gradient(to right, rgb(138, 138, 138), white);
+    width: 40%;
+    width: 500px;
+    height: 500px;
 
-      input::placeholder{
-        color: white
-      }
-      
-    
+}
 
-label.showpas{
-        font-size: 15pt;
-        margin-left:2em;
-        margin-top: 1em;
-        margin-bottom: 10px;
-    }
-
-input.pass{
-        margin-left: 15px;
-        margin-top: -0.9em;
-        width: fit-content;
-        box-shadow: none;
-    }
-
-
-button{
-        margin-left: 4.2em;
-        width: 60%;
-        height: 40px;
-        display: block;
-        color: #ffffff;
-        background-color: #3595e4;
-        font-size: 1.5em;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        transition: .2s ease-in;
-        cursor: pointer;
-    }
- button:hover{
-        background: #2566c8;
-    }
-
-
+form{
+    display: flex;
+    flex-direction: column;
+}
