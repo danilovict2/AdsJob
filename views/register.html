@@ -1,4 +1,4 @@
-{% include('navbar.html')%}
+{% include('navbar.html') %}
 
 <link rel="stylesheet" href="/css/login-register.css">
 <div class="container">
@@ -8,18 +8,17 @@
         <div class="signup">
             <form action="/user/store" method="POST">
                 <label for="chk" aria-hidden="true">Registrujte se</label>
-                <input type="email" name="email" placeholder="Unesite E-mail" required="">
-                <input type="text" placeholder="Unesite vaše ime" name="firstName">
-                <input type="text" placeholder="Unesite vaše prezime" name="lastName">
-                <input type="password" name="password" placeholder="Unesite lozinku" class="password" minlength="8">
-                <input type="password" placeholder="Potvrdi lozinku" class="password" minlength="8">
+                <input type="email" name="email" placeholder="Unesite E-mail" class="">
+                <input type="text" name="firstName" placeholder="Unesite vaše ime">
+                <input type="text" name="lastName" placeholder="Unesite vaše prezime">
+                <input type="password" name="password" placeholder="Unesite lozinku" class="password">
+                <input type="password" name="confirmPassword" placeholder="Potvrdi lozinku" class="password">
                 <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
 
                 <button>Registruj me</button> <br>
                 <a href="/login" class="nalog">Već imate nalog? Prijavite se</a>
             </form>
-
         </div>
-
     </div>
+    
 </div>

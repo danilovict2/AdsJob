@@ -9,6 +9,12 @@ class UserController extends Controller{
         $user = new User();
         $user->loadData($this->request->getBodyParameters());
         $html = $this->renderer->render('index.html');
+        if(!$user->validateRequest()){
+            $data = [
+          
+            ];
+            $html = $this->renderer->render('register.html',$data);
+        }
         $this->response->setContent($html);
     }
 }
