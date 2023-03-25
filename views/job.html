@@ -1,6 +1,53 @@
 {% include('navbar.html') %}
 
-<link rel="stylesheet" href=".css">
+<link rel="stylesheet" href="/css/job.css">
 <div class="container">
     
+	<main>
+		<div class="container">
+			<section class="product">
+				<div class="product__image">
+					<img src="product-image.jpg" alt="Product Image">
+				</div>
+				<div class="product__details">
+					<h1>Product Name</h1>
+					<p class="product__price">$99.99</p>
+					<p class="product__description">Product description goes here.</p>
+					<form>
+						<label for="quantity">Quantity:</label>
+						<input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+						<button type="submit" class="btn--primary">Add to Cart</button>
+					</form>
+				</div>
+			</section>
+
+			<section class="features">
+				<h2>Product Features</h2>
+				<ul>
+					<li>Feature 1</li>
+					<li>Feature 2</li>
+					<li>Feature 3</li>
+					<li>Feature 4</li>
+					<li>Feature 5</li>
+				</ul>
+			</section>
+
+			<section class="reviewss">
+				<h2>Customer Reviews</h2>
+				<div class="review">
+					<p class="review__author">John Doe</p>
+					<p class="review__date">January 1, 2023</p>
+					<p class="review__rating">5 stars</p>
+					<p class="review__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla augue ac lectus egestas bibendum. Nulla facilisi.</p>
+				</div>
+				<div class="review">
+					<p class="review__author">Jane Smith</p>
+					<p class="review__date">February 1, 2023</p>
+					<p class="review__rating">4 stars</p>
+					<p class="review__text">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi.</p>
+				</div>
+				<a href="#" class="btn--secondary">See All Reviews</a>
+			</section>
+		</div>
+	</main>
 </div>
