@@ -1,24 +1,39 @@
 {% include('navbar.html') %}
 
 <link rel="stylesheet" href="/css/login-register.css">
+<script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
+<style>
+    .main{
+        width: 700px;
+        height: 500px;
+    }
+    input{
+        font-size: 13pt;
+    }
+    button{
+        font-size: 12pt;
+        margin: 20px 0px 20px 80px;
+    }
+    .showpas{
+        margin-left: 80px;
+    }
+    .nalog{
+        margin-left: 20px;
+    }
+</style>
 <div class="container">
     <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true">
-
-        <div class="signup">
             <form action="/user/store" method="POST">
-                <label for="chk" aria-hidden="true">Registrujte se</label>
-                <input type="email" name="email" placeholder="Unesite E-mail" class="">
-                <input type="text" name="firstName" placeholder="Unesite vaše ime">
-                <input type="text" name="lastName" placeholder="Unesite vaše prezime">
-                <input type="password" name="password" placeholder="Unesite lozinku" class="password">
-                <input type="password" name="confirmPassword" placeholder="Potvrdi lozinku" class="password">
+                <h1>Registrujte se</h1>
+                <label for="ime"><i class="fa-solid fa-user fa-xl" style="color: #425332;"></i><input type="text" name="firstName" placeholder="Unesite vaše ime" id="ime"></label>
+                <label for="prezime"><i class="fa-solid fa-user fa-xl" style="color: #425332;"></i><input type="text" name="lastName" placeholder="Unesite vaše prezime" id="prezime"></label>
+                <label for="email"><i class="fa-solid fa-envelope fa-xl" style="color: #425332;"></i><input type="text" name="txt" placeholder="Unesite E-mail" required id="email"></label>
+                <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: #425332;"></i><input type="password" name="password" placeholder="Unesite lozinku" class="password"></label>
+                <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: #425332;"></i><input type="password" name="confirmPassword" placeholder="Potvrdi lozinku" class="password"></label>
                 <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
-
+                <img src="/img/laptop.png" class="image" style="width: 350px;">
                 <button>Registruj me</button> <br>
                 <a href="/login" class="nalog">Već imate nalog? Prijavite se</a>
             </form>
-        </div>
     </div>
-    
 </div>
