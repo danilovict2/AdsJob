@@ -17,12 +17,14 @@ class Validator{
 
     }
 
+    public function hasError($attribute){
+        return $this->errors[$attribute] ?? false;
+    }
+
     public function validateForm(array $data) : bool{
         foreach($this->rules as $attribute => $rules){
             foreach($rules as $rule){
-                if(isset($data[$attribute])){
-                    $this->validateRule($rule, $data[$attribute], $data);
-                }
+                $this->validateRule($rule, $attribute, $data);
             }
         }
         return empty($this->errors);
@@ -30,25 +32,26 @@ class Validator{
 
     private function validateRule(string|array $rule, string|int $attribute, array $data) : void{
         $ruleName = is_array($rule) ? key($rule) : $rule;
+        $attributeValue = $data[$attribute];
         switch($ruleName){
             case self::RULE_REQUIRED: 
-                if(!$attribute)
+                if(!$attributeValue)
                     $this->addError($ruleName, $attribute);
                 break;
             case self::RULE_EMAIL : 
-                if(!filter_var($attribute, FILTER_VALIDATE_EMAIL))
+                if(!filter_var($attributeValue, FILTER_VALIDATE_EMAIL))
                     $this->addError($ruleName, $attribute);
                 break;
             case self::RULE_MIN : 
-                if(is_string($attribute) && strlen($attribute) < $rule['min'])
+                if(is_string($attributeValue) && strlen($attributeValue) < $rule['min'])
                     $this->addError($ruleName, $attribute,['min' => $rule['min']]);
                 break;
             case self::RULE_MAX : 
-                if(is_string($attribute) && strlen($attribute) > $rule['max'])
+                if(is_string($attributeValue) && strlen($attributeValue) > $rule['max'])
                     $this->addError($ruleName, $attribute,['max' => $rule['max']]);
                 break;
             case self::RULE_MATCH : 
-                if(isset($data[$rule['match']]) && $attribute !== $data[$rule['match']])
+                if($attributeValue !== $data[$rule['match']])
                     $this->addError($ruleName, $attribute, ['match' => $rule['match']]);
                 break;
         }

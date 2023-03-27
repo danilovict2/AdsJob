@@ -14,8 +14,10 @@ class UserController extends Controller{
             'confirmPassword' => ['required', ['match' => 'password']],
         ];
         $validator = new \AdsJob\Validators\Validator($rules);
-        $validator->validateForm($this->request->getBodyParameters());
         $html = $this->renderer->render('index.html');
+        if(!$validator->validateForm($this->request->getBodyParameters())){
+            $html = $this->renderer->render('register.html',['validator' => $validator]);
+        }
         $this->response->setContent($html);
     }
 }

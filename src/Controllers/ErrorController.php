@@ -12,6 +12,8 @@ class ErrorController extends Controller{
     }
 
     public function error405(){
-
+        $html = $this->renderer->render('405.html');
+        $this->response->setContent($html);
+        $this->response->setStatusCode(405);
     }
 }
