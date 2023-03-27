@@ -41,12 +41,12 @@ input{
     font-size: 18pt;
 }
 
-/*
-input:invalid {            
+
+.is-invalid {            
     border: 1px solid rgb(255, 0, 0); 
     border-radius: 10px;
 }
-*/
+
 .image{
     width: 300px;
     position: absolute;

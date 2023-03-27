@@ -6,15 +6,16 @@ use AdsJob\Models\User;
 class UserController extends Controller{
 
     public function store(){
-        $user = new User();
-        $user->loadData($this->request->getBodyParameters());
+        $rules = [
+            'firstName' => ['required'],
+            'lastName' => ['required'],
+            'email' => ['email', 'required'],
+            'password' => ['required', ['min' => 8]],
+            'confirmPassword' => ['required', ['match' => 'password']],
+        ];
+        $validator = new \AdsJob\Validators\Validator($rules);
+        $validator->validateForm($this->request->getBodyParameters());
         $html = $this->renderer->render('index.html');
-        if(!$user->validateRequest()){
-            $data = [
-          
-            ];
-            $html = $this->renderer->render('register.html',$data);
-        }
         $this->response->setContent($html);
     }
 }
