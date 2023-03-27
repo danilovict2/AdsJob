@@ -1,19 +1,23 @@
 {% include('navbar.html') %}
 
 <link rel="stylesheet" href="/css/login-register.css">
+<script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
 <div class="container">
     <div class="main">
-        <div class="signup">
             <form>
-                <label for="chk" aria-hidden="true">Prijavite se</label>
-                <input type="text" name="txt" placeholder="Unesite E-mail" required id="email">
-                <input type="password" name="pswd" placeholder="Unesite lozinku" class="password" minlength="8">
+                
+                <h1>Prijavite se</h1>
+                <label for="email"><i class="fa-solid fa-envelope fa-xl" style="color: #425332;"></i><input type="text" name="txt" placeholder="Unesite E-mail" required id="email"></label>
+                
+                <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: #425332;"></i><input type="password" name="pswd" placeholder="Unesite lozinku" required class="password" minlength="8"></label>
                 <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
 
-                <button onclick="auth()">Prijavi me</button> <br>
+                <button onclick="auth()">Prijavi me</button>
+                <img src="/img/phone.png" class="image">
+                
+                
+                
                 <a href="/register" class="nalog">Nemate nalog? Registrujte se</a>
             </form>
-
-        </div>
     </div>
 </div>

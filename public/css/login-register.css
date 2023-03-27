@@ -7,21 +7,73 @@ body{
 }
 
 .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 
 .main{
-    position: relative;
-    background-image: linear-gradient(to right, rgb(138, 138, 138), white);
-    width: 40%;
-    width: 500px;
-    height: 500px;
+    background-image: linear-gradient(to right, rgb(151, 151, 151), white);
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 20px;
+}
 
+h1{
+    color: #425332;
 }
 
 form{
-    display: flex;
+    display:flex;
     flex-direction: column;
+
+}
+
+input{
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid black;
+    text-align: center;
+    margin: 0 0 20px 20px;
+    font-size: 18pt;
+}
+
+/*
+input:invalid {            
+    border: 1px solid rgb(255, 0, 0); 
+    border-radius: 10px;
+}
+*/
+.image{
+    width: 300px;
+    position: absolute;
+    margin-left: 350px;
+}
+
+.showpas{
+    font-size: 15pt;
+    margin-left: 120px;
+}
+
+button{
+    width: max-content;
+    margin: 40px 0px 40px 110px;
+    background-color: #546e3c;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 20pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nalog{
+    color: #425332;
+    font-size: 16pt;
+    text-decoration: none;
+    margin-left: 50px;
 }
