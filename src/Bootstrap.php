@@ -39,8 +39,8 @@ switch ($routeInfo[0]) {
         $controller->error404();
         break;
     case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-        $response->setContent('405 - Method not allowed');
-        $response->setStatusCode(405);
+        $controller = $injector->make('\AdsJob\Controllers\ErrorController');
+        $controller->error405();
         break;
     case \FastRoute\Dispatcher::FOUND:
         $controllerName = $routeInfo[1][0];
