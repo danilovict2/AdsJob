@@ -28,7 +28,7 @@ form{
     display: flex;
     align-items: center;
     gap: 10px;
- 
+    background-color: #fff;
 }
 .usluga-label{
     font-weight: 550;
@@ -42,12 +42,12 @@ div.usluga-search{
    margin: 0;
 }
 
-
 #search-container{
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
+
 input, label.search{
     height: 3em;
     text-align: left;
@@ -59,27 +59,20 @@ input, label.search{
     font-size: 12pt;
 }
 
-
-
 .ikonica{
     margin-right: 10px;
     margin-top: 5px;
 }
-
-
 
 input.pretraga{
     letter-spacing: 1px;
     border: 1px solid rgb(11, 135, 237);
     background-color:rgb(11, 135, 237) ;
     color: white;
-    border-radius: 10px;
     padding: 1em;
-    margin-left: 0;
     transition: 0.2s;
     cursor:pointer;
     align-items: center;
-    justify-content: center;
     text-align: center;
     width: 150px;
 }
@@ -90,13 +83,14 @@ input.pretraga{
 
 }
 
-input.search, label.serach{
+input.search, label.search{
     border: none;
     font-size: 12pt;
     align-items: center;
     justify-content: center;
     margin: 0;
     margin-right: 5px;
+    width: 350px;
     
 }
 
@@ -216,4 +210,16 @@ input.search:focus{
 
 .bottom-usluga > p{
     margin-right: 10px;
+}
+
+
+option{
+    overflow-y: scroll;
+    width: 200px;
+    overflow-x: hidden;
+}
+
+select{
+    outline: none;
+    border: none;
 }

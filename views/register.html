@@ -5,7 +5,7 @@
 <style>
     .main {
         width: 700px;
-        height: 500px;
+        height: 600px;
     }
 
     input {
@@ -30,28 +30,28 @@
     <div class="main">
         <form action="/user/store" method="POST">
             <h1>Registrujte se</h1>
-            <label for="ime"><i class="fa-solid fa-user fa-xl" style="color: #425332;"></i>
+            <label for="ime"><i class="fa-solid fa-user fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.firstName %}is-invalid{% endif %}" type="text" name="firstName" placeholder="Unesite vaše ime" id="ime">
                 <div class="invalid-feedback">
                     {{errors.firstName[0]}}
                 </div>
             </label>
-            <label for="prezime"><i class="fa-solid fa-user fa-xl" style="color: #425332;"></i>
+            <label for="prezime"><i class="fa-solid fa-user fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.lastName %}is-invalid{% endif %}" type="text" name="lastName" placeholder="Unesite vaše prezime" id="prezime"></label>
                 <div class="invalid-feedback">
                     {{errors.lastName[0]}}
                 </div>    
-            <label for="email"><i class="fa-solid fa-envelope fa-xl" style="color: #425332;"></i>
+            <label for="email"><i class="fa-solid fa-envelope fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.email %}is-invalid{% endif %}" type="text" name="email" placeholder="Unesite E-mail" id="email"></label>
                 <div class="invalid-feedback">
                     {{errors.email[0]}}
                 </div>
-            <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: #425332;"></i>
+            <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.password %}is-invalid{% endif %}" type="password" name="password" placeholder="Unesite lozinku" class="password"></label>
                 <div class="invalid-feedback">
                     {{errors.password[0]}}
                 </div>
-            <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: #425332;"></i>
+            <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.confirmPassword %}is-invalid{% endif %}" type="password" name="confirmPassword" placeholder="Potvrdi lozinku" class="password"></label>
                 <div class="invalid-feedback">
                     {{errors.confirmPassword[0]}}

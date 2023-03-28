@@ -10,6 +10,9 @@
     <script src="/javascript/navbar.js"></script>
     <title>Home</title>
 
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 
 <body>
@@ -24,16 +27,17 @@
       I ni slucajno ne sklanjaj onaj # kod a koji enable-uje dropdown
       Sjebe sve
     -->
-    <span class="dropdown" id="dropdown">
+    <span class="dropdown  " id="dropdown">
         <span class="select">
             <a href="#" onclick="enableDropdown()"><img src="/img/hamburger.png" class="sidebarIcon"></a>
         </span>
-        <ul class="dropdown-content">
+        <ul class="dropdown-content w3-animate-right">
             <li><a href="/profile/1">Moj Profil</a></li>
             <li><a href="/profile/2/comments">Moji komentari</a></li>
             <li><a href="/profile/3/reviews">Moje ocene</a></li>
-            <a href="/post-find-job" class="job">Pronađi oglase | Objavi oglas</a>
-            <a href="/login" class="prijavise">Prijavi se</a>
+            <li><a href="/">Pronađi oglase</a></li>
+            <li><a href="#postjob">Postavi oglas</a></li>
+            <li><a href="/login">Prijavi me</a></li>
         </ul>
     </span>  
     </div>
