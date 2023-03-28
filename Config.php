@@ -2,10 +2,9 @@
 
 return [
     'database' =>[
-        'host' => '127.0.0.1',
-        'port' => '3306',
-        'dbname' => 'AdsJob',
-        'charset' => 'utf8mb4',
-        'pragan' => 'miler'
+        'host' => $_ENV['DB_HOST'],
+        'port' => $_ENV['DB_PORT'],
+        'dbname' => $_ENV['DB_NAME'],
+        'charset' => $_ENV['DB_CHARSET'],
     ]
 ];

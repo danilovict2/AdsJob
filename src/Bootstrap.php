@@ -18,6 +18,9 @@ if($environment !== 'production') {
 }
 $whoops->register();
 
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
 $injector = include('Dependencies.php');
 
 $request = $injector->make('Http\HttpRequest');
