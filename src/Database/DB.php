@@ -13,6 +13,7 @@ class DB{
         $dsn = 'mysql:' . http_build_query(data: $config['database'], arg_separator: ';');
         $this->connection = new PDO($dsn, $username, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ]);
     }
 

@@ -24,7 +24,9 @@ $injector->define('\Twig\Environment', [
 );
 
 $injector->define('AdsJob\Database\DB', [
-    ':config' => require(__DIR__ . '/../Config.php')
+    ':config' => include(__DIR__ . '/../Config.php'),
+    ':username' => $_ENV['DB_USER'],
+    ':password' => $_ENV['DB_PASSWORD'],
 ]);
 
 $injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
