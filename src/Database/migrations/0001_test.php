@@ -13,7 +13,7 @@ return new class{
     }
 
     public function down() : string{
-        $SQL = 'DROP TABLE test';
+        $SQL = 'DROP TABLE IF EXISTS test';
         return $SQL;
     }
 
