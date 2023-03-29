@@ -6,7 +6,7 @@ return new class{
     public function up() : string{
         $schema = '
             CREATE TABLE IF NOT EXISTS test(
-                id INT NOT NULL AUTO_INCREMENT
+                id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
             );
         ';
         return $schema;
