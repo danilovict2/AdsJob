@@ -10,15 +10,9 @@ class ProfileController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function comments(array $params) : void{
-        $user_id = $params['user_id'];
-        $html = $this->renderer->render('comments.html');
-        $this->response->setContent($html);
-    }
-
     public function reviews(array $params) : void{
         $user_id = $params['user_id'];
-        $html = $this->renderer->render('user-reviews.html');
+        $html = $this->renderer->render('reviews.html');
         $this->response->setContent($html);
     }
 

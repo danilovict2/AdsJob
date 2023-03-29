@@ -14,11 +14,6 @@ class FrontendController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function postFindJob() : void{
-        $html = $this->renderer->render('post-find-job.html');
-        $this->response->setContent($html);
-    }
-
     public function login() : void{
         $html = $this->renderer->render('login.html');
         $this->response->setContent($html);
@@ -26,6 +21,11 @@ class FrontendController extends Controller{
 
     public function register() : void{
         $html = $this->renderer->render('register.html');
+        $this->response->setContent($html);
+    }
+
+    public function messages() : void{
+        $html = $this->renderer->render('messages.html');
         $this->response->setContent($html);
     }
 }

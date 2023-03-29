@@ -16,7 +16,7 @@ class UserController extends Controller{
         $validator = new \AdsJob\Validators\Validator($rules);
         $html = $this->renderer->render('index.html');
         if(!$validator->validateForm($this->request->getBodyParameters())){
-            $html = $this->renderer->render('register.html',['validator' => $validator]);
+            $html = $this->renderer->render('register.html', ['validator' => $validator]);
         }
         $this->response->setContent($html);
     }
