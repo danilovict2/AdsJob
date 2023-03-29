@@ -3,9 +3,12 @@
 <link rel="stylesheet" href="/light/css/login-register.css">
 <script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
 <style>
-    .main {
+    .mainRegister {
         width: 700px;
-        height: 600px;
+        height: 650px;
+        background-image: linear-gradient(to right, rgba(190, 190, 190, 0.815), rgba(252, 250, 250, 0.808));
+        border-radius: 20px;
+        padding: 20px;
     }
 
     input {
@@ -14,7 +17,7 @@
 
     button {
         font-size: 12pt;
-        margin: 20px 0px 20px 80px;
+        margin: 20px 0px 0px 80px;
     }
 
     .showpas {
@@ -27,7 +30,7 @@
 </style>
 <div class="container">
     {% set errors = validator.errors %}
-    <div class="main">
+    <div class="mainRegister">
         <form action="/user/store" method="POST">
             <h1>Registrujte se</h1>
             <label for="ime"><i class="fa-solid fa-user fa-xl" style="color: rgb(11, 135, 237);"></i>
