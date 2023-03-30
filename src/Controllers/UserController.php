@@ -9,15 +9,17 @@ class UserController extends Controller{
         $rules = [
             'firstName' => ['required'],
             'lastName' => ['required'],
-            'email' => ['email', 'required'],
+            'email' => ['email', 'required', ['unique' => 'User']],
             'password' => ['required', ['min' => 8]],
             'confirmPassword' => ['required', ['match' => 'password']],
         ];
-        $validator = new \AdsJob\Validators\Validator($rules);
+        $validator = new \AdsJob\Validators\Validator($rules,$this->database);
         $html = $this->renderer->render('index.html');
         if(!$validator->validateForm($this->request->getBodyParameters())){
             $html = $this->renderer->render('register.html', ['validator' => $validator]);
         }
+        $user = new User($this->database, $this->request->getBodyParameters());
+        $user->save();
         $this->response->setContent($html);
     }
 }

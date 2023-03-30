@@ -27,13 +27,19 @@ class DB{
         );
     }
 
+    public function exists(string $table, string $attribute, string $value) : bool{
+        return !($this->rawQuery("SELECT COUNT($attribute) AS attrCount FROM $table 
+                                WHERE $attribute = :attribute",['attribute' => $value])
+                                ->fetch()['attrCount'] > 0);
+    }
+
     public function rawQuery(string $query, array $params = []){
         $statement = $this->connection->prepare($query);
         $statement->execute($params);
         return $statement;
     }
 
-    public function applyMigrations(){
+    public function migrations(){
         $appliedMigrations = $this->getAppliedMigrations();
         $files = scandir(__DIR__ . '/migrations');
         $toApplyMigrations = array_diff($files, $appliedMigrations);

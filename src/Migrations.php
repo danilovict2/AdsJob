@@ -7,5 +7,5 @@ $dotenv->load();
 $injector = include('Dependencies.php');
 $database = $injector->make('\AdsJob\Database\DB');
 
-$database->applyMigrations();
+$database->migrate();
 

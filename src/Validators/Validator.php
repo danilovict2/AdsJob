@@ -2,6 +2,9 @@
 
 namespace AdsJob\Validators;
 
+use AdsJob\Database\DB;
+use AdsJob\Models\User;
+
 class Validator{
 
     private const RULE_REQUIRED = 'required';
@@ -9,10 +12,12 @@ class Validator{
     private const RULE_MIN = 'min';
     private const RULE_MAX = 'max';
     private const RULE_MATCH = 'match';
+    private const RULE_UNIQUE = 'unique';
     public array $errors = [];
 
     public function __construct(
         private array $rules,
+        private DB $db,
     ){
 
     }
@@ -54,6 +59,11 @@ class Validator{
                 if($attributeValue !== $data[$rule['match']])
                     $this->addError($ruleName, $attribute, ['match' => $rule['match']]);
                 break;
+            case self::RULE_UNIQUE :
+                if($this->db->exists($rule['unique']::tableName(), $attribute, $attributeValue)){
+                    $this->addError($ruleName, $attribute, ['field' => $attribute]);
+                }
+                break;
         }
     }
 
@@ -72,6 +82,7 @@ class Validator{
             self::RULE_MIN => 'Min length of this field must be {min}',
             self::RULE_MAX => 'Max length of this field is {max}',
             self::RULE_MATCH => 'This field must be the same as {match}',
+            self::RULE_UNIQUE => 'Record with this {field} already exists'
         ];
     }
 
