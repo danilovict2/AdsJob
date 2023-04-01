@@ -58,8 +58,8 @@ class Validator{
                     $this->addErrorForRule($ruleName, $attribute, ['match' => $rule['match']]);
                 break;
             case self::RULE_UNIQUE :
-                $className = "\AdsJob\Models\\".$rule['unique'];
-                if(DB::exists($className::tableName(), $attribute, $attributeValue)){
+                $model = "\AdsJob\Models\\".$rule['unique'];
+                if($model::exists($attribute, $attributeValue)){
                     $this->addErrorForRule($ruleName, $attribute, ['field' => $attribute]);
                 }
                 break;

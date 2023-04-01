@@ -4,14 +4,12 @@ namespace AdsJob\Models;
 
 class User extends Model{
 
+    protected static string $tableName = "user";
+
     public function __construct(
         array $values
     ){
         $this->values = $values;
-    }
-
-    public static function tableName() : string{
-        return 'user';
     }
 
     protected function attributes() : array{

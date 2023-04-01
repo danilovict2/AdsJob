@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
+use AdsJob\Database\DB;
 require __DIR__ . '/../vendor/autoload.php';
 
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-$injector = include('Dependencies.php');
-$database = $injector->make('\AdsJob\Database\DB');
+DB::connect();
+DB::migrate();
 
-$database->migrate();
 

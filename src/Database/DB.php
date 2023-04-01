@@ -42,7 +42,7 @@ class DB{
         return $statement;
     }
 
-    public static function migrations(){
+    public static function migrate(){
         $appliedMigrations = self::getAppliedMigrations();
         $files = scandir(__DIR__ . '/migrations');
         $toApplyMigrations = array_diff($files, $appliedMigrations);
