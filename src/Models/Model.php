@@ -7,13 +7,16 @@ abstract class Model{
 
     protected array $values;
 
-    abstract public static function tableName() : string;
     abstract protected function attributes() : array;
 
     public function __construct(
         private DB $db,
     ){
 
+    }
+
+    public static function tableName() : string{
+        return static::tableName();
     }
 
     public function save() : void{

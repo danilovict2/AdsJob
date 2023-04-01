@@ -28,7 +28,7 @@ class DB{
     }
 
     public function exists(string $table, string $attribute, string $value) : bool{
-        return !($this->rawQuery("SELECT COUNT($attribute) AS attrCount FROM $table 
+        return ($this->rawQuery("SELECT COUNT($attribute) AS attrCount FROM $table 
                                 WHERE $attribute = :attribute",['attribute' => $value])
                                 ->fetch()['attrCount'] > 0);
     }

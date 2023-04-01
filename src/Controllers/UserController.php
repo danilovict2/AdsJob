@@ -17,9 +17,10 @@ class UserController extends Controller{
         $html = $this->renderer->render('index.html');
         if(!$validator->validateForm($this->request->getBodyParameters())){
             $html = $this->renderer->render('register.html', ['validator' => $validator]);
+        }else{
+            $user = new User($this->database, $this->request->getBodyParameters());
+            $user->save();
         }
-        $user = new User($this->database, $this->request->getBodyParameters());
-        $user->save();
         $this->response->setContent($html);
     }
 }
