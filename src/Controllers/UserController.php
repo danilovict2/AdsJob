@@ -14,8 +14,8 @@ class UserController extends Controller{
             'confirmPassword' => ['required', ['match' => 'password']],
         ];
         $validator = new \AdsJob\Validators\Validator($rules,$this->database);
+        $user = new User($this->database, $this->request->getBodyParameters());
         if($validator->validateForm($this->request->getBodyParameters())){
-            $user = new User($this->database, $this->request->getBodyParameters());
             $user->save();
             $this->response->redirect('/');
         }else{
@@ -24,5 +24,18 @@ class UserController extends Controller{
             }
         }
         $this->response->redirect('/register');
+    }
+
+    public function login(){
+        $rules = [
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ];
+        $validator = new \AdsJob\Validators\Validator($rules, $this->database);
+        
+        if($validator->validateForm($this->request->getBodyParameters())){
+            $this->response->redirect('/');
+        }
+        $this->response->redirect('/login');
     }
 }

@@ -19,6 +19,14 @@ abstract class Model{
         return static::tableName();
     }
 
+    public function findOne(array $where){
+        $tableName = self::tableName();
+        $attributes = array_keys($where);
+        
+        $whereClause = implode('AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
+
+    }
+
     public function save() : void{
         $tableName = self::tableName();
         $attributes = $this->attributes();

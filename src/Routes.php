@@ -11,5 +11,6 @@ return [
     ['GET', '/p/create', [AdsJob\Controllers\JobController::class, 'create']],
     ['GET', '/p/{job_id}', [AdsJob\Controllers\JobController::class, 'show']],
     ['POST', '/user/store', [AdsJob\Controllers\UserController::class, 'store']],
+    ['POST', '/user/login', [AdsJob\Controllers\UserController::class, 'login']],
 ];
 

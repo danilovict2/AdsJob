@@ -21,8 +21,8 @@ class Validator{
 
     }
 
-    public function hasError($attribute){
-        return $this->errors[$attribute] ?? false;
+    public function addError(string $attribute, string $message){
+        $this->errors[$attribute][] = $message;
     }
 
     public function validateForm(array $data) : bool{
@@ -40,34 +40,34 @@ class Validator{
         switch($ruleName){
             case self::RULE_REQUIRED: 
                 if(!$attributeValue)
-                    $this->addError($ruleName, $attribute);
+                    $this->addErrorForRule($ruleName, $attribute);
                 break;
             case self::RULE_EMAIL : 
                 if(!filter_var($attributeValue, FILTER_VALIDATE_EMAIL))
-                    $this->addError($ruleName, $attribute);
+                    $this->addErrorForRule($ruleName, $attribute);
                 break;
             case self::RULE_MIN : 
                 if(is_string($attributeValue) && strlen($attributeValue) < $rule['min'])
-                    $this->addError($ruleName, $attribute,['min' => $rule['min']]);
+                    $this->addErrorForRule($ruleName, $attribute,['min' => $rule['min']]);
                 break;
             case self::RULE_MAX : 
                 if(is_string($attributeValue) && strlen($attributeValue) > $rule['max'])
-                    $this->addError($ruleName, $attribute,['max' => $rule['max']]);
+                    $this->addErrorForRule($ruleName, $attribute,['max' => $rule['max']]);
                 break;
             case self::RULE_MATCH : 
                 if($attributeValue !== $data[$rule['match']])
-                    $this->addError($ruleName, $attribute, ['match' => $rule['match']]);
+                    $this->addErrorForRule($ruleName, $attribute, ['match' => $rule['match']]);
                 break;
             case self::RULE_UNIQUE :
                 $className = "\AdsJob\Models\\".$rule['unique'];
                 if($this->db->exists($className::tableName(), $attribute, $attributeValue)){
-                    $this->addError($ruleName, $attribute, ['field' => $attribute]);
+                    $this->addErrorForRule($ruleName, $attribute, ['field' => $attribute]);
                 }
                 break;
         }
     }
 
-    private function addError(string $rule, string|int $attribute, array $params = []) : void{
+    private function addErrorForRule(string $rule, string|int $attribute, array $params = []) : void{
         $message = $this->errorMessages()[$rule] ?? '';
         foreach($params as $key => $value){
             $message = str_replace("{{$key}}", (string)$value, $message);

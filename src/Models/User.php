@@ -25,5 +25,9 @@ class User extends Model{
         parent::save();
     }
 
+    public function login() : void{
+
+    }
+
    
 }
