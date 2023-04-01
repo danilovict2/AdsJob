@@ -26,16 +26,4 @@ class UserController extends Controller{
         $this->response->redirect('/register');
     }
 
-    public function login(){
-        $rules = [
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ];
-        $validator = new \AdsJob\Validators\Validator($rules);
-        
-        if($validator->validateForm($this->request->getBodyParameters())){
-            $this->response->redirect('/');
-        }
-        $this->response->redirect('/login');
-    }
 }

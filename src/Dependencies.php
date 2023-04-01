@@ -23,15 +23,6 @@ $injector->define('\Twig\Environment', [
     ]
 );
 
-$injector->define('AdsJob\Database\DB', [
-    ':config' => include(__DIR__ . '/../Config.php'),
-    ':username' => $_ENV['DB_USER'],
-    ':password' => $_ENV['DB_PASSWORD'],
-]);
-$injector->share('\AdsJob\Database\DB');
-
 $injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
-
-
 
 return $injector;

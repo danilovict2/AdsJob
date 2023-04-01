@@ -2,8 +2,6 @@
 
 namespace AdsJob\Validators;
 
-use AdsJob\Database\DB;
-
 class Validator{
 
     private const RULE_REQUIRED = 'required';

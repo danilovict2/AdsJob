@@ -10,11 +10,19 @@ abstract class Model{
 
     abstract protected function attributes() : array;
 
-    public function findOne(array $where){
+    public function __set(string $name, string $value){
+        $this->values[$name] = $value;   
+    }
+
+    public static function findOne(array $where){
         $tableName = static::$tableName;
         $attributes = array_keys($where);
         $whereClause = implode('AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
-
+        $values = [];
+        foreach($where as $key => $value){
+            $values["$key"] = $value;
+        }
+        return DB::rawQuery("SELECT * FROM $tableName WHERE $whereClause LIMIT 1",$values)->fetchObject(static::class);
     }
 
     public static function exists(string $attribute, string $value) : bool{

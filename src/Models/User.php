@@ -7,7 +7,7 @@ class User extends Model{
     protected static string $tableName = "user";
 
     public function __construct(
-        array $values
+        array $values = []
     ){
         $this->values = $values;
     }
@@ -21,9 +21,4 @@ class User extends Model{
         parent::save();
     }
 
-    public function login() : void{
-
-    }
-
-   
 }
