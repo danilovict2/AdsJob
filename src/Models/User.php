@@ -5,10 +5,8 @@ namespace AdsJob\Models;
 class User extends Model{
 
     public function __construct(
-        \AdsJob\Database\DB $db,
         array $values
     ){
-        parent::__construct($db);
         $this->values = $values;
     }
 

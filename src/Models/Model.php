@@ -9,12 +9,6 @@ abstract class Model{
 
     abstract protected function attributes() : array;
 
-    public function __construct(
-        private DB $db,
-    ){
-
-    }
-
     public static function tableName() : string{
         return static::tableName();
     }
@@ -22,7 +16,6 @@ abstract class Model{
     public function findOne(array $where){
         $tableName = self::tableName();
         $attributes = array_keys($where);
-        
         $whereClause = implode('AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
 
     }
@@ -35,7 +28,7 @@ abstract class Model{
         foreach($attributes as $attribute){
             $values["$attribute"] = $this->values[$attribute] ?? '';
         }
-        $this->db->rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",
+        DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",
         $values);
     }
 

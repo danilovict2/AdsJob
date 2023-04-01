@@ -13,8 +13,8 @@ class UserController extends Controller{
             'password' => ['required', ['min' => 8]],
             'confirmPassword' => ['required', ['match' => 'password']],
         ];
-        $validator = new \AdsJob\Validators\Validator($rules,$this->database);
-        $user = new User($this->database, $this->request->getBodyParameters());
+        $validator = new \AdsJob\Validators\Validator($rules);
+        $user = new User($this->request->getBodyParameters());
         if($validator->validateForm($this->request->getBodyParameters())){
             $user->save();
             $this->response->redirect('/');
@@ -31,7 +31,7 @@ class UserController extends Controller{
             'email' => ['required', 'email'],
             'password' => ['required'],
         ];
-        $validator = new \AdsJob\Validators\Validator($rules, $this->database);
+        $validator = new \AdsJob\Validators\Validator($rules);
         
         if($validator->validateForm($this->request->getBodyParameters())){
             $this->response->redirect('/');

@@ -6,19 +6,22 @@ use PDO;
 
 class DB{
 
-    private $connection;
+    private static $connection = null;
 
-    public function __construct(array $config, string $username = 'root', string $password = ''){
+    public static function connect(){
+        $config = include __DIR__ . '/../../Config.php';
+        $username = $_ENV['DB_USER'];
+        $password = $_ENV['DB_PASSWORD'];
         $dsn = 'mysql:' . http_build_query(data: $config['database'], arg_separator: ';');
-        $this->connection = new PDO($dsn, $username, $password, [
+        self::$connection = new PDO($dsn, $username, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ]);
-        $this->createMigrationsTable();
+        self::createMigrationsTable();
     }
 
-    private function createMigrationsTable(){
-        $this->connection->exec(
+    private static function createMigrationsTable(){
+        self::$connection->exec(
             'CREATE TABLE IF NOT EXISTS migrations(
                 id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                 migration VARCHAR(255),
@@ -27,20 +30,20 @@ class DB{
         );
     }
 
-    public function exists(string $table, string $attribute, string $value) : bool{
-        return ($this->rawQuery("SELECT COUNT($attribute) AS attrCount FROM $table 
+    public static function exists(string $table, string $attribute, string $value) : bool{
+        return (self::rawQuery("SELECT COUNT($attribute) AS attrCount FROM $table 
                                 WHERE $attribute = :attribute",['attribute' => $value])
                                 ->fetch()['attrCount'] > 0);
     }
 
-    public function rawQuery(string $query, array $params = []){
-        $statement = $this->connection->prepare($query);
+    public static function rawQuery(string $query, array $params = []){
+        $statement = self::$connection->prepare($query);
         $statement->execute($params);
         return $statement;
     }
 
-    public function migrations(){
-        $appliedMigrations = $this->getAppliedMigrations();
+    public static function migrations(){
+        $appliedMigrations = self::getAppliedMigrations();
         $files = scandir(__DIR__ . '/migrations');
         $toApplyMigrations = array_diff($files, $appliedMigrations);
         $migrated = [];
@@ -50,31 +53,29 @@ class DB{
                 continue;
             }
             $migrationInstance = require_once(__DIR__ . "/migrations/$migration");
-            $this->log("Applying migration $migration");
-            $this->connection->exec($migrationInstance->up());
+            self::log("Applying migration $migration");
+            self::$connection->exec($migrationInstance->up());
             $migrated[] = $migration;
         }
         if(!empty($migrated)){
-            $this->saveMigrations($migrated);
+            self::saveMigrations($migrated);
         }else{
-            $this->log("Nothing to migrate");
+            self::log("Nothing to migrate");
         }
     }
 
-    private function getAppliedMigrations(){
-        $statement = $this->connection->prepare('SELECT migration FROM migrations');
-        $statement->execute();
-
+    private static function getAppliedMigrations(){
+        $statement = self::rawQuery('SELECT migration FROM migrations');
         return $statement->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    private function saveMigrations(array $migrations){
+    private static function saveMigrations(array $migrations){
         $str = implode(',',array_map(fn($m) => "('$m')", $migrations));
-        $statement = $this->connection->prepare("INSERT INTO migrations(migration) VALUES $str");
+        $statement = self::$connection->prepare("INSERT INTO migrations(migration) VALUES $str");
         $statement->execute();
     }
 
-    private function log(string $message){
+    private static function log(string $message){
         echo '[' . date('Y-m-d H:i:s') . ']' . $message . PHP_EOL;
     }
 

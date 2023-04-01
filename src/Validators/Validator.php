@@ -16,7 +16,6 @@ class Validator{
 
     public function __construct(
         private array $rules,
-        private DB $db,
     ){
 
     }
@@ -60,7 +59,7 @@ class Validator{
                 break;
             case self::RULE_UNIQUE :
                 $className = "\AdsJob\Models\\".$rule['unique'];
-                if($this->db->exists($className::tableName(), $attribute, $attributeValue)){
+                if(DB::exists($className::tableName(), $attribute, $attributeValue)){
                     $this->addErrorForRule($ruleName, $attribute, ['field' => $attribute]);
                 }
                 break;

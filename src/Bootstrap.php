@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 
 namespace AdsJob;
+use AdsJob\Database\DB;
 require __DIR__ . '/../vendor/autoload.php';
 
 error_reporting(E_ALL);
@@ -25,6 +26,7 @@ $injector = include('Dependencies.php');
 
 $request = $injector->make('Http\HttpRequest');
 $response = $injector->make('Http\HttpResponse');
+DB::connect();
 
 $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
     $routes = include('Routes.php');

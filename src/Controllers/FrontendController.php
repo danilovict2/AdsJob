@@ -2,13 +2,14 @@
 
 namespace AdsJob\Controllers;
 
+use AdsJob\Database\DB;
 
 class FrontendController extends Controller{
 
     public function index() : void{
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),
-            'id' => $this->database->rawQuery("SELECT COUNT(id) AS idCount FROM test")->fetch(),
+            'id' => DB::rawQuery("SELECT COUNT(id) AS idCount FROM test")->fetch(),
             'session' => $this->session
         ];
         $html = $this->renderer->render('index.html', $data);
