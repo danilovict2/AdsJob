@@ -3,7 +3,6 @@
 namespace AdsJob\Validators;
 
 use AdsJob\Database\DB;
-use AdsJob\Models\User;
 
 class Validator{
 

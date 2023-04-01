@@ -6,23 +6,17 @@ use AdsJob\Template\FrontendRenderer;
 use AdsJob\Database\DB;
 use Http\Response;
 use Http\Request;
+use AdsJob\Sessions\Session;
 
 class Controller{
 
-    protected Request $request;
-    protected Response $response;
-    protected FrontendRenderer $renderer;
-    protected DB $database;
-
     public function __construct(
-        Request $request, 
-        Response $response,
-        FrontendRenderer $renderer,
-        DB $database
+        protected Request $request, 
+        protected Response $response,
+        protected FrontendRenderer $renderer,
+        protected DB $database,
+        protected Session $session,
     ){
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-        $this->database = $database;
+        
     }
 }

@@ -29,36 +29,43 @@
     }
 </style>
 <div class="container">
-    {% set errors = validator.errors %}
+    {% set errors = {'firstName' : session.getFlash('firstName'), 'lastName' : session.getFlash('lastName'),
+    'email' : session.getFlash('email'), 'password' : session.getFlash('password'), 'confirmPassword' :
+    session.getFlash('confirmPassword')} %}
     <div class="mainRegister">
         <form action="/user/store" method="POST">
             <h1>Registrujte se</h1>
             <label for="ime"><i class="fa-solid fa-user fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.firstName %}is-invalid{% endif %}" type="text" name="firstName" placeholder="Unesite vaše ime" id="ime">
+                <input class="{% if errors.firstName %}is-invalid{% endif %}" type="text" name="firstName"
+                    placeholder="Unesite vaše ime" id="ime">
                 <div class="invalid-feedback">
-                    {{errors.firstName[0]}}
+                    {{errors.firstName}}
                 </div>
             </label>
             <label for="prezime"><i class="fa-solid fa-user fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.lastName %}is-invalid{% endif %}" type="text" name="lastName" placeholder="Unesite vaše prezime" id="prezime"></label>
-                <div class="invalid-feedback">
-                    {{errors.lastName[0]}}
-                </div>    
+                <input class="{% if errors.lastName %}is-invalid{% endif %}" type="text" name="lastName"
+                    placeholder="Unesite vaše prezime" id="prezime"></label>
+            <div class="invalid-feedback">
+                {{errors.lastName}}
+            </div>
             <label for="email"><i class="fa-solid fa-envelope fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.email %}is-invalid{% endif %}" type="text" name="email" placeholder="Unesite E-mail" id="email"></label>
-                <div class="invalid-feedback">
-                    {{errors.email[0]}}
-                </div>
+                <input class="{% if errors.email %}is-invalid{% endif %}" type="text" name="email"
+                    placeholder="Unesite E-mail" id="email"></label>
+            <div class="invalid-feedback">
+                {{errors.email}}
+            </div>
             <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.password %}is-invalid{% endif %}" type="password" name="password" placeholder="Unesite lozinku" class="password"></label>
-                <div class="invalid-feedback">
-                    {{errors.password[0]}}
-                </div>
+                <input class="{% if errors.password %}is-invalid{% endif %}" type="password" name="password"
+                    placeholder="Unesite lozinku" class="password"></label>
+            <div class="invalid-feedback">
+                {{errors.password}}
+            </div>
             <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.confirmPassword %}is-invalid{% endif %}" type="password" name="confirmPassword" placeholder="Potvrdi lozinku" class="password"></label>
-                <div class="invalid-feedback">
-                    {{errors.confirmPassword[0]}}
-                </div>
+                <input class="{% if errors.confirmPassword %}is-invalid{% endif %}" type="password"
+                    name="confirmPassword" placeholder="Potvrdi lozinku" class="password"></label>
+            <div class="invalid-feedback">
+                {{errors.confirmPassword}}
+            </div>
             <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
             <img src="/light/img/laptop.png" class="image" style="width: 350px;">
             <button>Registruj me</button> <br>

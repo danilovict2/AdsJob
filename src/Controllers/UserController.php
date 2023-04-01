@@ -14,13 +14,15 @@ class UserController extends Controller{
             'confirmPassword' => ['required', ['match' => 'password']],
         ];
         $validator = new \AdsJob\Validators\Validator($rules,$this->database);
-        $html = $this->renderer->render('index.html');
-        if(!$validator->validateForm($this->request->getBodyParameters())){
-            $html = $this->renderer->render('register.html', ['validator' => $validator]);
-        }else{
+        if($validator->validateForm($this->request->getBodyParameters())){
             $user = new User($this->database, $this->request->getBodyParameters());
             $user->save();
+            $this->response->redirect('/');
+        }else{
+            foreach($validator->errors as $key => $errorMessages){
+                $this->session->setFlash($key, $errorMessages[0]);
+            }
         }
-        $this->response->setContent($html);
+        $this->response->redirect('/register');
     }
 }
