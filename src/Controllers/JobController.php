@@ -9,7 +9,7 @@ class JobController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function show(array $params){
+    public function show(array $params) : void{
         $html = $this->renderer->render('job.html');
         $this->response->setContent($html);
     }
