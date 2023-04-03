@@ -10,12 +10,16 @@ class Validator{
     private const RULE_MAX = 'max';
     private const RULE_MATCH = 'match';
     private const RULE_UNIQUE = 'unique';
-    public array $errors = [];
+    private array $errors = [];
 
     public function __construct(
         private array $rules,
     ){
 
+    }
+
+    public function getErrors() : array{
+        return $this->errors;
     }
 
     public function addError(string $attribute, string $message){
