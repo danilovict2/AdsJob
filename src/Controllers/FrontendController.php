@@ -20,6 +20,11 @@ class FrontendController extends Controller{
         $this->response->setContent($html);
     }
 
+    public function logout() : void{
+        $html = $this->renderer->render('logout.html',['session' => $this->session]);
+        $this->response->setContent($html);
+    }
+
     public function register() : void{
         $html = $this->renderer->render('register.html',['session' => $this->session]);
         $this->response->setContent($html);

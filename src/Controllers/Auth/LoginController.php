@@ -38,4 +38,9 @@ class LoginController extends Controller{
         $this->response->redirect('/');
     }
 
+    public function logout(){
+        $this->auth->logout();
+        $this->response->redirect('/');
+    }
+
 }
