@@ -10,8 +10,18 @@ abstract class Model{
 
     abstract protected function attributes() : array;
 
-    public function __set(string $name, string $value){
-        $this->values[$name] = $value;   
+    public function loadData(array $values){
+        foreach($values as $key => $value){
+            $this->values[$key] = $value;
+        }
+    }
+
+    public function __set(string $key, string $value) : void{
+        $this->values[$key] = $value;
+    }
+
+    public function getValue($key){
+        return $this->values[$key] ?? '';
     }
 
     public static function findOne(array $where){

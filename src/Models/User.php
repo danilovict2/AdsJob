@@ -6,12 +6,6 @@ class User extends Model{
 
     protected static string $tableName = "user";
 
-    public function __construct(
-        array $values = []
-    ){
-        $this->values = $values;
-    }
-
     protected function attributes() : array{
         return ['firstName', 'lastName', 'password', 'email'];
     }
