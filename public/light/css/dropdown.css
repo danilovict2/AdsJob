@@ -9,6 +9,12 @@
     transition: 0.3s;
 }
 
+.sidebarIcon:active{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+
 .dropdown-content{
     list-style: none;
     background-color:rgb(11, 135, 237);

@@ -74,12 +74,12 @@ class Validator{
 
     private function errorMessages() : array{
         return [
-            self::RULE_REQUIRED => 'This field is required',
-            self::RULE_EMAIL => 'This field must be a valid email',
-            self::RULE_MIN => 'Min length of this field must be {min}',
-            self::RULE_MAX => 'Max length of this field is {max}',
-            self::RULE_MATCH => 'This field must be the same as {match}',
-            self::RULE_UNIQUE => 'Record with this {field} already exists'
+            self::RULE_REQUIRED => 'Ovo polje je obavezno',
+            self::RULE_EMAIL => 'Ovo polje mora da bude pravi E-mail',
+            self::RULE_MIN => 'Minimalna dužina mora biti {min}',
+            self::RULE_MAX => 'Maksimalna dužina mora biti {max}',
+            self::RULE_MATCH => 'Ovo polje mora da bude isto kao {match}',
+            self::RULE_UNIQUE => 'Nalog sa ovim {field} već postoji'
         ];
     }
 

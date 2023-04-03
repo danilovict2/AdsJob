@@ -46,7 +46,7 @@ ul{
     
 }
 
-li{
+.editInfo{
     border: 2px solid rgb(11, 135, 237);
     border-radius: 10px;
     margin: 15px;
