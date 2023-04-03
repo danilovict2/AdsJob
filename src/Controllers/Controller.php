@@ -6,6 +6,7 @@ use AdsJob\Template\FrontendRenderer;
 use Http\Response;
 use Http\Request;
 use AdsJob\Sessions\Session;
+use AdsJob\Auth\Auth;
 
 class Controller{
 
@@ -14,6 +15,7 @@ class Controller{
         protected Response $response,
         protected FrontendRenderer $renderer,
         protected Session $session,
+        protected Auth $auth,
     ){
         
     }

@@ -6,33 +6,35 @@ use AdsJob\Models\User;
 
 class LoginController extends Controller{
 
-    public function login(){
-        $rules = [
+    public function login() : void{
+        $validator = new \AdsJob\Validators\Validator([
             'email' => ['required', 'email'],
-            'password' => ['required'],
-        ];
-        $validator = new \AdsJob\Validators\Validator($rules);
-        if(!$validator->validateForm($this->request->getBodyParameters())){
-            foreach($validator->errors as $key => $errorMessages){
-                $this->session->setFlash($key, $errorMessages[0]);
-            }  
+            'password' => ['required']
+        ]);
+        
+        $formData = $this->request->getBodyParameters();
+        if (!$validator->validateForm($formData)) {
+            $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/login');
+            return;
         }
-        $user = User::findOne(['email' => $this->request->getBodyParameter('email')]);
-        if(!$user){
-            $validator->addError('email', "User with this email does not exist");
-            foreach($validator->errors as $key => $errorMessages){
-                $this->session->setFlash($key, $errorMessages[0]);
-            }
+        
+        $user = User::findOne(['email' => $formData['email']]);
+        if (!$user) {
+            $validator->addError('email', 'User with this email does not exist');
+            $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/login');
+            return;
         }
-        if(!password_verify($user->password, $this->request->getBodyParameter('password'))){
-            $validator->addError('password', "Password and email don't match");
-            foreach($validator->errors as $key => $errorMessages){
-                $this->session->setFlash($key, $errorMessages[0]);
-            }
+        
+        $passwordValid = password_verify($formData['password'], $user->getValue('password'));
+        if (!$passwordValid) {
+            $validator->addError('password', 'Password is incorrect');
+            $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/login');
+            return;
         }
+        $this->auth->login($user);
         $this->response->redirect('/');
     }
 

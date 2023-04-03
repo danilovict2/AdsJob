@@ -35,5 +35,17 @@ class Session{
     public function getFlash(mixed $key){
         return $_SESSION[self::FLASH_KEY][$key]['value'] ?? false;
     }
+
+    public function set(mixed $key, mixed $value) : void{
+        $_SESSION[$key] = $value;
+    }
+
+    public function get(mixed $key){
+        return $_SESSION[$key] ?? false;
+    }
+
+    public function remove(mixed $key){
+        unset($_SESSION[$key]);
+    }
     
 }

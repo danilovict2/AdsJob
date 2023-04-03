@@ -9,6 +9,9 @@ abstract class Model{
     protected static string $tableName;
 
     abstract protected function attributes() : array;
+    public static function primaryKey() : string{
+        return static::primaryKey();
+    }
 
     public function loadData(array $values){
         foreach($values as $key => $value){

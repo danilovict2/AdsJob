@@ -25,4 +25,6 @@ $injector->define('\Twig\Environment', [
 
 $injector->alias('AdsJob\Template\FrontendRenderer', 'AdsJob\Template\FrontendTwigRenderer');
 
+$injector->share('AdsJob\Sessions\Session');
+
 return $injector;

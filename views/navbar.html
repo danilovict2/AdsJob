@@ -38,11 +38,16 @@
             <li><a href="/profile/3/reviews"><i class="fa-sharp fa-solid fa-star" style="color: #ffffff;"></i> Moje ocene</a></li>
             <li><a href="/"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i> Pronađi oglase</a></li>
             <li><a href="#postjob"><i class="fa-solid fa-circle-plus"></i> Postavi oglas</a></li>
-            <li><a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi me</a></li>
+            <li>
+                {% if isGuest %}
+                    <a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi me</a>
+                {% else %}
+                    <a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi me</a>
+                {% endif %}
+            </li>
         </ul>
     </span>  
     </div>
-    
 </body>
 
 </html>

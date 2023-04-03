@@ -10,6 +10,10 @@ class User extends Model{
         return ['firstName', 'lastName', 'password', 'email'];
     }
 
+    public static function primaryKey() : string{
+        return 'id';
+    }
+
     public function save() : void{
         $this->values['password'] = password_hash($this->values['password'], PASSWORD_DEFAULT);
         parent::save();
