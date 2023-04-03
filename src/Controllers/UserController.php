@@ -5,7 +5,7 @@ use AdsJob\Models\User;
 
 class UserController extends Controller{
 
-    public function store(){
+    public function store() : void{
         $validator = new \AdsJob\Validators\Validator([
             'firstName' => ['required'],
             'lastName' => ['required'],
