@@ -19,9 +19,7 @@ class UserController extends Controller{
             $user->save();
             $this->response->redirect('/');
         }else{
-            foreach($validator->getErrors() as $key => $errorMessages){
-                $this->session->setFlash($key, $errorMessages[0]);
-            }
+            $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/register');
         }
     }

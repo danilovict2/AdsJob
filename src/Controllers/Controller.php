@@ -17,4 +17,10 @@ class Controller{
     ){
         
     }
+
+    protected function setValidationErrors(array $errors) {
+        foreach ($errors as $key => $messages) {
+            $this->session->setFlash($key, $messages[0]);
+        }
+    }
 }
