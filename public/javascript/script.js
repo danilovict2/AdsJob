@@ -9,23 +9,6 @@ function showPassword() {
   }
 }
 
-let usrLoggedIn = false;
-
-function auth() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-  if (email == "primer@gmail.com" && password == "primer123") {
-    alert("Uspesna prijava!");
-    document.querySelector("#dropdown").hidden = false;
-
-  }
-  else {
-    alert("Netacne informacije! Pokusajte ponovo");
-    return;
-
-  }
-}
-
 
 
 
