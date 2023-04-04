@@ -2,10 +2,11 @@
 
 namespace AdsJob\Database;
 use PDO;
-
+use AdsJob\Traits\Logger;
 
 class DB{
-
+    use Logger;
+    
     private static $connection = null;
 
     public static function connect(){
@@ -73,10 +74,6 @@ class DB{
         $str = implode(',',array_map(fn($m) => "('$m')", $migrations));
         $statement = self::$connection->prepare("INSERT INTO migrations(migration) VALUES $str");
         $statement->execute();
-    }
-
-    private static function log(string $message){
-        echo '[' . date('Y-m-d H:i:s') . ']' . $message . PHP_EOL;
     }
 
 }
