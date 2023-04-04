@@ -33,8 +33,7 @@ form{
 .usluga-label{
     font-weight: 550;
     font-size: 15pt;
-    
-    
+    vertical-align: bottom;
 }
 div.usluga-search{
    display: flex;
@@ -88,10 +87,14 @@ input.search, label.search{
     font-size: 12pt;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    padding-top: 5px;
     margin-right: 5px;
     width: 350px;
-    
+}
+
+.mestoSearch{
+    padding-top: 5px;
+    color: rgba(105, 105, 105, 0.4);
 }
 
 input.search:focus{
@@ -108,21 +111,26 @@ input.search:focus{
     width: 30rem;
     padding: 1em;
     align-items: flex-end;
-    
+}
+
+select , option{
+    background-color: transparent;
+    font-size: 15pt;
+    color: rgb(11, 135, 237);
+    border: 5px solid rgb(11, 135, 237) ;
+    outline: none;
+    scrollbar-width: 100px;
 }
 
 .mesto-label{
     display: inline;
     font-weight: 550;
     font-size: 15pt;
-    
-
 }
 
 input.search, label.serach{
     border: none;
     font-size: 12pt;
-    
 }
 input.search::placeholder, label.search{
     color: rgba(105, 105, 105, 0.4);
@@ -132,86 +140,6 @@ input.search:focus{
     border: none;
     outline: none;
 }
-/*popular:*/
-
-#content-container{
-  
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 300px;
-    justify-content: space-around;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-#popular{
-    color: rgb(11, 135, 237);
-    border: 1px solid rgb(11, 135, 237);
-    border-radius: 10px;
-    padding: 10px 20px;
-}
-
-.usluga-pop{
-    border: 3px solid rgb(11, 135, 237);
-    background-color: #fff;
-
-}
-.usluga-pop:hover{
-   transform: scale(1.03);
-   transition: 0.2s;
-   cursor: pointer;
-}
-.usluga-pop > p {
-    width: fit-content;
-}
-
-.cover-photo{
-    width: 300px;
-    height: 150px;
-    border-bottom: 3px solid rgb(11, 135, 237);
-}
-.pfp{
-    height: 50px;
-    width: 50px;
-
-}
-.content-usluga{
-    display: flex;
-    flex-direction: column;
-}
-.username-pfp{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.username-pfp > p {
-    margin-left: 8px;
-    margin-top: 20px;
-    font-weight: bolder;
-}
-.username-pfp > img{
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-.description{
-    margin-left: 20px;
-    margin-top: 20px;
-}
-.bottom-usluga{
-    border-top: 3px solid rgb(11, 135, 237);;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.bottom-usluga > img{
-    margin: 15px 7px;
-}
-
-.bottom-usluga > p{
-    margin-right: 10px;
-}
-
 
 option{
     overflow-y: scroll;
