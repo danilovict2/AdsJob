@@ -16,22 +16,22 @@ class FrontendController extends Controller{
     }
 
     public function login() : void{
-        $html = $this->renderer->render('login.html',['session' => $this->session]);
+        $html = $this->renderer->render('login.html',['session' => $this->session, 'isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 
     public function logout() : void{
-        $html = $this->renderer->render('logout.html',['session' => $this->session]);
+        $html = $this->renderer->render('logout.html',['session' => $this->session, 'isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 
     public function register() : void{
-        $html = $this->renderer->render('register.html',['session' => $this->session]);
+        $html = $this->renderer->render('register.html',['session' => $this->session, 'isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 
     public function messages() : void{
-        $html = $this->renderer->render('messages.html',['session' => $this->session]);
+        $html = $this->renderer->render('messages.html',['session' => $this->session, 'isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 }
