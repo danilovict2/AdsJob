@@ -10,10 +10,10 @@ class DB{
     private static $connection = null;
 
     public static function connect(){
-        $config = include __DIR__ . '/../../Config.php';
+        $config = ['host' => $_ENV['DB_HOST'],'port' => $_ENV['DB_PORT'],'dbname' => $_ENV['DB_NAME'],'charset' => $_ENV['DB_CHARSET']];
         $username = $_ENV['DB_USER'];
         $password = $_ENV['DB_PASSWORD'];
-        $dsn = 'mysql:' . http_build_query(data: $config['database'], arg_separator: ';');
+        $dsn = 'mysql:' . http_build_query(data: $config, arg_separator: ';');
         self::$connection = new PDO($dsn, $username, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -53,8 +53,9 @@ class DB{
             if($migration === '.' || $migration === '..'){
                 continue;
             }
-            $migrationInstance = require_once(__DIR__ . "/migrations/$migration");
+            $migrationInstance = include(__DIR__ . "/migrations/$migration");
             self::log("Applying migration $migration");
+            
             self::$connection->exec($migrationInstance->up());
             $migrated[] = $migration;
         }
@@ -65,6 +66,21 @@ class DB{
         }
     }
 
+    public static function migrateFresh(){
+        self::log("Dropping all tables");
+        self::rawQuery("DROP TABLE IF EXISTS migrations");
+        self::createMigrationsTable();
+        $migrations = scandir(__DIR__ . '/migrations');
+        foreach($migrations as $migration){
+            if($migration === '.' || $migration === '..'){
+                continue;
+            }
+            $migrationInstance = include(__DIR__ . "/migrations/$migration");
+            self::$connection->exec($migrationInstance->down());
+        }
+        self::migrate();
+    }
+
     private static function getAppliedMigrations(){
         $statement = self::rawQuery('SELECT migration FROM migrations');
         return $statement->fetchAll(PDO::FETCH_COLUMN);
@@ -72,8 +88,7 @@ class DB{
 
     private static function saveMigrations(array $migrations){
         $str = implode(',',array_map(fn($m) => "('$m')", $migrations));
-        $statement = self::$connection->prepare("INSERT INTO migrations(migration) VALUES $str");
-        $statement->execute();
+        $statement = self::rawQuery("INSERT INTO migrations(migration) VALUES $str");
     }
 
 }
