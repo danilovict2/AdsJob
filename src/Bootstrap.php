@@ -51,13 +51,13 @@ switch ($routeInfo[0]) {
         $controllerName = $routeInfo[1][0];
         $method = $routeInfo[1][1];
         $vars = $routeInfo[2];
-    
+
         $controller = $injector->make($controllerName);
         $controller->middleware();
-        $controller::$action = $method;
+                
         foreach($controller->getMiddleware() as $middleware){
             try{
-                $middleware->execute();
+                $middleware->execute($method);
             }catch(\Exception $e){
                 $controller = $injector->make('AdsJob\Controllers\FrontendController');
                 $method = 'login';

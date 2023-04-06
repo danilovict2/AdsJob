@@ -51,8 +51,7 @@ abstract class Model{
         foreach($attributes as $attribute){
             $values["$attribute"] = $this->values[$attribute] ?? '';
         }
-        DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",
-        $values);
+        DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
     }
 
 }

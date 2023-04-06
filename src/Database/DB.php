@@ -88,7 +88,7 @@ class DB{
 
     private static function saveMigrations(array $migrations){
         $str = implode(',',array_map(fn($m) => "('$m')", $migrations));
-        $statement = self::rawQuery("INSERT INTO migrations(migration) VALUES $str");
+        self::rawQuery("INSERT INTO migrations(migration) VALUES $str");
     }
 
 }

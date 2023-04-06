@@ -12,7 +12,6 @@ use AdsJob\Middleware\Middleware;
 class Controller{
 
     private array $middleware = [];
-    public static string $action = '';
 
     public function __construct(
         protected Request $request, 

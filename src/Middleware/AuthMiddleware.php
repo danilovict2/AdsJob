@@ -9,14 +9,13 @@ class AuthMiddleware extends Middleware{
     public function __construct(
         private Auth $auth,
         private array $actions,
-        private Controller $controller
     ){
 
     }
 
-    public function execute(){
+    public function execute(string $action) : void{
         if($this->auth->isGuest()){
-            if(empty($this->actions) || in_array($this->controller::$action, $this->actions)){
+            if(empty($this->actions) || in_array($action, $this->actions)){
                 throw new \AdsJob\Exceptions\ForbiddenException();
             }
         }

@@ -2,8 +2,9 @@
 
 namespace AdsJob\Middleware;
 
+use AdsJob\Controllers\Controller;
 
 abstract class Middleware{
     
-    abstract public function execute();
+    abstract public function execute(string $action) : void;
 }
