@@ -27,7 +27,7 @@ class LoginController extends Controller{
             return;
         }
         
-        $passwordValid = password_verify($formData['password'], $user->getValue('password'));
+        $passwordValid = password_verify($formData['password'], $user->password);
         if (!$passwordValid) {
             $validator->addError('password', 'Password is incorrect');
             $this->setValidationErrors($validator->getErrors());

@@ -9,22 +9,9 @@ abstract class Model{
     protected static string $tableName;
 
     abstract protected function attributes() : array;
+
     public static function primaryKey() : string{
         return static::primaryKey();
-    }
-
-    public function loadData(array $values){
-        foreach($values as $key => $value){
-            $this->values[$key] = $value;
-        }
-    }
-
-    public function __set(string $key, string $value) : void{
-        $this->values[$key] = $value;
-    }
-
-    public function getValue($key){
-        return $this->values[$key] ?? '';
     }
 
     public static function findOne(array $where){
@@ -40,6 +27,20 @@ abstract class Model{
 
     public static function exists(string $attribute, string $value) : bool{
         return DB::exists(static::$tableName, $attribute, $value);
+    }
+
+    public function loadData(array $values){
+        foreach($values as $key => $value){
+            $this->values[$key] = $value;
+        }
+    }
+
+    public function __set(string $key, string $value) : void{
+        $this->values[$key] = $value;
+    }
+
+    public function __get(string $key){
+        return $this->values[$key];
     }
 
     public function save() : void{

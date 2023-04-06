@@ -22,7 +22,7 @@ class Auth{
     public function login(Model $user) : void{
         $this->user = $user;
         $primaryKey = $user->primaryKey();
-        $primaryKeyValue = $user->getValue($primaryKey);
+        $primaryKeyValue = $user->$primaryKey;
         $this->session->set('user', $primaryKeyValue);
     }
 
