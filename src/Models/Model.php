@@ -29,7 +29,7 @@ abstract class Model{
         return DB::exists(static::$tableName, $attribute, $value);
     }
 
-    public function loadData(array $values){
+    public function create(array $values){
         foreach($values as $key => $value){
             $this->values[$key] = $value;
         }

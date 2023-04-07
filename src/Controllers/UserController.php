@@ -14,7 +14,7 @@ class UserController extends Controller{
             'confirmPassword' => ['required', ['match' => 'password']],
         ]);
         $user = new User;
-        $user->loadData($this->request->getBodyParameters());
+        $user->create($this->request->getBodyParameters());
         if($validator->validateForm($this->request->getBodyParameters())){
             $user->save();
             $this->response->redirect('/');
