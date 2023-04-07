@@ -15,7 +15,7 @@ class Auth{
         $primaryKeyValue = $this->session->get('user');
         if($primaryKeyValue){
             $primaryKey = User::primaryKey();
-            $this->user = User::findOne([$primaryKey => $primaryKeyValue]);
+            $this->user = User::findOne([$primaryKey => $primaryKeyValue]) ?? null;
         }
     }
 
