@@ -12,19 +12,19 @@ class ProfileController extends Controller{
 
     public function index(array $params) : void{
         $user_id = $params['user_id'];
-        $html = $this->renderer->render('profile.html');
+        $html = $this->renderer->render('profile.html',['isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 
     public function reviews(array $params) : void{
         $user_id = $params['user_id'];
-        $html = $this->renderer->render('reviews.html');
+        $html = $this->renderer->render('reviews.html',['isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 
     public function edit(array $params) : void{
         $user_id = $params['user_id'];
-        $html = $this->renderer->render('editProfile.html');
+        $html = $this->renderer->render('editProfile.html',['isGuest' => $this->auth->isGuest()]);
         $this->response->setContent($html);
     }
 }

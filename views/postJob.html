@@ -1,1 +1,24 @@
 {% include('navbar.html') %}
+
+<link rel="stylesheet" href="/light/css/login-register.css">
+<div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
+    {% set errors = {'name' : session.getFlash('name'), 'location' : session.getFlash('location'), 'description' : session.getFlash('description')} %}
+    <form action="/p/store" method="POST" style="display: flex; flex-direction: column;">
+        <label for="name">Naslov: </label>
+        <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
+        <div class="invalid-feedback">
+            {{errors.name}}
+        </div>
+        <label for="location">Mesto: </label>
+        <input type="text" name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
+        <div class="invalid-feedback">
+            {{errors.location}}
+        </div>
+        <label for="description">Opis: </label>
+        <textarea name="description" id="description" cols="50" rows="10" class="{% if errors.description %}is-invalid{% endif %}"></textarea>
+        <div class="invalid-feedback">
+            {{errors.description}}
+        </div>
+        <input type="submit" value="Potvrdi" style="margin-top: 10px;">
+    </form>
+</div>

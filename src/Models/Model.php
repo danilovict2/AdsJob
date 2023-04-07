@@ -35,7 +35,7 @@ abstract class Model{
         }
     }
 
-    public function __set(string $key, string $value) : void{
+    public function __set(string $key, ?string $value) : void{
         $this->values[$key] = $value;
     }
 
@@ -49,7 +49,7 @@ abstract class Model{
         $params = array_map(fn($attr) => ":$attr", $attributes);
         $values = [];
         foreach($attributes as $attribute){
-            $values["$attribute"] = $this->values[$attribute] ?? '';
+            $values["$attribute"] = $this->$attribute ?? '';
         }
         DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
     }

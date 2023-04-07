@@ -11,6 +11,7 @@ return [
     ['GET', '/profile/{user_id}/edit', [AdsJob\Controllers\ProfileController::class, 'edit']],
     ['GET', '/p/create', [AdsJob\Controllers\JobController::class, 'create']],
     ['GET', '/p/{job_id}', [AdsJob\Controllers\JobController::class, 'show']],
+    ['POST', '/p/store', [AdsJob\Controllers\JobController::class, 'store']],
     ['POST', '/user/store', [AdsJob\Controllers\UserController::class, 'store']],
     ['POST', '/user/login', [AdsJob\Controllers\Auth\LoginController::class, 'login']],
     ['POST', '/user/logout', [AdsJob\Controllers\Auth\LoginController::class, 'logout']],

@@ -13,15 +13,15 @@
             <img src="/light/img/MILER.jpg" alt="bellow" class="bellow"> 
         </div>
         <hr style="width: 100%; height: 3px; background-color: rgb(11, 135, 237);" >
-        <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left" style="color: rgb(11, 135, 237)"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ipsam labore dolore hic soluta explicabo nihil odit eos aut possimus tenetur iusto illum eius et natus voluptates, officia adipisci sunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. In cum, iste eaque id tenetur labore dolore incidunt pariatur iusto sequi eligendi earum ex necessitatibus a, quas dolores corrupti maxime modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, harum repellat, quisquam nemo eveniet veniam omnis reprehenderit dolore sed totam aliquam dolorum ipsam voluptate assumenda magnam nostrum asperiores architecto ducimus.</p>
+        <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left" style="color: rgb(11, 135, 237)"></i>{{ job.__get('description') }}</p>
     </div>
 
     <div class="info">
-        <h1>Lorem ipsum dolor sit </h1>
+        <h1>{{ job.__get('name') }} </h1>
         <hr style="width: 100%; height: 3px; background-color: rgb(11, 135, 237);" >
         <div class="userInfo">
-            <h3><i class="fa-solid fa-circle-user fa-l" style="color: rgb(11, 135, 237)"></i> lorem ipsum</h3>
-            <h3><i class="fa-solid fa-location-dot fa-l" style="color: rgb(11, 135, 237)"></i> lorem ipsum</h3>
+            <h3><i class="fa-solid fa-circle-user fa-l" style="color: rgb(11, 135, 237)"></i> {{ user.__get('firstName') }} {{ user.__get('lastName') }}</h3>
+            <h3><i class="fa-solid fa-location-dot fa-l" style="color: rgb(11, 135, 237)"></i> {{ job.__get('location') }}</h3>
         </div>
         <hr style="width: 100%; height: 3px; background-color: rgb(11, 135, 237);" >
         <div class="rating">
