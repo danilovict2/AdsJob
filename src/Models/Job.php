@@ -14,4 +14,8 @@ class Job extends Model{
         return 'id';
     }
 
+    public function user(){
+        return $this->hasOne(User::class);
+    }
+
 }

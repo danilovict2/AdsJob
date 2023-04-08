@@ -2,8 +2,11 @@
 
 namespace AdsJob\Models;
 use AdsJob\Database\DB;
+use AdsJob\Traits\HasFactory;
 
 abstract class Model{
+
+    use HasFactory;
 
     protected array $values;
     protected static string $tableName;
@@ -12,6 +15,10 @@ abstract class Model{
 
     public static function primaryKey() : string{
         return static::primaryKey();
+    }
+
+    public static function tableName() : string{
+        return static::$tableName;
     }
 
     public static function findOne(array $where){

@@ -19,4 +19,7 @@ class User extends Model{
         parent::save();
     }
 
+    public function jobs(){
+        return $this->hasMany(Job::class);
+    }
 }
