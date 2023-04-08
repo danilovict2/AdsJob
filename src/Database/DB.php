@@ -3,6 +3,7 @@
 namespace AdsJob\Database;
 use PDO;
 use AdsJob\Traits\Logger;
+use PDOException;
 
 class DB{
     use Logger;
@@ -70,7 +71,7 @@ class DB{
         self::log("Dropping all tables");
         self::rawQuery("DROP TABLE IF EXISTS migrations");
         self::createMigrationsTable();
-        $migrations = scandir(__DIR__ . '/migrations');
+        $migrations = array_reverse(scandir(__DIR__ . '/migrations'));
         foreach($migrations as $migration){
             if($migration === '.' || $migration === '..'){
                 continue;
