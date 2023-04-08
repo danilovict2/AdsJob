@@ -12,6 +12,7 @@ use AdsJob\Middleware\Middleware;
 class Controller{
 
     private array $middleware = [];
+    protected array $requiredData = ['isGuest' => $this->auth->isGuest(), 'session' => $this->session];
 
     public function __construct(
         protected Request $request, 

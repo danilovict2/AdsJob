@@ -7,7 +7,7 @@ use AdsJob\Models\User;
 class ReviewController extends Controller{
 
     public function create() : void{
-        $html = $this->renderer->render('createReview.html',['isGuest' => $this->auth->isGuest(),'session' => $this->session]);
+        $html = $this->renderer->render('createReview.html',$this->requiredData);
         $this->response->setContent($html);
     }
 

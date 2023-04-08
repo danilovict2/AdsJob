@@ -7,7 +7,7 @@ use AdsJob\Models\User;
 class JobController extends Controller{
 
     public function create() : void{
-        $html = $this->renderer->render('postJob.html',['isGuest' => $this->auth->isGuest(),'session' => $this->session]);
+        $html = $this->renderer->render('postJob.html',$this->requiredData);
         $this->response->setContent($html);
     }
 
@@ -18,7 +18,7 @@ class JobController extends Controller{
             return;
         }
         $user = User::findOne(['id' => $job->user_id]);
-        $html = $this->renderer->render('job.html',['user' => $user, 'job' => $job,'isGuest' => $this->auth->isGuest(),'session' => $this->session]);
+        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job],$this->requiredData));
         $this->response->setContent($html);
     }
 
