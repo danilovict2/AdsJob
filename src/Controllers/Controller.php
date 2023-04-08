@@ -12,7 +12,7 @@ use AdsJob\Middleware\Middleware;
 class Controller{
 
     private array $middleware = [];
-    protected array $requiredData = ['isGuest' => $this->auth->isGuest(), 'session' => $this->session];
+    protected array $requiredData = [];
 
     public function __construct(
         protected Request $request, 
@@ -21,7 +21,7 @@ class Controller{
         protected Session $session,
         protected Auth $auth,
     ){
-        
+        $this->requiredData = ['isGuest' => $this->auth->isGuest(), 'session' => $this->session];
     }
 
     protected function setValidationErrors(array $errors) : void{
