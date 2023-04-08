@@ -11,9 +11,6 @@ class FrontendTwigRenderer implements FrontendRenderer{
     }
 
     public function render($template, $data = []) : string{
-        $data = array_merge($data, [
-            'menuItems' => [['href' => '/', 'text' => 'Homepage']],
-        ]);
         return $this->renderer->render($template, $data);
     }
 }
