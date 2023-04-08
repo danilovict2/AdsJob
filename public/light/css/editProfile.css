@@ -2,75 +2,30 @@ body{
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("../img/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: rgb(11, 135, 237);
+}
+
+.pfp{
+    width: 130px;
+    display: block;
+    margin: auto;
+
 }
 
 .container{
-    text-align: center;
-    margin-top: 10rem;
+    background-color: lightgray;
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius: 20px;
+    padding: 50px 200px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.izmeniProfil {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    top: 8em;
-}
-
-h2{
-    text-align: left;
-    margin-left: 80px;
-}
-
-.profileIkonica{
-    width: 8em;
-    margin-left: 250px;
-}
-
-.info , .lokacija{
-    margin-left: -215px;
-    font-weight: bold;
-}
-
-ul{
-    list-style: none;
-    text-align: left;
-    
-}
-
-.editInfo{
-    border: 2px solid rgb(11, 135, 237);
-    border-radius: 10px;
-    margin: 15px;
-    font-size: 25pt;
-    padding: 5px;
-}
-
-input , label{
-    border: 0px;
-    outline:0px;
-    font-size: 15pt;
-    vertical-align: middle;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.applyChanges{
-    background-color: rgb(11, 135, 237);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.applyChanges:hover{
-    background: #2566c8;
-    transition: 0.2s;
+h1, h2{
+    border-bottom: 2px solid #0b87ed ;
+    text-align: justify;
 }

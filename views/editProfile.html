@@ -1,43 +1,10 @@
 {% include('navbar.html') %}
 <link rel="stylesheet" href="/light/css/editProfile.css">
 <div class="container">
-    <div class="izmeniProfil">
-        <h1>Izmeni Profil</h1>
-        <img src="/light/img/profile.png" class="profileIkonica">
-    </div>
-    <form action="">
-    <div class="info">
-        <h2>-Lični podaci</h2>
-            <ul>
-                <li class="editInfo">
-                <label for="Ime">Ime:</label>
-                <input type="text" id="Ime" >
-                </li>
-                <li class="editInfo">
-                    <label for="Prezime">Prezime:</label>
-                    <input type="text" id="Prezime">
-                </li>
-            </ul>
-        
-    </div>
-    <div class="lokacija">
-        <h2>-Lokacija</h2>
-        <ul>
-            <li class="editInfo">
-            <label for="Ulica">Ulica:</label>
-            <input type="text" id="Ulica" >
-            </li>
-            <li class="editInfo">
-                <label for="Grad">Grad / Naselje:</label>
-                <input type="text" id="Prezime">
-            </li>
-            <li class="editInfo">
-                <label for="postBroj">Poštanski Broj:</label>
-                <input type="text" maxlength="6">
-            </li>
-        </ul>
-        <button class="applyChanges"><input type="submit" value="Potvrdi Izmene"></button>
+    <img src="/light/img/profile.png" class="pfp">
+    <h1>Korisnicko ime</h1>
+    <h1>Korisnicko prezime</h1>
 
-    </div>
-    </form>
+    <h2><i class="fa-solid fa-envelope" style="color: #0b87ed;"></i> example@gmail.com</h2>
+    <h2><i class="fa-solid fa-lock" style="color: #0b87ed;"></i> ********</h2>
 </div>
