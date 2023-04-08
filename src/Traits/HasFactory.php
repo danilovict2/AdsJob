@@ -6,17 +6,17 @@ use AdsJob\Models\Model;
 
 Trait HasFactory{
 
-    protected function hasMany(string $relatedModel) : array{
+    protected function hasMany(string $relatedModel, string $leftTableKey, string $rightTableKey) : array{
         $leftTable = static::tableName();
         $rightTable = $relatedModel::tableName();
-
-        $leftTablePK = static::primaryKey();
-        $rightTablePK = $relatedModel::primaryKey();
-
-        return DB::rawQuery("SELECT * FROM $leftTable INNER JOIN $rightTable ON $leftTable.$leftTablePK = $rightTable.$rightTablePK")->fetchAll();
+        
+        return DB::rawQuery("SELECT * FROM $leftTable INNER JOIN $rightTable ON $leftTable.$leftTableKey = $rightTable.$rightTableKey")->fetchAll();
     }
 
-    protected function hasOne(string $relatedModel) : array{
-        return $this->hasMany($relatedModel)[0];
+    protected function hasOne(string $relatedModel, string $leftTableKey, string $rightTableKey) : array{
+        $leftTable = static::tableName();
+        $rightTable = $relatedModel::tableName();
+        
+        return DB::rawQuery("SELECT * FROM $rightTable INNER JOIN $leftTable ON $leftTable.$leftTableKey = $rightTable.$rightTableKey")->fetch();
     }
 }

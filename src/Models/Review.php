@@ -2,12 +2,12 @@
 
 namespace AdsJob\Models;
 
-class Job extends Model{
+class Review extends Model{
 
-    protected static string $tableName = "job";
+    protected static string $tableName = "job_review";
 
     protected function attributes() : array{
-        return ['user_id', 'name', 'location', 'description'];
+        return ['user_id', 'job_id', 'review_text', 'review_value'];
     }
 
     public static function primaryKey() : string{
@@ -18,7 +18,7 @@ class Job extends Model{
         return $this->hasOne(User::class, 'user_id', 'id');
     }
 
-    public function reviews(){
-        return $this->hasMany(Review::class, 'id', 'job_id');
+    public function job(){
+        return $this->hasOne(Job::class, 'job_id', 'id');
     }
 }

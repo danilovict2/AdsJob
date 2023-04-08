@@ -1,0 +1,27 @@
+{% include('navbar.html') %}
+
+<link rel="stylesheet" href="/light/css/login-register.css">
+<script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
+<div class="container">
+    {% set errors = {'description' : session.getFlash('description'), 'value' : session.getFlash('value')} %}
+    <div class="main">
+        <form method="POST" action="/review/store">
+            <h1>Objavite Ocenu</h1>
+            <label for="value"><input
+                    type="number" name="value" placeholder="Ocena 1-5(napraviti zvezdice)" id="value"
+                    class="{% if errors.email %}is-invalid{% endif %}"></label>
+            <div class="invalid-feedback">
+                {{errors.value}}
+            </div>
+            <label for="description"><input
+                    type="text" name="description" placeholder="opis"
+                    class="{% if errors.password %}is-invalid{% endif %}"></label>
+            <div class="invalid-feedback">
+                {{errors.description}}
+            </div>
+            
+            <button>Objavi ocenu</button>
+            
+        </form>
+    </div>
+</div>

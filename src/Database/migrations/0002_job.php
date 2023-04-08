@@ -10,7 +10,6 @@ return new class{
                 user_id INT NOT NULL,
                 name VARCHAR(30) NOT NULL,
                 location VARCHAR(30) NOT NULL,
-                averageReview FLOAT,
                 description VARCHAR(255) DEFAULT '',
                 
                 CONSTRAINT PK_job PRIMARY KEY(id, user_id),

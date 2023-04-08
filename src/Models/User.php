@@ -20,6 +20,10 @@ class User extends Model{
     }
 
     public function jobs(){
-        return $this->hasMany(Job::class);
+        return $this->hasMany(Job::class, 'id', 'user_id');
+    }
+
+    public function reviews(){
+        return $this->hasMany(Review::class, 'id', 'user_id');
     }
 }
