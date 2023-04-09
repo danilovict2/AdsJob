@@ -64,15 +64,14 @@ input, label.search{
 }
 
 input.pretraga{
-    letter-spacing: 1px;
     border: 1px solid rgb(11, 135, 237);
     background-color:rgb(11, 135, 237) ;
     color: white;
-    padding: 1em;
     transition: 0.2s;
     cursor:pointer;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
     width: 150px;
 }
 
