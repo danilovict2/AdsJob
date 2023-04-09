@@ -3,7 +3,6 @@
 return [
     ['GET', '/', [AdsJob\Controllers\FrontendController::class, 'index']],
     ['GET', '/login', [AdsJob\Controllers\FrontendController::class, 'login']],
-    ['GET', '/logout', [AdsJob\Controllers\FrontendController::class, 'logout']],
     ['GET', '/register', [AdsJob\Controllers\FrontendController::class, 'register']],
     ['GET', '/messages/{user_id}/', [AdsJob\Controllers\FrontendController::class, 'messages']],
     ['GET', '/profile/{user_id}', [AdsJob\Controllers\ProfileController::class, 'index']],
@@ -15,7 +14,7 @@ return [
     ['POST', '/p/store', [AdsJob\Controllers\JobController::class, 'store']],
     ['POST', '/user/store', [AdsJob\Controllers\UserController::class, 'store']],
     ['POST', '/user/login', [AdsJob\Controllers\Auth\LoginController::class, 'login']],
-    ['POST', '/user/logout', [AdsJob\Controllers\Auth\LoginController::class, 'logout']],
+    ['POST', '/logout', [AdsJob\Controllers\Auth\LoginController::class, 'logout']],
     ['POST', '/review/store', [AdsJob\Controllers\ReviewController::class, 'store']],
 ];
 

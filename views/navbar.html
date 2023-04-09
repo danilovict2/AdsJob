@@ -38,7 +38,10 @@
                 <li><a href="/messages/{{ session.get('user') }}/"><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</a></li>
                 <li><a href="/profile/{{ session.get('user') }}/reviews"><i class="fa-sharp fa-solid fa-star" style="color: #ffffff;"></i> Moje ocene</a></li>
                 <li><a href="/p/create"><i class="fa-solid fa-circle-plus"></i> Postavi oglas</a></li>
-                <li><a href="/logout"><i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i> Odjavi se</a></li>
+                <li><a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i> Odjavi se</a></li>
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                    
+                </form>
             {% endif %}
             
         </ul>
