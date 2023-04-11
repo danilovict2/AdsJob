@@ -1,0 +1,29 @@
+.container{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    padding: 40px;
+    border: 3px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+}
+
+.input-images-box{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 20px;
+}
+
+#images{
+    opacity: 0;
+    height: 0;
+}

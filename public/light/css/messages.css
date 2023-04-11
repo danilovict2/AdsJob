@@ -51,6 +51,7 @@ h1{
 
 .chat-header{
     position: fixed;
+    width: 100%;
 }
 
 .chat{

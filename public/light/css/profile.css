@@ -5,81 +5,35 @@ body{
 
 }
 
+a{
+    text-decoration: none;
+}
+
 .container{
-    background-color: rgba(224, 223, 223, 0.733);
-    width: 100rem;
     position: absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    border-radius: 20px;
-    
+    display: grid;
+    grid-template-columns: 700px 700px;
+    grid-row: auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
 }
 
-.username{
-    padding: 30px;
-    border-bottom: 2px solid rgb(11, 135, 237);
-    display: flex;
-    align-items: center;
-}
-
-h1{
-    display: block;
-    margin-left: 35rem;
-}
-
-.oglas{
-    background-color: lightgray;
-    border: 2px solid rgb(11, 135, 237);
-    border-radius: 30px;
-    margin: 30px;
-    display: flex;
-    flex-direction: row;
-}
-
-.oglas > .info{
-    border-left:2px solid rgb(11, 135, 237) ;
-    width: 100%;
-}
-
-.oglas > img{
-    border-radius: 30px 0px 0px 30px;
-}
-
-.info > h2{
-    text-align: center;
-    border-bottom:2px solid rgb(11, 135, 237);
-}
-
-.info > .description{
-    display: flex;
-    flex-direction: row;
-}
-
-p{
-    max-width: 800px;
+.job-settings, .profile-settings, .notifications, .log-out{
+    background-color: rgba(224, 224, 224, 0.863);
+    color: rgb(11, 135, 237);
     padding: 20px;
-    font-size: 15pt;
-}
-
-.description-info{
-    margin-left: 50px;
-    padding: 20px;
-    font-size: 17pt;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-button{
-    background-color: rgb(11, 135, 237);
-    color: white;
     border-radius: 20px;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+    height: 350px;
 }
 
-h2 > i{
-    padding-right: 50px;
+h2{
+    font-weight: bold;
+}
+
+h3{
+    display: inline;
+
 }
