@@ -2,32 +2,7 @@
 
 <link rel="stylesheet" href="/light/css/login-register.css">
 <script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
-<style>
-    .mainRegister {
-        width: 700px;
-        height: 650px;
-        background-image: linear-gradient(to right, rgba(190, 190, 190, 0.815), rgba(252, 250, 250, 0.808));
-        border-radius: 20px;
-        padding: 20px;
-    }
 
-    input {
-        font-size: 13pt;
-    }
-
-    button {
-        font-size: 12pt;
-        margin: 20px 0px 0px 80px;
-    }
-
-    .showpas {
-        margin-left: 80px;
-    }
-
-    .nalog {
-        margin-left: 20px;
-    }
-</style>
 <div class="container">
     {% set errors = {'firstName' : session.getFlash('firstName'), 'lastName' : session.getFlash('lastName'),
     'email' : session.getFlash('email'), 'password' : session.getFlash('password'), 'confirmPassword' :
@@ -51,24 +26,27 @@
             <label for="email"><i class="fa-solid fa-envelope fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.email %}is-invalid{% endif %}" type="text" name="email"
                     placeholder="Unesite E-mail" id="email"></label>
+
             <div class="invalid-feedback">
                 {{errors.email}}
             </div>
             <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.password %}is-invalid{% endif %}" type="password" name="password"
                     placeholder="Unesite lozinku" class="password"></label>
+
             <div class="invalid-feedback">
                 {{errors.password}}
             </div>
             <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.confirmPassword %}is-invalid{% endif %}" type="password"
                     name="confirmPassword" placeholder="Potvrdi lozinku" class="password"></label>
+                    
             <div class="invalid-feedback">
                 {{errors.confirmPassword}}
             </div>
             <label class="showpas">Prikaži lozinku<input type="checkbox" class="pass" onclick="showPassword()"></label>
             <img src="/light/img/laptop.png" class="image" style="width: 350px;">
-            <button>Registruj me</button> <br>
+            <button class="registruj-me">Registruj me</button> <br>
             <a href="/login" class="nalog">Već imate nalog? Prijavite se</a>
         </form>
     </div>

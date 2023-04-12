@@ -22,7 +22,8 @@ a{
 }
 
 .job-settings, .profile-settings, .notifications, .log-out{
-    background-color: rgba(224, 224, 224, 0.863);
+    background-color: white;
+    border: 1px solid rgb(11, 135, 237);
     color: rgb(11, 135, 237);
     padding: 20px;
     border-radius: 20px;

@@ -86,3 +86,28 @@ button{
     text-decoration: none;
     margin-left: 50px;
 }
+
+.mainRegister {
+    width: 700px;
+    height: 650px;
+    background-image: linear-gradient(to right, rgba(190, 190, 190, 0.815), rgba(252, 250, 250, 0.808));
+    border-radius: 20px;
+    padding: 20px;
+}
+
+input {
+    font-size: 13pt;
+}
+
+.registruj-me{
+    font-size: 12pt;
+    margin: 20px 0px 0px 80px;
+}
+
+.showpas {
+    margin-left: 80px;
+}
+
+.nalog {
+    margin-left: 20px;
+}
