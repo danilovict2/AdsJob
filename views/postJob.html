@@ -17,37 +17,7 @@
                 {{errors.name}}
             </div>
             <label for="location" class="mestoSearch"><h2>Mesto: </h2></label>
-                    <select name="gradovi" id="location" class="{% if errors.location %}is-invalid{% endif %}">
-                        <option selected></option>
-                        <option value="beograd">Beograd</option>
-                        <option value="bor">Bor</option>
-                        <option value="valjevo">Valjevo</option>
-                        <option value="vranje">Vranje</option>
-                        <option value="vrsac">Vršac</option>
-                        <option value="zajecar">Zaječar</option>
-                        <option value="zrenjanin">Zrenjanin</option>
-                        <option value="jagodina">Jagodina</option>
-                        <option value="kikinda">Kikinda</option>
-                        <option value="kragujevac">Kragujevac</option>
-                        <option value="kraljevo">Kraljevo</option>
-                        <option value="krusevac">Kruševac</option>
-                        <option value="leskovac">Leskovac</option>
-                        <option value="nis">Niš</option>
-                        <option value="novi-pazar">Novi Pazar</option>
-                        <option value="novi-sad">Novi Sad</option>
-                        <option value="pancevo">Pančevo</option>
-                        <option value="pirot">Pirot</option>
-                        <option value="pozarevac">Požarevac</option>
-                        <option value="pristina">Priština</option>
-                        <option value="prokuplje">Prokuplje</option>
-                        <option value="smederevo">Smederevo</option>
-                        <option value="sombor">Sombor</option>
-                        <option value="sremska-mitrovica">Sremska Mitrovica</option>
-                        <option value="subotica" >Subotica</option>
-                        <option value="uzice">Užice</option>
-                        <option value="cacak">Čačak</option>
-                        <option value="sabac">Šabac</option>
-                    </select>
+            <input type="text" name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
             <div class="invalid-feedback">
                 {{errors.location}}
             </div>
