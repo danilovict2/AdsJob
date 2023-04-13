@@ -1,12 +1,72 @@
 {% include('navbar.html') %}
 
 <link rel="stylesheet" href="/light/css/job.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="reviews-container">
+    <h1 ><b>Ocene:</b></h1>
+    <div class="review">
+        <div class="review-info">
+            <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> Pragan detrovic</h3>
+            
+        </div>
+        <div class="review-content">
+            <h3><i class="fa-solid fa-star" style="color: rgb(11, 135, 237)"></i> 4.7</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    </div>
+
+    <div class="review">
+        <div class="review-info">
+            <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> Pragan detrovic</h3>
+        </div>
+        <div class="review-content">
+            <h3><i class="fa-solid fa-star" style="color: rgb(11, 135, 237)"></i> 4.7</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    <div class="review">
+        <div class="review-info">
+            <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> Pragan detrovic</h3>
+        </div>
+        <div class="review-content">
+            <h3><i class="fa-solid fa-star" style="color: rgb(11, 135, 237)"></i> 4.7</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    </div>
+    
+    <div class="review">
+        <div class="review-info">
+            <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> Pragan detrovic</h3>
+        </div>
+        <div class="review-content">
+            <h3><i class="fa-solid fa-star" style="color: rgb(11, 135, 237)"></i> 4.7</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+
 
 <div class="container">
     <div class="images-title">
-        <h1>{{ job.__get('name') }} </h1>
-        <img src="/light/img/MILER.jpg" class="slideshow-item">
+        <div class="title">
+            <h1>{{ job.__get('name') }} </h1>
+        </div>
 
+        <div class="slideshow-container">
+        <div class="slideshow">
+            <img src="/light/img/MILER.jpg" class="slideshow-item">
+
+        </div>
+
+        <div class="arrows">
+            <i id="Prev" class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+			<i id="Next" class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+        </div>
+    </div>
         
     </div>
 
@@ -15,46 +75,14 @@
         <div class="userInfo">
             <h2><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> {{ user.__get('firstName') }} {{ user.__get('lastName') }}</h2>
             <h2><i class="fa-solid fa-location-dot fa-xl" style="color: rgb(11, 135, 237)"></i> {{ job.__get('location') }}</h2>
-            <h2><i class="fa-solid fa-calendar-days fa-xl" style="color: #0b87ed;"></i> 69.69.1945.</h2>
             <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7</h2>
         </div>
-        <hr style="width: 100%; height: 3px; background-color: rgb(11, 135, 237);" >
-        
         <a href="#message" class="btnLink"><button>Pošalji poruku</button></a>
     </div>
-
-
 </div>
-<div class="ocene">
-    <h2>Ocene</h2>
-    <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left" style="color: rgb(11, 135, 237)"></i>{{ job.__get('description') }}</p>
 
-    <div class="review">
-        <img src="/light/img/profile.png">
-        <h4>Korisnicko ime</h4> 
-        <i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7
-        <div class="comment">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis eos in molestiae consequatur voluptates modi vel harum voluptatum blanditiis, ab vitae cum non ex sint ducimus praesentium. Accusantium, quo tempore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam ipsa dolorum quam architecto! Temporibus veritatis quos dolorum quidem suscipit, nobis sit eos unde velit illo rerum, recusandae reiciendis officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nesciunt iure dolorum tenetur, exercitationem maiores optio, soluta fugit incidunt et praesentium nostrum? Eaque veritatis nesciunt sapiente voluptatem delectus quas error?
-        </div>
-    </div>
-
-    <div class="review">
-        <img src="/light/img/profile.png">
-        <h4>Korisnicko ime</h4> 
-        <i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7
-        <div class="comment">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis eos in molestiae consequatur voluptates modi vel harum voluptatum blanditiis, ab vitae cum non ex sint ducimus praesentium. Accusantium, quo tempore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam ipsa dolorum quam architecto! Temporibus veritatis quos dolorum quidem suscipit, nobis sit eos unde velit illo rerum, recusandae reiciendis officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nesciunt iure dolorum tenetur, exercitationem maiores optio, soluta fugit incidunt et praesentium nostrum? Eaque veritatis nesciunt sapiente voluptatem delectus quas error?
-        </div>
-    </div>
-
-    <div class="review">
-        <img src="/light/img/profile.png">
-        <h4>Korisnicko ime</h4> 
-        <i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7
-        <div class="comment">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis eos in molestiae consequatur voluptates modi vel harum voluptatum blanditiis, ab vitae cum non ex sint ducimus praesentium. Accusantium, quo tempore! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum laboriosam ipsa dolorum quam architecto! Temporibus veritatis quos dolorum quidem suscipit, nobis sit eos unde velit illo rerum, recusandae reiciendis officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nesciunt iure dolorum tenetur, exercitationem maiores optio, soluta fugit incidunt et praesentium nostrum? Eaque veritatis nesciunt sapiente voluptatem delectus quas error?
-        </div>
-    </div>
-
+    <div class="ad-description">
+        <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left" style="color: rgb(11, 135, 237)"></i>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, velit natus sit possimus sapiente animi rem. Iste temporibus eos voluptas minus, quaerat quod blanditiis quas natus quidem ipsa nulla quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae odit quis vel fuga distinctio, omnis quam eius molestias cumque voluptatum veniam aut perspiciatis facilis rerum, tenetur illo quaerat aperiam deleniti.{{ job.__get('description') }}</p>
+    </div>  
 
 </div>
