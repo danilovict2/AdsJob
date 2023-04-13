@@ -6,13 +6,13 @@ body{
 .reviews-container{
     overflow-y: scroll;
     scroll-behavior: smooth;
-    background-color: lightgray;
+    background-color: white;
     width: 450px;
-    height: 800px;
+    height: 790px;
     margin-left: 60px;
     margin-right: 30px;
     float: left;
-    border: 2px solid rgb(11, 135, 237);
+    border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ body{
 .review{
     margin-bottom: 20px;
     padding: 10px;
-    background-color: white;
+    background-color: rgb(228, 228, 228);
     border-radius: 20px;
 }
 
@@ -63,11 +63,11 @@ h3{
 }
 
 div.images-title{
-    background-color: lightgray;
+    background-color: white;
     width: 1000px;
     padding:0px;
     height: max-content;
-    border: 2px solid rgb(11, 135, 237);
+    border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -114,9 +114,9 @@ div.images-title{
 }
 
 div.info{
-    background-color: lightgray;
+    background-color: white;
     width: 350px;
-    border: 2px solid rgb(11, 135, 237);
+    border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -149,8 +149,8 @@ a{
 }
 
 .ad-description{
-    background-color: lightgray;
-    border: 2px solid rgb(11, 135, 237);
+    background-color: white;
+    border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
     margin: 20px 60px 60px 0px;
     display: flex;

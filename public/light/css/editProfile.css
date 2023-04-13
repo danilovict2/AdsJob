@@ -5,27 +5,102 @@ body{
 }
 
 .pfp{
-    width: 130px;
-    display: block;
-    margin: auto;
+    width: 260px;
+    margin-bottom: 40px;
+}
 
+h1{
+    color: rgb(11, 135, 237);
+    font-weight: bold;
+}
+
+.linija{
+    border-left: 4px solid rgb(11, 135, 237);
+    height: 640px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 3;
 }
 
 .container{
-    background-color: lightgray;
-    width: max-content;
+    background-color: white;
+    border: 1px solid rgb(11, 135, 237);
+    width: 1400px;
     height: max-content;
     position: absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     border-radius: 20px;
-    padding: 50px 200px;
-    display: flex;
-    flex-direction: column;
+    padding: 50px ;
 }
 
-h1, h2{
-    border-bottom: 2px solid #0b87ed ;
-    text-align: justify;
+.left{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 60px;
+    margin-right: 200px;
+    padding: 40px;
+    margin-left: 100px;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    font-size: 22pt;
+    margin-top: 40px;
+}
+
+input{
+    float: right;
+    background-color: white;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 30px;
+    margin-bottom: 30px;
+    font-size: 17pt;
+    text-align: center;
+    padding: 10px;
+}
+
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 40rem #ffff inset;
+}
+
+input:focus{
+    outline: rgb(11, 135, 237);
+}
+
+input[type=submit]{
+    background-color: rgb(11, 135, 237);
+    color: white;
+    cursor: pointer;
+    font-size: 25pt;
+    width: max-content;
+    padding: 10px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(10, 112, 196);
+    color: white;
+    cursor: pointer;
+}
+
+label{
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 40px;
+    color: rgb(11, 135, 237);
+    font-weight: bold;
 }
