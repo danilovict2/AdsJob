@@ -16,7 +16,7 @@ h1{
 
 .linija{
     border-left: 4px solid rgb(11, 135, 237);
-    height: 585px;
+    height: 610px;
     position: absolute;
     left: 50%;
     margin-left: -3px;
@@ -33,7 +33,7 @@ h1{
     left:50%;
     transform:translate(-50%,-50%);
     border-radius: 20px;
-    padding: 50px ;
+    padding: 50px;
 }
 
 .left{
@@ -45,7 +45,7 @@ h1{
     margin: 60px;
     margin-right: 190px;
     padding: 40px;
-    margin-left: 130px;
+    margin-left: 120px;
 }
 
 .right{
