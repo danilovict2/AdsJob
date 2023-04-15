@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/light/css/navbar.css">
     <link rel="stylesheet" href="/light/css/dropdown.css">
-    <script src="/javascript/script.js"></script>
     <script src="/javascript/navbar.js"></script>
+    <script>
+        function showPassword(){
+            let passwordInputs = document.getElementsByClassName("password");
+            for(let password of passwordInputs){
+                password.type = password.type === 'password' ? "text" : "password";
+            }
+        }
+    </script>
     <script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
     <title>Home</title>
 
