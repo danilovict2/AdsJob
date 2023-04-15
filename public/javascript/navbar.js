@@ -1,5 +1,5 @@
-function enableDropdown(){
-    const dropdown = document.getElementById('dropdown');    
-    const dropdownContent = dropdown.querySelector('.dropdown-content')
-    dropdownContent.classList.toggle('dropdown-content-open');
+function enableSidebar(){
+    const dropdown = document.getElementById('sidebar');    
+    const dropdownContent = dropdown.querySelector('.sidebar-content')
+    dropdownContent.classList.toggle('sidebar-content-open');
 }

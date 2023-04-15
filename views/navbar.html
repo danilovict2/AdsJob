@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/light/css/navbar.css">
-    <link rel="stylesheet" href="/light/css/dropdown.css">
+    <link rel="stylesheet" href="/light/css/sidebar.css">
     <script src="/javascript/navbar.js"></script>
     <script>
         function showPassword(){
@@ -27,16 +27,12 @@
     
     <div class="topnav" id="myTopnav">
         <a href="/"><img class="logo" src="/light/img/logo.png"></a>
-        
-        <!--
-      I ni slucajno ne sklanjaj onaj # kod a koji enable-uje dropdown
-      Sjebe sve
-    -->
-    <span class="dropdown  " id="dropdown">
+    
+    <span class="sidebar " id="sidebar">
         <span class="select">
-            <a href="#" onclick="enableDropdown()"><img src="/light/img/hamburger.png" class="sidebarIcon"></a>
+            <a href="#" onclick="enableSidebar()"><img src="/light/img/hamburger.png" class="sidebarIcon"></a>
         </span>
-        <ul class="dropdown-content w3-animate-right">
+        <ul class="sidebar-content w3-animate-right">
             {% if isGuest %}
                 <li><a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</a></li>
                 <li><a href="/register"> Registruj se</a></li>

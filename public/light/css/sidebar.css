@@ -1,4 +1,4 @@
-.dropdown{
+.sidebar{
     position: absolute;
     right: 0;
     transition: 0.5s;
@@ -15,7 +15,7 @@
 }
 
 
-.dropdown-content{
+.sidebar-content{
     list-style: none;
     background-color:rgb(11, 135, 237);
     margin-top: 4em;
@@ -27,7 +27,7 @@
     transition:  0.5s;
 }
 
-.dropdown-content li{
+.sidebar-content li{
     cursor: pointer;
     padding-top:5px;
     text-align: left;
@@ -36,18 +36,18 @@
     margin-bottom: 30px;
 }
 
-.dropdown-content-open{
+.sidebar-content-open{
     display: block;
     width: 300px;
 }
 
-.dropdown-content li a{
+.sidebar-content li a{
     text-decoration: none;
     color: white;
     font-size: 15pt;
     transition: 0.3s; 
 }
 
-.dropdown-content li:hover{
+.sidebar-content li:hover{
     background-color:rgb(8, 96, 167);
 }
