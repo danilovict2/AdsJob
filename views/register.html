@@ -31,14 +31,14 @@
                 {{errors.email}}
             </div>
             <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.password %}is-invalid{% endif %}" type="password" name="password"
-                    placeholder="Unesite lozinku" class="password"></label>
+                <input class="password {% if errors.password %}is-invalid{% endif %}" type="password" name="password"
+                    placeholder="Unesite lozinku"></label>
 
             <div class="invalid-feedback">
                 {{errors.password}}
             </div>
             <label for="password"><i class="fa-solid fa-lock fa-xl" style="color: rgb(11, 135, 237);"></i>
-                <input class="{% if errors.confirmPassword %}is-invalid{% endif %}" type="password"
+                <input class="password {% if errors.confirmPassword %}is-invalid{% endif %}" type="password"
                     name="confirmPassword" placeholder="Potvrdi lozinku" class="password"></label>
                     
             <div class="invalid-feedback">
