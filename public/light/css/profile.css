@@ -21,7 +21,7 @@ a{
     grid-row-gap: 30px;
 }
 
-.job-settings, .profile-settings, .notifications, .log-out{
+.job-settings, .profile-settings, .notifications, .delete{
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
     color: rgb(11, 135, 237);

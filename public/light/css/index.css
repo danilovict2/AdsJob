@@ -29,6 +29,7 @@ form{
     align-items: center;
     gap: 10px;
     background-color: #fff;
+    height: 50px;
 }
 .usluga-label{
     font-weight: 550;
@@ -149,4 +150,55 @@ option{
 select{
     outline: none;
     border: none;
+}
+
+@media screen and (max-width: 960px){
+    #search-container{
+        flex-direction: column;
+        margin-top: 200px;
+    }
+    .usluga{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .usluga{
+        width: 320px;
+        font-size: 10pt;
+    }
+    .usluga-search , input.search{
+        font-size: 10pt;
+        width: 200px;
+    }
+    select, option{
+        width: 100px;
+        font-size: 10pt;
+    }
+    label{
+        font-size: 12pt;
+    }
+    label.mestoSearch{
+        font-size: 8pt;
+    }
+}
+
+@media screen and (max-width: 340px){
+    .usluga{
+        width: 280px;
+    }
+    .usluga-search , input.search{
+        font-size: 8pt;
+        width: 220px;
+    }
+    select, option{
+        width: 90px;
+        font-size: 8pt;
+    }
+    label{
+        font-size: 12pt;
+    }
+    label.mestoSearch{
+        font-size: 8pt;
+    }
 }

@@ -37,7 +37,7 @@
                 <li><a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</a></li>
                 <li><a href="/register"> Registruj se</a></li>
             {% else %}
-                <li><a href="/profile/{{ session.get('user') }}"><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</a></li>
+                <li><a href="/user/profile"><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</a></li>
                 <li><a href="/messages/{{ session.get('user') }}/"><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</a></li>
                 <li><a href="/profile/{{ session.get('user') }}/reviews"><i class="fa-sharp fa-solid fa-star" style="color: #ffffff;"></i> Moje ocene</a></li>
                 <li><a href="/p/create"><i class="fa-solid fa-circle-plus"></i> Postavi oglas</a></li>
