@@ -38,3 +38,129 @@ h3{
     display: inline;
 
 }
+
+@media screen and (max-width: 1530px){
+    .container{
+        grid-template-columns: 600px 600px;
+        grid-row: auto auto;
+        grid-column-gap: 50px;
+        grid-row-gap: 30px;
+    }
+
+    .job-settings, .profile-settings, .notifications, .delete{
+        height: 250px;
+    }
+
+}
+
+@media screen and (max-width: 1320px){
+    .container{
+        grid-template-columns: 500px 500px;
+        grid-row: auto auto;
+        grid-column-gap: 50px;
+        grid-row-gap: 30px;
+    }
+
+}
+
+@media screen and (max-width: 1160px){
+    .container{
+        grid-template-columns: 450px 450px;
+        grid-row: auto auto;
+        grid-column-gap: 50px;
+        grid-row-gap: 30px;
+    }
+
+    .job-settings, .profile-settings, .notifications, .delete{
+        height: 250px;
+    }
+
+}
+
+@media screen and (max-width: 1160px){
+    .container{
+        grid-template-columns: 400px 400px;
+        grid-row: auto auto;
+        grid-column-gap: 30px;
+        grid-row-gap: 20px;
+    }
+
+    .job-settings, .profile-settings, .notifications, .delete{
+        height: 250px;
+    }
+
+    h1{
+        font-size: 18pt;
+    }
+    h2{
+        font-size: 15pt;
+    }
+    h3{
+        font-size: 12pt;
+    }
+
+}
+
+@media screen and (max-width: 880px){
+    .container{
+        grid-template-columns: 350px 350px;
+        grid-row: auto auto;
+        grid-column-gap: 30px;
+        grid-row-gap: 20px;
+    }
+
+    .job-settings, .profile-settings, .notifications, .delete{
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .container{
+        grid-template-columns: none;
+        grid-row: auto auto;
+        grid-column-gap: 40px;
+        grid-row-gap: 40px;
+        margin-top: 50px;
+    }
+
+    .job-settings, .profile-settings, .notifications, .delete{
+        height: 150px;
+        width: 450px;
+    }
+
+    h1{
+        font-size: 18pt;
+    }
+    h2{
+        font-size: 15pt;
+    }
+    h3{
+        font-size: 12pt;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .container{
+        grid-template-columns: none;
+        grid-row: auto auto;
+        grid-column-gap: 30px;
+        grid-row-gap: 20px;
+    }
+
+    .job-settings, .profile-settings, .notifications, .delete{
+        height: 150px;
+        width: 300px;
+    }
+
+    h1{
+        font-size: 15pt;
+    }
+    h2{
+        font-size: 12pt;
+    }
+    h3{
+        font-size: 10pt;
+    }
+
+}
