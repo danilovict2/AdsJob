@@ -13,9 +13,42 @@
             <label for="prezime">Prezime <input type="text" id="prezime"></label>
            
             <label for="email">Email <input type="email" id="email"></label>
+
+            <button id="openModal">Promeni lozinku</button>
             
-            <label for="password">Lozinka <input type="password" id="password"></label>
             <label for=""><input type="submit" value="Sačuvaj izmene" ></label>
         </form>
     </div>
 </div>
+    <div class="modal" id="modal">
+        <div class="modalContent">
+            <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
+            <label for="currentPassword">Trenutna lozinka<input type="password" id="currentPassword"></label>
+
+            <label for="newPassword">Nova lozinka <input type="password" id="newPassword"></label>
+            <label for="newPassword">Potvrda lozinke <input type="password" id="newPassword"></label>
+        </div>
+
+    </div>
+
+    <script>
+    var modal = document.getElementById("modal");
+
+    var button = document.getElementById("openModal");
+
+    var closeButton = document.getElementById("close");
+
+    button.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    closeButton.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    </script>
