@@ -1,64 +1,79 @@
 {% include('navbar.html') %}
 <link rel="stylesheet" href="/light/css/editProfile.css">
-<script src="/javascript/editProfile.js"></script>
 <div class="container">
+    {% set errors = {'firstName' : session.getFlash('firstName'), 'lastName' : session.getFlash('lastName'),
+    'email' : session.getFlash('email'), 'oldPassword' : session.getFlash('oldPassword'), 'password' :
+    session.getFlash('password'), 'confirmNewPassword' :
+    session.getFlash('confirmPassword')} %}
     <div class="left">
         <img src="/light/img/profile.png" class="pfp">
-        <h1>Pragan Detrovic</h1>
+        <h1>{{ user.firstName }} {{ user.lastName }}</h1>
     </div>
     <div class="linija"></div>
     <div class="right">
-<<<<<<< HEAD
         <form action="/user/update" method="POST">
-            <label for="ime">Ime <input type="text" id="ime" value="{{ user.firstName }}" name="firstName"></label>
-            <label for="prezime">Prezime <input type="text" id="prezime" value="{{ user.lastName }}" name="lastName"></label>
-            <label for="email">Email <input type="email" id="email" value="{{ user.email }}" name="email"></label>
-            <label for="password">Lozinka <input type="password" id="password" value="" name="password"></label>
+            <label for="ime">Ime <input type="text" id="ime" class="{% if errors.firstName %}is-invalid{% endif %}"
+                    name="firstName" value="{{ user.firstName }}"></label>
+            <div class="invalid-feedback">
+                {{errors.firstName}}
+            </div>
+            <label for="prezime">Prezime <input type="text" class="{% if errors.lastName %}is-invalid{% endif %}"
+                    id="prezime" name="lastName" value="{{ user.lastName }}"></label>
+            <div class="invalid-feedback">
+                {{errors.lastName}}
+            </div>
+            <label for="email">Email <input type="email" class="{% if errors.email %}is-invalid{% endif %}" id="email"
+                    name="email" value="{{ user.email }}"></label>
+            <div class="invalid-feedback">
+                {{errors.email}}
+            </div>
+            <button id="openModal" type="button">Promeni lozinku</button>
             <label for=""><input type="submit" value="Sačuvaj izmene"></label>
-=======
-        <form action="">
-            <label for="ime">Ime <input type="text" id="ime"></label>
-            
-            <label for="prezime">Prezime <input type="text" id="prezime"></label>
-           
-            <label for="email">Email <input type="email" id="email"></label>
-
-            <button id="openModal">Promeni lozinku</button>
-            
-            <label for=""><input type="submit" value="Sačuvaj izmene" ></label>
->>>>>>> refs/remotes/origin/master
+            <div class="modal" id="modal">
+                <div class="modalContent">
+                    <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
+                    <label for="currentPassword">Trenutna lozinka<input type="password"
+                            class="{% if errors.oldPassword %}is-invalid{% endif %}" id="currentPassword"
+                            name="oldPassword"></label>
+                    <div class="invalid-feedback">
+                        {{errors.oldPassword}}
+                    </div>
+                    <label for="newPassword">Nova lozinka <input type="password"
+                            class="{% if errors.password %}is-invalid{% endif %}" id="newPassword"
+                            name="password"></label>
+                    <div class="invalid-feedback">
+                        {{errors.password}}
+                    </div>
+                    <label for="newPassword">Potvrda lozinke <input type="password"
+                            class="{% if errors.confirmPassword %}is-invalid{% endif %}" id="newPassword"
+                            name="confirmPassword"></label>
+                    <div class="invalid-feedback">
+                        {{errors.confirmNewPassword}}
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>
-    <div class="modal" id="modal">
-        <div class="modalContent">
-            <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
-            <label for="currentPassword">Trenutna lozinka<input type="password" id="currentPassword"></label>
 
-            <label for="newPassword">Nova lozinka <input type="password" id="newPassword"></label>
-            <label for="newPassword">Potvrda lozinke <input type="password" id="newPassword"></label>
-        </div>
-
-    </div>
-
-    <script>
+<script>
     var modal = document.getElementById("modal");
 
     var button = document.getElementById("openModal");
 
     var closeButton = document.getElementById("close");
 
-    button.onclick = function() {
-    modal.style.display = "block";
+    button.onclick = function () {
+        modal.style.display = "block";
     }
 
-    closeButton.onclick = function() {
-    modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-    if (event.target == modal) {
+    closeButton.onclick = function () {
         modal.style.display = "none";
     }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
-    </script>
+</script>

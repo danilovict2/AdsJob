@@ -10,6 +10,7 @@ class Validator{
     private const RULE_MAX = 'max';
     private const RULE_MATCH = 'match';
     private const RULE_UNIQUE = 'unique';
+    private const RULE_USER_PASSWORD = 'user_password';
     private array $errors = [];
 
     public function __construct(
@@ -65,6 +66,13 @@ class Validator{
                     $this->addErrorForRule($ruleName, $attribute, ['field' => $attribute]);
                 }
                 break;
+            case self::RULE_USER_PASSWORD :
+                $user = $rule['user_password'];
+                if($user->password !== $attributeValue){
+                    $this->addErrorForRule($ruleName, $attribute);
+                }
+                break;
+
         }
     }
 
@@ -83,7 +91,8 @@ class Validator{
             self::RULE_MIN => 'Minimalna dužina mora biti {min}',
             self::RULE_MAX => 'Maksimalna dužina mora biti {max}',
             self::RULE_MATCH => 'Ovo polje mora da bude isto kao {match}',
-            self::RULE_UNIQUE => 'Nalog sa ovim {field} već postoji'
+            self::RULE_UNIQUE => 'Nalog sa ovim {field} već postoji',
+            self::RULE_USER_PASSWORD => 'Sifra koju ste uneli je netacna',
         ];
     }
 

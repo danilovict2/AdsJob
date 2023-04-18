@@ -29,10 +29,28 @@ class UserController extends Controller{
         }
     }
 
-    public function update(){
+    public function update() : void{
         $user = User::findOne(['id' => $this->auth->user()->id]);
-        $user->update($this->request->getBodyParameters());
-        $this->response->redirect('/');
+        $validator = new \AdsJob\Validators\Validator([
+            'firstName' => [['min' => 1]],
+            'lastName' => [['min' => 1]],
+            'email' => ['email', $user->email !== $this->request->getBodyParameter('email') ? ['unique' => 'User'] : ''],
+            'oldPassword' => [['user_password' => $this->auth->user()]],
+            'password' => [['min' => 8]],
+            'confirmPassword' => [['match' => 'password']],
+        ]);
+        if($validator->validateForm($this->request->getBodyParameters())){
+            $user->update([
+                'firstName' => $this->request->getBodyParameter('firstName'),
+                'lastName' => $this->request->getBodyParameter('lastName'),
+                'email' => $this->request->getBodyParameter('email'),
+                'password' => $this->request->getBodyParameter('password'),
+            ]);
+            $this->response->redirect('/');
+        }else{
+            $this->setValidationErrors($validator->getErrors());
+            $this->response->redirect('/user/profile/edit');
+        }
     }
 
     public function profile() : void{
