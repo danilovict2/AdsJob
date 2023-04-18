@@ -29,6 +29,30 @@ class UserController extends Controller{
         }
     }
 
+    public function update() : void{
+        $user = User::findOne(['id' => $this->auth->user()->id]);
+        $validator = new \AdsJob\Validators\Validator([
+            'firstName' => [['min' => 1]],
+            'lastName' => [['min' => 1]],
+            'email' => ['email', $user->email !== $this->request->getBodyParameter('email') ? ['unique' => 'User'] : ''],
+            'oldPassword' => [['user_password' => $this->auth->user()]],
+            'password' => [['min' => 8]],
+            'confirmPassword' => [['match' => 'password']],
+        ]);
+        if($validator->validateForm($this->request->getBodyParameters())){
+            $user->update([
+                'firstName' => $this->request->getBodyParameter('firstName'),
+                'lastName' => $this->request->getBodyParameter('lastName'),
+                'email' => $this->request->getBodyParameter('email'),
+                'password' => $this->request->getBodyParameter('password'),
+            ]);
+            $this->response->redirect('/');
+        }else{
+            $this->setValidationErrors($validator->getErrors());
+            $this->response->redirect('/user/profile/edit');
+        }
+    }
+
     public function profile() : void{
         $html = $this->renderer->render('profile.html',$this->requiredData);
         $this->response->setContent($html);
@@ -40,7 +64,8 @@ class UserController extends Controller{
     }
 
     public function editProfile() : void{
-        $html = $this->renderer->render('editProfile.html',$this->requiredData);
+        $data = array_merge($this->requiredData, ['user' => $this->auth->user()]);
+        $html = $this->renderer->render('editProfile.html',$data);
         $this->response->setContent($html);
     }
 
