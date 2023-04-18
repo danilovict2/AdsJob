@@ -29,6 +29,12 @@ class UserController extends Controller{
         }
     }
 
+    public function update(){
+        $user = User::findOne(['id' => $this->auth->user()->id]);
+        $user->update($this->request->getBodyParameters());
+        $this->response->redirect('/');
+    }
+
     public function profile() : void{
         $html = $this->renderer->render('profile.html',$this->requiredData);
         $this->response->setContent($html);
@@ -40,7 +46,8 @@ class UserController extends Controller{
     }
 
     public function editProfile() : void{
-        $html = $this->renderer->render('editProfile.html',$this->requiredData);
+        $data = array_merge($this->requiredData, ['user' => $this->auth->user()]);
+        $html = $this->renderer->render('editProfile.html',$data);
         $this->response->setContent($html);
     }
 
