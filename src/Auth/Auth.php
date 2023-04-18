@@ -34,4 +34,8 @@ class Auth{
     public function isGuest(){
         return !isset($this->user);
     }
+
+    public function user(){
+        return $this->user;
+    }
 }
