@@ -1,5 +1,6 @@
 {% include('navbar.html') %}
 <link rel="stylesheet" href="/light/css/editProfile.css">
+<script src="/javascript/editProfile.js"></script>
 <div class="container">
     <div class="left">
         <img src="/light/img/profile.png" class="pfp">
@@ -7,15 +8,12 @@
     </div>
     <div class="linija"></div>
     <div class="right">
-        <form action="">
-            <label for="ime">Ime <input type="text" id="ime"></label>
-            
-            <label for="prezime">Prezime <input type="text" id="prezime"></label>
-           
-            <label for="email">Email <input type="email" id="email"></label>
-            
-            <label for="password">Lozinka <input type="password" id="password"></label>
-            <label for=""><input type="submit" value="Sačuvaj izmene" ></label>
+        <form action="/user/update" method="POST">
+            <label for="ime">Ime <input type="text" id="ime" value="{{ user.firstName }}" name="firstName"></label>
+            <label for="prezime">Prezime <input type="text" id="prezime" value="{{ user.lastName }}" name="lastName"></label>
+            <label for="email">Email <input type="email" id="email" value="{{ user.email }}" name="email"></label>
+            <label for="password">Lozinka <input type="password" id="password" value="" name="password"></label>
+            <label for=""><input type="submit" value="Sačuvaj izmene"></label>
         </form>
     </div>
 </div>
