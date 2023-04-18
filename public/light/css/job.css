@@ -164,3 +164,9 @@ p.description{
     font-size: 14pt;
     max-width: 1300px;
 }
+
+@media screen and (max-width: 1855px){
+    .ad-description{
+        width: auto;
+    }
+}
