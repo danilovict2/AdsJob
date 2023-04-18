@@ -50,6 +50,10 @@ abstract class Model{
         return $this->values[$key];
     }
 
+    public function __isset(string $property){
+        return true;
+    }
+
     public function save() : void{
         $tableName = static::$tableName;
         $attributes = $this->attributes();

@@ -5,11 +5,11 @@
 
 
 <div class="reviews-container">
-    <h1 ><b>Ocene:</b></h1>
+    <h1><b>Ocene:</b></h1>
     <div class="review">
         <div class="review-info">
             <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> Dragan Šakić</h3>
-            
+
         </div>
         <div class="review-content">
             <h3><i class="fa-solid fa-star" style="color: rgb(11, 135, 237)"></i> 4.7</h3>
@@ -35,7 +35,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
     </div>
-    
+
     <div class="review">
         <div class="review-info">
             <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> Nikola Rikić</h3>
@@ -50,39 +50,41 @@
 <div class="wrapper">
 
 
-<div class="container">
-    <div class="images-title">
-        <div class="title">
-            <h1>{{ job.__get('name') }} </h1>
+    <div class="container">
+        <div class="images-title">
+            <div class="title">
+                <h1>{{ job.name }} </h1>
+            </div>
+
+            <div class="slideshow-container">
+                <div class="slideshow">
+                    <img src="/light/img/salon.jpg" class="slideshow-item">
+
+                </div>
+
+                <div class="arrows">
+                    <i id="Prev" class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+                    <i id="Next" class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+
         </div>
 
-        <div class="slideshow-container">
-        <div class="slideshow">
-            <img src="/light/img/salon.jpg" class="slideshow-item">
+        <div class="info">
 
-        </div>
-
-        <div class="arrows">
-            <i id="Prev" class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
-			<i id="Next" class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+            <div class="userInfo">
+                <h2><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> {{ user.firstName }}
+                    {{ user.lastName }}</h2>
+                <h2><i class="fa-solid fa-location-dot fa-xl" style="color: rgb(11, 135, 237)"></i> {{ job.location }}
+                </h2>
+                <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7</h2>
+            </div>
+            <a href="#message" class="btnLink"><button>Pošalji poruku</button></a>
         </div>
     </div>
-        
-    </div>
-
-    <div class="info">
-        
-        <div class="userInfo">
-            <h2><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> {{ user.__get('firstName') }} {{ user.__get('lastName') }}</h2>
-            <h2><i class="fa-solid fa-location-dot fa-xl" style="color: rgb(11, 135, 237)"></i> {{ job.__get('location') }}</h2>
-            <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7</h2>
-        </div>
-        <a href="#message" class="btnLink"><button>Pošalji poruku</button></a>
-    </div>
-</div>
-
     <div class="ad-description">
-        <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left" style="color: rgb(11, 135, 237)"></i>{{ job.__get('description') }}</p>
-    </div>  
+        <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left"
+                style="color: rgb(11, 135, 237)"></i>{{ job.description }}</p>
+    </div>
 
 </div>

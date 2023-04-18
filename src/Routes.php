@@ -4,7 +4,7 @@ return [
     ['GET', '/', [AdsJob\Controllers\FrontendController::class, 'index']],
     ['GET', '/login', [AdsJob\Controllers\FrontendController::class, 'login']],
     ['GET', '/register', [AdsJob\Controllers\FrontendController::class, 'register']],
-    ['GET', '/messages/{user_id}/', [AdsJob\Controllers\FrontendController::class, 'messages']],
+    ['GET', '/messages/{user_id}', [AdsJob\Controllers\FrontendController::class, 'messages']],
     ['GET', '/p/create', [AdsJob\Controllers\JobController::class, 'create']],
     ['GET', '/p/{job_id}', [AdsJob\Controllers\JobController::class, 'show']],
     ['POST', '/p/store', [AdsJob\Controllers\JobController::class, 'store']],

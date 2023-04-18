@@ -34,11 +34,12 @@ class JobController extends Controller{
         }
         $job = new Job;
         $job->create([
-            'user_id' => User::findOne(['id' => $this->session->get('user')])->id,
+            'user_id' => (int)$this->session->get('user'),
             'name' => $this->request->getBodyParameter('name'),
             'location' => $this->request->getBodyParameter('location'),
             'description' => $this->request->getBodyParameter('description'),
         ]);
+        
         $job->save();
         $this->response->redirect('/');
     }
