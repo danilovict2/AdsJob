@@ -74,6 +74,7 @@ input.pretraga{
     justify-content: center;
     align-items: center;
     width: 150px;
+    text-align: center;
 }
 
 .pretraga:hover{
