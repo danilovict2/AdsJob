@@ -19,6 +19,13 @@ class User extends Model{
         parent::save();
     }
 
+    public function update(array $values){
+        if(key_exists('password', $values)){
+            $values['password'] = password_hash($values['password'], PASSWORD_DEFAULT);
+        }
+        parent::update($values);
+    }
+
     public function jobs(){
         return $this->hasMany(Job::class, 'id', 'user_id');
     }

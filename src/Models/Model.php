@@ -42,7 +42,7 @@ abstract class Model{
         }
     }
 
-    public function __set(string $key, ?string $value) : void{
+    public function __set(string $key, $value) : void{
         $this->values[$key] = $value;
     }
 
@@ -63,6 +63,28 @@ abstract class Model{
             $values["$attribute"] = $this->$attribute ?? '';
         }
         DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
+    }
+
+
+    public function update(array $values){
+        $tableName = static::$tableName;
+        $primaryKey = static::primaryKey();
+        $setClause = implode(', ', array_map(fn($attr) => "$attr = :$attr", array_keys($values)));
+        $values["$primaryKey"] = (int)$this->$primaryKey;
+        DB::rawQuery("UPDATE $tableName SET $setClause WHERE $primaryKey = :$primaryKey", $values);
+        foreach($values as $key => $value){
+            $this->$key = $value;
+        }
+    }
+
+    public function delete() : void {
+        $tableName = static::$tableName;
+        $primaryKey = static::primaryKey();
+        $values = [$primaryKey => $this->$primaryKey];
+        DB::rawQuery("DELETE FROM $tableName WHERE $primaryKey = :$primaryKey", $values);
+        foreach($this->attributes() as $attribute) {
+            unset($this->$attribute);
+        }
     }
 
 }
