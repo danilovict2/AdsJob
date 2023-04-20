@@ -68,7 +68,7 @@ class Validator{
                 break;
             case self::RULE_USER_PASSWORD :
                 $user = $rule['user_password'];
-                if($user->password !== $attributeValue){
+                if(!password_verify($attributeValue, $user->password)){
                     $this->addErrorForRule($ruleName, $attribute);
                 }
                 break;
