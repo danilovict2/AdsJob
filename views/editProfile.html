@@ -29,7 +29,8 @@
             </div>
             <button id="openModal" type="button">Promeni lozinku</button>
             <label for=""><input type="submit" value="Sačuvaj izmene"></label>
-            <div class="modal" id="modal">
+            <div class="modal" id="modal"
+                style="--display: {{ (errors.oldPassword or errors.password or errors.confirmPassword) ? 'block' : 'none' }}">
                 <div class="modalContent">
                     <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
                     <label for="currentPassword">Trenutna lozinka<input type="password"

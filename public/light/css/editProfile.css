@@ -135,7 +135,7 @@ label{
 }
 
 .modal{
-    display: none;
+    display: var(--display);
     position: fixed;
     z-index: 1;
     padding-top: 100px;
