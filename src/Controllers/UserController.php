@@ -22,7 +22,7 @@ class UserController extends Controller{
         $user->create($this->request->getBodyParameters());
         if($validator->validateForm($this->request->getBodyParameters())){
             $user->save();
-            $this->auth->login($user);
+            $this->auth->login(User::findOne(['email' => $user->email]));
             $this->response->redirect('/');
         }else{
             $this->setValidationErrors($validator->getErrors());
