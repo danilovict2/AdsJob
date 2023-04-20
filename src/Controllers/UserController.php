@@ -22,6 +22,7 @@ class UserController extends Controller{
         $user->create($this->request->getBodyParameters());
         if($validator->validateForm($this->request->getBodyParameters())){
             $user->save();
+            $this->auth->login($user);
             $this->response->redirect('/');
         }else{
             $this->setValidationErrors($validator->getErrors());
@@ -30,13 +31,13 @@ class UserController extends Controller{
     }
 
     public function update() : void{
-        $user = User::findOne(['id' => $this->auth->user()->id]);
+        $user = $this->auth->user();
         $validator = new \AdsJob\Validators\Validator([
-            'firstName' => [['min' => 1]],
-            'lastName' => [['min' => 1]],
+            'firstName' => ['required'],
+            'lastName' => ['required'],
             'email' => ['email', $user->email !== $this->request->getBodyParameter('email') ? ['unique' => 'User'] : ''],
-            'oldPassword' => [['user_password' => $this->auth->user()]],
-            'password' => [['min' => 8]],
+            'oldPassword' => [['user_password' => $user]],
+            'password' => [$this->request->getBodyParameter('password') !== '' ? ['min' => 8] : ''],
             'confirmPassword' => [['match' => 'password']],
         ]);
         if($validator->validateForm($this->request->getBodyParameters())){
@@ -44,8 +45,10 @@ class UserController extends Controller{
                 'firstName' => $this->request->getBodyParameter('firstName'),
                 'lastName' => $this->request->getBodyParameter('lastName'),
                 'email' => $this->request->getBodyParameter('email'),
-                'password' => $this->request->getBodyParameter('password'),
             ]);
+            if($this->request->getBodyParameter('password') !== ''){
+                $user->update(['password' => $this->request->getBodyParameter('password')]);
+            }
             $this->response->redirect('/');
         }else{
             $this->setValidationErrors($validator->getErrors());
