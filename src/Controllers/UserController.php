@@ -56,6 +56,12 @@ class UserController extends Controller{
         }
     }
 
+    public function delete() : void{
+        $this->auth->user()->delete();
+        $this->auth->logout();
+        $this->response->redirect('/');
+    }
+
     public function profile() : void{
         $html = $this->renderer->render('profile.html',$this->requiredData);
         $this->response->setContent($html);
