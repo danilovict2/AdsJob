@@ -9,6 +9,62 @@ a{
     text-decoration: none;
 }
 
+.modal{
+    display: none;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modalContent{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-color: white;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 20px;
+    padding: 30px;
+    font-size: 18pt;
+    text-align: center;
+}
+
+#close{
+    text-align: right;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#close2{
+    background-color: rgb(11, 135, 237);
+    color: white;
+    cursor: pointer;
+    font-size: 18pt;
+    width: 200px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    display: block;
+}
+
+.cancel{
+    display: inline-block;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    padding-top:50px;
+}
+
 .container{
     position: absolute;
     top:50%;
@@ -36,8 +92,9 @@ h2{
 
 h3{
     display: inline;
-
+    padding-bottom: 60px;
 }
+
 
 @media screen and (max-width: 1530px){
     .container{

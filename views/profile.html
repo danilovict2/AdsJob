@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/light/css/profile.css">
 <script src="https://kit.fontawesome.com/0b0d98cfb6.js" crossorigin="anonymous"></script>
 
+
 <div class="container">
     <div class="profile-settings">
        
@@ -21,6 +22,20 @@
     </div>
     <div class="delete">
         <h1><i class="fa-solid fa-trash-can" style="color: #0b87ed;"></i> Brisanje naloga</h1>
-        <a href="#"><h2>Obriši nalog</h2></a>
+        <a href="#" id="openModal"><h2>Obriši nalog</h2></a>
+            <div class="modal" id="modal">
+            <div class="modalContent">
+                <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
+                <h3><b> Brisanjem naloga, svi vaši oglasi, recenzije i poruke biće obrisane!</b></h3>
+                <h3><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i> Da li ste sigurni? Ova radnja se ne može poništiti <i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></h3>
+                <div class="buttons">
+                <button id="close2" type="button">Da, izbriši nalog</button>
+                <button id="close2" type="button" class="cancel">Ne, otkaži</button>
+            </div>
+            </div>
+        </div>
     </div>
+
 </div>
+
+<script src="/javascript/modal.js"></script>
