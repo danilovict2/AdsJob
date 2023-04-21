@@ -12,6 +12,7 @@ body{
 h1{
     color: rgb(11, 135, 237);
     font-weight: bold;
+    margin-left: 30px;
 }
 
 .linija{
@@ -45,7 +46,7 @@ h1{
     margin: 60px;
     margin-right: 190px;
     padding: 40px;
-    margin-left: 120px;
+    margin-left: 90px;
 }
 
 .right{
@@ -123,7 +124,7 @@ label{
     padding-left: 40px;
     color: rgb(11, 135, 237);
     font-weight: bold;
-}
+}   
 
 .is-invalid {            
     border: 1px solid rgb(255, 0, 0); 
