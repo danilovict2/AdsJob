@@ -9,6 +9,7 @@ return new class{
                 id INT NOT NULL AUTO_INCREMENT,
                 firstName VARCHAR(255) NOT NULL,
                 lastName VARCHAR(255) NOT NULL,
+                profilePicture VARCHAR(255),
                 email VARCHAR(255) NOT NULL UNIQUE,
                 password VARCHAR(255) NOT NULL,
                 
