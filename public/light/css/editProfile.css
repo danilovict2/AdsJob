@@ -63,7 +63,7 @@ form{
     margin-top: 40px;
 }
 
-input{
+input:not([type=file]){
     float: right;
     background-color: white;
     border: 2px solid rgb(11, 135, 237);
@@ -80,6 +80,10 @@ input:-webkit-autofill{
 
 input:focus{
     outline: rgb(11, 135, 237);
+}
+
+input[type=file]{
+    display: none;
 }
 
 #openModal{

@@ -1,0 +1,78 @@
+.container{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-color: white;
+    border: 1px solid rgb(11, 135, 237);
+    border-radius: 20px;
+    width: max-content;
+    height: max-content;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    color: rgb(11, 135, 237);
+    font-weight: bold;
+}
+
+.sve-usluge, .archived{
+    color: rgb(11, 135, 237);
+    text-align: center;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    border-bottom: 2px solid rgb(11, 135, 237);
+    padding: 30px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: absolute;
+    right: 100px;
+}
+
+.active{
+    background-color: rgb(11, 135, 237);
+    color: white;
+    border-radius: 40px; 
+    text-align: center;
+    cursor: pointer;
+    width: 300px;
+}
+
+.archived{
+    border: 2px solid rgb(11, 135, 237);
+    color: rgb(11, 135, 237);
+    border-radius: 40px; 
+    text-align: center;
+    cursor: pointer;
+    width: 300px;
+}
+
+.archived:hover, .active:hover{
+    background-color: rgb(75, 168, 245);
+    color: white;
+}
+
+.oglasi{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.oglas{
+    border: 1px solid rgb(11, 135, 237);
+}
+
+.slika img{
+    width: 250px;
+}

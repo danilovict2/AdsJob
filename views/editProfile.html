@@ -6,7 +6,8 @@
     session.getFlash('password'), 'confirmNewPassword' :
     session.getFlash('confirmPassword')} %}
     <div class="left">
-        <img src="/light/img/profile.png" class="pfp">
+        <input type="file" accept="image/*" id="image">
+        <label for="image"><img src="/light/img/profile.png" class="pfp"></label>
         <h1>{{ user.firstName }} {{ user.lastName }}</h1>
     </div>
     <div class="linija"></div>
@@ -58,5 +59,4 @@
     </div>
 </div>
 
-<script src="/javascript/modal.js">
-</script>
+<script src="/javascript/modal.js"></script>
