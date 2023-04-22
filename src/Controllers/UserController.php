@@ -36,7 +36,7 @@ class UserController extends Controller{
             'firstName' => ['required'],
             'lastName' => ['required'],
             'email' => ['email', $user->email !== $this->request->getBodyParameter('email') ? ['unique' => 'User'] : ''],
-            'oldPassword' => [['user_password' => $user]],
+            'oldPassword' => [$this->request->getBodyParameter('password') !== '' ? ['user_password' => $user] : ''],
             'password' => [$this->request->getBodyParameter('password') !== '' ? ['min' => 8] : ''],
             'confirmPassword' => [['match' => 'password']],
         ]);

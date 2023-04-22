@@ -2,9 +2,8 @@ let modal = document.getElementById("modal");
 
 let button = document.getElementById("openModal");
 
-let closeButton2= document.getElementById("close");
-
 let closeButton = document.getElementById("close3");
+let closeButton2 = document.getElementById("close");
 
 
 button.onclick = function () {
@@ -14,7 +13,6 @@ button.onclick = function () {
 closeButton.onclick = function () {
     modal.style.display = "none";
 }
-
 closeButton2.onclick = function () {
     modal.style.display = "none";
 }
