@@ -9,14 +9,14 @@
     padding: 10px;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 10px;
-    width: 1300px;
+    width: 1600px;
     height: 850px;
     margin-top: 20px;
     padding-left: 50px;
 }
 
 .input-images-box{
-    width: 250px;
+    width: 200px;
     height: 200px;
     display:flex;
     align-items: center;
@@ -26,7 +26,21 @@
     background-color: white;
     flex-direction: column;
     cursor: pointer;
+    object-fit: cover;
 }
+
+a{
+    z-index: 1;
+    text-decoration: none;
+}
+
+.jobImage {
+    width: 200px;   
+    height: 200px;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 20px;
+    object-fit:cover;
+  }
 
 p{
     margin-top: -25px;
@@ -73,6 +87,7 @@ select , select:focus, option , option:focus{
 
 .jobImage{
     height: 198px;
+    margin:0px 5px;
 }
 
 .potvrdi{
@@ -89,5 +104,6 @@ select , select:focus, option , option:focus{
 .input-images{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: left;
 }
 
