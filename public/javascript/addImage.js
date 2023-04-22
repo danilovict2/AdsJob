@@ -1,5 +1,3 @@
-let form = document.querySelector('#job-data-form');
-let formData = new FormData(form);
 document.querySelector('#images').addEventListener("change", (event) =>{
     if(window.File && window.FileReader && window.FileList && window.Blob){
         const files = event.target.files;
@@ -13,7 +11,6 @@ document.querySelector('#images').addEventListener("change", (event) =>{
                 output.appendChild(div);
             });
             picReader.readAsDataURL(file);
-            formData.append(file.name, file);
         }
     }else{
         alert("Your browser doesn't support file API");

@@ -60,7 +60,7 @@ class UserController extends Controller{
         $imageName = uniqid('PFP-', true) . '.' . strtolower(pathinfo($this->request->getFile('image')['name'])['extension']);
         $imagePath = 'storage/profilePictures/' . $imageName;
         move_uploaded_file($this->request->getFile('image')['tmp_name'], $imagePath);
-        if(file_exists($this->auth->user()->profilePicture)){
+        if(file_exists($this->auth->user()->profilePicture ?? '')){
             unlink($this->auth->user()->profilePicture);
         }
         $this->auth->user()->update(['profilePicture' => $imagePath]);
