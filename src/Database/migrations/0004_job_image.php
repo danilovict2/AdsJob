@@ -18,7 +18,7 @@ return new class{
     }
 
     public function down() : string{
-        $SQL = 'DROP TABLE IF EXISTS job_review';
+        $SQL = 'DROP TABLE IF EXISTS job_image';
         return $SQL;
     }
 
