@@ -74,15 +74,17 @@
                 </div>
 
                 <div class="arrows">
-                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></a>
-                    <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i></a>
-    
+                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left fa-2x"
+                            aria-hidden="true"></i></a>
+                    <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right fa-2x"
+                            aria-hidden="true"></i></a>
+
                 </div>
                 <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span> 
-                    <span class="dot" onclick="currentSlide(2)"></span> 
-                    <span class="dot" onclick="currentSlide(3)"></span> 
-                  </div>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
             </div>
 
         </div>
@@ -90,8 +92,16 @@
         <div class="info">
 
             <div class="userInfo">
-                <h2><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> {{ user.firstName }}
-                    {{ user.lastName }}</h2>
+
+                <h2>
+                    {% if user.profilePicture %}
+                        <img src="/{{ user.profilePicture }}">
+                    {% else %}
+                        <i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i>
+                    {% endif %}
+                    {{ user.firstName }}
+                    {{ user.lastName }}
+                </h2>
                 <h2><i class="fa-solid fa-location-dot fa-xl" style="color: rgb(11, 135, 237)"></i> {{ job.location }}
                 </h2>
                 <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7</h2>
