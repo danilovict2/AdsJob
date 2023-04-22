@@ -50,6 +50,10 @@ h2{
     font-weight: bold;
 }
 
+h2 > img{
+    width: 100px;
+}
+
 h3{
     color: rgb(11, 135, 237);
 }
