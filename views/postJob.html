@@ -2,27 +2,37 @@
 
 <link rel="stylesheet" href="/light/css/post-job.css">
 <div class="container">
-    {% set errors = {'name' : session.getFlash('name'), 'location' : session.getFlash('location'), 'description' : session.getFlash('description')} %}
-    <form action="/p/store" method="POST">
+    {% set errors = {'name' : session.getFlash('name'), 'location' : session.getFlash('location'), 'description' :
+    session.getFlash('description')} %}
+    <form action="/p/store" method="POST" enctype="multipart/form-data" id="job-data-form">
+        <h2>Slike:</h2>
         <div class="input-images">
-            <h2>Slike:</h2>
-            <input type="file" accept="image/*" multiple id="images">
-            <label for="images" class="input-images-box"><p>Max 5 slika</p><i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i></label>
+            <input type="file" multiple accept="image/*" id="images" name="images">
+            <label for="images" class="input-images-box">
+                <p>Max 5 slika</p><i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
+            </label>
+            <output id="result"></output>
         </div>
-        
         <div class="info">
-            <label for="name"><h2>Naziv usluge:</h2></label>
+            <label for="name">
+                <h2>Naziv usluge:</h2>
+            </label>
             <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
             <div class="invalid-feedback">
                 {{errors.name}}
             </div>
-            <label for="location" class="mestoSearch"><h2>Mesto: </h2></label>
+            <label for="location" class="mestoSearch">
+                <h2>Mesto: </h2>
+            </label>
             <input type="text" name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
             <div class="invalid-feedback">
                 {{errors.location}}
             </div>
-            <label for="description"><h2>Opis: </h2></label>
-            <textarea name="description" id="description" cols="70" rows="8" class="{% if errors.description %}is-invalid{% endif %}" style="resize: none;"></textarea>
+            <label for="description">
+                <h2>Opis: </h2>
+            </label>
+            <textarea name="description" id="description" cols="70" rows="8"
+                class="{% if errors.description %}is-invalid{% endif %}" style="resize: none;"></textarea>
             <div class="invalid-feedback">
                 {{errors.description}}
             </div>
@@ -30,3 +40,4 @@
         <input type="submit" value="Postavi uslugu" class="potvrdi">
     </form>
 </div>
+<script src="/javascript/addImage.js"></script>

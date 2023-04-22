@@ -67,6 +67,14 @@ select , select:focus, option , option:focus{
     height: 40px;
 }
 
+#result{
+    display: flex;
+}
+
+.jobImage{
+    height: 198px;
+}
+
 .potvrdi{
     float: right;
     background-color: rgb(11, 135, 237);
@@ -77,3 +85,9 @@ select , select:focus, option , option:focus{
     padding: 10px;
     width: max-content;
 }
+
+.input-images{
+    display: flex;
+    flex-direction: row-reverse;
+}
+

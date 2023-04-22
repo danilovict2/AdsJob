@@ -21,4 +21,8 @@ class Job extends Model{
     public function reviews(){
         return $this->hasMany(Review::class, 'id', 'job_id');
     }
+
+    public function jobImages(){
+        return $this->hasMany(JobImage::class, 'id', 'job_id');
+    }
 }
