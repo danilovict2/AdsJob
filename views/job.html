@@ -57,15 +57,32 @@
             </div>
 
             <div class="slideshow-container">
-                <div class="slideshow">
-                    <img src="/light/img/salon.jpg" class="slideshow-item">
 
+                <div class="slide">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="/light/img/salon.jpg" class="slideshow-item">
+                </div>
+
+                <div class="slide">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="/light/img/background.png" class="slideshow-item">
+                </div>
+
+                <div class="slide">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="/light/img/profile.png" class="slideshow-item">
                 </div>
 
                 <div class="arrows">
-                    <i id="Prev" class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
-                    <i id="Next" class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+                    <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></a>
+                    <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i></a>
+    
                 </div>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                  </div>
             </div>
 
         </div>
@@ -88,3 +105,5 @@
     </div>
 
 </div>
+
+<script src="/javascript/slideshow.js"></script>
