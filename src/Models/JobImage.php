@@ -7,7 +7,7 @@ class JobImage extends Model{
     protected static string $tableName = "job_image";
 
     protected function attributes() : array{
-        return ['id', 'job_id', 'imagePath'];
+        return ['job_id', 'imagePath'];
     }
 
     public static function primaryKey() : string{
