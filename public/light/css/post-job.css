@@ -16,7 +16,7 @@
 }
 
 .input-images-box{
-    width: 600px;
+    width: 200px;
     height: 200px;
     display:flex;
     align-items: center;
@@ -29,9 +29,8 @@
     object-fit: cover;
 }
 
-a{
-    z-index: 3;
-    text-decoration: none;
+.input-container{
+    margin-left: -50px;
 }
 
 .jobImage {
@@ -102,7 +101,8 @@ select , select:focus, option , option:focus{
 }
 
 .input-images{
-    display: flex;
-    flex-direction:row-reverse;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    margin-left: 50px;
 }
 
