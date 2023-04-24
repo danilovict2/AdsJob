@@ -1,18 +1,8 @@
-document.querySelector('#images').addEventListener("change", (event) =>{
-    if(window.File && window.FileReader && window.FileList && window.Blob){
-        const files = event.target.files;
-        const output = document.querySelector('#result');
-        for(let file of files){
-            const picReader = new FileReader();
-            picReader.addEventListener("load", e =>{
-                const picFile = e.target;
-                const div = document.createElement('div');
-                div.innerHTML = `<img class="jobImage" src=${picFile.result}></img>`;
-                output.appendChild(div);
-            });
-            picReader.readAsDataURL(file);
-        }
-    }else{
-        alert("Your browser doesn't support file API");
-    }
-});
+let images = document.querySelectorAll("input[type='file']");
+
+for(let image of images){
+    image.addEventListener("change", event =>{
+        let label = document.querySelector(`label[for='${image.id}']`);
+        label.classList.replace("input-images-box", "jobImage");
+    });
+}

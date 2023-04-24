@@ -43,7 +43,7 @@ h2{
     font-weight:bold ;
 }
 
-#images{
+.images{
     opacity: 0;
     height: 0;
 }

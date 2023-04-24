@@ -55,24 +55,13 @@
             <div class="title">
                 <h1>{{ job.name }} </h1>
             </div>
-
             <div class="slideshow-container">
-
-                <div class="slide">
-                    <div class="numbertext">1 / 3</div>
-                    <img src="/light/img/salon.jpg" class="slideshow-item">
-                </div>
-
-                <div class="slide">
-                    <div class="numbertext">2 / 3</div>
-                    <img src="/light/img/background.png" class="slideshow-item">
-                </div>
-
-                <div class="slide">
-                    <div class="numbertext">3 / 3</div>
-                    <img src="/light/img/profile.png" class="slideshow-item">
-                </div>
-
+                {% for image in jobImages %}
+                    <div class="slide">
+                        <img src="/{{ image['imagePath'] }}" class="slideshow-item">
+                    </div>    
+                {% endfor %}
+                
                 <div class="arrows">
                     <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left fa-2x"
                             aria-hidden="true"></i></a>
@@ -81,9 +70,9 @@
 
                 </div>
                 <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
+                    {% for image in jobImages %}
+                        <span class="dot" onclick="currentSlide({{ loop.index }});"></span>
+                    {% endfor %}
                 </div>
             </div>
 
