@@ -2,8 +2,6 @@
 
 namespace AdsJob\Controllers;
 
-use AdsJob\Database\DB;
-
 class FrontendController extends Controller{
 
     public function index() : void{

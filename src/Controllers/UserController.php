@@ -78,11 +78,6 @@ class UserController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function myReviews() : void{
-        $html = $this->renderer->render('reviews.html',$this->requiredData);
-        $this->response->setContent($html);
-    }
-
     public function editProfile() : void{
         $data = array_merge($this->requiredData, ['user' => $this->auth->user()]);
         $html = $this->renderer->render('editProfile.html',$data);
@@ -93,5 +88,4 @@ class UserController extends Controller{
         $html = $this->renderer->render('myJobs.html', $this->requiredData);
         $this->response->setContent($html);
     }
-
 }

@@ -47,7 +47,12 @@ abstract class Model{
     }
 
     public function __get(string $key){
-        return $this->values[$key];
+        $tableName = static::$tableName;
+        $primaryKey = self::primaryKey();
+        if(array_key_exists($key, $this->values)){
+            return DB::rawQuery("SELECT $key FROM $tableName WHERE $primaryKey = " . $this->values["$primaryKey"])
+            ->fetch()[$key];
+        }
     }
 
     public function __isset(string $property){

@@ -12,7 +12,6 @@ return [
     ['POST', '/review/store', [AdsJob\Controllers\ReviewController::class, 'store']],
     ['POST', '/user/store', [AdsJob\Controllers\UserController::class, 'store']],
     ['GET', '/user/profile', [AdsJob\Controllers\UserController::class, 'profile']],
-    ['GET', '/user/reviews', [AdsJob\Controllers\UserController::class, 'myReviews']],
     ['GET', '/user/profile/edit', [AdsJob\Controllers\UserController::class, 'editProfile']],
     ['GET', '/user/jobs', [AdsJob\Controllers\UserController::class, 'myJobs']],
     ['POST', '/user/update', [AdsJob\Controllers\UserController::class, 'update']],
