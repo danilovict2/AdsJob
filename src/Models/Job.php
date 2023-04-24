@@ -22,7 +22,7 @@ class Job extends Model{
         return $this->hasMany(Review::class, 'id', 'job_id');
     }
 
-    public function jobImages(){
+    public function images(){
         return $this->hasMany(JobImage::class, 'id', 'job_id');
     }
 }

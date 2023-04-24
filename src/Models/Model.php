@@ -24,7 +24,7 @@ abstract class Model{
     public static function findOne(array $where){
         $tableName = static::$tableName;
         $attributes = array_keys($where);
-        $whereClause = implode('AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
+        $whereClause = implode(' AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
         $values = [];
         foreach($where as $key => $value){
             $values["$key"] = $value;
@@ -47,12 +47,7 @@ abstract class Model{
     }
 
     public function __get(string $key){
-        $tableName = static::$tableName;
-        $primaryKey = self::primaryKey();
-        if(array_key_exists($key, $this->values)){
-            return DB::rawQuery("SELECT $key FROM $tableName WHERE $primaryKey = " . $this->values["$primaryKey"])
-            ->fetch()[$key];
-        }
+        return $this->values[$key];
     }
 
     public function __isset(string $property){

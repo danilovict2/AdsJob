@@ -87,5 +87,5 @@ class UserController extends Controller{
     public function myJobs() : void{
         $html = $this->renderer->render('myJobs.html', $this->requiredData);
         $this->response->setContent($html);
-    }
+    }   
 }

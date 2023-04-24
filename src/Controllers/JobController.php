@@ -2,6 +2,7 @@
 
 namespace AdsJob\Controllers;
 use AdsJob\Models\Job;
+use AdsJob\Models\JobImage;
 use AdsJob\Models\User;
 
 class JobController extends Controller{
@@ -18,7 +19,7 @@ class JobController extends Controller{
             return;
         }
         $user = User::findOne(['id' => $job->user_id]);
-        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job],$this->requiredData));
+        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job, 'jobImages' => $job->images()],$this->requiredData));
         $this->response->setContent($html);
     }
 
@@ -32,6 +33,21 @@ class JobController extends Controller{
             $this->response->redirect('/p/create');
             return;
         }
+        $hasImage = false;
+        $this->storeJob();
+        foreach($this->request->getFiles() as $file){
+            $hasImage = $this->storeJobImage($file) || $hasImage;
+        }
+        if(!$hasImage){
+            $validator->addError("slika", "Jedna slika je obavezna");
+            $this->setValidationErrors($validator->getErrors());
+            $this->response->redirect('/p/create');
+            return;
+        }
+        $this->response->redirect('/');
+    }
+
+    private function storeJob(){
         $job = new Job;
         $job->create([
             'user_id' => (int)$this->session->get('user'),
@@ -39,8 +55,21 @@ class JobController extends Controller{
             'location' => $this->request->getBodyParameter('location'),
             'description' => $this->request->getBodyParameter('description'),
         ]);
-        
         $job->save();
-        $this->response->redirect('/');
+    }
+
+    private function storeJobImage($image) : bool{
+        if($image['tmp_name'] === '')return false;
+        $imageName = uniqid('JOB-', true) . '.' . strtolower(pathinfo($image['name'])['extension']);
+        $imagePath = 'storage/jobImages/' . $imageName;
+        move_uploaded_file($image['tmp_name'], $imagePath);
+        $jobImage = new JobImage;
+        $job = Job::findOne($this->request->getBodyParameters());
+        $jobImage->create([
+            'job_id' => (int)$job->id,
+            'imagePath' => $imagePath
+        ]);
+        $jobImage->save();
+        return true;
     }
 }
