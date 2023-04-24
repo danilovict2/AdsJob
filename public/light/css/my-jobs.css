@@ -17,6 +17,19 @@ a{
 h1{
     color: rgb(11, 135, 237);
     font-weight: bold;
+    text-align: center;
+}
+
+.description-content{
+    max-width: 60em;
+    margin-left: 50px;
+    text-align: left;
+}
+
+.mesto{
+    float: right;
+    margin-right: 60px;
+    margin-top: 30px;
 }
 
 .sve-usluge, .archived{
@@ -67,12 +80,236 @@ h1{
     margin: 50px;
     display: flex;
     flex-direction: column;
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .oglas{
     border: 1px solid rgb(11, 135, 237);
+    display: flex;
+    flex-direction: row;
+    width: 100em;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.oglas i{
+    padding: 10px;
+    margin-top: 30px;
 }
 
 .slika img{
     width: 250px;
+    border-radius: 8px 0px 0px 8px;
+    height: 100%;
+}
+
+@media screen and (max-width: 1640px){
+    .container{
+        width: 80em;
+    }
+    .oglasi, .oglas{
+        width: 73em;
+    }
+    h1{
+        font-size:17pt;
+    }
+    h2, h3{
+        font-size: 15pt;
+    }
+    .description-content{
+        max-width: 35em;
+    }
+}
+
+@media screen and (max-width: 1230px){
+    .container{
+        width: 70em;
+    }
+    .oglasi, .oglas{
+        width: 63em;
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 13pt;
+    }
+    .active,.archived{
+        width: 200px;
+    }
+    .description-content{
+        max-width: 30em;
+        font-size: 10pt;
+    }
+}
+
+@media screen and (max-width: 1090px){
+    .container{
+        width: 60em;
+    }
+    .oglasi, .oglas{
+        width: 53em;
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 13pt;
+    }
+    .active,.archived{
+        width: 200px;
+    }
+    .description-content{
+        max-width: 25em;
+        margin-left: 10px;
+        font-size: 10pt;
+    }
+    .mesto{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 930px){
+    .container{
+        width: 50em;
+    }
+    .oglasi, .oglas{
+        width: 43em;
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 13pt;
+    }
+    .active,.archived{
+        width: 200px;
+    }
+    .description-content{
+        max-width: 22em;
+        font-size: 10pt;
+    }
+    .mesto{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 780px){
+    .container{
+        width: 800px;
+        padding-top: 50px;
+        overflow: hidden;
+    }
+    .oglasi{
+        width: 53em;
+        margin: 0px;
+        height: 700px;
+    }
+    .oglas{
+        width: 50em;
+        margin: 0px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 12pt;
+    }
+    .active,.archived{
+        width: 150px;
+    }
+    .description-content{
+        max-width: 22em;
+        font-size: 10pt;
+    }
+    .mesto{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 730px){
+    .container{
+        width: 600px;
+        padding-top: 50px;
+        overflow: hidden;
+    }
+    .oglasi{
+        width: 40em;
+        margin: 0px;
+        height: 700px;
+    }
+    .oglas{
+        width: 37em;
+        margin: 0px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 12pt;
+    }
+    .active,.archived{
+        width: 150px;
+    }
+    .description-content{
+        max-width: 22em;
+        max-height: 1em;
+        font-size: 10pt;
+    }
+    .mesto{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .container{
+        width: 325px;
+        padding-top: 50px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    .header{
+        padding-left: 30px;
+    }
+    .oglasi{
+        width: 400px;
+        margin: 0px;
+        height: 700px;
+    }
+    .oglas{
+        width: 290px;
+        height: 70px;
+        margin: 0px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    h1{
+        font-size:12pt;
+    }
+    h2, h3{
+        font-size: 10pt;
+    }
+    .active,.archived{
+        display: none;
+    }
+    .description-content{
+        display: none;
+    }
+    .mesto{
+        margin-right: 0px;
+        margin-top: -20px;
+    }
+    .slika img{
+        width: 100px;
+    }
 }
