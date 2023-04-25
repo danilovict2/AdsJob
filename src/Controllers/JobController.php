@@ -39,7 +39,7 @@ class JobController extends Controller{
             $hasImage = $this->storeJobImage($file) || $hasImage;
         }
         if(!$hasImage){
-            $validator->addError("slika", "Jedna slika je obavezna");
+            $validator->addError("image", "Jedna slika je obavezna");
             $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/p/create');
             return;
