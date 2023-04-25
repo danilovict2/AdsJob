@@ -43,11 +43,17 @@ abstract class Model{
     }
 
     public function __set(string $key, $value) : void{
+        if($key === static::primaryKey() && debug_backtrace()[1]['function'] !== 'fetchObject'){
+            return;
+        }
         $this->values[$key] = $value;
     }
 
     public function __get(string $key){
-        return $this->values[$key];
+        $tableName = static::tableName();
+        $primaryKey = static::primaryKey();
+        return DB::rawQuery("SELECT $key FROM $tableName WHERE $primaryKey = :$primaryKey", 
+        [$primaryKey => $this->values[$primaryKey]])->fetchColumn();
     }
 
     public function __isset(string $property){
