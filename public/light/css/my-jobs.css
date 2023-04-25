@@ -6,7 +6,7 @@
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
-    width: max-content;
+    width: 1700px;
     height: max-content;
 }
 
@@ -17,7 +17,7 @@ a{
 h1{
     color: rgb(11, 135, 237);
     font-weight: bold;
-    text-align: center;
+    margin-left: 400px;
 }
 
 .description-content{
@@ -27,9 +27,11 @@ h1{
 }
 
 .mesto{
-    float: right;
+    position: absolute;
+    right: 50px;
     margin-right: 60px;
-    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
 .sve-usluge, .archived{
@@ -88,7 +90,8 @@ h1{
     border: 1px solid rgb(11, 135, 237);
     display: flex;
     flex-direction: row;
-    width: 100em;
+    width: 105em;
+    height: 10em;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -235,6 +238,82 @@ h1{
 @media screen and (max-width: 730px){
     .container{
         width: 600px;
+        padding-top: 50px;
+        overflow: hidden;
+    }
+    .oglasi{
+        width: 40em;
+        margin: 0px;
+        height: 700px;
+    }
+    .oglas{
+        width: 37em;
+        margin: 0px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 12pt;
+    }
+    .active,.archived{
+        width: 150px;
+    }
+    .description-content{
+        max-width: 22em;
+        max-height: 1em;
+        font-size: 10pt;
+    }
+    .mesto{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 625px){
+    .container{
+        width: 550px;
+        padding-top: 50px;
+        overflow: hidden;
+    }
+    .oglasi{
+        width: 40em;
+        margin: 0px;
+        height: 700px;
+    }
+    .oglas{
+        width: 37em;
+        margin: 0px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+    }
+    h1{
+        font-size:15pt;
+    }
+    h2, h3{
+        font-size: 12pt;
+    }
+    .active,.archived{
+        width: 150px;
+    }
+    .description-content{
+        max-width: 22em;
+        max-height: 1em;
+        font-size: 10pt;
+    }
+    .mesto{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .container{
+        width: 420px;
         padding-top: 50px;
         overflow: hidden;
     }

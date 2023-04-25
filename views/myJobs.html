@@ -25,13 +25,13 @@
                     <img src="/{{ job['imagePath']}}">
                 </div>
                 <div class="description">
-                    <h1>{{ job['title'] }}</h1>
+                    <h1>{{ job['name'] }}</h1>
                     <p class="description-content">{{ job['description'] }}</p>
                 </div>
                 <div class="mesto">
                     <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ job['location'] }}</h1>
-                </div>
-                <a href=""><i class="fa-solid fa-ellipsis-vertical fa-2xl" style="color: #0b87ed;"></i></a>
+                    <a href=""><i class="fa-solid fa-ellipsis-vertical fa-2xl" style="color: #0b87ed;"></i></a>
+                </div> 
             </div>
         {% endfor %}
     </div>
