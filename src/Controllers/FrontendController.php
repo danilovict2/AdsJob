@@ -2,6 +2,8 @@
 
 namespace AdsJob\Controllers;
 
+use AdsJob\Models\User;
+
 class FrontendController extends Controller{
 
     public function index() : void{
