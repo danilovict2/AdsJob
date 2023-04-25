@@ -87,10 +87,6 @@ class UserController extends Controller{
 
     public function myJobs() : void{
         $jobs = $this->auth->user()->jobs();
-        foreach($jobs as &$userJob){
-            $job = JobImage::findOne(['job_id' => $userJob['id']]);
-            $userJob['imagePath'] = $job->imagePath ?? '';
-        }
         $html = $this->renderer->render('myJobs.html', array_merge(['jobs' => $jobs], $this->requiredData));
         $this->response->setContent($html);
     }   

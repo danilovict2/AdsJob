@@ -43,11 +43,19 @@ abstract class Model{
     }
 
     public function __set(string $key, $value) : void{
+        if($key === static::primaryKey() && debug_backtrace()[1]['function'] !== 'fetchObject'){
+            return;
+        }
         $this->values[$key] = $value;
     }
 
     public function __get(string $key){
-        return $this->values[$key];
+        $tableName = static::tableName();
+        $primaryKey = static::primaryKey();
+        if(isset($this->values[$primaryKey])){
+            return DB::rawQuery("SELECT $key FROM $tableName WHERE $primaryKey = :$primaryKey", 
+            [$primaryKey => $this->values[$primaryKey]])->fetchColumn();
+        }
     }
 
     public function __isset(string $property){
@@ -60,9 +68,10 @@ abstract class Model{
         $params = array_map(fn($attr) => ":$attr", $attributes);
         $values = [];
         foreach($attributes as $attribute){
-            $values["$attribute"] = $this->$attribute ?? '';
+            $values["$attribute"] = $this->values[$attribute] ?? '';
         }
         DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
+        $this->values[static::primaryKey()] = DB::lastInsertId();
     }
 
 

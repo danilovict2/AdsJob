@@ -22,16 +22,16 @@
         {% for job in jobs %}
             <div class="oglas">
                 <div class="slika">
-                    <img src="/{{ job['imagePath']}}">
+                    <img src="/{{ job.images()[0].imagePath }}">
                 </div>
                 <div class="description">
-                    <h1>{{ job['name'] }}</h1>
-                    <p class="description-content">{{ job['description'] }}</p>
+                    <h1>{{ job.name }}</h1>
+                    <p class="description-content">{{ job.description }}</p>
                 </div>
                 <div class="mesto">
-                    <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ job['location'] }}</h1>
-                    <a href=""><i class="fa-solid fa-ellipsis-vertical fa-2xl" style="color: #0b87ed;"></i></a>
-                </div> 
+                    <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ job.location }}</h1>
+                </div>
+                <a href=""><i class="fa-solid fa-ellipsis-vertical fa-2xl" style="color: #0b87ed;"></i></a>
             </div>
         {% endfor %}
     </div>

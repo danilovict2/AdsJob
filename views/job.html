@@ -56,9 +56,9 @@
                 <h1>{{ job.name }} </h1>
             </div>
             <div class="slideshow-container">
-                {% for image in jobImages %}
+                {% for image in job.images() %}
                     <div class="slide">
-                        <img src="/{{ image['imagePath'] }}" class="slideshow-item">
+                        <img src="/{{ image.imagePath }}" class="slideshow-item">
                     </div>    
                 {% endfor %}
                 

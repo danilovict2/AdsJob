@@ -19,7 +19,7 @@ class JobController extends Controller{
             return;
         }
         $user = User::findOne(['id' => $job->user_id]);
-        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job, 'jobImages' => $job->images()],$this->requiredData));
+        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job],$this->requiredData));
         $this->response->setContent($html);
     }
 
@@ -28,22 +28,19 @@ class JobController extends Controller{
             'name' => ['required', ['max' => 30]],
             'location' => ['required', ['max' => 30]],
         ]);
-        if(!$validator->validateForm($this->request->getBodyParameters())){
-            $this->setValidationErrors($validator->getErrors());
-            $this->response->redirect('/p/create');
-            return;
-        }
         $hasImage = false;
-        $this->storeJob();
         foreach($this->request->getFiles() as $file){
-            $hasImage = $this->storeJobImage($file) || $hasImage;
+            $hasImage = $file['tmp_name'] !== '' || $hasImage;
         }
         if(!$hasImage){
-            $validator->addError("slika", "Jedna slika je obavezna");
+            $validator->addError("image", "Jedna slika je obavezna");
+        }
+        if(!$validator->validateForm($this->request->getBodyParameters()) || !$hasImage){
             $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/p/create');
             return;
         }
+        $this->storeJob();
         $this->response->redirect('/');
     }
 
@@ -56,20 +53,21 @@ class JobController extends Controller{
             'description' => $this->request->getBodyParameter('description'),
         ]);
         $job->save();
+        foreach($this->request->getFiles() as $file){
+            $this->storeJobImage($file, $job);
+        }
     }
 
-    private function storeJobImage($image) : bool{
-        if($image['tmp_name'] === '')return false;
+    private function storeJobImage($image, $job) : void{
+        if($image['tmp_name'] === '')return;
         $imageName = uniqid('JOB-', true) . '.' . strtolower(pathinfo($image['name'])['extension']);
         $imagePath = 'storage/jobImages/' . $imageName;
         move_uploaded_file($image['tmp_name'], $imagePath);
         $jobImage = new JobImage;
-        $job = Job::findOne($this->request->getBodyParameters());
         $jobImage->create([
             'job_id' => (int)$job->id,
             'imagePath' => $imagePath
         ]);
         $jobImage->save();
-        return true;
     }
 }

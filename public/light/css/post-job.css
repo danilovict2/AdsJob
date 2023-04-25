@@ -76,6 +76,19 @@ h2{
     outline: none;
 }
 
+.is-invalid {            
+    border: 1px solid rgb(255, 0, 0); 
+    border-radius: 10px;
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #e51c23;
+}
+
 textarea, textarea:focus{
     outline: none;
     border: 2px solid rgb(11, 135, 237);
@@ -92,9 +105,6 @@ select , select:focus, option , option:focus{
     height: 40px;
 }
 
-#result{
-    display: flex;
-}
 
 .potvrdi{
     float: right;
@@ -112,7 +122,6 @@ select , select:focus, option , option:focus{
 
 .input-images{
     display:flex;
-    flex-direction: row-reverse;
     position: absolute;
     left: 120px;
 }
