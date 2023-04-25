@@ -44,6 +44,10 @@ class DB{
         return $statement;
     }
 
+    public static function lastInsertId(){
+        return self::$connection->lastInsertId();
+    }
+
     public static function migrate(){
         $appliedMigrations = self::getAppliedMigrations();
         $files = scandir(__DIR__ . '/migrations');

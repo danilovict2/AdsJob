@@ -105,9 +105,6 @@ select , select:focus, option , option:focus{
     height: 40px;
 }
 
-#result{
-    display: flex;
-}
 
 .potvrdi{
     float: right;
@@ -125,7 +122,6 @@ select , select:focus, option , option:focus{
 
 .input-images{
     display:flex;
-    flex-direction: row-reverse;
     position: absolute;
     left: 120px;
 }

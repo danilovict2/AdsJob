@@ -63,6 +63,8 @@ abstract class Model{
             $values["$attribute"] = $this->$attribute ?? '';
         }
         DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
+        $primaryKey = static::primaryKey();
+        $this->values[$primaryKey] = DB::lastInsertId();
     }
 
 
