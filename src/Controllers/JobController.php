@@ -28,12 +28,23 @@ class JobController extends Controller{
             'name' => ['required', ['max' => 30]],
             'location' => ['required', ['max' => 30]],
         ]);
-        if(!$validator->validateForm($this->request->getBodyParameters())){
+        $hasImage = false;
+        foreach($this->request->getFiles() as $file){
+            $hasImage = $file['tmp_name'] !== '' || $hasImage;
+        }
+        if(!$hasImage){
+            $validator->addError("image", "Jedna slika je obavezna");
+        }
+        if(!$validator->validateForm($this->request->getBodyParameters()) || !$hasImage){
             $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/p/create');
             return;
         }
-        $hasImage = false;
+        $this->storeJob();
+        $this->response->redirect('/');
+    }
+
+    private function storeJob(){
         $job = new Job;
         $job->create([
             'user_id' => (int)$this->session->get('user'),
@@ -43,19 +54,12 @@ class JobController extends Controller{
         ]);
         $job->save();
         foreach($this->request->getFiles() as $file){
-            $hasImage = $this->storeJobImage($file, $job) || $hasImage;
+            $this->storeJobImage($file, $job);
         }
-        if(!$hasImage){
-            $validator->addError("image", "Jedna slika je obavezna");
-            $this->setValidationErrors($validator->getErrors());
-            $this->response->redirect('/p/create');
-            return;
-        }
-        $this->response->redirect('/');
     }
 
-    private function storeJobImage($image, $job) : bool{
-        if($image['tmp_name'] === '')return false;
+    private function storeJobImage($image, $job) : void{
+        if($image['tmp_name'] === '')return;
         $imageName = uniqid('JOB-', true) . '.' . strtolower(pathinfo($image['name'])['extension']);
         $imagePath = 'storage/jobImages/' . $imageName;
         move_uploaded_file($image['tmp_name'], $imagePath);
@@ -65,6 +69,5 @@ class JobController extends Controller{
             'imagePath' => $imagePath
         ]);
         $jobImage->save();
-        return true;
     }
 }
