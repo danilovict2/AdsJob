@@ -1,5 +1,5 @@
 {% include('navbar.html') %}
-<link rel="stylesheet" href="/light/css/editProfile.css">
+<link rel="stylesheet" href="/light/css/editProfile.css?id=1234">
 <div class="container">
     {% set errors = {'firstName' : session.getFlash('firstName'), 'lastName' : session.getFlash('lastName'),
     'email' : session.getFlash('email'), 'oldPassword' : session.getFlash('oldPassword'), 'password' :
@@ -61,4 +61,4 @@
     </div>
 </div>
 
-<script src="/javascript/modal.js"></script>
+<script src="/javascript/modal.js?id=1234"></script>
