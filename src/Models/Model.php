@@ -96,14 +96,4 @@ abstract class Model{
         }
     }
 
-    public function count(string $relatedModel, string $leftTableKey, string $rightTableKey): int{
-        $leftTable = static::tableName();
-        $rightTable = $relatedModel::tableName();
-        $result = DB::rawQuery("SELECT COUNT(*) as count FROM $rightTable 
-        INNER JOIN $leftTable ON $leftTable.$leftTableKey = $rightTable.$rightTableKey 
-        WHERE $leftTable.$leftTableKey = " . $this->$leftTableKey);
-        
-        return (int) $result->fetchColumn();
-    }
-
 }
