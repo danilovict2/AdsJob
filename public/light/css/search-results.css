@@ -1,0 +1,97 @@
+.container{
+    margin: 0px 100px 100px 100px;
+}
+
+.header{
+    margin-left: -100px;
+    padding-top: 100px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    width: 100%;
+    position: fixed;
+    justify-content: center;
+    background-color: white;
+
+}
+
+input, .search:focus{
+    border: none;
+    outline: none;
+    width: max-content;
+}
+
+.search,.city{
+    background-color: white;
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    font-size: 18pt;
+    padding: 10px;
+    color: rgb(100, 100, 100);
+    width: 450px;
+}
+
+option{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+select{
+    outline: none;
+    border: none;
+    color: rgb(11, 135, 237);
+}
+
+.jobs-container{
+    padding-top: 200px;
+    overflow-y: scroll;
+    overflow-x: visible;
+    display: grid;
+    grid-template-columns: 400px 400px 400px 400px;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.jobs-container::-webkit-scrollbar{
+    display: none;
+  }
+
+.job-image{
+    width: 398px;
+    height: 200px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.job-tab{
+    width: 400px;
+    background-color: white;
+    border: 1px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info{
+    padding: 0px 20px 20px 20px;
+}
+
+h1{
+    color: rgb(11, 135, 237);
+    font-weight: bold;
+}
+
+h2{
+    color: rgb(11, 135, 237);
+    font-weight: bold;
+    padding: 0px 10px 10px 10px;
+}
+
+.message{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(11, 135, 237);
+    width: max-content;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 18pt;
+}
