@@ -1,6 +1,6 @@
 {% include('navbar.html') %}
 
-<link rel="stylesheet" href="/light/css/post-job.css">
+<link rel="stylesheet" href="/light/css/post-job.css?id=1234">
 <div class="container">
     {% set errors = {'name' : session.getFlash('name'), 'location' : session.getFlash('location'), 'description' :
     session.getFlash('description'), 'image' : session.getFlash('image')} %}
@@ -85,4 +85,4 @@
     </form>
 </div>
 
-<script src="/javascript/showImage.js"></script>
+<script src="/javascript/showImage.js?id=1234"></script>

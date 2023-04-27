@@ -38,27 +38,32 @@ class Validator{
 
     private function validateRule(string|array $rule, string|int $attribute, array $data) : void{
         $ruleName = is_array($rule) ? key($rule) : $rule;
-        $attributeValue = $data[$attribute];
+        $attributeValue = $data[$attribute] ?? '';
         switch($ruleName){
             case self::RULE_REQUIRED: 
-                if(!$attributeValue)
+                if(!$attributeValue){
                     $this->addErrorForRule($ruleName, $attribute);
+                }
                 break;
             case self::RULE_EMAIL : 
-                if(!filter_var($attributeValue, FILTER_VALIDATE_EMAIL))
+                if(!filter_var($attributeValue, FILTER_VALIDATE_EMAIL)){
                     $this->addErrorForRule($ruleName, $attribute);
+                }
                 break;
             case self::RULE_MIN : 
-                if(is_string($attributeValue) && strlen($attributeValue) < $rule['min'])
+                if(isset($rule['min']) && is_string($attributeValue) && strlen($attributeValue) < $rule['min']){
                     $this->addErrorForRule($ruleName, $attribute,['min' => $rule['min']]);
+                }
                 break;
             case self::RULE_MAX : 
-                if(is_string($attributeValue) && strlen($attributeValue) > $rule['max'])
+                if(isset($rule['max']) && is_string($attributeValue) && strlen($attributeValue) > $rule['max']){
                     $this->addErrorForRule($ruleName, $attribute,['max' => $rule['max']]);
+                }
                 break;
             case self::RULE_MATCH : 
-                if($attributeValue !== $data[$rule['match']])
+                if(isset($data[$rule['match']]) && $attributeValue !== $data[$rule['match']]){
                     $this->addErrorForRule($ruleName, $attribute, ['match' => $rule['match']]);
+                }
                 break;
             case self::RULE_UNIQUE :
                 $model = "\AdsJob\Models\\".$rule['unique'];
@@ -68,7 +73,7 @@ class Validator{
                 break;
             case self::RULE_USER_PASSWORD :
                 $user = $rule['user_password'];
-                if(!password_verify($attributeValue, $user->password)){
+                if(isset($user) && !password_verify($attributeValue, $user->password)){
                     $this->addErrorForRule($ruleName, $attribute);
                 }
                 break;
