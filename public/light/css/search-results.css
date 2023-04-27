@@ -46,7 +46,7 @@ select{
 .jobs-container{
     padding-top: 200px;
     overflow-y: scroll;
-    overflow-x: visible;
+    overflow-x: hidden;
     display: grid;
     grid-template-columns: 400px 400px 400px 400px;
     column-gap: 30px;

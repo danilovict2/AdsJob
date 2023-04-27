@@ -2,10 +2,14 @@
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
-    width: 100%;
+    width: 1300px;
     height: 1000px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
     padding:70px 0px 70px 70px;
     overflow:auto;
+    border: 1px solid rgb(11, 135, 237);
 }
 
 .input-images-box{
@@ -23,7 +27,7 @@
 }
 
 .input-container{
-    margin-left: -50px;
+    margin-left: -100px;
 }
 
 .preview img {
@@ -107,7 +111,6 @@ select , select:focus, option , option:focus{
 
 
 .potvrdi{
-    float: right;
     background-color: rgb(11, 135, 237);
     border: 2px solid rgb(11, 135, 237);
     border-radius: 20px;
@@ -116,12 +119,15 @@ select , select:focus, option , option:focus{
     padding: 10px;
     width: max-content;
     position: absolute;
-    bottom: 100px;
-    right: 50px;
+    bottom: 50px;
+    transform: translate(-50%);
+    left: 50%;
+    margin-top: 100px;
+    cursor: pointer;
 }
 
 .input-images{
     display:flex;
     position: absolute;
-    left: 120px;
+    left: 170px;
 }
