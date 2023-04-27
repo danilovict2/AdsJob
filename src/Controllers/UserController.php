@@ -8,7 +8,7 @@ use AdsJob\Models\JobImage;
 class UserController extends Controller{
 
     public function middleware(){
-        $this->registerMiddleware(new AuthMiddleware($this->auth,['index']));
+        $this->registerMiddleware(new AuthMiddleware($this->auth,['profile', 'editProfile', 'myJobs']));
     }
     
     public function store() : void{

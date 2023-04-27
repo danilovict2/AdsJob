@@ -1,11 +1,17 @@
 <?php declare(strict_types = 1);
 
 namespace AdsJob\Controllers;
+
+use AdsJob\Middleware\AuthMiddleware;
 use AdsJob\Models\Job;
 use AdsJob\Models\JobImage;
 use AdsJob\Models\User;
 
 class JobController extends Controller{
+
+    public function middleware(){
+        $this->registerMiddleware(new AuthMiddleware($this->auth,['create']));
+    }
 
     public function create() : void{
         $html = $this->renderer->render('postJob.html',$this->requiredData);

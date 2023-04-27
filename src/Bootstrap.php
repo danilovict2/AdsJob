@@ -67,17 +67,20 @@ switch ($routeInfo[0]) {
 
         $controller = $injector->make($controllerName);
         $controller->middleware();
+        $passesMiddleware = true;
                 
         foreach($controller->getMiddleware() as $middleware){
             try{
                 $middleware->execute($method);
-            }catch(\Exception $e){
-                $controller = $injector->make('AdsJob\Controllers\FrontendController');
-                $method = 'login';
+            }catch(\AdsJob\Exceptions\ForbiddenException $e){
+                $response->redirect('/login');
+                $passesMiddleware = false;
                 break;
             }
         }
-        $controller->$method($vars);
+        if($passesMiddleware){
+            $controller->$method($vars);
+        }
         break;
 }
 
