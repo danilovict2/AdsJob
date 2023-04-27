@@ -30,7 +30,7 @@ class JobController extends Controller{
         ]);
         $hasImage = false;
         foreach($this->request->getFiles() as $file){
-            $hasImage = $file['tmp_name'] !== '' || $hasImage;
+            $hasImage = $file['error'] === UPLOAD_ERR_OK || $hasImage;
         }
         if(!$hasImage){
             $validator->addError("image", "Jedna slika je obavezna");
@@ -40,6 +40,7 @@ class JobController extends Controller{
             $this->response->redirect('/p/create');
             return;
         }
+        
         $this->storeJob();
         $this->response->redirect('/');
     }
