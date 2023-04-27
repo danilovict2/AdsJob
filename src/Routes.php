@@ -19,5 +19,6 @@ return [
     ['POST', '/user/delete', [AdsJob\Controllers\UserController::class, 'delete']],
     ['POST', '/user/login', [AdsJob\Controllers\Auth\LoginController::class, 'login']],
     ['POST', '/logout', [AdsJob\Controllers\Auth\LoginController::class, 'logout']],
+    ['GET', '/search/results', [AdsJob\Controllers\SearchController::class, 'show']],
 ];
 
