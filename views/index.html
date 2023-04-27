@@ -4,14 +4,14 @@
 
 
 <div class="container">
-    <form action="">
+    <form action="/search/results">
         <div id="search-container">
             <div class="usluga">
                 <div class="usluga-label">
                     <label>Šta</label>
                 </div>
                 <div class="usluga-search">
-                    <input type="text" class="search" placeholder="Naziv usluge, ključne reči">
+                    <input type="text" class="search" placeholder="Naziv usluge, ključne reči" name="oglas">
                     <span class="ikonica">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" aria-hidden="true">
                             <path fill="#767676" fill-rule="evenodd"
@@ -26,7 +26,7 @@
                     <label>Gde</label>
                 </div>
                 <label for="listaGradova" class="mestoSearch">Izaberi grad</label>
-                <select name="gradovi" id="listaGradova">
+                <select name="mesto" id="listaGradova">
                     <option selected></option>
                     <option value='Ada'>Ada</option>
                     <option value='Aleksinac'>Aleksinac</option>
