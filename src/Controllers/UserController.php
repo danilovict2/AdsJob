@@ -87,7 +87,8 @@ class UserController extends Controller{
 
     public function myJobs() : void{
         $jobs = $this->auth->user()->jobs();
-        $html = $this->renderer->render('myJobs.html', array_merge(['jobs' => $jobs], $this->requiredData));
+        $jobCount = count($jobs);
+        $html = $this->renderer->render('myJobs.html', array_merge(['jobs' => $jobs, 'jobCount' => $jobCount], $this->requiredData));
         $this->response->setContent($html);
     }   
 }
