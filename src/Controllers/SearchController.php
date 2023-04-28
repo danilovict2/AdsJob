@@ -9,19 +9,19 @@ class SearchController extends Controller{
 
     public function show(){
         $jobsToSelect = "";
-        $jobName = $this->request->getParameter('oglas');
-        $jobLocation = $this->request->getParameter('mesto');
+        $jobName = $this->request->getQueryParameter('oglas');
+        $jobLocation = $this->request->getQueryParameter('mesto');
         $params = [];
         if(!$jobName && !$jobLocation){
             $jobsToSelect = "SELECT id FROM job";
         }elseif(!$jobName && $jobLocation){
-            $jobsToSelect = "SELECT id FROM job WHERE location = ':jobLocation'";
+            $jobsToSelect = "SELECT id FROM job WHERE location = :jobLocation";
             $params ['jobLocation'] = $jobLocation;
         }elseif($jobName && !$jobLocation){
-            $jobsToSelect = "SELECT id FROM job WHERE name LIKE '%:jobName%'";
+            $jobsToSelect = "SELECT id FROM job WHERE name LIKE CONCAT('%', :jobName, '%')";
             $params['jobName'] = $jobName;
         }else{
-            $jobsToSelect = "SELECT id FROM job WHERE name LIKE '%:jobName%' AND location = ':jobLocation'";
+            $jobsToSelect = "SELECT id FROM job WHERE name LIKE CONCAT('%', :jobName, '%') AND location = :jobLocation";
             $params['jobLocation'] = $jobLocation;
             $params['jobName'] = $jobName;
         }

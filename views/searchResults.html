@@ -4,62 +4,128 @@
 <script src="https://kit.fontawesome.com/0b0d98cfb6.js?v=1.0" crossorigin="anonymous"></script>
 
 <form action="/search/results">
-<div class="container">
-    <div class="header">
-        <div class="search">
-            <i class="fa-solid fa-magnifying-glass" style="color: #0b87ed;"></i>
-            <label for="search-input"><input type="text" placeholder="Pretraga" id="search-input"></label>
-        </div>
-        <div class="city">
-            <label for="listaGradova" class="mestoSearch"><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> Izaberi grad</label>
-                    <select name="gradovi" id="listaGradova" >
-                        <option selected></option>
-                        <option value="beograd">Beograd</option>
-                        <option value="bor">Bor</option>
-                        <option value="valjevo">Valjevo</option>
-                        <option value="vranje">Vranje</option>
-                        <option value="vrsac">Vršac</option>
-                        <option value="zajecar">Zaječar</option>
-                        <option value="zrenjanin">Zrenjanin</option>
-                        <option value="jagodina">Jagodina</option>
-                        <option value="kikinda">Kikinda</option>
-                        <option value="kragujevac">Kragujevac</option>
-                        <option value="kraljevo">Kraljevo</option>
-                        <option value="krusevac">Kruševac</option>
-                        <option value="leskovac">Leskovac</option>
-                        <option value="nis">Niš</option>
-                        <option value="novi-pazar">Novi Pazar</option>
-                        <option value="novi-sad">Novi Sad</option>
-                        <option value="pancevo">Pančevo</option>
-                        <option value="pirot">Pirot</option>
-                        <option value="pozarevac">Požarevac</option>
-                        <option value="pristina">Priština</option>
-                        <option value="prokuplje">Prokuplje</option>
-                        <option value="smederevo">Smederevo</option>
-                        <option value="sombor">Sombor</option>
-                        <option value="sremska-mitrovica">Sremska Mitrovica</option>
-                        <option value="subotica" >Subotica</option>
-                        <option value="uzice">Užice</option>
-                        <option value="cacak">Čačak</option>
-                        <option value="sabac">Šabac</option>
-                    </select>
-        </div>
-        <input type="submit" class="pretraga" value="Pretraga">
-    </div>
-</form>
-    <div class="jobs-container">
-        {% for job in searchResults %}
-            <div class="job-tab">
-                <a href="/p/{job_id}">
-                <img src="/{{ job.images()[0].imagePath }}" class="job-image">
-                <div class="info">            
-                    <h1>{{ job.name }}</h1>
-                    <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i> 4.9</h2>
-                    <a href="/messages/{user_id}" class="message">Pošalji poruku</a>
-                </div>
-            </a>
+    <div class="container">
+        <div class="header">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass" style="color: #0b87ed;"></i>
+                <label for="search-input"><input type="text" placeholder="Pretraga" id="search-input"
+                        name="oglas"></label>
             </div>
-        {% endfor %}
+            <div class="city">
+                <label for="listaGradova" class="mestoSearch"><i class="fa-solid fa-location-dot"
+                        style="color: #0b87ed;"></i> Izaberi grad</label>
+                <select id="listaGradova" name="mesto">
+                    <option selected></option>
+                    <option value='Ada'>Ada</option>
+                    <option value='Aleksinac'>Aleksinac</option>
+                    <option value='Apatin'>Apatin</option>
+                    <option value='Arilje'>Arilje</option>
+                    <option value='Avala'>Avala</option>
+                    <option value='Backa Topola'>Backa Topola</option>
+                    <option value='Backi Jarak'>Backi Jarak</option>
+                    <option value='Backi Petrovac'>Backi Petrovac</option>
+                    <option value='Backo Gradiste'>Backo Gradiste</option>
+                    <option value='Banatsko Novo Selo'>Banatsko Novo Selo</option>
+                    <option value='Barajevo'>Barajevo</option>
+                    <option value='Basaid'>Basaid</option>
+                    <option value='Batajnica'>Batajnica</option>
+                    <option value='Becej'>Becej</option>
+                    <option value='Belgrade'>Belgrade</option>
+                    <option value='Bocar'>Bocar</option>
+                    <option value='Bor'>Bor</option>
+                    <option value='Cantavir'>Cantavir</option>
+                    <option value='Coka'>Coka</option>
+                    <option value='Cukarica'>Cukarica</option>
+                    <option value='Cuprija'>Cuprija</option>
+                    <option value='Debeljaca'>Debeljaca</option>
+                    <option value='Despotovac'>Despotovac</option>
+                    <option value='Dolovo'>Dolovo</option>
+                    <option value='Drenovac'>Drenovac</option>
+                    <option value='Futog'>Futog</option>
+                    <option value='Glozan'>Glozan</option>
+                    <option value='Golubinci'>Golubinci</option>
+                    <option value='Gornji Milanovac'>Gornji Milanovac</option>
+                    <option value='Grocka'>Grocka</option>
+                    <option value='Ingija'>Ingija</option>
+                    <option value='Izvor'>Izvor</option>
+                    <option value='Jagodina'>Jagodina</option>
+                    <option value='Kacarevo'>Kacarevo</option>
+                    <option value='Kanjiza'>Kanjiza</option>
+                    <option value='Kovin'>Kovin</option>
+                    <option value='Kragujevac'>Kragujevac</option>
+                    <option value='Kraljevo'>Kraljevo</option>
+                    <option value='Leskovac'>Leskovac</option>
+                    <option value='Loznica'>Loznica</option>
+                    <option value='Melenci'>Melenci</option>
+                    <option value='Nikinci'>Nikinci</option>
+                    <option value='Nova Pazova'>Nova Pazova</option>
+                    <option value='Novi Banovci'>Novi Banovci</option>
+                    <option value='Novi Becej'>Novi Becej</option>
+                    <option value='Novi Belgrade'>Novi Belgrade</option>
+                    <option value='Novi Pazar'>Novi Pazar</option>
+                    <option value='Novi Sad'>Novi Sad</option>
+                    <option value='Odzaci'>Odzaci</option>
+                    <option value='Palic'>Palic</option>
+                    <option value='Paracin'>Paracin</option>
+                    <option value='Petrovac'>Petrovac</option>
+                    <option value='Petrovaradin'>Petrovaradin</option>
+                    <option value='Pirot'>Pirot</option>
+                    <option value='Popovac'>Popovac</option>
+                    <option value='Priboj'>Priboj</option>
+                    <option value='Prokuplje'>Prokuplje</option>
+                    <option value='Ratkovo'>Ratkovo</option>
+                    <option value='Ruma'>Ruma</option>
+                    <option value='Rumenka'>Rumenka</option>
+                    <option value='Savski Venac'>Savski Venac</option>
+                    <option value='Selo Mladenovac'>Selo Mladenovac</option>
+                    <option value='Senta'>Senta</option>
+                    <option value='Sibac'>Sibac</option>
+                    <option value='Simanovci'>Simanovci</option>
+                    <option value='Sirig'>Sirig</option>
+                    <option value='Smederevo'>Smederevo</option>
+                    <option value='Sombor'>Sombor</option>
+                    <option value='Srbobran'>Srbobran</option>
+                    <option value='Sremcica'>Sremcica</option>
+                    <option value='Sremska Kamenica'>Sremska Kamenica</option>
+                    <option value='Sremska Mitrovica'>Sremska Mitrovica</option>
+                    <option value='Sremski Karlovci'>Sremski Karlovci</option>
+                    <option value='Stara Pazova'>Stara Pazova</option>
+                    <option value='Stari Banovci'>Stari Banovci</option>
+                    <option value='Subotica'>Subotica</option>
+                    <option value='Surcin'>Surcin</option>
+                    <option value='Svilajnac'>Svilajnac</option>
+                    <option value='Svrljig'>Svrljig</option>
+                    <option value='Temerin'>Temerin</option>
+                    <option value='Titel'>Titel</option>
+                    <option value='Tornjos'>Tornjos</option>
+                    <option value='Ugrinovci'>Ugrinovci</option>
+                    <option value='Umcari'>Umcari</option>
+                    <option value='Umka'>Umka</option>
+                    <option value='Vajska'>Vajska</option>
+                    <option value='Valjevo'>Valjevo</option>
+                    <option value='Veternik'>Veternik</option>
+                    <option value='Vrbas'>Vrbas</option>
+                    <option value='Zajecar'>Zajecar</option>
+                    <option value='Zemun Polje'>Zemun Polje</option>
+                    <option value='Zlatibor'>Zlatibor</option>
+                    <option value='Zrenjanin'>Zrenjanin</option>
+                </select>
+            </div>
+            <input type="submit" class="pretraga" value="Pretraga">
+        </div>
+</form>
+<div class="jobs-container">
+    {% for job in searchResults %}
+    <div class="job-tab">
+        <a href="/p/{job_id}">
+            <img src="/{{ job.images()[0].imagePath }}" class="job-image">
+            <div class="info">
+                <h1>{{ job.name }}</h1>
+                <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i> 4.9</h2>
+                <a href="/messages/{user_id}" class="message">Pošalji poruku</a>
+            </div>
+        </a>
     </div>
+    {% endfor %}
 </div>
-  
+</div>
