@@ -15,13 +15,13 @@ class SearchController extends Controller{
         if(!$jobName && !$jobLocation){
             $jobsToSelect = "SELECT id FROM job";
         }elseif(!$jobName && $jobLocation){
-            $jobsToSelect = "SELECT id FROM job WHERE location = :jobLocation";
+            $jobsToSelect = "SELECT id FROM job WHERE location = ':jobLocation'";
             $params ['jobLocation'] = $jobLocation;
         }elseif($jobName && !$jobLocation){
             $jobsToSelect = "SELECT id FROM job WHERE name LIKE '%:jobName%'";
             $params['jobName'] = $jobName;
         }else{
-            $jobsToSelect = "SELECT id FROM job WHERE name LIKE '%:jobName%' AND location = :jobLocation";
+            $jobsToSelect = "SELECT id FROM job WHERE name LIKE '%:jobName%' AND location = ':jobLocation'";
             $params['jobLocation'] = $jobLocation;
             $params['jobName'] = $jobName;
         }
