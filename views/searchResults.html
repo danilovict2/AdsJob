@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/light/css/search-results.css?v=1.0">
 <script src="https://kit.fontawesome.com/0b0d98cfb6.js?v=1.0" crossorigin="anonymous"></script>
 
+<form action="/search/results">
 <div class="container">
     <div class="header">
         <div class="search">
@@ -43,16 +44,20 @@
                         <option value="sabac">Šabac</option>
                     </select>
         </div>
+        <input type="submit" class="pretraga" value="Pretraga">
     </div>
+</form>
     <div class="jobs-container">
         {% for job in searchResults %}
             <div class="job-tab">
+                <a href="/p/{job_id}">
                 <img src="/{{ job.images()[0].imagePath }}" class="job-image">
                 <div class="info">            
                     <h1>{{ job.name }}</h1>
                     <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i> 4.9</h2>
                     <a href="/messages/{user_id}" class="message">Pošalji poruku</a>
                 </div>
+            </a>
             </div>
         {% endfor %}
     </div>
