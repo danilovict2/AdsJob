@@ -95,14 +95,32 @@
                 </h2>
                 <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i> 4.7</h2>
             </div>
-            <a href="#message" class="btnLink"><button>Pošalji poruku</button></a>
+            <a href="/messages/{user_id}" class="btnLink"><button>Pošalji poruku</button></a>
         </div>
     </div>
     <div class="ad-description">
         <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left"
                 style="color: rgb(11, 135, 237)"></i>{{ job.description }}</p>
     </div>
+    
+    <div class="add-review">
+        <form action="">
+            <div class="header">
+                <h3><b> Ocenite ovu uslugu</b></h3>
+                <div class="star-rating">
+                    <span class="fa fa-star fa-xl"></span>
+                    <span class="fa fa-star fa-xl"></span>
+                    <span class="fa fa-star fa-xl"></span>
+                    <span class="fa fa-star fa-xl"></span>
+                    <span class="fa fa-star fa-xl"></span>
+                </div>
+            </div>
+            <textarea placeholder="Unesite vaš komentar" cols="135" rows="3" style="resize: none;"></textarea>
+            <input type="submit" value="Postavi ocenu">
+        </form>
+    </div>
 
 </div>
 
-<script src="/javascript/slideshow.js?id=1234"></script>
+
+<script src="/javascript/slideshow.js?v=1.0"></script>

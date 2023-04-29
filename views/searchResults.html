@@ -117,7 +117,7 @@
 <div class="jobs-container">
     {% for job in searchResults %}
     <div class="job-tab">
-        <a href="/p/{job_id}">
+        <a href="/p/{{job.id}}">
             <img src="/{{ job.images()[0].imagePath }}" class="job-image">
             <div class="info">
                 <h1>{{ job.name }}</h1>
