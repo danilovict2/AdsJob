@@ -13,8 +13,8 @@ class UserController extends Controller{
     
     public function store() : void{
         $validator = new \AdsJob\Validators\Validator([
-            'firstName' => ['required'],
-            'lastName' => ['required'],
+            'firstName' => ['required', ['max' => 12]],
+            'lastName' => ['required' , ['max' => 12]],
             'email' => ['email', 'required', ['unique' => 'User']],
             'password' => ['required', ['min' => 8]],
             'confirmPassword' => ['required', ['match' => 'password']],
@@ -34,8 +34,8 @@ class UserController extends Controller{
     public function update() : void{
         $user = $this->auth->user();
         $validator = new \AdsJob\Validators\Validator([
-            'firstName' => ['required'],
-            'lastName' => ['required'],
+            'firstName' => ['required', ['max' => 12]],
+            'lastName' => ['required', ['max' => 12]],
             'email' => ['email', $user->email !== $this->request->getBodyParameter('email') ? ['unique' => 'User'] : ''],
             'oldPassword' => [$this->request->getBodyParameter('password') !== '' ? ['user_password' => $user] : ''],
             'password' => [$this->request->getBodyParameter('password') !== '' ? ['min' => 8] : ''],
