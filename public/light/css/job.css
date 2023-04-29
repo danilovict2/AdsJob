@@ -54,6 +54,8 @@ h2 > img{
     width: 50px;
     height: 50px;
     border-radius: 100%;
+    border: 1px solid rgb(11, 135, 237);
+    margin-left: -10px;
 }
 
 h3{
@@ -216,6 +218,8 @@ p.description{
     float: right;
     margin: -30px 50px;
     color: #717171;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 textarea{
@@ -245,7 +249,7 @@ input[type=submit]{
     border: none;
     font-size: 15pt;
     color: white;
-    
+
 }
 
 

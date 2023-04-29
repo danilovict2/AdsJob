@@ -10,6 +10,7 @@ body{
     margin-bottom: 40px;
     cursor: pointer;
     border-radius: 100%;
+    border: 1px solid rgb(11, 135, 237);
 }
 
 h1{

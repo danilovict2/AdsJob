@@ -26,6 +26,12 @@
     object-fit: cover;
 }
 
+@-moz-document url-prefix(){
+    .input-images-box{
+        margin-right: 130px;
+    }
+
+}
 .input-container{
     margin-left: -100px;
 }
