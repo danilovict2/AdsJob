@@ -12,6 +12,11 @@
     border: 1px solid rgb(11, 135, 237);
 }
 
+select{
+    outline: none;
+    border: none;
+}
+
 .input-images-box{
     width: 200px;
     height: 200px;

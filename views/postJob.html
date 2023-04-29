@@ -15,8 +15,103 @@
             </div>
             <label for="location" class="mestoSearch">
                 <h2>Mesto: </h2>
+                <select name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
+                    <option selected></option>
+                    <option value='Ada'>Ada</option>
+                    <option value='Aleksinac'>Aleksinac</option>
+                    <option value='Apatin'>Apatin</option>
+                    <option value='Arilje'>Arilje</option>
+                    <option value='Avala'>Avala</option>
+                    <option value='Backa Topola'>Bačka Topola</option>
+                    <option value='Backi Jarak'>Bački Jarak</option>
+                    <option value='Backi Petrovac'>Bački Petrovac</option>
+                    <option value='Backo Gradiste'>Bačko Gradiste</option>
+                    <option value='Banatsko Novo Selo'>Banatsko Novo Selo</option>
+                    <option value='Barajevo'>Barajevo</option>
+                    <option value='Basaid'>Bašaid</option>
+                    <option value='Batajnica'>Batajnica</option>
+                    <option value='Becej'>Becej</option>
+                    <option value='Belgrade'>Beograd</option>
+                    <option value='Bocar'>Bočar</option>
+                    <option value='Bor'>Bor</option>
+                    <option value='Cantavir'>Čantavir</option>
+                    <option value='Coka'>Čoka</option>
+                    <option value='Cukarica'>Čukarica</option>
+                    <option value='Cuprija'>Ćuprija</option>
+                    <option value='Debeljaca'>Debeljača</option>
+                    <option value='Despotovac'>Despotovac</option>
+                    <option value='Dolovo'>Dolovo</option>
+                    <option value='Drenovac'>Drenovac</option>
+                    <option value='Futog'>Futog</option>
+                    <option value='Glozan'>Glozan</option>
+                    <option value='Golubinci'>Golubinci</option>
+                    <option value='Gornji Milanovac'>Gornji Milanovac</option>
+                    <option value='Grocka'>Grocka</option>
+                    <option value='Ingija'>Ingija</option>
+                    <option value='Izvor'>Izvor</option>
+                    <option value='Jagodina'>Jagodina</option>
+                    <option value='Kacarevo'>Kacarevo</option>
+                    <option value='Kanjiza'>Kanjiža</option>
+                    <option value='Kovin'>Kovin</option>
+                    <option value='Kragujevac'>Kragujevac</option>
+                    <option value='Kraljevo'>Kraljevo</option>
+                    <option value='Leskovac'>Leskovac</option>
+                    <option value='Loznica'>Loznica</option>
+                    <option value='Melenci'>Melenci</option>
+                    <option value='Nikinci'>Nikinci</option>
+                    <option value='Nova Pazova'>Nova Pazova</option>
+                    <option value='Novi Banovci'>Novi Banovci</option>
+                    <option value='Novi Becej'>Novi Bečej</option>
+                    <option value='Novi Belgrade'>Novi Beogradde</option>
+                    <option value='Novi Pazar'>Novi Pazar</option>
+                    <option value='Novi Sad'>Novi Sad</option>
+                    <option value='Odzaci'>Odžaci</option>
+                    <option value='Palic'>Palić</option>
+                    <option value='Paracin'>Paraćin</option>
+                    <option value='Petrovac'>Petrovac</option>
+                    <option value='Petrovaradin'>Petrovaradin</option>
+                    <option value='Pirot'>Pirot</option>
+                    <option value='Popovac'>Popovac</option>
+                    <option value='Priboj'>Priboj</option>
+                    <option value='Prokuplje'>Prokuplje</option>
+                    <option value='Ratkovo'>Ratkovo</option>
+                    <option value='Ruma'>Ruma</option>
+                    <option value='Rumenka'>Rumenka</option>
+                    <option value='Savski Venac'>Savski Venac</option>
+                    <option value='Selo Mladenovac'>Selo Mladenovac</option>
+                    <option value='Senta'>Senta</option>
+                    <option value='Sibac'>Sibač</option>
+                    <option value='Simanovci'>Šimanovci</option>
+                    <option value='Sirig'>Sirig</option>
+                    <option value='Smederevo'>Smederevo</option>
+                    <option value='Sombor'>Sombor</option>
+                    <option value='Srbobran'>Srbobran</option>
+                    <option value='Sremcica'>Sremčica</option>
+                    <option value='Sremska Kamenica'>Sremska Kamenica</option>
+                    <option value='Sremska Mitrovica'>Sremska Mitrovica</option>
+                    <option value='Sremski Karlovci'>Sremski Karlovci</option>
+                    <option value='Stara Pazova'>Stara Pazova</option>
+                    <option value='Stari Banovci'>Stari Banovci</option>
+                    <option value='Subotica'>Subotica</option>
+                    <option value='Surcin'>Surčin</option>
+                    <option value='Svilajnac'>Svilajnac</option>
+                    <option value='Svrljig'>Svrljig</option>
+                    <option value='Temerin'>Temerin</option>
+                    <option value='Titel'>Titel</option>
+                    <option value='Tornjos'>Tornjoš</option>
+                    <option value='Ugrinovci'>Ugrinovci</option>
+                    <option value='Umcari'>Umčari</option>
+                    <option value='Umka'>Umka</option>
+                    <option value='Vajska'>Vajska</option>
+                    <option value='Valjevo'>Valjevo</option>
+                    <option value='Veternik'>Veternik</option>
+                    <option value='Vrbas'>Vrbas</option>
+                    <option value='Zajecar'>Zaječar</option>
+                    <option value='Zemun Polje'>Zemun Polje</option>
+                    <option value='Zlatibor'>Zlatibor</option>
+                    <option value='Zrenjanin'>Zrenjanin</option>
+                </select>
             </label>
-            <input type="text" name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
             <div class="invalid-feedback">
                 {{errors.location}}
             </div>
