@@ -7,7 +7,7 @@
     session.getFlash('confirmPassword')} %}
     <div class="left">
         <form action="/user/image/store" method="POST" id="store-image-form" enctype="multipart/form-data">
-            <input type="file" accept="image/*" id="image" name="image" onchange="document.getElementById('store-image-form').submit();">
+            <input type="file" accept="image/jpg image/png image/jpg image/x-png" id="image" name="image" onchange="document.getElementById('store-image-form').submit();">
         </form>
         <label for="image"><img src="/{{ user.profilePicture ?? 'light/img/profile.png' }}" class="pfp"></label>
         <h1>{{ user.firstName }} {{ user.lastName }}</h1>
