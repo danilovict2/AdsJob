@@ -195,6 +195,7 @@ p.description{
     padding: 20px;
     font-size: 14pt;
     max-width: 1300px;
+    word-wrap: break-word;
 }
 
 .add-review{
@@ -249,6 +250,7 @@ input[type=submit]{
     border: none;
     font-size: 15pt;
     color: white;
+    cursor: pointer;
 
 }
 
