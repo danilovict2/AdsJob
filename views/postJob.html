@@ -6,10 +6,10 @@
     session.getFlash('description'), 'image' : session.getFlash('image')} %}
     <form action="/p/store" method="POST" enctype="multipart/form-data" id="job-data-form">
         <div class="info">
-            <label for="name">
+            <label for="name" class="{% if errors.name %}is-invalid{% endif %}">
                 <h2>Naziv usluge:</h2>
             </label>
-            <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
+            <input type="text" name="name" id="title">
             <div class="invalid-feedback">
                 {{errors.name}}
             </div>
