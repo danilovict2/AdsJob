@@ -234,14 +234,6 @@ textarea:focus{
     outline: none;
 }
 
-.checked{
-    color: rgb(11, 135, 237);
-}
-
-.star-rating>span:hover:before, .star-rating span:hover~span:before {
-  color: rgb(11, 135, 237);
-}
-
 input[type=submit]{
     float: right;
     background-color: rgb(11, 135, 237);
@@ -252,6 +244,41 @@ input[type=submit]{
     color: white;
     cursor: pointer;
 
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    }
+   
+.star-rating > input{ 
+    display:none;
+}
+
+.star-rating > label {
+    position: relative;
+    font-size: 2vw;
+    color: rgb(11, 135, 237);
+    cursor: pointer;
+}
+
+.star-rating > label::before{
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+}
+
+.star-rating > label:hover:before, .star-rating > label:hover ~ label:before {
+    opacity: 1 !important;
+}
+
+.star-rating > input:checked ~ label:before{
+    opacity:1;
+}
+
+.star-rating:hover > input:checked ~ label:before{
+    opacity: 0.4; 
 }
 
 

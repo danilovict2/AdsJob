@@ -8,8 +8,8 @@
         <div class="info">
             <label for="name">
                 <h2>Naziv usluge:</h2>
+                <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
             </label>
-            <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
             <div class="invalid-feedback">
                 {{errors.name}}
             </div>

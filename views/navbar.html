@@ -33,8 +33,8 @@
         </span>
         <ul class="sidebar-content w3-animate-right">
             {% if isGuest %}
-                <li><a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</a></li>
-                <li><a href="/register"> Registruj se</a></li>
+                <a href="/login" class="sidebar-link"><li><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</li></a>
+                <a href="/register" class="sidebar-link"><li><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Registruj se</li></a>
             {% else %}
                 <a href="/user/profile" class="sidebar-link"><li><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</li></a>
                 <a href="/messages/{{ session.get('user') }}" class="sidebar-link"><li><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</li></a>

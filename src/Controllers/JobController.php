@@ -39,7 +39,7 @@ class JobController extends Controller{
             $hasImage = $file['error'] === UPLOAD_ERR_OK || $hasImage;
         }
         if(!$hasImage){
-            $validator->addError("image", "Jedna slika je obavezna");
+            $validator->addError("image", "Potrebna je minimalno jedna slika");
         }
         if(!$validator->validateForm($this->request->getBodyParameters()) || !$hasImage){
             $this->setValidationErrors($validator->getErrors());
