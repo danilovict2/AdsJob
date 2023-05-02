@@ -22,10 +22,32 @@
                 </div></a>
                 <div class="mesto">
                     <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ job.location }}</h1>
-                    <a href="#"><i class="fa-solid fa-ellipsis-vertical fa-2xl" style="color: #0b87ed;"></i></a>
-        
+                    <i class="fa-solid fa-ellipsis-vertical fa-2xl dropbtn" onclick="toggleDropdown()" style="color: #0b87ed;"></i>
+                    <div id="dropdown" class="dropdown-content">
+                        <a href="/p/{job_id}/edit">Izmeni oglas</a>
+                        <a href="#delete">Obriši oglas</a>
+                    </div>
                 </div> 
             </div>
         {% endfor %}
     </div>
 </div>
+
+<script>
+    function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+    
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+        }
+    }
+</script>

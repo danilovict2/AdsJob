@@ -30,6 +30,7 @@ h1{
 .mesto{
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .sve-usluge, .archived{
@@ -97,17 +98,42 @@ h1{
     height: 10em;
     border-radius: 10px;
     margin-bottom: 10px;
+    z-index: 1;
 }
 
 .oglas i{
     padding: 10px;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 .slika img{
     width: 250px;
     border-radius: 8px 0px 0px 8px;
     height: 9.9em;
+}
+
+.dropdown-content{
+    display: none;
+    background-color: rgb(11, 135, 237);
+    z-index: 10;
+    position: relative;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color:rgb(10, 116, 202)č
+}
+
+.show {
+    display:block;
+    margin-right: 100px;
 }
 
 @media screen and (max-width: 1640px){
