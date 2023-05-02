@@ -47,5 +47,19 @@ class Session{
     public function remove(mixed $key){
         unset($_SESSION[$key]);
     }
+
+    public function csrf_token(){
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $token; 
+        echo "<input type='text' value='$token' style='display: none' name='csrf_token'>";
+    }
+
+    public function validateToken(string $token){
+        if (!isset($_SESSION['csrf_token']) || empty($_SESSION['csrf_token']) || $_SESSION['csrf_token'] !== $token) {
+            return false;
+        }
+        unset($_SESSION['csrf_token']);
+        return true;
+    }
     
 }

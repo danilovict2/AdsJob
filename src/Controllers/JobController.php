@@ -30,6 +30,9 @@ class JobController extends Controller{
     }
 
     public function store() : void{
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $validator = new \AdsJob\Validators\Validator([
             'name' => ['required', ['max' => 30]],
             'location' => ['required', ['max' => 30]],
