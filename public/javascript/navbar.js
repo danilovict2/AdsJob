@@ -5,7 +5,6 @@ function enableSidebar(){
 }
 
 window.addEventListener("click", event => {
-    console.log(event.target);
     if(!event.target.classList.contains('sidebarIcon') && 
        !event.target.classList.contains('enableSidebar') && 
        !event.target.classList.contains('sidebar-content')){
