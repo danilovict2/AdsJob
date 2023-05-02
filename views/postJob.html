@@ -6,11 +6,8 @@
     session.getFlash('description'), 'image' : session.getFlash('image')} %}
     <form action="/p/store" method="POST" enctype="multipart/form-data" id="job-data-form">
         <div class="info">
-            <label for="name" class="{% if errors.name %}is-invalid{% endif %}">
-                <h2>Naziv usluge:</h2>
-                <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
-            </label>
-            <input type="text" name="name" id="title">
+            <h2>Naziv usluge:</h2>
+            <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
             <div class="invalid-feedback">
                 {{errors.name}}
             </div>
@@ -144,7 +141,7 @@
                 <label for="image2" class="input-images-box {% if errors.image %}is-invalid{% endif %}" id="input-images-box">
                     <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
                 </label>
-                <div class="preview2">
+                <div class="preview">
                     <img id="preview-selected-image2"/>
                 </div>
             </div>
