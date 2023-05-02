@@ -3,7 +3,10 @@
 namespace AdsJob\Controllers;
 use AdsJob\Models\User;
 use AdsJob\Middleware\AuthMiddleware;
-use AdsJob\Models\JobImage;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 
 class UserController extends Controller{
 

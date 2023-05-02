@@ -5,7 +5,10 @@ function enableSidebar(){
 }
 
 window.addEventListener("click", event => {
-    if(!event.target.classList.contains('sidebarIcon') && !event.target.classList.contains('enableSidebar')){
+    console.log(event.target);
+    if(!event.target.classList.contains('sidebarIcon') && 
+       !event.target.classList.contains('enableSidebar') && 
+       !event.target.classList.contains('sidebar-content')){
         const dropdown = document.querySelector('.sidebar-content');
         dropdown.classList.remove("sidebar-content-open");
     }
