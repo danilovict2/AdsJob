@@ -25,15 +25,18 @@
     text-align: justify;
     height: 2000px;
     transition:  0.5s;
+    overflow-x: hidden;
 }
 
 .sidebar-content li{
     cursor: pointer;
-    padding-top:5px;
     text-align: left;
-    width: 100%;
+    width: 500px;
     border-bottom: 1px solid rgb(255, 255, 255);
     margin-bottom: 30px;
+    margin-left: -50px;
+    padding-top:5px;
+    padding-left: 20px;
 }
 
 .sidebar-content-open{
@@ -41,7 +44,7 @@
     width: 300px;
 }
 
-.sidebar-content li a{
+.sidebar-link{
     text-decoration: none;
     color: white;
     font-size: 15pt;

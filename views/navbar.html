@@ -36,11 +36,11 @@
                 <li><a href="/login"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</a></li>
                 <li><a href="/register"> Registruj se</a></li>
             {% else %}
-                <li><a href="/user/profile"><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</a></li>
-                <li><a href="/messages/{{ session.get('user') }}"><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</a></li>
-                <li><a href="/user/jobs"><i class="fa-solid fa-folder-open"></i> Moji oglasi</a></li>
-                <li><a href="/p/create"><i class="fa-solid fa-circle-plus"></i> Postavi oglas</a></li>
-                <li><a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i> Odjavi se</a></li>
+                <a href="/user/profile" class="sidebar-link"><li><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</li></a>
+                <a href="/messages/{{ session.get('user') }}" class="sidebar-link"><li><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</li></a>
+                <a href="/user/jobs" class="sidebar-link"><li><i class="fa-solid fa-folder-open"></i> Moji oglasi</li></a>
+                <a href="/p/create" class="sidebar-link"><li><i class="fa-solid fa-circle-plus"></i> Postavi oglas</li></a>
+                <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="sidebar-link"><li><i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i> Odjavi se</li></a>
                 <form id="logout-form" action="/logout" method="POST" style="display: none;">
                     
                 </form>

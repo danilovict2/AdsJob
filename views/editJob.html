@@ -1,32 +1,21 @@
 {% include('navbar.html') %}
 
-<link rel="stylesheet" href="/light/css/index.css?v=1.0">
-
-
+<link rel="stylesheet" href="/light/css/post-job.css?v=1.0">
 <div class="container">
-    <form action="/search/results">
-        <div id="search-container">
-            <div class="usluga">
-                <div class="usluga-label">
-                    <label>Šta</label>
-                </div>
-                <div class="usluga-search">
-                    <input type="text" class="search" placeholder="Naziv usluge, ključne reči" name="oglas">
-                    <span class="ikonica">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" aria-hidden="true">
-                            <path fill="#767676" fill-rule="evenodd"
-                                d="M11.4038 12.3048C10.7084 12.7451 9.88397 13 9 13c-2.48528 0-4.5-2.0147-4.5-4.5C4.5 6.01472 6.51472 4 9 4c2.4853 0 4.5 2.01472 4.5 4.5 0 .87711-.2509 1.6956-.6849 2.3876l3.5089 3.5089c.1952.1953.1952.5119 0 .7071l-.7071.7072c-.1953.1952-.5119.1952-.7071 0l-3.506-3.506zM11.5 8.5c0 1.38071-1.1193 2.5-2.5 2.5-1.38071 0-2.5-1.11929-2.5-2.5S7.61929 6 9 6c1.3807 0 2.5 1.11929 2.5 2.5z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </span>
-                </div>
+    {% set errors = {'name' : session.getFlash('name'), 'location' : session.getFlash('location'), 'description' :
+    session.getFlash('description'), 'image' : session.getFlash('image')} %}
+    <form action="/p/store" method="POST" enctype="multipart/form-data" id="job-data-form">
+        <div class="info">
+            <label for="name">
+                <h2>Naziv usluge:</h2>
+            </label>
+            <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
+            <div class="invalid-feedback">
+                {{errors.name}}
             </div>
-            <div class="usluga">
-                <div class="usluga-label">
-                    <label>Gde</label>
-                </div>
-                <label for="listaGradova" class="mestoSearch">Izaberi grad</label>
-                <select name="mesto" id="listaGradova">
+            <label for="location" class="mestoSearch">
+                <h2>Mesto: </h2>
+                <select name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
                     <option selected></option>
                     <option value='Ada'>Ada</option>
                     <option value='Aleksinac'>Aleksinac</option>
@@ -122,19 +111,73 @@
                     <option value='Zlatibor'>Zlatibor</option>
                     <option value='Zrenjanin'>Zrenjanin</option>
                 </select>
-                <span class="ikonica">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" aria-hidden="true"
-                        style="float:right;">
-                        <path fill="#767676" fill-rule="evenodd"
-                            d="M5.81104 8.2c0-2.322 1.87303-4.2 4.18889-4.2 2.31587 0 4.18887 1.878 4.18887 4.2 0 2.581-2.8123 6.1691-3.8282 7.3811-.1906.2274-.5307.2274-.72131 0C8.62332 14.3691 5.81104 10.781 5.81104 8.2zm4.1889 2.0029c1.10456 0 1.99996-.89545 1.99996-2.00002 0-1.10457-.8954-2-1.99996-2-1.10457 0-2 .89543-2 2s.89543 2.00002 2 2.00002z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </span>
+            </label>
+            <div class="invalid-feedback">
+                {{errors.location}}
+            </div>
+            <label for="description">
+                <h2>Opis: </h2>
+            </label>
+            <textarea name="description" id="description" cols="70" rows="8"
+                class="{% if errors.description %}is-invalid{% endif %}" style="resize: none;"></textarea>
+            <div class="invalid-feedback">
+                {{errors.description}}
             </div>
         </div>
-        <input type="submit" class="pretraga" value="Pretraga">
+        <h2>Slike:</h2>
+        <div class="invalid-feedback">
+            {{errors.image}}
+        </div>
+        <div class="input-images">
+            <div class="input-container">
+                <input type="file" accept="image/jpg image/png image/jpg image/x-png" class="images" id="image1" name="image1" onchange="previewImage(event, '1');" >
+                <label for="image1" class="input-images-box {% if errors.image %}is-invalid{% endif %}" id="input-images-box">
+                    <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
+                </label>
+                <div class="preview">
+                    <img id="preview-selected-image1" />
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="file" accept="image/jpg image/png image/jpg image/x-png" class="images" id="image2" name="image2" onchange="previewImage(event, '2');">
+                <label for="image2" class="input-images-box {% if errors.image %}is-invalid{% endif %}" id="input-images-box">
+                    <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
+                </label>
+                <div class="preview2">
+                    <img id="preview-selected-image2"/>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="file" accept="image/jpg image/png image/jpg image/x-png" class="images" id="image3" name="image3" onchange="previewImage(event, '3');">
+                <label for="image3" class="input-images-box {% if errors.image %}is-invalid{% endif %}" id="input-images-box">
+                    <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
+                </label>
+                <div class="preview">
+                    <img id="preview-selected-image3"/>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="file" accept="image/jpg image/png image/jpg image/x-png" class="images" id="image4" name="image4" onchange="previewImage(event, '4');">
+                <label for="image4" class="input-images-box {% if errors.image %}is-invalid{% endif %}" id="input-images-box">
+                    <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
+                </label>
+                <div class="preview">
+                    <img id="preview-selected-image4"/>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="file" accept="image/jpg image/png image/jpg image/x-png" class="images" id="image5" name="image5" onchange="previewImage(event, '5');">
+                <label for="image5" class="input-images-box {% if errors.image %}is-invalid{% endif %}" id="input-images-box">
+                    <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
+                </label>
+                <div class="preview">
+                    <img id="preview-selected-image5"/>
+                </div>
+            </div>
+
+        </div>
+        <input type="submit" value="Sačuvaj izmene" class="potvrdi">
     </form>
 </div>
-</div>
 
-<script defer src="/javascript/index-page.js?v=1.0">
+<script src="/javascript/showImage.js?v=1.0"></script>
