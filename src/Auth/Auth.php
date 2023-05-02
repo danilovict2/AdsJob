@@ -12,6 +12,11 @@ class Auth{
     public function __construct(
         private Session $session
     ){
+        if(isset($_COOKIE['user'])){
+            $this->user = User::findOne(['id' => (int)$_COOKIE['user']]);
+            return;
+        }
+
         $primaryKeyValue = $this->session->get('user');
         if($primaryKeyValue){
             $primaryKey = User::primaryKey();
@@ -24,11 +29,14 @@ class Auth{
         $primaryKey = $user->primaryKey();
         $primaryKeyValue = $user->$primaryKey;
         $this->session->set('user', $primaryKeyValue);
+        setcookie('user', "$primaryKeyValue", time() + 86400, secure:true, path:'/user');
     }
 
     public function logout(){
+        setcookie('user', "", time() - 3600, '/user');
         unset($this->user);
         $this->session->remove('user');
+        
     }
 
     public function isGuest(){

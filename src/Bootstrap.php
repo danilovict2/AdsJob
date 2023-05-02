@@ -73,6 +73,10 @@ switch ($routeInfo[0]) {
             try{
                 $middleware->execute($method);
             }catch(\AdsJob\Exceptions\ForbiddenException $e){
+                $response->redirect('/');
+                $passesMiddleware = false;
+                break;
+            }catch(\AdsJob\Exceptions\AuthException $e){
                 $response->redirect('/login');
                 $passesMiddleware = false;
                 break;

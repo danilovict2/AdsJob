@@ -3,6 +3,7 @@
 namespace AdsJob\Controllers;
 use AdsJob\Models\User;
 use AdsJob\Middleware\AuthMiddleware;
+use AdsJob\Middleware\RedirectIfAuthenticatedMiddleware;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
