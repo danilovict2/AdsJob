@@ -29,6 +29,11 @@ class JobController extends Controller{
         $this->response->setContent($html);
     }
 
+    public function editJob(array $params){
+        $html = $this->renderer->render('editJob.html', $this->requiredData);
+        $this->response->setContent($html);
+    }
+
     public function store() : void{
         if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
             die;
