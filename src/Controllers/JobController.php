@@ -24,8 +24,17 @@ class JobController extends Controller{
             $this->response->redirect('/404');
             return;
         }
+        $averageReview = 5.0;
+        if(count($job->reviews()) > 0){
+            $averageReview = 0.0;
+            foreach($job->reviews() as $review){
+                $averageReview += $review->review_value;
+            }
+            $averageReview /= count($job->reviews());
+            $averageReview = round($averageReview, 1);
+        }
         $user = User::findOne(['id' => $job->user_id]);
-        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job],$this->requiredData));
+        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job, 'averageReview' => $averageReview],$this->requiredData));
         $this->response->setContent($html);
     }
 

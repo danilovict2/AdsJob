@@ -1,18 +1,31 @@
 <?php declare(strict_types = 1);
 
 namespace AdsJob\Controllers;
-use AdsJob\Models\Job;
-use AdsJob\Models\User;
+
+use AdsJob\Models\Review;
 
 class ReviewController extends Controller{
 
-    public function create() : void{
-        $html = $this->renderer->render('createReview.html',$this->requiredData);
-        $this->response->setContent($html);
-    }
-
-    public function store() : void{
-        
-        $this->response->redirect('/');
+    public function store(array $params): void{
+        $jobId = (int)$params['job_id'];
+        $validator = new \AdsJob\Validators\Validator([
+            'review' => ['required', ['max' => 255]],
+        ]);
+        if(!$validator->validateForm($this->request->getBodyParameters())){
+            $this->setValidationErrors($validator->getErrors());
+            $this->response->redirect("/p/$jobId");
+            return;
+        }
+        $rating = (int)$this->request->getBodyParameter('rating') ?? 0;
+        $review = $this->request->getBodyParameter('review');
+        $jobReview = new Review;
+        $jobReview->create([
+            'job_id' => $jobId,
+            'user_id' => $this->auth->user()->id,
+            'review_text' => $review,
+            'review_value' => $rating
+        ]);
+        $jobReview->save();
+        $this->response->redirect("/p/$jobId");
     }
 }
