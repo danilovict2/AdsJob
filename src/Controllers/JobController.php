@@ -33,6 +33,7 @@ class JobController extends Controller{
         $validator = new \AdsJob\Validators\Validator([
             'name' => ['required', ['max' => 30]],
             'location' => ['required', ['max' => 30]],
+            'description' => [['max' => 255]],
         ]);
         $hasImage = false;
         foreach($this->request->getFiles() as $file){
