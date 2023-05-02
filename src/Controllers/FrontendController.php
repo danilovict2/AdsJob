@@ -6,6 +6,10 @@ use AdsJob\Models\User;
 
 class FrontendController extends Controller{
 
+    public function middleware(){
+        $this->registerMiddleware(new \AdsJob\Middleware\RedirectIfAuthenticatedMiddleware($this->auth, ['login', 'register']));
+    }
+
     public function index() : void{
         $html = $this->renderer->render('index.html', $this->requiredData);
         $this->response->setContent($html);
