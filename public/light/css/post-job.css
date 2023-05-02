@@ -24,7 +24,7 @@ select{
     align-items: center;
     justify-content: center;
     border: 2px solid rgb(11, 135, 237);
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: white;
     flex-direction: column;
     cursor: pointer;
@@ -46,16 +46,7 @@ select{
     height: 200px;
     display: none;
     border: 2px solid rgb(11, 135, 237);
-    border-radius: 20px;
-    margin-top: -200px;
-}
-
-.preview2 img {
-    width: 200px;
-    height: 200px;
-    display: none;
-    border: 2px solid rgb(11, 135, 237);
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: -200px;
 }
 
@@ -82,16 +73,7 @@ h2{
     height: 0;
 }
 
-.info input , .info input:focus{
-    border: 2px solid rgb(11, 135, 237);
-    border-radius: 10px;
-    width: 400px;
-    height: 40px;
-    font-size: 15pt;
-    outline: none;
-}
-
-.is-invalid {            
+.info .is-invalid, .input-images .is-invalid {            
     border: 1px solid rgb(255, 0, 0); 
     border-radius: 10px;
 }
@@ -99,9 +81,17 @@ h2{
 .invalid-feedback {
     display: block;
     width: 100%;
-    margin-top: 0.25rem;
     font-size: 80%;
     color: #e51c23;
+}
+
+input[type=text]{
+    border: 2px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    width: 400px;
+    height: 40px;
+    font-size: 15pt;
+    outline: none;
 }
 
 textarea, textarea:focus{

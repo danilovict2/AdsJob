@@ -95,9 +95,9 @@ class Validator{
             self::RULE_EMAIL => 'Ovo polje mora da bude pravi E-mail',
             self::RULE_MIN => 'Minimalna dužina mora biti {min}',
             self::RULE_MAX => 'Maksimalna dužina mora biti {max}',
-            self::RULE_MATCH => 'Ovo polje mora da bude isto kao {match}',
+            self::RULE_MATCH => 'Ovo polje biti isto kao {match}',
             self::RULE_UNIQUE => 'Nalog sa ovim {field} već postoji',
-            self::RULE_USER_PASSWORD => 'Sifra koju ste uneli je netacna',
+            self::RULE_USER_PASSWORD => 'Šifra koju ste uneli je netačna',
         ];
     }
 
