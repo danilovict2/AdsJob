@@ -110,3 +110,30 @@ input {
 .nalog {
     margin-left: 20px;
 }
+
+@media screen and (max-width:730px){
+    .image{
+        display: none;
+    }
+    .main, .mainRegister{
+        width: max-content;
+        padding: 20px;
+    }
+    button{
+        margin-left: 100px;
+        padding: 5px;
+        font-size: 14pt;
+    }
+}
+
+@media screen and (max-width:360px){
+    .main, .mainRegister{
+        height: max-content;
+        padding: 10px;
+    }
+    button{
+        margin-left: 100px;
+        padding: 5px;
+        font-size: 14pt;
+    }
+}

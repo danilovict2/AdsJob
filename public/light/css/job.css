@@ -58,6 +58,14 @@ h2 > img{
     margin-left: -10px;
 }
 
+h3 > img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid rgb(11, 135, 237);
+
+}
+
 h3{
     color: rgb(11, 135, 237);
 }
@@ -202,7 +210,7 @@ p.description{
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
-    width: 1310px;
+    width: auto;
     margin: 0px 60px 60px 0px;
     padding: 20px;
     display: flex;
@@ -227,6 +235,7 @@ textarea{
     border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
     padding: 10px;
+    width: 1200px;
 }
 
 textarea:focus{
