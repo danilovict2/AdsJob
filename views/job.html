@@ -10,7 +10,7 @@
     {% for review in job.reviews() %}
     <div class="review">
         <div class="review-info">
-            <h3><i class="fa-solid fa-circle-user fa-xl" style="color: rgb(11, 135, 237)"></i> {{
+            <h3><img src="/{{ review.user().profilePicture ?? 'light/img/profile.png' }}"> {{
                 review.user().firstName }} {{ review.user().lastName }}</h3>
         </div>
         <div class="review-content">
