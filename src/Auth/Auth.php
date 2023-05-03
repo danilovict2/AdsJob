@@ -29,14 +29,13 @@ class Auth{
         $primaryKey = $user->primaryKey();
         $primaryKeyValue = $user->$primaryKey;
         $this->session->set('user', $primaryKeyValue);
-        setcookie('user', "$primaryKeyValue", time() + 86400, secure:true, path:'/user');
+        setcookie('user', "$primaryKeyValue", time() + 86400, secure:true, path:'/');
     }
 
     public function logout(){
-        setcookie('user', "", time() - 3600, '/user');
+        setcookie('user', "", time() - 3600, '/');
         unset($this->user);
         $this->session->remove('user');
-        
     }
 
     public function isGuest(){
