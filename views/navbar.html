@@ -42,7 +42,7 @@
                 <a href="/p/create" class="sidebar-link"><li><i class="fa-solid fa-circle-plus"></i> Postavi oglas</li></a>
                 <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="sidebar-link"><li><i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i> Odjavi se</li></a>
                 <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                    {{ session.csrf_token() }}
+                    
                 </form>
             {% endif %}
             
