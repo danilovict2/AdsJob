@@ -7,6 +7,9 @@ use AdsJob\Models\User;
 class LoginController extends Controller{
 
     public function login() : void{
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $validator = new \AdsJob\Validators\Validator([
             'email' => ['required', 'email'],
             'password' => ['required']
@@ -39,6 +42,9 @@ class LoginController extends Controller{
     }
 
     public function logout(){
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $this->auth->logout();
         $this->response->redirect('/');
     }

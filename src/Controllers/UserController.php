@@ -16,6 +16,9 @@ class UserController extends Controller{
     }
     
     public function store() : void{
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $validator = new \AdsJob\Validators\Validator([
             'firstName' => ['required', ['max' => 12]],
             'lastName' => ['required' , ['max' => 12]],
@@ -36,6 +39,9 @@ class UserController extends Controller{
     }
 
     public function update() : void{
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $user = $this->auth->user();
         $validator = new \AdsJob\Validators\Validator([
             'firstName' => ['required', ['max' => 12]],
@@ -73,6 +79,9 @@ class UserController extends Controller{
     }
 
     public function delete() : void{
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $this->auth->user()->delete();
         $this->auth->logout();
         $this->response->redirect('/');

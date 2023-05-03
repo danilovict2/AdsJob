@@ -38,7 +38,7 @@ class JobController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function editJob(array $params){
+    public function edit(array $params){
         $html = $this->renderer->render('editJob.html', $this->requiredData);
         $this->response->setContent($html);
     }

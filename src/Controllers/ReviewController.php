@@ -7,6 +7,9 @@ use AdsJob\Models\Review;
 class ReviewController extends Controller{
 
     public function store(array $params): void{
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            die;
+        }
         $jobId = (int)$params['job_id'];
         $validator = new \AdsJob\Validators\Validator([
             'review' => ['required', ['max' => 255]],

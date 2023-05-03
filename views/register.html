@@ -9,6 +9,7 @@
     session.getFlash('confirmPassword')} %}
     <div class="mainRegister">
         <form action="/user/store" method="POST">
+            {{ session.csrf_token() }}
             <h1>Registrujte se</h1>
             <label for="ime"><i class="fa-solid fa-user fa-xl" style="color: rgb(11, 135, 237);"></i>
                 <input class="{% if errors.firstName %}is-invalid{% endif %}" type="text" name="firstName"

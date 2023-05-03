@@ -80,6 +80,7 @@
 
     <div class="add-review">
         <form action="/review/{{ job.id }}/store" method="POST">
+            {{ session.csrf_token() }}
             <div class="header">
                 <h3><b> Ocenite ovu uslugu</b></h3>
                 <div class="star-rating">

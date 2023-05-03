@@ -5,6 +5,7 @@
     {% set errors = {'name' : session.getFlash('name'), 'location' : session.getFlash('location'), 'description' :
     session.getFlash('description'), 'image' : session.getFlash('image')} %}
     <form action="/p/store" method="POST" enctype="multipart/form-data" id="job-data-form">
+        {{ session.csrf_token() }}
         <div class="info">
             <label for="name">
                 <h2>Naziv usluge:</h2>

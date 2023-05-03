@@ -7,7 +7,7 @@ return [
     ['GET', '/messages/{user_id}', [AdsJob\Controllers\FrontendController::class, 'messages']],
     ['GET', '/p/create', [AdsJob\Controllers\JobController::class, 'create']],
     ['GET', '/p/{job_id}', [AdsJob\Controllers\JobController::class, 'show']],
-    ['GET', '/p/{job_id}/edit', [AdsJob\Controllers\JobController::class, 'editJob']],
+    ['GET', '/p/{job_id}/edit', [AdsJob\Controllers\JobController::class, 'edit']],
     ['POST', '/p/store', [AdsJob\Controllers\JobController::class, 'store']],
     ['POST', '/review/{job_id}/store', [AdsJob\Controllers\ReviewController::class, 'store']],
     ['POST', '/user/store', [AdsJob\Controllers\UserController::class, 'store']],

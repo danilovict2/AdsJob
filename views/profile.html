@@ -32,6 +32,7 @@
                 <a href="" id="close2" onclick="event.preventDefault();document.getElementById('delete-form').submit();">Da, izbriši nalog</a>
                 <button id="close3" type="button" class="cancel">Ne, otkaži</button>
                 <form action="/user/delete" method="POST" style="display: none;" id="delete-form">
+                    {{ session.csrf_token() }}
                 </form>
             </div>
             </div>

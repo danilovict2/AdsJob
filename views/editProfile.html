@@ -7,6 +7,7 @@
     session.getFlash('confirmPassword')} %}
     <div class="left">
         <form action="/user/image/store" method="POST" id="store-image-form" enctype="multipart/form-data">
+            {{ session.csrf_token() }}
             <input type="file" accept="image/jpg image/png image/jpg image/x-png" id="image" name="image" onchange="document.getElementById('store-image-form').submit();">
         </form>
         <label for="image"><img src="/{{ user.profilePicture ?? 'light/img/profile.png' }}" class="pfp"></label>
@@ -15,6 +16,7 @@
     <div class="linija"></div>
     <div class="right">
         <form action="/user/update" method="POST">
+            {{ session.csrf_token() }}
             <label for="ime">Ime <input type="text" id="ime" class="{% if errors.firstName %}is-invalid{% endif %}"
                     name="firstName" value="{{ user.firstName }}"></label>
             <div class="invalid-feedback">
