@@ -1,7 +1,8 @@
 <?php declare(strict_types = 1);
 
+use AdsJob\Database\Migration;
 
-return new class{
+return new class implements Migration{
 
     public function up() : string{
         $schema = "

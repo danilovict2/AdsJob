@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace AdsJob\Migrations;
+namespace AdsJob\Database;
 
 interface Migration{
     public function up() : string;
