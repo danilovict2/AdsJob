@@ -8,10 +8,10 @@ return new class implements Migration{
         $schema = "
             CREATE TABLE IF NOT EXISTS chat_room(
                 id INT NOT NULL AUTO_INCREMENT,
-                name VARCHAR(255) NOT NULL,
+                name VARCHAR(50) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-                CONSTRAINT PK_chat_room PRIMARY KEY (id)
+                CONSTRAINT PK_chat_room PRIMARY KEY(id)
             );
         ";
         return $schema;

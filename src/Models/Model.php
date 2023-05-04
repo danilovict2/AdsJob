@@ -43,7 +43,7 @@ abstract class Model{
     }
 
     public function __set(string $key, $value) : void{
-        if($key === static::primaryKey() && debug_backtrace()[1]['function'] !== 'fetchObject'){
+        if($key === static::primaryKey() && !in_array(debug_backtrace()[1]['function'], ['fetchObject', 'fetchAll']) ){
             return;
         }
         $this->values[$key] = $value;
