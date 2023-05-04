@@ -96,4 +96,9 @@ abstract class Model{
         }
     }
 
+    public static function all() : array {
+        $tableName = static::$tableName;
+        return DB::rawQuery("SELECT * FROM $tableName")->fetchAll(\PDO::FETCH_CLASS, static::class);
+    }
+
 }
