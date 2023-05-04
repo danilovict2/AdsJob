@@ -10,6 +10,7 @@
     padding:70px 0px 70px 70px;
     overflow:auto;
     border: 1px solid rgb(11, 135, 237);
+    overflow-x: hidden;
 }
 
 select{
@@ -48,6 +49,11 @@ select{
     border: 2px solid rgb(11, 135, 237);
     border-radius: 10px;
     margin-top: -200px;
+}
+
+.last{
+    display: flex;
+    flex-direction: row;
 }
 
 .jobImage {
@@ -98,6 +104,8 @@ textarea, textarea:focus{
     outline: none;
     border: 2px solid rgb(11, 135, 237);
     border-radius: 10px;
+    width: 1000px;
+    height: 200px;
 }
 
 select , select:focus, option , option:focus{
@@ -132,3 +140,112 @@ select , select:focus, option , option:focus{
     position: absolute;
     left: 170px;
 }
+
+@media screen and (max-width: 1330px){
+    .container{
+        width: max-content;
+        height: 1200px;
+        padding-right: 80px;
+        align-items: center;
+        overflow: hidden;
+        padding-top: 100px;
+    }
+    .input-images{
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        column-gap: 20px;
+        margin-left: 180px;
+    }
+    .last{
+        display: flex;
+        flex-direction: row;
+        margin-left: 100px;
+        padding-bottom: 200px;
+    }
+    .potvrdi{
+        position: absolute;
+        top:50px;
+        transform: translate(50%);
+        height: max-content;
+    }
+}
+
+@media screen and (max-width: 1170px){
+    textarea, textarea:focus{
+        width: 600px;
+        height: 150px;
+    }
+    .potvrdi{
+        font-size: 13pt;
+        top: 60px;
+        transform: translate(80%);
+    }
+    .input-images{
+        margin-left: -10px;
+    }
+}
+
+@media screen and (max-width: 780px){
+    .container{
+        height: 1000px;
+    }
+    h2{
+        font-size: 16pt;
+    }
+    .input-images{
+        grid-template-columns: 150px 150px 150px;
+        margin-left: 60px;
+    }
+    .input-images-box{
+        width: 120px;
+        height: 120px;
+        margin-right: 20px;
+    }
+    .preview img {
+        width: 120px;
+        height: 120px;
+        display: none;
+        margin-top: -120px;
+    }
+    textarea, textarea:focus{
+        width: 600px;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 770px){
+    .container{
+        padding-left: 50px;
+        height: 1100px;
+    }
+    textarea, textarea:focus{
+        width: 300px;
+        height: 150px;
+        font-size: 12pt;
+    }
+    input[type=text]{
+        width: 300px;
+        height: 40px;
+    }
+    select , select:focus, option , option:focus{
+        width: 300px;
+        height: 40px;
+    }
+    .potvrdi{
+        bottom: 50px;
+        transform: translate(-50%);
+        left: 50%;
+        top: 82%;
+    }
+    .input-images{
+        grid-template-columns: 150px 150px;
+        margin-left: -10px;
+    }
+    .last{
+        margin-left: 0px;
+        flex-wrap: wrap;
+    }
+    .last2{
+        margin-left: -180px;
+    }
+}
+
