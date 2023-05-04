@@ -37,7 +37,7 @@
                 <a href="/register" class="sidebar-link"><li><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Registruj se</li></a>
             {% else %}
                 <a href="/user/profile" class="sidebar-link"><li><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</li></a>
-                <a href="/messages/{{ session.get('user') }}" class="sidebar-link"><li><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</li></a>
+                <a href="/chats" class="sidebar-link"><li><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</li></a>
                 <a href="/user/jobs" class="sidebar-link"><li><i class="fa-solid fa-folder-open"></i> Moji oglasi</li></a>
                 <a href="/p/create" class="sidebar-link"><li><i class="fa-solid fa-circle-plus"></i> Postavi oglas</li></a>
                 <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="sidebar-link"><li><i class="fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #ffffff;"></i> Odjavi se</li></a>

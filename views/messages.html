@@ -1,39 +1,19 @@
-{% include('navbar.html') %}
+{% include ('navbar.html') %}
 
 <link rel="stylesheet" href="/light/css/messages.css?v=2.0">
 
 <div class="container">
     <div class="recent-messages">
         <h1>Poruke</h1>
-
-        <a href="#load-chat" onclick="showChat()">
-        <div class="recent" id="active-chat">
-            <img src="/light/img/profile.png" class="pfp">
-            <h2>Korisnicko ime</h2>
-            <i class="fa-solid fa-circle" style="color: #0b87ed;"></i>
-        </div>
-        </a>
-
-        <a href="#load-chat">
-            <div class="recent">
-                <img src="/light/img/profile.png" class="pfp">
-                <h2>Korisnicko ime</h2>
-
-        </div>
-        </a>
-
-        <a href="#load-chat">
-            <div class="recent">
-                <img src="/light/img/profile.png" class="pfp">
-                <h2>Korisnicko ime</h2>
-        </div> 
-        </a>
-        <a href="#load-chat">
-            <div class="recent">
-                <img src="/light/img/profile.png" class="pfp">
-                <h2>Korisnicko ime</h2>
-        </div> 
-        </a>
+        {% for chatRoom in chatRooms %}
+            <a href="/chat/{{ chatRoom.id }}">
+                <div class="recent" id="active-chat">
+                    <img src="/light/img/profile.png" class="pfp">
+                    <h2>{{ chatRoom.name }}</h2>
+                    <i class="fa-solid fa-circle" style="color: #0b87ed;"></i>
+                </div>
+            </a>    
+        {% endfor %}
 
     </div>
 

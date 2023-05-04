@@ -1,0 +1,38 @@
+{% include ('navbar.html') %}
+
+<link rel="stylesheet" href="/light/css/messages.css?v=2.0">
+
+<div class="chat">
+    <div class="chat-header">
+        <div class="username">
+            <img src="/light/img/profile.png">
+            <h3>{{ chatRoom.name }}</h3>
+        </div>
+        <div class="oglas">
+            <h3>Šišanje</h3>
+            <h3>Subotica <i class="fa-solid fa-location-dot fa-l" style="color: rgb(11, 135, 237)"></i></h3>
+        </div>
+    </div>
+
+    <div class="messages" style="margin: 0px 900px;">
+        {% for message in messages %}
+            <div class="{% if session.get('user') != message.user_id %}
+                            incoming-message
+                        {% else %}
+                            outgoing-message
+                        {% endif %}">
+                <img src="/light/img/profile.png" class="outgoing-pfp">
+                <div class="in-msg-content">
+                    {{ message.message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="input-message">
+        <form method="POST" action="/chat/{{ chatRoomId }}" id="send-message-form">
+            <input type="text" placeholder="Ukucaj poruku" name="message">
+        </form>
+        <a href="#send-message" onclick="event.preventDefault(); document.getElementById('send-message-form').submit();"><i class="fa-regular fa-paper-plane fa-xl" style="color: #0b87ed;"></i></a>
+    </div>
+</div>
