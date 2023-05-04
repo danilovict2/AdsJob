@@ -8,9 +8,16 @@ a{
     text-decoration: none;
 }
  
-img{
+.chat img{
     width: 40px;
     height: 40px;
+    border: 1px solid rgb(11, 135, 237);
+    border-radius: 100%;
+}
+
+.messages{
+    padding: 200px 100px 150px 150px;
+    width: 2000px
 }
 
 h2 , i , h3{
@@ -19,29 +26,11 @@ h2 , i , h3{
     padding-left: 10px;
 }
 
-.recent-messages{
-    background-color: rgba(224, 223, 223, 0.733);
-    width: 400px;
-    height: 1000px;
-    margin: 0px;
-    padding-top: 75px;
-    border: 2px solid gray;
-}
-
 h1{
     border-bottom: 2px solid gray;
     margin: 0;
     padding: 10px;
     text-align: center;
-}
-
-.recent{
-    padding: 20px;
-    border-bottom: 2px solid gray;
-}
-
-#active-chat{
-    background-color: rgb(180, 180, 180);
 }
 
 .container{
@@ -75,7 +64,7 @@ h1{
 
 .in-msg-content{
     background-color: rgb(255, 255, 255);
-    max-width: 60%;
+    max-width: 50%;
     margin: 20px;
     padding: 10px;
     border-radius: 20px 30px 30px 5px;
@@ -86,7 +75,8 @@ h1{
     float: right;
     background-color: rgb(11, 135, 237);
     color: white;
-    max-width: 60%;
+    max-width: 50%;
+    word-wrap: break-word;
     height: max-content;
     margin: 20px;
     padding: 10px;
@@ -111,20 +101,19 @@ h1{
 
 .input-message{
     position: absolute;
-    bottom: 25px;
-    padding: 30px;
-    padding-right: 120px;
+    bottom: 70px;
     background-color: white;
-    width: 85%;
-    height:80px;
+    width: 2000px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding-right: 150px;
 }
 
 input , input:focus{
-    width: 90%;
+    width: 1800px;
     margin: 10px;
     margin-right: 50px;
     border: none;
@@ -149,53 +138,38 @@ i:active{
     vertical-align: middle;
 }
 
-@media screen and (max-width: 1600px){
-    .input-message{
-        bottom: 0px;
-        width: 100%;
-        margin-left: 0px;
-        border-radius: 0px;
-        padding: 20px;
-        height: 50px;
-    }
-    .chat{
-        padding-bottom: 50px;
-        height: 900px;
-    }
-    .recent-messages{
-        width: 300px;
-        height: 900px;
-        display: none;
-    }
-    h2{
-        font-size: 10pt;
-        padding-left: 0px;
-    }
-    .pfp{
-        width: 30px;
-        height: 30px;
-    }
-    .fa-circle{
-        display: none;
-    }
-    .chat-header{
-        position: fixed;
-        width: 100%;
-        overflow: hidden;
-    }
-    .username{
-        padding: 10px;
-        padding-top: 50px;
-        background-color: rgb(240, 240, 240);
-    }
-
-    .in-msg-content, .out-msg-content{
-        font-size: 10pt;
-    }
+@media screen and (max-width:1880px) {
     .messages{
-        margin-top: 180px;
+        padding: 200px 200px 150px 150px;
+    }
+    input , input:focus{
+        width: 1300px;
+    }
+    .input-message{
+        padding-right: 250px;
     }
     
+}
+
+@media screen and (max-width:1880px) {
+    .messages{
+        padding: 200px 300px 150px 150px;
+    }
+    input , input:focus{
+        width: 1000px;
+    }
+    .input-message{
+        padding-right: 350px;
+    }
     
+}
+
+@media screen and (max-width:1920px){
+    .input-message{
+        padding-right: 220px;
+    }
+    input , input:focus{
+        width: 1600px;
+    }
 
 }

@@ -5,7 +5,7 @@
 <div class="chat">
     <div class="chat-header">
         <div class="username">
-            <img src="/light/img/profile.png">
+            <img src="/light/img/profile.png" class="pfp">
             <h3>{{ chatRoom.name }}</h3>
         </div>
         <div class="oglas">
@@ -14,15 +14,15 @@
         </div>
     </div>
 
-    <div class="messages" style="margin: 0px 900px;">
+    <div class="messages">
         {% for message in messages %}
             <div class="{% if session.get('user') != message.user_id %}
                             incoming-message
                         {% else %}
                             outgoing-message
                         {% endif %}">
-                <img src="/light/img/profile.png" class="outgoing-pfp">
-                <div class="in-msg-content">
+                <img src="/light/img/profile.png" class="pfp">
+                <div class="out-msg-content">
                     {{ message.message }}
                 </div>
             </div>
