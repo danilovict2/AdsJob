@@ -1,5 +1,2 @@
 vendor/
 .env
-docker-compose.yml
-Dockerfile
-.docker

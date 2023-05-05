@@ -25,4 +25,8 @@ class Job extends Model{
     public function images(){
         return $this->hasMany(JobImage::class, 'id', 'job_id');
     }
+
+    public function chatRooms(){
+        return $this->hasMany(ChatRoom::class, 'id', 'job_id');
+    }
 }

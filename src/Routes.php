@@ -20,7 +20,7 @@ return [
     ['POST', '/logout', [AdsJob\Controllers\Auth\LoginController::class, 'logout']],
     ['GET', '/search/results', [AdsJob\Controllers\SearchController::class, 'show']],
     ['GET', '/chats', [AdsJob\Controllers\ChatRoomController::class, 'index']],
-    ['GET', '/chat/{chat_room_id}', [AdsJob\Controllers\ChatRoomController::class, 'show']],
-    ['POST', '/chat/{chat_room_id}', [AdsJob\Controllers\MessageController::class, 'store']],
+    ['GET', '/chat/{chat_id}/{job_id}', [AdsJob\Controllers\ChatRoomController::class, 'show']],
+    ['POST', '/chat/{chat_id}/{job_id}', [AdsJob\Controllers\MessageController::class, 'store']],
 ];
 

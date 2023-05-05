@@ -36,7 +36,7 @@ abstract class Model{
         return DB::exists(static::$tableName, $attribute, $value);
     }
 
-    public function create(array $values){
+    public function create(array $values) : void{
         foreach($values as $key => $value){
             $this->values[$key] = $value;
         }
@@ -58,7 +58,7 @@ abstract class Model{
         }
     }
 
-    public function __isset(string $property){
+    public function __isset(string $property) : bool{
         return true;
     }
 
@@ -75,7 +75,7 @@ abstract class Model{
     }
 
 
-    public function update(array $values){
+    public function update(array $values) : void{
         $tableName = static::$tableName;
         $primaryKey = static::primaryKey();
         $setClause = implode(', ', array_map(fn($attr) => "$attr = :$attr", array_keys($values)));

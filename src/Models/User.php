@@ -19,7 +19,7 @@ class User extends Model{
         parent::save();
     }
 
-    public function update(array $values){
+    public function update(array $values) : void{
         if(key_exists('password', $values)){
             $values['password'] = password_hash($values['password'], PASSWORD_DEFAULT);
         }
@@ -32,5 +32,9 @@ class User extends Model{
 
     public function reviews(){
         return $this->hasMany(Review::class, 'id', 'user_id');
+    }
+
+    public function chatRooms(){
+        return array_merge($this->hasMany(ChatRoom::class, 'id', 'user_1_id'), $this->hasMany(ChatRoom::class, 'id', 'user_2_id'));
     }
 }

@@ -6,66 +6,13 @@
     <div class="recent-messages">
         <h1>Poruke</h1>
         {% for chatRoom in chatRooms %}
-            <a href="/chat/{{ chatRoom.id }}">
+            <a href="/chat/{{ chatRoom.id }}/{{ chatRoom.job().id }}">
                 <div class="recent" id="active-chat">
                     <img src="/light/img/profile.png" class="pfp">
-                    <h2>{{ chatRoom.name }}</h2>
+                    <h2>{{ chatRoom.job().name }}</h2>
                     <i class="fa-solid fa-circle" style="color: #0b87ed;"></i>
                 </div>
             </a>    
         {% endfor %}
-
-    </div>
-
-
-    <div class="chat">
-        <div class="chat-header">
-            <div class="username">
-                <img src="/light/img/profile.png">
-                <h3>Petar Petrović</h3>
-            </div>
-            <div class="oglas">
-                <h3>Šišanje</h3>
-                <h3>Subotica <i class="fa-solid fa-location-dot fa-l" style="color: rgb(11, 135, 237)"></i></h3>
-            </div>
-        </div>
-
-        <div class="messages">
-
-        <div class="incoming-message">
-            <img src="/light/img/profile.png" class="outgoing-pfp">
-            <div class="in-msg-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem obcaecati omnis, repellendus quasi mollitia aliquam delectus, vero at placeat consequatur eos nihil reiciendis inventore debitis veritatis magnam itaque voluptatem nobis.
-            </div>
-        </div>
-        <div class="outgoing-message">
-            <img src="/light/img/profile.png">
-            <div class="out-msg-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem obcaecati omnis
-            </div>
-        </div>
-
-        <div class="incoming-message">
-            <img src="/light/img/profile.png">
-            <div class="in-msg-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem obcaecati omnis, repellendus quasi mollitia aliquam delectus, vero at placeat consequatur eos nihil reiciendis inventore debitis veritatis magnam itaque voluptatem nobis.
-            </div>
-        </div>
-
-        <div class="input-message">
-            <input type="text" placeholder="Ukucaj poruku">
-            <a href="#send-message"><i class="fa-regular fa-paper-plane fa-xl" style="color: #0b87ed;"></i></a>
-        </div>
-
-        <div class="outgoing-message">
-            <img src="/light/img/profile.png">
-            <div class="out-msg-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem obcaecati omnis Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas pariatur laborum, dolore aliquid nemo fuga saepe minus dolor. 
-            </div>
-        </div>
-
-    </div>
-        
-
     </div>
 </div>

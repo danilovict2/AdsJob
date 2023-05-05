@@ -2,19 +2,22 @@
 
 namespace AdsJob\Controllers;
 use AdsJob\Models\ChatRoom;
+use AdsJob\Models\Job;
 use AdsJob\Models\Message;
 
 class MessageController extends Controller{
 
     public function store(array $params){
-        $chatRoom = ChatRoom::findOne(['id' => $params['chat_room_id']]);
-        if(!$chatRoom){
-            $chatRoom = new ChatRoom;
+        $chatRoom = new ChatRoom;
+        if($params['chat_id'] === 'index'){
             $chatRoom->create([
-                'id' => $params['chat_room_id'],
-                'name' => 'npc'
+                'user_1_id' => $this->auth->user()->id,
+                'user_2_id' => Job::findOne(['id' => $params['job_id']])->user()->id,
+                'job_id' => $params['job_id']
             ]);
             $chatRoom->save();
+        }else{
+            $chatRoom = ChatRoom::findOne(['id' => $params['chat_id']]);
         }
         $message = new Message;
         $message->create([
@@ -23,7 +26,7 @@ class MessageController extends Controller{
             'message' => $this->request->getBodyParameter('message'),
         ]);
         $message->save();
-        $this->response->redirect('/chat/' . $params['chat_room_id']);
+        $this->response->redirect('/chat/' . $chatRoom->id . '/' . $params['job_id']);
     }
 
 }
