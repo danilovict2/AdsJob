@@ -30,8 +30,12 @@
             new URLSearchParams({
                 'message': messageText
             })).then(response =>{
+                if('{{ chatId }}' === 'index'){
+                    window.location.href = response.data.redirect_location;
+                }
                 fetchMessages();
                 document.getElementById('message').value = '';
+                
             });
         }
     }

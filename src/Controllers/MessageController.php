@@ -16,6 +16,8 @@ class MessageController extends Controller{
                 'job_id' => $params['job_id']
             ]);
             $chatRoom->save();
+            $redirect_location = '/chat/' . $chatRoom->id . '/' . $params['job_id'];
+            echo json_encode(compact('redirect_location'));
         }else{
             $chatRoom = ChatRoom::findOne(['id' => $params['chat_id']]);
         }
@@ -26,6 +28,7 @@ class MessageController extends Controller{
             'message' => $this->request->getBodyParameter('message'),
         ]);
         $message->save();
+        
     }
 
 }
