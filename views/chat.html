@@ -13,36 +13,48 @@
             <h3>{{ job.location }} <i class="fa-solid fa-location-dot fa-l" style="color: rgb(11, 135, 237)"></i></h3>
         </div>
     </div>
-
-    <div class="messages">
-        {% for message in messages %}
-            <div class="{% if session.get('user') != message.user_id %}
-                            incoming-message
-                        {% else %}
-                            outgoing-message
-                        {% endif %}">
-                <img src="/light/img/profile.png" class="pfp">
-                <div class="out-msg-content">
-                    {{ message.message }}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    
+    <div class="messages"></div>
     <div class="input-message">
-        <form method="POST" action="/chat/{{ chatId }}/{{ job.id }}" id="send-message-form">
-            <input type="text" placeholder="Ukucaj poruku" name="message">
-        </form>
-        <a href="#send-message" onclick="event.preventDefault(); document.getElementById('send-message-form').submit();"><i class="fa-regular fa-paper-plane fa-xl" style="color: #0b87ed;"></i></a>
+        <input type="text" placeholder="Ukucaj poruku" name="message" id="message">
+        <a href="#send-message" onclick="sendMessage();"><i class="fa-regular fa-paper-plane fa-xl" style="color: #0b87ed;"></i></a>
     </div>
 </div>
 
 <script>
+    function sendMessage(){
+        event.preventDefault();
+        var messageText = document.getElementById('message').value;
+        if(messageText !== ''){
+            axios.post('/chat/{{ chatId }}/{{ job.id }}', 
+            new URLSearchParams({
+                'message': messageText
+            })).then(response =>{
+                fetchMessages();
+                document.getElementById('message').value = '';
+            });
+        }
+    }
     function fetchMessages() {
-        axios.get('/chat/{{ chatId }}/messages').then(response => {
-            console.log(response.data);
+        axios.get('/chat/{{ chatId }}/messages')
+        .then(response => {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.innerHTML = '';
+            response.data.forEach(message => {
+                const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
+                const html = `
+                    <div class="${messageClass}">
+                        <img src="/light/img/profile.png" class="pfp">
+                        <div class="out-msg-content">
+                            ${message.values.message}
+                        </div>
+                    </div>
+                `;
+                messagesContainer.innerHTML += html;
+            });
         });
     }
     setInterval(fetchMessages, 3000);
-    
+    window.onload = function() {
+        fetchMessages();
+    };
 </script>

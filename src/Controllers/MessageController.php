@@ -26,7 +26,6 @@ class MessageController extends Controller{
             'message' => $this->request->getBodyParameter('message'),
         ]);
         $message->save();
-        $this->response->redirect('/chat/' . $chatRoom->id . '/' . $params['job_id']);
     }
 
 }

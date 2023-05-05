@@ -4,7 +4,7 @@ namespace AdsJob\Models;
 use AdsJob\Database\DB;
 use AdsJob\Traits\HasFactory;
 
-abstract class Model{
+abstract class Model implements \JsonSerializable{
 
     use HasFactory;
 
@@ -99,6 +99,12 @@ abstract class Model{
     public static function all() : array {
         $tableName = static::$tableName;
         return DB::rawQuery("SELECT * FROM $tableName")->fetchAll(\PDO::FETCH_CLASS, static::class);
+    }
+
+    public function jsonSerialize() : mixed{
+        return [
+            'values' => $this->values
+        ];
     }
 
 }
