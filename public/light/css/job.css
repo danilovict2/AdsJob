@@ -164,6 +164,10 @@ div.info{
     padding-top: 30px;
 }
 
+div .userInfo{
+    padding-left: 50px;
+}
+
 button{
     background-color: rgb(11, 135, 237);
     width: 250px;
@@ -185,7 +189,7 @@ button:hover{
 a{
     text-decoration: none;
     font-size: 20pt;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .ad-description{

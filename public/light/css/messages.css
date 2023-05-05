@@ -16,8 +16,8 @@ a{
 }
 
 .messages{
-    padding: 200px 100px 150px 150px;
-    width: 2000px
+    padding: 200px 100px 100px 150px;
+    width: 2000px;
 }
 
 h2 , i , h3{
@@ -36,6 +36,7 @@ h1{
 .container{
     display: flex;
     flex-direction: row;
+    margin: 0px 50px 0px 50px;
 }
 
 .chat-header{
@@ -53,22 +54,26 @@ h1{
 
 .username{
     text-align: center;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid rgb(11, 135, 237);
     font-weight: bold;
-    padding-top: 75px;
-    padding-bottom: 20px;
-    background-color: rgb(224, 223, 223);
+    padding-top: 55px;
+    padding-bottom: 10px;
+    background-color: rgb(247, 247, 247);
     margin: 10px auto 0px auto;
+    color: rgb(11, 135, 237);
 }
 
 
 .in-msg-content{
     background-color: rgb(255, 255, 255);
     max-width: 50%;
+    word-wrap: break-word;
+    height: max-content;
     margin: 20px;
     padding: 10px;
     border-radius: 20px 30px 30px 5px;
     display: inline-block;
+    font-size: 18pt;
 }
 
 .out-msg-content{
@@ -82,7 +87,8 @@ h1{
     padding: 10px;
     text-align: right;
     border-radius: 30px 20px 5px 30px;
-
+    font-size: 18pt;
+    min-width: none;
 }
 
 .outgoing-message{
@@ -90,6 +96,7 @@ h1{
     flex-direction: row-reverse;
     align-items: flex-end;
     margin: 20px;
+    min-width: none;
 }
 
 .incoming-message{
@@ -101,21 +108,21 @@ h1{
 
 .input-message{
     position: absolute;
-    bottom: 70px;
+    bottom: 0px;
     background-color: white;
     width: 2000px;
-    height: 60px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     padding-right: 150px;
+    padding-bottom: 50px;
 }
 
 input , input:focus{
     width: 1800px;
     margin: 10px;
-    margin-right: 50px;
+    margin-right: 200px;
     border: none;
     outline: none;
     font-size: 15pt;
@@ -132,36 +139,11 @@ i:active{
 }
 
 .oglas{
-    background-color:rgb(224, 223, 223);
+    background-color:rgb(241, 241, 241);
     text-align: center;
     padding: 10px;
     vertical-align: middle;
-}
-
-@media screen and (max-width:1880px) {
-    .messages{
-        padding: 200px 200px 150px 150px;
-    }
-    input , input:focus{
-        width: 1300px;
-    }
-    .input-message{
-        padding-right: 250px;
-    }
-    
-}
-
-@media screen and (max-width:1880px) {
-    .messages{
-        padding: 200px 300px 150px 150px;
-    }
-    input , input:focus{
-        width: 1000px;
-    }
-    .input-message{
-        padding-right: 350px;
-    }
-    
+    color: rgb(11, 135, 237);
 }
 
 @media screen and (max-width:1920px){
@@ -172,4 +154,135 @@ i:active{
         width: 1600px;
     }
 
+}
+
+@media screen and (max-width:1880px) {
+    .messages{
+        padding: 200px 200px 150px 150px;
+    }
+    input , input:focus{
+        width: 1500px;
+        margin-right: 150px;
+    }
+    
+}
+
+@media screen and (max-width:1805px){
+    .messages{
+        padding: 200px 400px 150px 150px;
+    }
+    input , input:focus{
+        width: 1300px;
+    }
+
+}
+@media screen and (max-width:1600px){
+    .messages{
+        padding: 200px 600px 150px 150px;
+    }
+    input , input:focus{
+        width: 1100px;
+    }
+
+}
+
+@media screen and (max-width:1400px){
+    .messages{
+        padding: 200px 800px 150px 150px;
+    }
+    input , input:focus{
+        width: 900px;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 15pt;
+    }
+}
+
+@media screen and (max-width:1200px){
+    .messages{
+        padding: 200px 1000px 150px 150px;
+    }
+    input , input:focus{
+        width: 700px;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 15pt;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .messages{
+        padding: 200px 1200px 150px 150px;
+    }
+    input , input:focus{
+        width: 500px;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 15pt;
+    }
+}
+
+@media screen and (max-width:800px){
+    .messages{
+        padding: 200px 1400px 150px 150px;
+    }
+    input , input:focus{
+        width: 300px;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 13pt;
+    }
+}
+
+@media screen and (max-width:600px){
+    .messages{
+        padding: 200px 1550px 150px 150px;
+    }
+    input , input:focus{
+        width: 350px;
+        margin-right: 0px;
+        font-size: 13pt;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 12pt;
+    }
+    .input-message{
+        bottom: 30px;
+    }
+}
+
+@media screen and (max-width:440px){
+    .messages{
+        padding: 200px 1600px 150px 150px;
+    }
+    input , input:focus{
+        width: 300px;
+        font-size: 13pt;
+        margin-right: 0px;
+    }
+    .input-message{
+        bottom: 30px;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 10pt;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width:400px){
+    .messages{
+        padding: 200px 1600px 250px 150px;
+    }
+    input , input:focus{
+        width: 300px;
+        font-size: 13pt;
+        margin-right: 0px;
+    }
+    .input-message{
+        bottom: 100px;
+    }
+    .in-msg-content, .out-msg-content{
+        font-size: 10pt;
+        max-width: 80%;
+    }
 }

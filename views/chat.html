@@ -9,7 +9,7 @@
             <h3>{{ job.user().firstName }} {{ job.user().lastName }}</h3>
         </div>
         <div class="oglas">
-            <h3>{{ job.name }}</h3>
+            <h3>{{ job.name }} |</h3>
             <h3>{{ job.location }} <i class="fa-solid fa-location-dot fa-l" style="color: rgb(11, 135, 237)"></i></h3>
         </div>
     </div>
@@ -48,9 +48,10 @@
                 const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
                 const html = `
                     <div class="${messageClass}">
-                        <img src="/light/img/profile.png" class="pfp">
+                        <img src="/{{ job.user().profilePicture ?? 'light/img/profile.png' }}" class="pfp">
                         <div class="out-msg-content">
                             ${message.values.message}
+                            <h6>12:20</h6>
                         </div>
                     </div>
                 `;
