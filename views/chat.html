@@ -24,6 +24,7 @@
     function sendMessage(){
         event.preventDefault();
         var messageText = document.getElementById('message').value;
+        messageText.trim();
         if(messageText !== ''){
             axios.post('/chat/{{ chatId }}/{{ job.id }}', 
             new URLSearchParams({

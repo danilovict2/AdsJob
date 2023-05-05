@@ -15,7 +15,7 @@ class ChatRoomController extends Controller{
     public function show(array $params){
         $job = Job::findOne(['id' => $params['job_id']]);
         $chatRoom = ChatRoom::findOne(['id' => $params['chat_id']]);
-        if(!in_array($chatRoom, $this->auth->user()->chatRooms())){
+        if(!in_array($chatRoom, $this->auth->user()->chatRooms()) && $params['chat_id'] !== 'index'){
             $this->response->redirect('/chats');
             return;
         }
