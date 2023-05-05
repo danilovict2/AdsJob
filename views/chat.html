@@ -37,4 +37,12 @@
     </div>
 </div>
 
-<script src="/js/chat.js"></script>
+<script>
+    function fetchMessages() {
+        axios.get('/chat/{{ chatId }}/messages').then(response => {
+            console.log(response.data);
+        });
+    }
+    setInterval(fetchMessages, 3000);
+    
+</script>

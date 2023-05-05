@@ -20,12 +20,23 @@ class ChatRoomController extends Controller{
             return;
         }
         $chatId = $params['chat_id'];
+        //TODO: Delete when live updating is done
         $messages = [];
         if($chatRoom){
             $messages = $chatRoom->messages();
         }
         $html = $this->renderer->render('chat.html', array_merge($this->requiredData, compact('chatRoom', 'messages', 'job', 'chatId')));
         $this->response->setContent($html);
+    }
+
+    public function messages(array $params){
+        $chatId = $params['chat_id'];
+        $chatRoom = ChatRoom::findOne(['id' => $chatId]);
+        $messages = [];
+        if($chatRoom){
+            $messages = $chatRoom->messages();
+        }
+        var_dump($messages);
     }
     
 }
