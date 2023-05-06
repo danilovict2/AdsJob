@@ -70,7 +70,9 @@
                 </h2>
                 <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i>{{ averageReview }}</h2>
             </div>
-            <a href="/chat/index/{{ job.id }}" class="btnLink"><button>Pošalji poruku</button></a>
+            {% if job.user().id != session.get("user") %}
+                <a href="/chat/index/{{ job.id }}" class="btnLink"><button>Pošalji poruku</button></a>    
+            {% endif %}
         </div>
     </div>
     <div class="ad-description">

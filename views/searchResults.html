@@ -122,7 +122,9 @@
             <div class="info">
                 <h1>{{ job.name }}</h1>
                 <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i> 4.9</h2>
-                <a href="/messages/{user_id}" class="message">Pošalji poruku</a>
+                {% if job.user().id != session.get("user") %}
+                    <a href="/chat/index/{{ job.id }}" class="message">Pošalji poruku</a>
+                {% endif %}
             </div>
         </a>
     </div>
