@@ -1,18 +1,21 @@
 {% include ('navbar.html') %}
 
-<link rel="stylesheet" href="/light/css/messages.css?v=2.0">
+<link rel="stylesheet" href="/light/css/chats.css?v=2.0">
 
 <div class="container">
-    <div class="recent-messages">
-        <h1>Poruke</h1>
-        {% for chatRoom in chatRooms %}
-            <a href="/chat/{{ chatRoom.id }}/{{ chatRoom.job().id }}">
-                <div class="recent" id="active-chat">
-                    <img src="/light/img/profile.png" class="pfp">
-                    <h2>{{ chatRoom.job().name }}</h2>
-                    <i class="fa-solid fa-circle" style="color: #0b87ed;"></i>
-                </div>
-            </a>    
-        {% endfor %}
+    <div class="header">
+        <h1><b>Poruke:</b></h1>
+        <h1>(1)</h1>
     </div>
+    <div class="chats-container">
+    {% for chatRoom in chatRooms %}
+    
+        <a href="/chat/{{ chatRoom.id }}/{{ chatRoom.job().id }}">
+            <div class="chat-tab">
+                <h2 class="title"><b>{{ chatRoom.job().name }}</b></h2>
+                <h2><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ chatRoom.job().location}}</h2>
+            </div>
+        </a>    
+    {% endfor %}
+</div>
 </div>

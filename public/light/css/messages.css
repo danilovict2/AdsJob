@@ -146,6 +146,15 @@ i:active{
     color: rgb(11, 135, 237);
 }
 
+@media screen and (max-height:1080px){
+    .input-message{
+        bottom: 30px;
+    }
+    .messages{
+        padding-bottom: 200px;
+    }
+}
+
 @media screen and (max-width:1920px){
     .input-message{
         padding-right: 220px;
@@ -264,7 +273,7 @@ i:active{
         bottom: 30px;
     }
     .in-msg-content, .out-msg-content{
-        font-size: 10pt;
+        font-size: 12pt;
         max-width: 80%;
     }
 }
@@ -282,7 +291,7 @@ i:active{
         bottom: 100px;
     }
     .in-msg-content, .out-msg-content{
-        font-size: 10pt;
+        font-size: 12pt;
         max-width: 80%;
     }
 }

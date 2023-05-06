@@ -83,6 +83,7 @@ h1{
     flex-direction: column;
     height: 500px;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .oglasi::-webkit-scrollbar{
