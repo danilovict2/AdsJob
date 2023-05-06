@@ -13,6 +13,8 @@ return new class implements Migration{
                 profilePicture VARCHAR(255),
                 email VARCHAR(255) NOT NULL UNIQUE,
                 password VARCHAR(255) NOT NULL,
+                verification_code VARCHAR(10) NOT NULL,
+                email_verified_at DATETIME DEFAULT NULL,
                 
                 CONSTRAINT PK_user PRIMARY KEY(id)
             );

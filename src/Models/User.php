@@ -7,7 +7,7 @@ class User extends Model{
     protected static string $tableName = "user";
 
     protected function attributes() : array{
-        return ['firstName', 'lastName', 'password', 'email'];
+        return ['firstName', 'lastName', 'password', 'email', 'verification_code'];
     }
 
     public static function primaryKey() : string{

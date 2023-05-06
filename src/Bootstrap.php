@@ -14,19 +14,19 @@ if($environment !== 'production') {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 }else {
     $whoops->pushHandler(function($e){
-        echo '
-        <html>
-            <head>
-                <title>Error</title>
-                <link rel="stylesheet" href="/light/css/error.css">
-            </head>
-            <body>
-                <div>
-                    <h1>An error has occurred</h1>
-                </div>    
-            </body>
-        </html>
-        ';
+            echo '
+            <html>
+                <head>
+                    <title>Error</title>
+                    <link rel="stylesheet" href="/light/css/error.css">
+                </head>
+                <body>
+                    <div>
+                        <h1>An error has occurred</h1>
+                    </div>    
+                </body>
+            </html>
+            ';
         //TODO: Email the dev
     });
 }
