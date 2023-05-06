@@ -193,3 +193,179 @@ label{
     margin-left: auto;
     margin-right: auto;
 }
+
+@media  screen and (max-width:1450px){
+    .container{
+        width: 1200px;
+        height: max-content;
+    }
+    
+    .left{
+        margin: 60px;
+        margin-right: 180px;
+        padding: 40px;
+        margin-left: 30px;
+    }
+    
+    .right{
+        width: 400px;
+    }
+    form{
+        font-size: 16pt;
+        margin-top: 40px;
+    }
+    input:not([type=file]){
+        margin-bottom: 30px;
+        font-size: 15pt;
+        text-align: center;
+        padding: 10px;
+    }
+    input[type=submit]{
+        margin-right: 60px;
+    }
+    #openModal{
+        margin-left: 160px;
+        margin-bottom: 20px;
+    }
+    .linija{
+        height: 650px;
+    }
+}
+
+@media  screen and (max-width:1250px){
+    .container{
+        width: 1000px;
+        height: max-content;
+    }
+    
+    .left{
+        margin: 60px;
+        margin-right: 100px;
+        padding: 40px;
+        margin-left: 10px;
+    }
+    
+    .right{
+        width: 300px;
+    }
+    form{
+        font-size: 16pt;
+        margin-top: 40px;
+    }
+    input:not([type=file]){
+        margin-bottom: 30px;
+        font-size: 12pt;
+        text-align: center;
+        padding: 10px;
+    }
+    input[type=submit]{
+        margin-right: 30px;
+    }
+    #openModal{
+        margin-left: 100px;
+        margin-bottom: 20px;
+    }
+    .linija{
+        height: 650px;
+    }
+}
+
+@media  screen and (max-width:1050px){
+    .container{
+        width: 800px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 12 0px;
+        border-radius: 0%;
+    }
+    form{
+        font-size: 18pt;
+        margin-left: -50px;
+    }
+    .right{
+        margin-left: 150px;
+    }
+    .left{
+        margin: 0px;
+    }
+    input:not([type=file]){
+        margin-bottom: 5px;
+        font-size: 12pt;
+        text-align: center;
+        padding: 10px;
+    }
+    input[type=submit]{
+        margin-right: 20px;
+    }
+    #openModal{
+        margin-left: 160px;
+        margin-bottom: 20px;
+    }
+    .linija{
+        display: none;
+    }
+    .pfp{
+        width: 200px;
+        height: 200px;
+        margin-bottom: -20px;
+        margin-left: -20px;
+    }
+    .modalContent{
+        width: 600px;
+        padding: 30px;
+        font-size: 15pt;
+    }
+}
+
+@media  screen and (max-width:450px){
+    .container{
+        width: 800px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 12 0px;
+        border-radius: 0%;
+    }
+    form{
+        font-size: 18pt;
+        margin-left: -10px;
+    }
+    .right{
+        margin-left: 150px;
+    }
+    .left{
+        margin: 0px;
+    }
+    input:not([type=file]){
+        margin-bottom: 5px;
+        font-size: 12pt;
+        text-align: center;
+        padding: 10px;
+        margin-right: -40px;
+    }
+    input[type=submit]{
+        margin-right: 30px;
+    }
+    #openModal{
+        margin-left: 110px;
+        margin-bottom: 20px;
+    }
+    .linija{
+        display: none;
+    }
+    .pfp{
+        width: 200px;
+        height: 200px;
+        margin-bottom: -20px;
+    }
+    .modalContent{
+        width: 300px;
+        padding: 30px;
+        font-size: 12pt;
+    }
+
+    .modalContent > input{
+        width: 200px;
+    }
+}
