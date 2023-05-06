@@ -14,6 +14,7 @@ class Auth{
     ){
         if(isset($_COOKIE['user'])){
             $this->user = User::findOne(['id' => (int)$_COOKIE['user']]);
+            $this->session->set('user', $_COOKIE['user']);
             return;
         }
 
