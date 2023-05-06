@@ -16,7 +16,6 @@ return [
     ['POST', '/user/update', [AdsJob\Controllers\UserController::class, 'update']],
     ['POST', '/user/image/store', [AdsJob\Controllers\UserController::class, 'storeImage']],
     ['POST', '/user/delete', [AdsJob\Controllers\UserController::class, 'delete']],
-    ['GET', '/email/verify/{email}', [AdsJob\Controllers\UserController::class, 'verifyEmail']],
     ['POST', '/user/login', [AdsJob\Controllers\Auth\LoginController::class, 'login']],
     ['POST', '/logout', [AdsJob\Controllers\Auth\LoginController::class, 'logout']],
     ['GET', '/search/results', [AdsJob\Controllers\SearchController::class, 'show']],
