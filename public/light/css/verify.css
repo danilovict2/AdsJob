@@ -1,0 +1,121 @@
+.container{
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid rgb(11, 135, 237);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: rgb(11, 135, 237);
+}
+
+.image{
+    margin-left: 330px;
+    font-size: 50pt;
+}
+
+.main{
+    text-align: center;
+    margin-top: 100px;
+}
+
+p{
+    font-size: 18pt;
+}
+
+input[type=number], input[type=password]:focus {
+    font-size: 30pt;
+    width: 200px;
+    text-align: center;
+    border: 1px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    outline: none;
+}
+
+input[type=submit]{
+    font-size: 18pt;
+    background-color: rgb(11, 135, 237);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer; 
+    vertical-align: top;   
+}
+
+input[type=submit]:hover{
+    background-color: rgb(11, 112, 196);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+@media screen and (max-width:880px){
+    .container{
+        width: 600px;
+        height: 400px;
+    }
+    .image{
+        margin-left: 230px;
+        font-size: 50pt;
+    }
+    .main{
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width:680px){
+    .container{
+        width: 400px;
+        height: 300px;
+    }
+    .image{
+        margin-left: 180px;
+        font-size: 20pt;
+    }
+    .main{
+        text-align: center;
+        margin-top: 20px;
+    }
+    input[type=number], input[type=password]:focus {
+        font-size: 25pt;
+        width: 200px;
+    }
+    input[type=submit]{
+        font-size: 15pt;  
+    }
+}
+
+@media screen and (max-width:480px){
+    .container{
+        width: 300px;
+        height: 300px;
+    }
+    .image{
+        margin-left: 130px;
+        font-size: 20pt;
+    }
+    .main{
+        text-align: center;
+        margin-top: 20px;
+    }
+    input[type=number], input[type=password]:focus {
+        font-size: 18pt;
+        width: 200px;
+    }
+    input[type=submit]{
+        font-size: 13pt;
+        padding: 5px;  
+    }
+}
