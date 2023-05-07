@@ -1,6 +1,6 @@
 .container{
-    width: 800px;
-    height: 500px;
+    width: 900px;
+    height: 600px;
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
@@ -13,7 +13,7 @@
 }
 
 .image{
-    margin-left: 330px;
+    margin-left: 380px;
     font-size: 50pt;
 }
 
@@ -26,16 +26,16 @@ p{
     font-size: 18pt;
 }
 
-input[type=number], input[type=password]:focus {
-    font-size: 30pt;
-    width: 200px;
+input[type=text], input[type=text]:focus {
+    font-size: 70pt;
+    width: 100px;
     text-align: center;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 10px;
     outline: none;
 }
 
-input[type=submit]{
+.button input[type=submit]{
     font-size: 18pt;
     background-color: rgb(11, 135, 237);
     color: white;
@@ -43,7 +43,7 @@ input[type=submit]{
     border-radius: 10px;
     padding: 10px;
     cursor: pointer; 
-    vertical-align: top;   
+    margin-top: 30px;   
 }
 
 input[type=submit]:hover{
@@ -60,10 +60,14 @@ input[type=number]{
     -moz-appearance: textfield;
 }
 
-@media screen and (max-width:880px){
+@media screen and (max-width:980px){
     .container{
         width: 600px;
-        height: 400px;
+        height: 550px;
+    }
+    input[type=text], input[type=text]:focus {
+        font-size: 60pt;
+        width: 80px;
     }
     .image{
         margin-left: 230px;
@@ -75,10 +79,57 @@ input[type=number]{
     }
 }
 
+@media screen and (max-width:780px){
+    .container{
+        width: 600px;
+        height: 400px;
+    }
+    .image{
+        margin-left: 280px;
+        font-size: 20pt;
+    }
+    .main{
+        text-align: center;
+        margin-top: 20px;
+    }
+    input[type=text], input[type=text]:focus {
+        font-size: 50pt;
+        width: 80px;
+    }
+    .button input[type=submit]{
+        font-size: 15pt;
+        margin-top: 20px;  
+    }
+}
+
 @media screen and (max-width:680px){
     .container{
+        width: 500px;
+        height: 400px;
+    }
+    .image{
+        margin-left: 230px;
+        font-size: 20pt;
+    }
+    .main{
+        text-align: center;
+        margin-top: 20px;
+    }
+    input[type=text], input[type=text]:focus {
+        font-size: 40pt;
+        width: 70px;
+    }
+    .button input[type=submit]{
+        font-size: 17pt;
+        padding: 5px;
+        margin-top: 20px;  
+    }
+}
+
+@media screen and (max-width:580px){
+    .container{
         width: 400px;
-        height: 300px;
+        height: 400px;
     }
     .image{
         margin-left: 180px;
@@ -88,19 +139,21 @@ input[type=number]{
         text-align: center;
         margin-top: 20px;
     }
-    input[type=number], input[type=password]:focus {
-        font-size: 25pt;
-        width: 200px;
+    input[type=text], input[type=text]:focus {
+        font-size: 35pt;
+        width: 50px;
     }
-    input[type=submit]{
-        font-size: 15pt;  
+    .button input[type=submit]{
+        font-size: 17pt;
+        padding: 5px;
+        margin-top: 20px;  
     }
 }
 
 @media screen and (max-width:480px){
     .container{
         width: 300px;
-        height: 300px;
+        height: 400px;
     }
     .image{
         margin-left: 130px;
@@ -110,12 +163,13 @@ input[type=number]{
         text-align: center;
         margin-top: 20px;
     }
-    input[type=number], input[type=password]:focus {
-        font-size: 18pt;
-        width: 200px;
+    input[type=text], input[type=text]:focus {
+        font-size: 30pt;
+        width: 40px;
     }
-    input[type=submit]{
-        font-size: 13pt;
-        padding: 5px;  
+    .button input[type=submit]{
+        font-size: 16pt;
+        padding: 5px;
+        margin-top: 20px;  
     }
 }
