@@ -132,6 +132,17 @@ h3{
         height: 250px;
     }
 
+    .modal{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .modalContent{
+        width: 600px;
+        padding: 30px;
+        font-size: 18pt;
+    }
+
 }
 
 @media screen and (max-width: 1160px){
@@ -195,6 +206,20 @@ h3{
         font-size: 12pt;
     }
 
+    .modal{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .modalContent{
+        width: 400px;
+        padding: 30px;
+    }
+
+    .modalContent > h3, .modalContent > .buttons{
+        font-size: 15pt;
+    }
+
 }
 
 @media screen and (max-width: 480px){
@@ -219,5 +244,20 @@ h3{
     h3{
         font-size: 10pt;
     }
+
+    .modal{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .modalContent{
+        width: 300px;
+        padding: 20px;
+    }
+
+    .modalContent > h3, #close2, #close3{
+        font-size: 11pt;
+    }
+    
 
 }
