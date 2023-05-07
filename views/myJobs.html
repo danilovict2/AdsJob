@@ -10,26 +10,28 @@
     </div>
     <div class="oglasi">
         {% for job in jobs %}
-            <div class="oglas">
-                <a href="/p/{{job.id}}">
-                <div class="slika">
-                    <img src="/{{ job.images()[0].imagePath }}">
-                </div>
-            </a>
-                <a href="/p/{{job.id}}"><div class="description">
-                    <h1>{{ job.name }}</h1>
-                    <p class="description-content">{{ job.description }}</p>
-                </div></a>
-                <div class="mesto">
-                    <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ job.location }}</h1>
-                    <i class="fa-solid fa-ellipsis-vertical fa-2xl dropbtn" onclick="toggleDropdown()" style="color: #0b87ed;"></i>
-                    <div id="dropdown" class="dropdown-content">
-                        <a href="/p/{job_id}/edit">Izmeni oglas</a>
-                        <a href="#delete">Obriši oglas</a>
-                    </div>
-                </div> 
+        <div class="oglas">
+            <a href="/p/{{job.id}}">
+            <div class="slika">
+                <img src="/{{ job.images()[0].imagePath }}">
             </div>
-        {% endfor %}
+        </a>
+            <a href="/p/{{job.id}}"><div class="description">
+                <h1>{{ job.name }}</h1>
+                <p class="description-content">dasdasd</p>
+            </div></a>
+            <div class="mesto">
+                <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> dasd</h1>
+                <i class="fa-solid fa-ellipsis-vertical fa-2xl dropbtn" onclick="toggleDropdown()" style="color: #0b87ed;"></i>
+                
+            </div> 
+            
+        </div>
+        <div id="dropdown" class="dropdown-content">
+            <a href="/p/{job_id}/edit">Izmeni oglas</a>
+            <a href="#delete">Obriši oglas</a>
+        </div>
+    {% endfor %}
     </div>
 </div>
 

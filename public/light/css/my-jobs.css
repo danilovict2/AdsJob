@@ -95,7 +95,7 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 105em;
+    width: 80em;
     height: 10em;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -117,8 +117,12 @@ h1{
 .dropdown-content{
     display: none;
     background-color: rgb(11, 135, 237);
-    z-index: 10;
-    position: relative;
+    width: max-content;
+    margin-top: -120px;
+    margin-left: 1150px;
+    z-index: 3;
+    border-radius: 20px 0px 20px 20px;
+
 }
 
 .dropdown-content a {
@@ -129,12 +133,11 @@ h1{
 }
 
 .dropdown-content a:hover {
-    background-color:rgb(10, 116, 202)č
+    background-color:rgb(35, 130, 207)č
 }
 
 .show {
     display:block;
-    margin-right: 100px;
 }
 
 @media screen and (max-width: 1640px){
