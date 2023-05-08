@@ -12,7 +12,7 @@ use AdsJob\Models\User;
 class JobController extends Controller{
 
     public function middleware(){
-        $this->registerMiddleware(new AuthMiddleware($this->auth,['create']));
+        $this->registerMiddleware(new AuthMiddleware($this->auth,['create', 'edit']));
     }
 
     public function create() : void{
@@ -35,6 +35,11 @@ class JobController extends Controller{
     }
 
     public function edit(array $params){
+        $job = Job::findOne(['id' => $params['job_id']]);
+        if(!$job || $job->user_id !== $this->auth->user()->id){
+            $this->response->redirect('/');
+            return;
+        }
         $html = $this->renderer->render('editJob.html', $this->requiredData);
         $this->response->setContent($html);
     }
