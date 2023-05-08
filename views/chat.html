@@ -48,7 +48,7 @@
     }
 
     function fetchMessages() {
-        axios.get('/chat/{{ chatId }}/messages')
+        axios.get('/chat/{{ chatId }}/{{ job.id }}/messages')
         .then(response => {
             const messagesContainer = document.querySelector('.messages');
             const chat = document.querySelector('.chat');
