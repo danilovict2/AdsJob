@@ -44,11 +44,11 @@ class UserController extends Controller{
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->isSMTP();
 
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['MAIL_HOST'];
             $mail->SMTPAuth = true;
 
             $mail->Username = $_ENV['MAIL'];
-            $mail->Password = $_ENV['PASSWORD'];
+            $mail->Password = $_ENV['MAIL_PASSWORD'];
 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;

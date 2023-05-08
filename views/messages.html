@@ -5,7 +5,7 @@
 <div class="container">
     <div class="header">
         <h1><b>Poruke:</b></h1>
-        <h1>(1)</h1>
+        <h1>{{ chatRooms|length }}</h1>
     </div>
     <div class="chats-container">
     {% for chatRoom in chatRooms %}

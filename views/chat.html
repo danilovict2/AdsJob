@@ -46,7 +46,7 @@
             const chat = document.querySelector('.chat');
             messagesContainer.innerHTML = '';
             response.data.forEach(message => {
-                const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'out-msg-content' : 'in-msg-content';
+                const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
                 const html = `
                     <div class="${messageClass}">
                         <img src="/{{ job.user().profilePicture ?? 'light/img/profile.png' }}" class="pfp">
