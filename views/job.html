@@ -72,7 +72,7 @@
                 </h2>
                 <h2><i class="fa-solid fa-star fa-xl" style="color: rgb(11, 135, 237)"></i>{{ averageReview }}</h2>
             </div>
-            {% if job.user().id != session.get("user") %}
+            {% if job.user().id != session.get("user") and not isGuest %}
                 <a href="/chat/index/{{ job.id }}" class="btnLink"><button>Pošalji poruku</button></a>    
             {% endif %}
         </div>
@@ -81,7 +81,7 @@
         <p class="description"><i class="fa-solid fa-circle-info fa-2xl fa-pull-left"
                 style="color: rgb(11, 135, 237)"></i>{{ job.description }}</p>
     </div>
-    {% if not isGuest %}
+    {% if not isGuest and job.user().id != session.get("user") %}
         <div class="add-review">
             <form action="/review/{{ job.id }}/store" method="POST">
                 {{ session.csrf_token() }}

@@ -43,6 +43,7 @@
         axios.get('/chat/{{ chatId }}/messages')
         .then(response => {
             const messagesContainer = document.querySelector('.messages');
+            const chat = document.querySelector('.chat');
             messagesContainer.innerHTML = '';
             response.data.forEach(message => {
                 const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
@@ -51,12 +52,13 @@
                         <img src="/{{ job.user().profilePicture ?? 'light/img/profile.png' }}" class="pfp">
                         <div class="out-msg-content">
                             ${message.values.message}
-                            <h6>12:20</h6>
+                            <h6>${message.values.created_at.substring(10, 16)}</h6>
                         </div>
                     </div>
                 `;
                 messagesContainer.innerHTML += html;
             });
+            chat.scrollTo(0, chat.scrollHeight);
         });
     }
     setInterval(fetchMessages, 3000);

@@ -122,7 +122,7 @@
             <div class="info">
                 <h1>{{ job.name }}</h1>
                 <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i> 4.9</h2>
-                {% if job.user().id != session.get("user") %}
+                {% if job.user().id != session.get("user") and not isGuest %}
                     <a href="/chat/index/{{ job.id }}" class="message">Pošalji poruku</a>
                 {% endif %}
             </div>
