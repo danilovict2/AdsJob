@@ -19,7 +19,7 @@ class MessageController extends Controller{
             $redirect_location = '/chat/' . $chatRoom->id . '/' . $params['job_id'];
             echo json_encode(compact('redirect_location'));
         }else{
-            $chatRoom = ChatRoom::findOne(['id' => $params['chat_id']]);
+            $chatRoom = ChatRoom::findOne(['id' => $params['chat_id'], 'job_id' => $params['job_id']]);
         }
         $message = new Message;
         $message->create([
