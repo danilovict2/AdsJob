@@ -29,6 +29,13 @@ class LoginController extends Controller{
             $this->response->redirect('/login');
             return;
         }
+
+        if(!$user->email_verified_at){
+            $validator->addError('email', 'Molimo vas da potvrdite E-mail');
+            $this->setValidationErrors($validator->getErrors());
+            $this->response->redirect('/login');
+            return;
+        }
         
         $passwordValid = password_verify($formData['password'], $user->password);
         if (!$passwordValid) {

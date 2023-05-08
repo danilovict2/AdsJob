@@ -43,9 +43,6 @@ abstract class Model implements \JsonSerializable{
     }
 
     public function __set(string $key, $value) : void{
-        if($key === static::primaryKey() && !in_array(debug_backtrace()[1]['function'], ['fetchObject', 'fetchAll']) ){
-            return;
-        }
         $this->values[$key] = $value;
     }
 

@@ -45,6 +45,7 @@ class JobController extends Controller{
 
     public function store() : void{
         if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            echo "CSRF TOKEN INVALID";
             die;
         }
         $validator = new \AdsJob\Validators\Validator([

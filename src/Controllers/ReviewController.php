@@ -8,6 +8,7 @@ class ReviewController extends Controller{
 
     public function store(array $params): void{
         if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            echo "CSRF TOKEN INVALID";
             die;
         }
         $jobId = (int)$params['job_id'];

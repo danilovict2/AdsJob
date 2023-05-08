@@ -3,6 +3,7 @@
 return [
     ['GET', '/', [AdsJob\Controllers\FrontendController::class, 'index']],
     ['GET', '/login', [AdsJob\Controllers\FrontendController::class, 'login']],
+    ['GET', '/verify/{user_id}', [AdsJob\Controllers\FrontendController::class, 'verify']],
     ['GET', '/register', [AdsJob\Controllers\FrontendController::class, 'register']],
     ['GET', '/p/create', [AdsJob\Controllers\JobController::class, 'create']],
     ['GET', '/p/{job_id}', [AdsJob\Controllers\JobController::class, 'show']],
@@ -10,6 +11,7 @@ return [
     ['POST', '/p/store', [AdsJob\Controllers\JobController::class, 'store']],
     ['POST', '/review/{job_id}/store', [AdsJob\Controllers\ReviewController::class, 'store']],
     ['POST', '/user/store', [AdsJob\Controllers\UserController::class, 'store']],
+    ['POST', '/{user_id}/verify', [AdsJob\Controllers\UserController::class, 'verify']],
     ['GET', '/user/profile', [AdsJob\Controllers\UserController::class, 'profile']],
     ['GET', '/user/profile/edit', [AdsJob\Controllers\UserController::class, 'editProfile']],
     ['GET', '/user/jobs', [AdsJob\Controllers\UserController::class, 'myJobs']],

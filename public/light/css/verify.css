@@ -12,6 +12,18 @@
     color: rgb(11, 135, 237);
 }
 
+.is-invalid {            
+    border: 1px solid rgb(255, 0, 0); 
+    border-radius: 10px;
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    font-size: 80%;
+    color: #e51c23;
+}
+
 .image{
     margin-left: 380px;
     font-size: 50pt;

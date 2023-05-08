@@ -1,22 +1,40 @@
-{% include('navbar.html') %}
-<link rel="stylesheet" href="/light/css/verify.css?v=2.0">
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="container">
-    <h1 class="image"><i class="fa-solid fa-envelope-open-text fa-2xl" style="color: #0b87ed;"></i></h1>
-    <div class="main">
-        <h1>Proverite vaš Email</h1>
-        <p>Jedinstveni verifikacioni kôd je poslat na vašu Email adresu</p>
-        <h2>Unesite 6-cifreni kôd:</h2>
-        <form action="">
-            <input type="text" required maxlength="1">
-            <input type="text" required maxlength="1">
-            <input type="text" required maxlength="1">
-            <input type="text" required maxlength="1">
-            <input type="text" required maxlength="1">
-            <input type="text" required maxlength="1">
-            <div class="button">
-                <input type="submit" value="Potvrdi">
-            </div>
-        </form>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="/light/css/verify.css?v=3.0">
+
+    <div class="container">
+        {% set errors = {'invalid' : session.getFlash('invalid')} %}
+        <h1 class="image"><i class="fa-solid fa-envelope-open-text fa-2xl" style="color: #0b87ed;"></i></h1>
+        <div class="main">
+            <h1>Proverite vaš Email</h1>
+            <p>Jedinstveni verifikacioni kôd je poslat na vašu Email adresu</p>
+            <h2>Unesite 6-cifreni kôd:</h2>
+            <form action="/{{ user_id }}/verify" method="POST">
+                {{ session.csrf_token() }}
+                <input type="text" maxlength="1" name="d1" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input type="text" maxlength="1" name="d2" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input type="text" maxlength="1" name="d3" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input type="text" maxlength="1" name="d4" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input type="text" maxlength="1" name="d5" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input type="text" maxlength="1" name="d6" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <div class="invalid-feedback">
+                    {{ errors.invalid }}
+                </div>
+                <div class="button">
+                    <input type="submit" value="Potvrdi">
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
+
+</html>

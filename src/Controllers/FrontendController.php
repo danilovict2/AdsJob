@@ -25,8 +25,13 @@ class FrontendController extends Controller{
         $this->response->setContent($html);
     }
 
-    public function messages() : void{
-        $html = $this->renderer->render('messages.html',$this->requiredData);
+    public function verify(array $params) : void{
+        $user = User::findOne(['id' => $params['user_id']]);
+        if(!$this->auth->isGuest() || !$user || $user->email_verified_at){
+            $this->response->redirect('/');
+            return;
+        }
+        $html = $this->renderer->render('verify.html', array_merge($this->requiredData,['user_id' => $params['user_id']]));
         $this->response->setContent($html);
     }
 }

@@ -3,6 +3,7 @@
 namespace AdsJob\Controllers;
 use AdsJob\Models\User;
 use AdsJob\Middleware\AuthMiddleware;
+use AdsJob\Validators\Validator;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -15,6 +16,7 @@ class UserController extends Controller{
     
     public function store() : void{
         if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            echo "CSRF TOKEN INVALID";
             die;
         }
         $validator = new \AdsJob\Validators\Validator([
@@ -31,6 +33,12 @@ class UserController extends Controller{
         }
         $user = new User;
         $user->create($this->request->getBodyParameters());
+        $this->sendVerificationEmail($user);
+        $user->save();
+        $this->response->redirect('/verify/' . $user->id);
+    }
+
+    private function sendVerificationEmail(User &$user){
         $mail = new PHPMailer(true);
         try{
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -39,13 +47,13 @@ class UserController extends Controller{
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
 
-            $mail->Username = 'adsjobrs@gmail.com';
-            $mail->Password = 'jdmttdhfofdwsnmi';
+            $mail->Username = $_ENV['MAIL'];
+            $mail->Password = $_ENV['PASSWORD'];
 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
-            $mail->setFrom('adsjobrs@gmail.com', 'adsjob.rs');
+            $mail->setFrom($_ENV['MAIL'], 'adsjob.rs');
             $mail->addAddress($this->request->getBodyParameter('email'), $this->request->getBodyParameter('firstName'));
 
             $mail->isHTML(true);
@@ -72,12 +80,11 @@ class UserController extends Controller{
             ';
             return;
         }
-        $user->save();
-        $this->response->redirect('/login');
     }
-
+    
     public function update() : void{
         if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            echo "CSRF TOKEN INVALID";
             die;
         }
         $user = $this->auth->user();
@@ -118,6 +125,7 @@ class UserController extends Controller{
 
     public function delete() : void{
         if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            echo "CSRF TOKEN INVALID";
             die;
         }
         $this->auth->user()->delete();
@@ -141,5 +149,31 @@ class UserController extends Controller{
         $jobCount = count($jobs);
         $html = $this->renderer->render('myJobs.html', array_merge(['jobs' => $jobs, 'jobCount' => $jobCount], $this->requiredData));
         $this->response->setContent($html);
-    }   
+    }
+    
+    public function verify(array $params){
+        if(!$this->session->validateToken($this->request->getBodyParameter('csrf_token'))){
+            echo "CSRF TOKEN INVALID";
+            die;
+        }
+        $validator = new Validator([]);
+        $user = User::findOne(['id' => $params['user_id']]);
+        $verification_code = '';
+        foreach($this->request->getBodyParameters() as $key => $value){
+            if($key === 'csrf_token')continue;
+            $verification_code .= $value;
+        }
+        if($user->verification_code !== $verification_code){
+            $validator->addError('invalid', 'Kod koji ste uneli je pogresan');
+            $this->setValidationErrors($validator->getErrors());
+            $this->response->redirect('/verify/' . $params['user_id']);
+            return;
+        }
+        
+        $user->update([
+            'email_verified_at' => date('Y-m-d H:i:s')
+        ]);
+        $this->auth->login($user);
+        $this->response->redirect('/');
+    }
 }
