@@ -39,7 +39,7 @@ class ChatRoomController extends Controller{
 
     public function messages(array $params){
         $chatId = $params['chat_id'];
-        $chatRoom = ChatRoom::findOne(['id' => $chatId]);
+        $chatRoom = ChatRoom::findOne(['id' => $chatId, 'job_id' => $params['job_id']]);
         $messages = [];
         if($chatRoom){
             $messages = $chatRoom->messages();
