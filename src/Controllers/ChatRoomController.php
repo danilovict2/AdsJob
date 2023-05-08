@@ -5,6 +5,7 @@ namespace AdsJob\Controllers;
 use AdsJob\Middleware\AuthMiddleware;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
+use AdsJob\Models\User;
 
 class ChatRoomController extends Controller{
 
@@ -25,8 +26,14 @@ class ChatRoomController extends Controller{
             $this->response->redirect('/chats');
             return;
         }
+        $user1 = [];
+        $user2 = [];
+        if($chatRoom){
+            $user1 = User::findOne(['id' => $chatRoom->user_1_id]);
+            $user2 = User::findOne(['id' => $chatRoom->user_2_id]);
+        }
         $chatId = $params['chat_id'];
-        $html = $this->renderer->render('chat.html', array_merge($this->requiredData, compact('chatRoom', 'job', 'chatId')));
+        $html = $this->renderer->render('chat.html', array_merge($this->requiredData, compact('chatRoom', 'job', 'chatId', 'user1', 'user2')));
         $this->response->setContent($html);
     }
 
