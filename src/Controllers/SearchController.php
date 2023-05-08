@@ -3,7 +3,9 @@
 namespace AdsJob\Controllers;
 
 use AdsJob\Database\DB;
+use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
+use AdsJob\Models\Review;
 
 class SearchController extends Controller{
 
@@ -27,10 +29,18 @@ class SearchController extends Controller{
         }
         $queryResults = DB::rawQuery($jobsToSelect, $params)->fetchAll();
         $searchResults = [];
+        $i = 0;
         foreach($queryResults as $queryResult){
-            $searchResults[] = Job::findOne(['id' => $queryResult['id']]);
+            $job = Job::findOne(['id' => $queryResult['id']]);
+            $chatRoom = ChatRoom::findOne(['user_1_id' => $this->session->get('user') ?? 1]);
+            $chatRoom = $chatRoom ? $chatRoom : ChatRoom::findOne(['user_2_id' => $this->session->get('user') ?? 1]);
+            $chatRoomLink = $chatRoom ? '/chat/' . $chatRoom->id . '/' . $job->id : '/chat/index/' . $job->id;
+
+            $searchResults[$i]['job'] = $job;
+            $searchResults[$i]['review'] = Review::average('review_value', ['job_id' => $job->id]) ?? 5.0;
+            $searchResults[$i]['chatRoomLink'] = $chatRoomLink;
         }
-        $html = $this->renderer->render('searchResults.html',array_merge(['searchResults' => $searchResults] ,$this->requiredData));
+        $html = $this->renderer->render('searchResults.html',array_merge(compact('searchResults') ,$this->requiredData));
         $this->response->setContent($html);
     }
 }

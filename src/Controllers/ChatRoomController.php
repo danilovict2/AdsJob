@@ -1,10 +1,16 @@
 <?php declare(strict_types = 1);
 
 namespace AdsJob\Controllers;
+
+use AdsJob\Middleware\AuthMiddleware;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 
 class ChatRoomController extends Controller{
+
+    public function middleware(){
+        $this->registerMiddleware(new AuthMiddleware($this->auth,['index', 'show', 'messages']));
+    }
     
     public function index(){
         $chatRooms = $this->auth->user()->chatRooms();

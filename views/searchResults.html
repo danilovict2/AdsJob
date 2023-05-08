@@ -115,15 +115,15 @@
         </div>
 </form>
 <div class="jobs-container">
-    {% for job in searchResults %}
+    {% for result in searchResults %}
     <div class="job-tab">
-        <a href="/p/{{job.id}}">
-            <img src="/{{ job.images()[0].imagePath }}" class="job-image">
+        <a href="/p/{{result.job.id}}">
+            <img src="/{{ result.job.images()[0].imagePath }}" class="job-image">
             <div class="info">
-                <h1>{{ job.name }}</h1>
-                <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i> 4.9</h2>
+                <h1>{{ result.job.name }}</h1>
+                <h2><i class="fa-solid fa-star" style="color: #0b87ed;"></i>{{ result.review }}</h2>
                 {% if job.user().id != session.get("user") and not isGuest %}
-                    <a href="/chat/index/{{ job.id }}" class="message">Pošalji poruku</a>
+                    <a href="{{ result.chatRoomLink }}" class="message">Pošalji poruku</a>
                 {% endif %}
             </div>
         </a>

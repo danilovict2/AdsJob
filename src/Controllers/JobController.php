@@ -3,8 +3,10 @@
 namespace AdsJob\Controllers;
 
 use AdsJob\Middleware\AuthMiddleware;
+use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 use AdsJob\Models\JobImage;
+use AdsJob\Models\Review;
 use AdsJob\Models\User;
 
 class JobController extends Controller{
@@ -24,17 +26,11 @@ class JobController extends Controller{
             $this->response->redirect('/404');
             return;
         }
-        $averageReview = 5.0;
-        if(count($job->reviews()) > 0){
-            $averageReview = 0.0;
-            foreach($job->reviews() as $review){
-                $averageReview += $review->review_value;
-            }
-            $averageReview /= count($job->reviews());
-            $averageReview = round($averageReview, 1);
-        }
-        $user = User::findOne(['id' => $job->user_id]);
-        $html = $this->renderer->render('job.html',array_merge(['user' => $user, 'job' => $job, 'averageReview' => $averageReview],$this->requiredData));
+        $averageReview = Review::average('review_value', ['job_id' => $job->id]) ?? 5.0;
+        $chatRoom = ChatRoom::findOne(['user_1_id' => $this->session->get('user') ?? 1]);
+        $chatRoom = $chatRoom ? $chatRoom : ChatRoom::findOne(['user_2_id' => $this->session->get('user') ?? 1]);
+        $chatRoomLink = $chatRoom ? '/chat/' . $chatRoom->id . '/' . $job->id : '/chat/index/' . $job->id;
+        $html = $this->renderer->render('job.html',array_merge(compact('job', 'averageReview', 'chatRoomLink'),$this->requiredData));
         $this->response->setContent($html);
     }
 
