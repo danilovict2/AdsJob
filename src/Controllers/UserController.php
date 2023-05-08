@@ -78,7 +78,7 @@ class UserController extends Controller{
                 </body>
                 </html>
             ';
-            return;
+            die;
         }
     }
     
