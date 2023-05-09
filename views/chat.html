@@ -21,6 +21,7 @@
 </div>
 
 <script>
+    var prevResponse = '';
     function sendMessageOnEnter(e){
         if(e.keyCode === 13){
             e.preventDefault();
@@ -46,7 +47,7 @@
             });
         }
     }
-
+    
     function fetchMessages() {
         axios.get('/chat/{{ chatId }}/messages')
         .then(response => {
@@ -68,7 +69,10 @@
                 `;
                 messagesContainer.innerHTML += html;
             });
-            chat.scrollTo(0, chat.scrollHeight);
+            if(response.data.length !== prevResponse.length){
+                chat.scrollTo(0, chat.scrollHeight);
+            }
+            prevResponse = response.data;
         });
     }
     setInterval(fetchMessages, 3000);
