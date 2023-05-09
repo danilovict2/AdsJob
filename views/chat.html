@@ -51,28 +51,29 @@
     function fetchMessages() {
         axios.get('/chat/{{ chatId }}/messages')
         .then(response => {
-            const messagesContainer = document.querySelector('.messages');
-            const chat = document.querySelector('.chat');
-            messagesContainer.innerHTML = '';
-            response.data.forEach(message => {
-                const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
-                let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
-                senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
-                const html = `
-                    <div class="${messageClass}">
-                        <img src="/${senderPFP}" class="pfp">
-                        <div class="out-msg-content">
-                            ${message.values.message}
-                            <h6>${message.values.created_at.substring(10, 16)}</h6>
-                        </div>
-                    </div>
-                `;
-                messagesContainer.innerHTML += html;
-            });
             if(response.data.length !== prevResponse.length){
+                const messagesContainer = document.querySelector('.messages');
+                const chat = document.querySelector('.chat');
+                messagesContainer.innerHTML = '';
+                response.data.forEach(message => {
+                    const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
+                    let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
+                    senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
+                    const html = `
+                        <div class="${messageClass}">
+                            <img src="/${senderPFP}" class="pfp">
+                            <div class="out-msg-content">
+                                ${message.values.message}
+                                <h6>${message.values.created_at.substring(10, 16)}</h6>
+                            </div>
+                        </div>
+                    `;
+                    messagesContainer.innerHTML += html;
+                });
                 chat.scrollTo(0, chat.scrollHeight);
+                prevResponse = response.data;
             }
-            prevResponse = response.data;
+            
         });
     }
     setInterval(fetchMessages, 3000);
