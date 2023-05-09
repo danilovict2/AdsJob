@@ -32,8 +32,10 @@ class SearchController extends Controller{
         $i = 0;
         foreach($queryResults as $queryResult){
             $job = Job::findOne(['id' => $queryResult['id']]);
-            $chatRoom = ChatRoom::findOne(['user_1_id' => $this->session->get('user') ?? 1]);
-            $chatRoom = $chatRoom ? $chatRoom : ChatRoom::findOne(['user_2_id' => $this->session->get('user') ?? 1]);
+            if($this->session->get("user")){
+                $chatRoom = ChatRoom::findOne(['job_id' => $job->id, 'user_1_id' => $this->session->get('user')]);
+                $chatRoom = $chatRoom ? $chatRoom : ChatRoom::findOne(['job_id' => $job->id, 'user_2_id' => $this->session->get('user')]);
+            }else $chatRoom = false;
             $chatRoomLink = $chatRoom ? '/chat/' . $chatRoom->id . '/' . $job->id : '/chat/index/' . $job->id;
 
             $searchResults[$i]['job'] = $job;

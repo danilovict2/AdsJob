@@ -51,7 +51,7 @@
     function fetchMessages() {
         axios.get('/chat/{{ chatId }}/messages')
         .then(response => {
-            if(response.data.length !== prevResponse){
+            if(response.data.length !== prevResponseLength){
                 const messagesContainer = document.querySelector('.messages');
                 const chat = document.querySelector('.chat');
                 messagesContainer.innerHTML = '';
@@ -71,7 +71,7 @@
                     messagesContainer.innerHTML += html;
                 });
                 chat.scrollTo(0, chat.scrollHeight);
-                prevResponse = response.data.length;
+                prevResponseLength = response.data.length;
             }
             
         });

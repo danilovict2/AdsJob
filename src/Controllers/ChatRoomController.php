@@ -14,7 +14,7 @@ class ChatRoomController extends Controller{
     }
     
     public function index(){
-        $chatRooms = $this->auth->user()->chatRooms();
+        $chatRooms = array_reverse($this->auth->user()->chatRooms());
         $html = $this->renderer->render('messages.html', array_merge($this->requiredData, compact('chatRooms')));
         $this->response->setContent($html);
     }
