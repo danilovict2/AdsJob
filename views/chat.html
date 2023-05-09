@@ -21,7 +21,7 @@
 </div>
 
 <script>
-    var prevResponse = '';
+    var prevResponseLength = 0;
     function sendMessageOnEnter(e){
         if(e.keyCode === 13){
             e.preventDefault();
@@ -51,7 +51,7 @@
     function fetchMessages() {
         axios.get('/chat/{{ chatId }}/messages')
         .then(response => {
-            if(response.data.length !== prevResponse.length){
+            if(response.data.length !== prevResponse){
                 const messagesContainer = document.querySelector('.messages');
                 const chat = document.querySelector('.chat');
                 messagesContainer.innerHTML = '';
@@ -71,7 +71,7 @@
                     messagesContainer.innerHTML += html;
                 });
                 chat.scrollTo(0, chat.scrollHeight);
-                prevResponse = response.data;
+                prevResponse = response.data.length;
             }
             
         });
