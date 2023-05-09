@@ -39,6 +39,7 @@ class SearchController extends Controller{
             $searchResults[$i]['job'] = $job;
             $searchResults[$i]['review'] = Review::average('review_value', ['job_id' => $job->id]) ?? 5.0;
             $searchResults[$i]['chatRoomLink'] = $chatRoomLink;
+            $i++;
         }
         $html = $this->renderer->render('searchResults.html',array_merge(compact('searchResults') ,$this->requiredData));
         $this->response->setContent($html);
