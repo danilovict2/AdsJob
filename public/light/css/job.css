@@ -134,8 +134,6 @@ div.images-title{
 }
 
 .slideshow-item{
-    width: 1000px;
-    height: 500px;
     transition: all 0.2s;
 }
 

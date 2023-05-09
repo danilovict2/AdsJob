@@ -7,6 +7,7 @@ use AdsJob\Validators\Validator;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller{
 
@@ -116,6 +117,9 @@ class UserController extends Controller{
         $imageName = uniqid('PFP-', true) . '.' . strtolower(pathinfo($this->request->getFile('image')['name'])['extension']);
         $imagePath = 'storage/profilePictures/' . $imageName;
         move_uploaded_file($this->request->getFile('image')['tmp_name'], $imagePath);
+        $img = Image::make($imagePath);
+        $img->resize(260, 260);
+        $img->save();
         if(file_exists($this->auth->user()->profilePicture ?? '')){
             unlink($this->auth->user()->profilePicture);
         }

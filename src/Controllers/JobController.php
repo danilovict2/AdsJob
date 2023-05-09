@@ -7,6 +7,7 @@ use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 use AdsJob\Models\JobImage;
 use AdsJob\Models\Review;
+use Intervention\Image\ImageManagerStatic as Image;
 use AdsJob\Models\User;
 
 class JobController extends Controller{
@@ -92,6 +93,9 @@ class JobController extends Controller{
         $imageName = uniqid('JOB-', true) . '.' . strtolower(pathinfo($image['name'])['extension']);
         $imagePath = 'storage/jobImages/' . $imageName;
         move_uploaded_file($image['tmp_name'], $imagePath);
+        $img = Image::make($imagePath);
+        $img->resize(1000, 500);
+        $img->save();
         $jobImage = new JobImage;
         $jobImage->create([
             'job_id' => (int)$job->id,
