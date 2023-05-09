@@ -15,6 +15,9 @@
                 <h2 class="title"><b>{{ chatRoom.job().name }}</b></h2>
                 <h2><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ chatRoom.job().location}}</h2>
             </div>
+            {% if unreadMessages[chatRoom.id] %}
+                <h1>IMAS PORUKU MAJMUNE</h1>
+            {% endif %}
         </a>    
     {% endfor %}
 </div>

@@ -11,6 +11,7 @@ return new class implements Migration{
                 user_id INT NOT NULL,
                 chat_room_id INT NOT NULL,
                 message TEXT NOT NULL,
+                seen TINYINT DEFAULT 0,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
                 CONSTRAINT PK_message PRIMARY KEY(id),

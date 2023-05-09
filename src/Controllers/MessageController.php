@@ -30,4 +30,11 @@ class MessageController extends Controller{
         
     }
 
+    public function markAsSeen(array $params){
+        $message = Message::findOne(['chat_room_id' => $params['chat_id'], 'id' => $params['message_id']]);
+        if($message){
+            $message->update(['seen' => 1]);
+        }
+    }
+
 }

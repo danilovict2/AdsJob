@@ -34,11 +34,11 @@
         var messageText = document.getElementById('message').value;
         messageText.trim();
         if(messageText.replace(/\s/g, '').length){
-            axios.post('/chat/{{ chatId }}/{{ job.id }}', 
+            axios.post('/chat/{{chatId}}/{{job.id}}', 
             new URLSearchParams({
                 'message': messageText
             })).then(response =>{
-                if('{{ chatId }}' === 'index'){
+                if('{{chatId}}' === 'index'){
                     window.location.href = response.data.redirect_location;
                 }
                 fetchMessages();
@@ -49,26 +49,30 @@
     }
     
     function fetchMessages() {
-        axios.get('/chat/{{ chatId }}/messages')
+        axios.get('/chat/{{chatId}}/messages')
         .then(response => {
             if(response.data.length !== prevResponseLength){
                 const messagesContainer = document.querySelector('.messages');
                 const chat = document.querySelector('.chat');
                 messagesContainer.innerHTML = '';
-                response.data.forEach(message => {
+                response.data.forEach((message, idx) => {
                     const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
                     let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
                     senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
+                    const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}' && idx === response.data.length - 1) 
+                    ? '<span class="seen-indicator">Seen</span>' : '';
                     const html = `
                         <div class="${messageClass}">
                             <img src="/${senderPFP}" class="pfp">
                             <div class="out-msg-content">
                                 ${message.values.message}
                                 <h6>${message.values.created_at.substring(10, 16)}</h6>
+                                ${seenIndicator}
                             </div>
                         </div>
                     `;
                     messagesContainer.innerHTML += html;
+                    markAsSeen(message);
                 });
                 chat.scrollTo(0, chat.scrollHeight);
                 prevResponseLength = response.data.length;
@@ -76,7 +80,17 @@
             
         });
     }
+
+    function markAsSeen(message){
+        if(!message.values.seen && message.values.user_id != '{{ session.get("user") }}'){
+            axios.post(`/chat/{{chatId}}/${message.values.id}/seen`).then(response => {
+
+            });
+        }
+    }
+
     setInterval(fetchMessages, 3000);
+
     window.onload = function() {
         fetchMessages();
     };

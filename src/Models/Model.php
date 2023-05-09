@@ -65,7 +65,7 @@ abstract class Model implements \JsonSerializable{
         $params = array_map(fn($attr) => ":$attr", $attributes);
         $values = [];
         foreach($attributes as $attribute){
-            $values["$attribute"] = $this->values[$attribute] ?? '';
+            $values["$attribute"] = $this->values[$attribute] ?? 0;
         }
         DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
         $this->values[static::primaryKey()] = DB::lastInsertId();

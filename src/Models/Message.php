@@ -7,7 +7,7 @@ class Message extends Model{
     protected static string $tableName = "message";
 
     protected function attributes() : array{
-        return ['chat_room_id', 'user_id', 'message'];
+        return ['chat_room_id', 'user_id', 'message', 'seen'];
     }
 
     public static function primaryKey() : string{

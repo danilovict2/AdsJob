@@ -5,6 +5,8 @@ body{
 }
 
 .pfp{
+    width: 260px;
+    height: 260px;
     margin-bottom: 40px;
     cursor: pointer;
     border-radius: 100%;

@@ -25,5 +25,6 @@ return [
     ['GET', '/chat/{chat_id}/messages', [AdsJob\Controllers\ChatRoomController::class, 'messages']],
     ['GET', '/chat/{chat_id}/{job_id}', [AdsJob\Controllers\ChatRoomController::class, 'show']],
     ['POST', '/chat/{chat_id}/{job_id}', [AdsJob\Controllers\MessageController::class, 'store']],
+    ['POST', '/chat/{chat_id}/{message_id}/seen', [AdsJob\Controllers\MessageController::class, 'markAsSeen']],
 ];
 

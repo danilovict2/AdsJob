@@ -5,6 +5,7 @@ namespace AdsJob\Controllers;
 use AdsJob\Middleware\AuthMiddleware;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
+use AdsJob\Models\Message;
 use AdsJob\Models\User;
 
 class ChatRoomController extends Controller{
@@ -15,7 +16,12 @@ class ChatRoomController extends Controller{
     
     public function index(){
         $chatRooms = array_reverse($this->auth->user()->chatRooms());
-        $html = $this->renderer->render('messages.html', array_merge($this->requiredData, compact('chatRooms')));
+        $unreadMessages = [];
+        foreach($chatRooms as $chatRoom){
+            $hasUnreadMessage = (bool)Message::findOne(['chat_room_id' => $chatRoom->id, 'seen' => 0]);
+            $unreadMessages[$chatRoom->id] = $hasUnreadMessage;
+        }
+        $html = $this->renderer->render('messages.html', array_merge($this->requiredData, compact('chatRooms', 'unreadMessages')));
         $this->response->setContent($html);
     }
 
