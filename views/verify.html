@@ -18,13 +18,13 @@
             <h1>Proverite vaš Email</h1>
             <p>Jedinstveni verifikacioni kôd je poslat na vašu Email adresu</p>
             <h2>Unesite 6-cifreni kôd:</h2>
-            <form action="/{{ user_id }}/verify" method="POST">
+            <form action="/{{ user_id }}/verify" method="POST" name="codeForm">
                 {{ session.csrf_token() }}
-                <input type="text" maxlength="1" name="d1" class="{% if errors.invalid %}is-invalid{% endif %}">
-                <input type="text" maxlength="1" name="d2" class="{% if errors.invalid %}is-invalid{% endif %}">
-                <input type="text" maxlength="1" name="d3" class="{% if errors.invalid %}is-invalid{% endif %}">
-                <input type="text" maxlength="1" name="d4" class="{% if errors.invalid %}is-invalid{% endif %}">
-                <input type="text" maxlength="1" name="d5" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input onKeyup="autotab(this, document.codeForm.d2)" type="text" maxlength="1" name="d1" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input onKeyup="autotab(this, document.codeForm.d3)" type="text" maxlength="1" name="d2" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input onKeyup="autotab(this, document.codeForm.d4)" type="text" maxlength="1" name="d3" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input onKeyup="autotab(this, document.codeForm.d5)" type="text" maxlength="1" name="d4" class="{% if errors.invalid %}is-invalid{% endif %}">
+                <input onKeyup="autotab(this, document.codeForm.d6)" type="text" maxlength="1" name="d5" class="{% if errors.invalid %}is-invalid{% endif %}">
                 <input type="text" maxlength="1" name="d6" class="{% if errors.invalid %}is-invalid{% endif %}">
                 <div class="invalid-feedback">
                     {{ errors.invalid }}
@@ -38,3 +38,11 @@
 </body>
 
 </html>
+
+<script>
+    function autotab(original, destination){
+        if (original.getAttribute && original.value.length == original.getAttribute("maxlength")){
+            destination.focus()
+        }
+    }
+</script>
