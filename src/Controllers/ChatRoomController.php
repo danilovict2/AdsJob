@@ -18,7 +18,11 @@ class ChatRoomController extends Controller{
         $chatRooms = array_reverse($this->auth->user()->chatRooms());
         $unreadMessages = [];
         foreach($chatRooms as $chatRoom){
-            $hasUnreadMessage = (bool)Message::findOne(['chat_room_id' => $chatRoom->id, 'seen' => 0]);
+            if($chatRoom->user_1_id !== $this->auth->user()->id){
+                $hasUnreadMessage = (bool)Message::findOne(['chat_room_id' => $chatRoom->id, 'seen' => 0, 'user_id' => $chatRoom->user_1_id]);
+            }else{
+                $hasUnreadMessage = (bool)Message::findOne(['chat_room_id' => $chatRoom->id, 'seen' => 0, 'user_id' => $chatRoom->user_2_id]);
+            }
             $unreadMessages[$chatRoom->id] = $hasUnreadMessage;
         }
         $html = $this->renderer->render('messages.html', array_merge($this->requiredData, compact('chatRooms', 'unreadMessages')));
