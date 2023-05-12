@@ -15,78 +15,71 @@
     </div>
     <div class="messages"></div>
     <div class="input-message">
-        <input type="text" placeholder="Ukucaj poruku" name="message" id="message" onkeypress="sendMessageOnEnter(event)">
-        <a href="#send-message" onclick="sendMessage();"><i class="fa-regular fa-paper-plane fa-xl" style="color: #0b87ed;"></i></a>
+        <input type="text" placeholder="Ukucaj poruku" name="message" id="message"
+            onkeypress="sendMessageOnEnter(event)">
+        <a href="#send-message" onclick="sendMessage();"><i class="fa-regular fa-paper-plane fa-xl"
+                style="color: #0b87ed;"></i></a>
     </div>
 </div>
 
+<script src="/javascript/chatHelper.js"></script>
 <script>
     var prevResponseLength = 0;
-    function sendMessageOnEnter(e){
-        if(e.keyCode === 13){
-            e.preventDefault();
-            sendMessage();
-        }
-    }
 
-    function sendMessage(){
+    function sendMessage() {
         event.preventDefault();
         var messageText = document.getElementById('message').value;
         messageText.trim();
-        if(messageText.replace(/\s/g, '').length){
-            axios.post('/chat/{{chatId}}/{{job.id}}', 
-            new URLSearchParams({
-                'message': messageText
-            })).then(response =>{
-                if('{{chatId}}' === 'index'){
-                    window.location.href = response.data.redirect_location;
-                }
-                fetchMessages();
-                document.getElementById('message').value = '';
-                
-            });
+        if (messageText.replace(/\s/g, '').length) {
+            axios.post('/chat/{{chatId}}/{{job.id}}',
+                new URLSearchParams({
+                    'message': messageText
+                })).then(response => {
+                    if ('{{chatId}}' === 'index') {
+                        window.location.href = response.data.redirect_location;
+                    }
+                    fetchMessages();
+                    document.getElementById('message').value = '';
+
+                });
         }
     }
-    
+
     function fetchMessages() {
-        axios.get('/chat/{{chatId}}/messages',{
-            headers : {
+        axios.get('/chat/{{chatId}}/messages', {
+            headers: {
                 'X-Axios-Request': 'true'
             }
-        })
-        .then(response => {
-            if(response.data.length !== prevResponseLength){
-                const messagesContainer = document.querySelector('.messages');
-                const chat = document.querySelector('.chat');
-                messagesContainer.innerHTML = '';
-                response.data.forEach((message, idx) => {
-                    const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
-                    let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
-                    senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
-                    const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}' && idx === response.data.length - 1) 
-                    ? '<span class="seen-indicator">Seen</span>' : '';
-                    const html = `
-                        <div class="${messageClass}">
-                            <img src="/${senderPFP}" class="pfp">
-                            <div class="out-msg-content">
-                                ${message.values.message}
-                                <h6>${message.values.created_at.substring(10, 16)}</h6>
-                                ${seenIndicator}
-                            </div>
-                        </div>
-                    `;
-                    messagesContainer.innerHTML += html;
-                    markAsSeen(message);
-                });
-                chat.scrollTo(0, chat.scrollHeight);
-                prevResponseLength = response.data.length;
-            }
-            
-        });
+        }).then(response => {
+                if (response.data.length !== prevResponseLength) {
+                    loadMessagesOnScreen(response);
+                    prevResponseLength = response.data.length;
+                }
+            });
     }
 
-    function markAsSeen(message){
-        if(!message.values.seen && message.values.user_id != '{{ session.get("user") }}'){
+    function processMessage(response, messagesContainer, message, idx) {
+        const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
+        let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
+        senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
+        const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}' && idx === response.data.length - 1) ?
+            '<span class="seen-indicator">Seen</span>' : '';
+        const html = `
+                    <div class="${messageClass}">
+                        <img src="/${senderPFP}" class="pfp">
+                        <div class="out-msg-content">
+                        ${message.values.message}
+                        <h6>${message.values.created_at.substring(10, 16)}</h6>
+                        ${seenIndicator}
+                        </div>
+                    </div>
+                    `;
+        messagesContainer.innerHTML += html;
+        markAsSeen(message);
+    }
+
+    function markAsSeen(message) {
+        if (!message.values.seen && message.values.user_id != '{{ session.get("user") }}') {
             axios.post(`/chat/{{chatId}}/${message.values.id}/seen`).then(response => {
 
             });
@@ -95,7 +88,7 @@
 
     setInterval(fetchMessages, 3000);
 
-    window.onload = function() {
+    window.onload = function () {
         fetchMessages();
     };
 </script>
