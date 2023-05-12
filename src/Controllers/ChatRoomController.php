@@ -48,6 +48,8 @@ class ChatRoomController extends Controller{
     }
 
     public function messages(array $params){
+        $isAxiosRequest = isset($_SERVER['HTTP_X_AXIOS_REQUEST']) && $_SERVER['HTTP_X_AXIOS_REQUEST'] === 'true';
+        if(!$isAxiosRequest)$this->response->redirect('/');
         $chatId = $params['chat_id'];
         $chatRoom = ChatRoom::findOne(['id' => $chatId]);
         $messages = [];
