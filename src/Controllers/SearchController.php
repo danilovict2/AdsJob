@@ -6,8 +6,12 @@ use AdsJob\Database\DB;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 use AdsJob\Models\Review;
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
 
 class SearchController extends Controller{
+
+    private const MAX_JOBS_PER_PAGE = 30;
 
     public function show(){
         $jobsToSelect = "";
@@ -43,7 +47,23 @@ class SearchController extends Controller{
             $searchResults[$i]['chatRoomLink'] = $chatRoomLink;
             $i++;
         }
-        $html = $this->renderer->render('searchResults.html',array_merge(compact('searchResults') ,$this->requiredData));
+
+        $adapter = new ArrayAdapter($searchResults);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(self::MAX_JOBS_PER_PAGE);
+        $currentPage = (int)$this->request->getQueryParameter('page') ?? 1;
+        $pagerfanta->setCurrentPage($currentPage);
+        $results = $pagerfanta->getCurrentPageResults();
+        $pageLinks = '';
+        if($pagerfanta->hasPreviousPage()){
+            $url = '?'.http_build_query(['page' => $pagerfanta->getPreviousPage()]);
+            $pageLinks .= '<a href="'.$url.'">Previous</a>';
+        }
+        if($pagerfanta->hasNextPage()){
+            $url = '?'.http_build_query(['page' => $pagerfanta->getNextPage()]);
+            $pageLinks .= '<a href="'.$url.'">Next</a>';
+        }
+        $html = $this->renderer->render('searchResults.html',array_merge(['searchResults' => $results, 'pageLinks' => $pageLinks] ,$this->requiredData));
         $this->response->setContent($html);
     }
 }
