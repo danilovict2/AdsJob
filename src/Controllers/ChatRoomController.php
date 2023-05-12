@@ -15,7 +15,7 @@ class ChatRoomController extends Controller{
     }
     
     public function index(){
-        $chatRooms = array_reverse($this->auth->user()->chatRooms());
+        $chatRooms = $this->auth->user()->chatRooms();
         $unreadMessages = [];
         foreach($chatRooms as $chatRoom){
             if($chatRoom->user_1_id !== $this->auth->user()->id){
@@ -25,6 +25,21 @@ class ChatRoomController extends Controller{
             }
             $unreadMessages[$chatRoom->id] = $hasUnreadMessage;
         }
+        usort($chatRooms, function ($a, $b) use ($unreadMessages){
+            $aHasUnread = $unreadMessages[$a->id];
+            $bHasUnread = $unreadMessages[$b->id];
+            if ($aHasUnread && !$bHasUnread){
+                return -1;
+            } elseif (!$aHasUnread && $bHasUnread){
+                return 1;
+            }
+            $aDateCreated = strtotime($a->created_at);
+            $bDateCreated = strtotime($b->created_at);
+            if ($aDateCreated == $bDateCreated) {
+                return 0;
+            }
+            return ($aDateCreated < $bDateCreated) ? -1 : 1;
+        });
         $html = $this->renderer->render('messages.html', array_merge($this->requiredData, compact('chatRooms', 'unreadMessages')));
         $this->response->setContent($html);
     }
