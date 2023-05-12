@@ -14,10 +14,23 @@ class SearchController extends Controller{
     private const MAX_JOBS_PER_PAGE = 30;
 
     public function show(){
+        $params = [];
+        $jobsToSelect = $this->chooseJobsToSelect($params);
+        $queryResults = DB::rawQuery($jobsToSelect, $params)->fetchAll();
+        $searchResults = $this->generateSearchResults($queryResults);
+        $paginatedResults = $this->paginateSearchResults($searchResults);
+
+        $results = $paginatedResults['results'];
+        $pageLinks = $paginatedResults['links'];
+
+        $html = $this->renderer->render('searchResults.html',array_merge(['searchResults' => $results, 'pageLinks' => $pageLinks] ,$this->requiredData));
+        $this->response->setContent($html);
+    }
+
+    private function chooseJobsToSelect(array &$params) : string{
         $jobsToSelect = "";
         $jobName = $this->request->getQueryParameter('oglas');
         $jobLocation = $this->request->getQueryParameter('mesto');
-        $params = [];
         if(!$jobName && !$jobLocation){
             $jobsToSelect = "SELECT id FROM job";
         }elseif(!$jobName && $jobLocation){
@@ -31,7 +44,10 @@ class SearchController extends Controller{
             $params['jobLocation'] = $jobLocation;
             $params['jobName'] = $jobName;
         }
-        $queryResults = DB::rawQuery($jobsToSelect, $params)->fetchAll();
+        return $jobsToSelect;
+    }
+
+    private function generateSearchResults(array $queryResults) : array{
         $searchResults = [];
         $i = 0;
         foreach($queryResults as $queryResult){
@@ -47,11 +63,14 @@ class SearchController extends Controller{
             $searchResults[$i]['chatRoomLink'] = $chatRoomLink;
             $i++;
         }
+        return $searchResults;
+    }
 
+    private function paginateSearchResults($searchResults) : array{
         $adapter = new ArrayAdapter($searchResults);
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(self::MAX_JOBS_PER_PAGE);
-        $currentPage = (int)$this->request->getQueryParameter('page') ?? 1;
+        $currentPage = $this->request->getQueryParameter('page') ? (int)$this->request->getQueryParameter('page') :  1;
         $pagerfanta->setCurrentPage($currentPage);
         $results = $pagerfanta->getCurrentPageResults();
         $pageLinks = '';
@@ -63,7 +82,10 @@ class SearchController extends Controller{
             $url = '?'.http_build_query(['page' => $pagerfanta->getNextPage()]);
             $pageLinks .= '<a href="'.$url.'">Next</a>';
         }
-        $html = $this->renderer->render('searchResults.html',array_merge(['searchResults' => $results, 'pageLinks' => $pageLinks] ,$this->requiredData));
-        $this->response->setContent($html);
+
+        return [
+            'results' => $results,
+            'links' => $pageLinks
+        ];
     }
 }
