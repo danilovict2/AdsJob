@@ -42,6 +42,6 @@ function loadMessagesOnScreen(response) {
         });
     }
     if(chat.scrollTop + messageHeight + 1000 === chat.scrollHeight){
-        chat.scrollTo(0, chat.scrollHeight);
+        scrollToBottom();
     }
 }

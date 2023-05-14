@@ -14,7 +14,8 @@
         </div>
     </div>
     <div class="messages"></div>
-    <div class="input-message">
+    <div class="scroll-indicator" style="display: none; margin-bottom: 500px"><i class="fa-solid fa-chevron-down" onclick="scrollToBottom()"></i></div>
+    <div class="input-message"> 
         <input type="text" placeholder="Ukucaj poruku" name="message" id="message"
             onkeypress="sendMessageOnEnter(event)">
         <a href="#send-message" onclick="sendMessage();"><i class="fa-regular fa-paper-plane fa-xl"
@@ -25,6 +26,11 @@
 <script src="/javascript/chatHelper.js"></script>
 <script>
     var prevResponseLength = 0;
+
+    function scrollToBottom(){
+        const chat = document.querySelector('.chat');
+        chat.scrollTo(0, chat.scrollHeight);
+    }
 
     function sendMessage() {
         event.preventDefault();
@@ -53,9 +59,13 @@
         }).then(response => {
                 if (response.data.length !== prevResponseLength) {
                     loadMessagesOnScreen(response);
+                    if(prevResponseLength === 0){
+                        scrollToBottom();
+                    }
                     prevResponseLength = response.data.length;
                 }
             });
+        setTimeout(fetchMessages, 3000);
     }
 
     function processMessage(response, messagesContainer, message, idx) {
@@ -86,9 +96,8 @@
         }
     }
 
-    setInterval(fetchMessages, 3000);
 
-    window.onload = function () {
+    window.onload = () => {
         fetchMessages();
     };
 </script>
