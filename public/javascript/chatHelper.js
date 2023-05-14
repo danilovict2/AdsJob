@@ -41,7 +41,6 @@ function loadMessagesOnScreen(response) {
             processMessage(response, messagesContainer, message, idx);
         });
     }
-    console.log(chat.scrollTop + messageHeight + ' ' + chat.scrollHeight);
     if(chat.scrollTop + messageHeight + 1000 === chat.scrollHeight){
         chat.scrollTo(0, chat.scrollHeight);
     }
