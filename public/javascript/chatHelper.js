@@ -26,6 +26,7 @@ function formatDate(dateString) {
 function loadMessagesOnScreen(response) {
     const messagesContainer = document.querySelector('.messages');
     const chat = document.querySelector('.chat');
+    const messageHeight = 160;
     messagesContainer.innerHTML = '';
 
     const groupedMessages = groupMessagesByDate(response.data);
@@ -40,6 +41,8 @@ function loadMessagesOnScreen(response) {
             processMessage(response, messagesContainer, message, idx);
         });
     }
-
-    chat.scrollTo(0, chat.scrollHeight);
+    console.log(chat.scrollTop + messageHeight + ' ' + chat.scrollHeight);
+    if(chat.scrollTop + messageHeight + 1000 === chat.scrollHeight){
+        chat.scrollTo(0, chat.scrollHeight);
+    }
 }
