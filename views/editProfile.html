@@ -38,7 +38,7 @@
                 style="--display: {{ (errors.oldPassword or errors.password or errors.confirmPassword) ? 'block' : 'none' }}">
                 <div class="modalContent">
                     <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
-                    <label for="currentPassword">Trenutna lozinka<input type="password"
+                    <label for="currentPassword">Trenutna lozinka<input type="password" autocomplete="new-password"
                             class="{% if errors.oldPassword %}is-invalid{% endif %}" id="currentPassword"
                             name="oldPassword"></label>
                     <div class="invalid-feedback">
