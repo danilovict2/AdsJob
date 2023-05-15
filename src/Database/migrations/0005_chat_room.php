@@ -14,9 +14,9 @@ return new class implements Migration{
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
                 CONSTRAINT PK_chat_room PRIMARY KEY(id),
-                CONSTRAINT FK_user_1_id FOREIGN KEY (user_1_id) REFERENCES user(id),
-                CONSTRAINT FK_user_2_id FOREIGN KEY (user_2_id) REFERENCES user(id),
-                CONSTRAINT FK_job_id FOREIGN KEY (job_id) REFERENCES job(id)
+                CONSTRAINT FK_user_1_id FOREIGN KEY (user_1_id) REFERENCES user(id) ON DELETE CASCADE,
+                CONSTRAINT FK_user_2_id FOREIGN KEY (user_2_id) REFERENCES user(id) ON DELETE CASCADE,
+                CONSTRAINT FK_job_id FOREIGN KEY (job_id) REFERENCES job(id) ON DELETE CASCADE
             );
         ";
         return $schema;
