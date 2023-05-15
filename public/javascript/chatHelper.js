@@ -9,13 +9,27 @@ function groupMessagesByDate(messages) {
     const groupedMessages = {};
     messages.forEach(message => {
         const date = formatDate(message.values.created_at.substring(0, 10));
-        if (!groupedMessages[date]) {
-            groupedMessages[date] = [];
+        const currentDate = formatDate(new Date().toLocaleDateString());
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayDate = formatDate(yesterday.toLocaleDateString());
+
+        if (date == currentDate) {
+            groupedMessages['Danas'] = groupedMessages['Danas'] || [];
+            groupedMessages['Danas'].push(message);
+        } else if (date == yesterdayDate) {
+            groupedMessages['Juče'] = groupedMessages['Juče'] || [];
+            groupedMessages['Juče'].push(message);
+        } else {
+            if (!groupedMessages[date]) {
+                groupedMessages[date] = [];
+            }
+            groupedMessages[date].push(message);
         }
-        groupedMessages[date].push(message);
     });
     return groupedMessages;
 }
+
 
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -34,7 +48,7 @@ function loadMessagesOnScreen(response) {
     for (const [date, messages] of Object.entries(groupedMessages)) {
         const dateHeader = document.createElement('div');
         dateHeader.classList.add('date-header');
-        dateHeader.textContent = formatDate(date);
+        dateHeader.textContent = date;
         messagesContainer.appendChild(dateHeader);
 
         messages.forEach((message, idx) => {
