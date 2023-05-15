@@ -33,17 +33,17 @@ class Auth{
         setcookie('user', "$primaryKeyValue", time() + 86400, secure:true, path:'/');
     }
 
-    public function logout(){
+    public function logout() : void{
         setcookie('user', "", time() - 3600, '/');
         unset($this->user);
         $this->session->remove('user');
     }
 
-    public function isGuest(){
+    public function isGuest() : bool{
         return !isset($this->user);
     }
 
-    public function user(){
+    public function user() : ?Model{
         return $this->user;
     }
 }
