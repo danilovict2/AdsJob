@@ -22,7 +22,7 @@ class DB{
         self::createMigrationsTable();
     }
 
-    private static function createMigrationsTable(){
+    public static function createMigrationsTable(){
         self::$connection->exec(
             'CREATE TABLE IF NOT EXISTS migrations(
                 id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -86,7 +86,7 @@ class DB{
         self::migrate();
     }
 
-    private static function getAppliedMigrations(){
+    public static function getAppliedMigrations(){
         $statement = self::rawQuery('SELECT migration FROM migrations');
         return $statement->fetchAll(PDO::FETCH_COLUMN);
     }

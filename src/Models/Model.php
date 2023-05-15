@@ -50,9 +50,12 @@ abstract class Model implements \JsonSerializable{
         $tableName = static::tableName();
         $primaryKey = static::primaryKey();
         if(isset($this->values[$primaryKey])){
-            return DB::rawQuery("SELECT $key FROM $tableName WHERE $primaryKey = :$primaryKey", 
+            $column = DB::rawQuery("SELECT $key FROM $tableName WHERE $primaryKey = :$primaryKey", 
             [$primaryKey => $this->values[$primaryKey]])->fetchColumn();
+            
+            return $column ? $column : null;
         }
+        return null;
     }
 
     public function __isset(string $property) : bool{
