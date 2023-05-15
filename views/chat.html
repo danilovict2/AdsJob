@@ -68,11 +68,11 @@
         setTimeout(fetchMessages, 3000);
     }
 
-    function processMessage(response, messagesContainer, message, idx) {
+    function processMessage(response, messagesContainer, message) {
         const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
         let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
         senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
-        const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}' && idx === response.data.length - 1) ?
+        const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}') ?
             '<span class="seen-indicator">Seen</span>' : '';
         const html = `
                     <div class="${messageClass}">
