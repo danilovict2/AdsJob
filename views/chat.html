@@ -68,8 +68,9 @@
         setTimeout(fetchMessages, 3000);
     }
 
-    function processMessage(response, messagesContainer, message) {
+    function processMessage(response, message) {
         const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
+        const messagesContainer = document.querySelector('.messages');
         let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
         senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
         const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}') ?
