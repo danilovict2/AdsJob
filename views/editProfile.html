@@ -27,11 +27,6 @@
             <div class="invalid-feedback">
                 {{errors.lastName}}
             </div>
-            <label for="email">Email <input type="email" class="{% if errors.email %}is-invalid{% endif %}" id="email"
-                    name="email" value="{{ user.email }}"></label>
-            <div class="invalid-feedback">
-                {{errors.email}}
-            </div>
             <button id="openModal" type="button">Promeni lozinku</button>
             <label for=""><input type="submit" value="Sačuvaj izmene"></label>
             <div class="modal" id="modal"
