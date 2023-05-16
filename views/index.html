@@ -1,8 +1,8 @@
-{% include('navbar.html') %}
+{% extends 'navbar.html' %}
+
+{% block body %}
 
 <link rel="stylesheet" href="/light/css/index.css?v=3.0">
-
-
 <div class="container">
     <form action="/search/results">
         <div id="search-container">
@@ -138,3 +138,5 @@
 </div>
 
 <script defer src="/javascript/index-page.js?v=3.0">
+
+{% endblock %}

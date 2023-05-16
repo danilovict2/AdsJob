@@ -1,5 +1,6 @@
-{% include ('navbar.html') %}
+{% extends 'navbar.html' %}
 
+{% block body %}
 <link rel="stylesheet" href="/light/css/chats.css?v=3.0">
 
 <div class="container">
@@ -22,3 +23,5 @@
     {% endfor %}
 </div>
 </div>
+
+{% endblock %}

@@ -1,4 +1,6 @@
-{% include('navbar.html') %}
+{% extends 'navbar.html' %}
+
+{% block body %}
 
 <link rel="stylesheet" href="/light/css/post-job.css?v=3.0">
 <div class="container">
@@ -182,3 +184,5 @@
 </div>
 
 <script src="/javascript/showImage.js?v=3.0"></script>
+
+{% endblock %}
