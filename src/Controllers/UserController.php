@@ -92,7 +92,6 @@ class UserController extends Controller{
         $validator = new \AdsJob\Validators\Validator([
             'firstName' => ['required', ['max' => 12]],
             'lastName' => ['required', ['max' => 12]],
-            'email' => ['email', $user->email !== $this->request->getBodyParameter('email') ? ['unique' => 'User'] : ''],
             'oldPassword' => [$this->request->getBodyParameter('password') !== '' ? ['user_password' => $user] : ''],
             'password' => [$this->request->getBodyParameter('password') !== '' ? ['min' => 8] : ''],
             'confirmPassword' => [['match' => 'password']],
@@ -101,7 +100,6 @@ class UserController extends Controller{
             $user->update([
                 'firstName' => $this->request->getBodyParameter('firstName'),
                 'lastName' => $this->request->getBodyParameter('lastName'),
-                'email' => $this->request->getBodyParameter('email'),
             ]);
             if($this->request->getBodyParameter('password') !== ''){
                 $user->update(['password' => $this->request->getBodyParameter('password')]);
