@@ -52,6 +52,13 @@ h1{
     overflow-y: scroll;
 }
 
+.date-header{
+    text-align: center;
+    font-size: 18pt;
+    color: rgb(11, 135, 237);
+    margin-left: -120px;
+}
+
 .username{
     text-align: center;
     border-bottom: 2px solid rgb(11, 135, 237);
@@ -96,7 +103,6 @@ h1{
     flex-direction: row-reverse;
     align-items: flex-end;
     margin: 20px;
-    min-width: none;
 }
 
 .incoming-message{
@@ -104,6 +110,14 @@ h1{
     flex-direction: row;
     align-items: flex-end;
     margin: 20px;
+    background-color: rgb(255, 255, 255);
+    max-width: 50%;
+    word-wrap: break-word;
+    height: max-content;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 20px 30px 30px 5px;
+    font-size: 18pt;
 }
 
 .input-message{

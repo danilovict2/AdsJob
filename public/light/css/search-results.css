@@ -73,6 +73,7 @@ select{
     grid-template-columns: 400px 400px 400px 400px;
     column-gap: 20px;
     row-gap: 30px;
+    scrollbar-width: none;
 }
 
 .jobs-container::-webkit-scrollbar{
