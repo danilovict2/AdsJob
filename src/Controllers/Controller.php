@@ -21,7 +21,7 @@ class Controller{
         protected Session $session,
         protected Auth $auth,
     ){
-        $this->requiredData = ['isGuest' => $this->auth->isGuest(), 'session' => $this->session];
+        $this->requiredData = ['isGuest' => $this->auth->isGuest(), 'session' => $this->session, 'unverifiedUserId' => $this->request->getCookie('unverified_user_id') ?? null];
     }
 
     protected function setValidationErrors(array $errors) : void{

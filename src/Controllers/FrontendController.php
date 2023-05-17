@@ -27,7 +27,8 @@ class FrontendController extends Controller{
 
     public function verify(array $params) : void{
         $user = User::findOne(['id' => $params['user_id']]);
-        if(!$this->auth->isGuest() || !$user || $user->email_verified_at){
+        $unverified_user_id = $this->request->getCookie('unverified_user_id');
+        if(!$this->auth->isGuest() || !$user || $user->email_verified_at || !isset($unverified_user_id) || $user->id != $unverified_user_id){
             $this->response->redirect('/');
             return;
         }

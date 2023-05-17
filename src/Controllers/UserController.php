@@ -36,6 +36,7 @@ class UserController extends Controller{
         $user->create($this->request->getBodyParameters());
         $this->sendVerificationEmail($user);
         $user->save();
+        setcookie('unverified_user_id', "$user->id", time() + 604800, secure:true, path:'/');
         $this->response->redirect('/verify/' . $user->id);
     }
 
@@ -175,6 +176,11 @@ class UserController extends Controller{
         $user->update([
             'email_verified_at' => date('Y-m-d H:i:s')
         ]);
+        $unverified_user_id = $this->request->getCookie('unverified_user_id');
+        if(isset($unverified_user_id)){
+            setcookie('unverified_user_id', "$user->id", time() - 3600, secure:true, path:'/');
+            unset($_COOKIE['unverified_user_id']);
+        }
         $this->auth->login($user);
         $this->response->redirect('/');
     }
