@@ -44,6 +44,12 @@ class LoginController extends Controller{
             $this->response->redirect('/login');
             return;
         }
+
+        $unverified_user_id = $this->request->getCookie('unverified_user_id');
+        if(isset($unverified_user_id)){
+            setcookie('unverified_user_id', "$user->id", time() - 3600, secure:true, path:'/');
+            unset($_COOKIE['unverified_user_id']);
+        }
         $this->auth->login($user);
         $this->response->redirect('/');
     }
