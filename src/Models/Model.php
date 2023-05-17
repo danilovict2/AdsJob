@@ -63,6 +63,12 @@ abstract class Model implements \JsonSerializable{
     }
 
     public function save() : void{
+        $primaryKey = static::primaryKey();
+        if(isset($this->values[$primaryKey]) && static::findOne([$primaryKey => $this->values[$primaryKey]])){
+            $model = static::findOne([$primaryKey => $this->values[$primaryKey]]);
+            $model->update($this->values);
+            return;
+        }
         $tableName = static::$tableName;
         $attributes = $this->attributes();
         $params = array_map(fn($attr) => ":$attr", $attributes);
@@ -71,7 +77,7 @@ abstract class Model implements \JsonSerializable{
             $values["$attribute"] = $this->values[$attribute] ?? 0;
         }
         DB::rawQuery("INSERT INTO $tableName(".implode(',',$attributes).") VALUES (".implode(',',$params).")",$values);
-        $this->values[static::primaryKey()] = DB::lastInsertId();
+        $this->values = static::findOne([$primaryKey => DB::lastInsertId()])->values;
     }
 
 
