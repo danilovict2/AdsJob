@@ -61,8 +61,8 @@ class UserController extends Controller{
             $mail->isHTML(true);
             $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
         
-            $mail->Subject = 'Email Verification';
-            $mail->Body = '<p>Your verification code is: <b style="font-size: 30px;">' . $verification_code . '</b></p>';
+            $mail->Subject = 'E-mail verifikacija';
+            $mail->Body = '<p>Vaš kod za verifikaciju je: <b style="font-size: 30px;">' . $verification_code . '</b></p>';
 
             $mail->send();
             $user->verification_code = $verification_code;
@@ -137,7 +137,8 @@ class UserController extends Controller{
     }
 
     public function profile() : void{
-        $html = $this->renderer->render('profile.html',$this->requiredData);
+        $user = $this->auth->user();
+        $html = $this->renderer->render('profile.html',array_merge($this->requiredData, compact('user')));
         $this->response->setContent($html);
     }
 
@@ -183,5 +184,11 @@ class UserController extends Controller{
         }
         $this->auth->login($user);
         $this->response->redirect('/');
+    }
+
+    public function enableEmailVerifications(){
+        $this->auth->user()->email_notifications_enabled = (int)!$this->auth->user()->email_notifications_enabled;
+        $this->auth->user()->save();
+        $this->response->redirect('/user/profile');
     }
 }

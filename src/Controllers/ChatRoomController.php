@@ -53,7 +53,7 @@ class ChatRoomController extends Controller{
         $chatRoom = ChatRoom::findOne(['id' => $chatId]);
         $job = Job::findOne(['id' => $jobId]);
 
-        if(!in_array($chatRoom, $this->auth->user()->chatRooms()) && $chatId !== 'index' || !$job){
+        if((!in_array($chatRoom, $this->auth->user()->chatRooms()) && $chatId !== 'index') || !$job){
             $this->response->redirect('/chats');
             return;
         }
