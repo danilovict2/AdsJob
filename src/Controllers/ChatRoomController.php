@@ -52,8 +52,10 @@ class ChatRoomController extends Controller{
         $chatId = $params['chat_id'];
         $chatRoom = ChatRoom::findOne(['id' => $chatId]);
         $job = Job::findOne(['id' => $jobId]);
-
-        if((!in_array($chatRoom, $this->auth->user()->chatRooms()) && $chatId !== 'index') || !$job){
+        $inIndexPageButChatRoomExists = (bool)ChatRoom::findOne(['user_1_id' => $this->auth->user()->id, 'user_2_id' => $job->user()->id, 'job_id' => $job->id]) ||
+                                        (bool)ChatRoom::findOne(['user_1_id' => $job->user()->id, 'user_2_id' => $this->auth->user()->id, 'job_id' => $job->id]);
+        $inIndexPageButChatRoomExists &= $chatId === 'index';
+        if((!in_array($chatRoom, $this->auth->user()->chatRooms()) && $chatId !== 'index') || !$job || $inIndexPageButChatRoomExists){
             $this->response->redirect('/chats');
             return;
         }
