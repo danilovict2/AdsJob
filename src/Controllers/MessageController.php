@@ -4,16 +4,20 @@ namespace AdsJob\Controllers;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 use AdsJob\Models\Message;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class MessageController extends Controller{
 
     public function store(array $params){
         $chatRoom = ChatRoom::findOne(['id' => $params['chat_id']]);
+        $job = Job::findOne(['id' => $params['job_id']]);
         if(!$chatRoom){ // If chatRoom does not exist create a new one
             $chatRoom = new ChatRoom;
             $chatRoom->create([
                 'user_1_id' => $this->auth->user()->id,
-                'user_2_id' => Job::findOne(['id' => $params['job_id']])->user()->id,
+                'user_2_id' => $job->id,
                 'job_id' => $params['job_id']
             ]);
             $chatRoom->save();
@@ -27,7 +31,6 @@ class MessageController extends Controller{
             'message' => $this->request->getBodyParameter('message'),
         ]);
         $message->save();
-        
     }
 
     public function markAsSeen(array $params){

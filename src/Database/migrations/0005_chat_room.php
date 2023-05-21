@@ -8,14 +8,14 @@ return new class implements Migration{
         $schema = "
             CREATE TABLE IF NOT EXISTS chat_room(
                 id INT NOT NULL AUTO_INCREMENT,
-                user_1_id INT NOT NULL,
-                user_2_id INT NOT NULL,
+                user_1_id INT,
+                user_2_id INT,
                 job_id INT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
                 CONSTRAINT PK_chat_room PRIMARY KEY(id),
-                CONSTRAINT FK_user_1_id FOREIGN KEY (user_1_id) REFERENCES user(id) ON DELETE CASCADE,
-                CONSTRAINT FK_user_2_id FOREIGN KEY (user_2_id) REFERENCES user(id) ON DELETE CASCADE,
+                CONSTRAINT FK_user_1_id FOREIGN KEY (user_1_id) REFERENCES user(id) ON DELETE SET NULL,
+                CONSTRAINT FK_user_2_id FOREIGN KEY (user_2_id) REFERENCES user(id) ON DELETE SET NULL,
                 CONSTRAINT FK_job_id FOREIGN KEY (job_id) REFERENCES job(id) ON DELETE CASCADE
             );
         ";

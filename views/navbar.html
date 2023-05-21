@@ -35,6 +35,9 @@
             {% if isGuest %}
                 <a href="/login" class="sidebar-link"><li><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</li></a>
                 <a href="/register" class="sidebar-link"><li><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Registruj se</li></a>
+                {% if unverifiedUserId %}
+                    <a href="/verify/{{ unverifiedUserId }}">Verifikacioni kod</a>
+                {% endif %}
             {% else %}
                 <a href="/user/profile" class="sidebar-link"><li><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</li></a>
                 <a href="/chats" class="sidebar-link"><li><i class="fa-solid fa-comments" style="color: #ffffff;"></i> Poruke</li></a>
@@ -49,6 +52,8 @@
         </ul>
     </span>  
     </div>
+
+    {% block body %}{% endblock %}
 </body>
 
 </html>

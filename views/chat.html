@@ -1,7 +1,7 @@
-{% include ('navbar.html') %}
+{% extends 'navbar.html' %}
 
+{% block body %}
 <link rel="stylesheet" href="/light/css/messages.css?v=3.0">
-
 <div class="chat">
     <div class="chat-header">
         <div class="username">
@@ -22,6 +22,7 @@
                 style="color: #0b87ed;"></i></a>
     </div>
 </div>
+
 
 <script src="/javascript/chatHelper.js"></script>
 <script>
@@ -68,8 +69,9 @@
         setTimeout(fetchMessages, 3000);
     }
 
-    function processMessage(response, messagesContainer, message) {
+    function processMessage(response, message) {
         const messageClass = message.values.user_id == '{{ session.get("user") }}' ? 'outgoing-message' : 'incoming-message';
+        const messagesContainer = document.querySelector('.messages');
         let senderPFP = message.values.user_id == '{{ user1.id }}' ? '{{ user1.profilePicture }}' : '{{ user2.profilePicture }}';
         senderPFP = senderPFP ? senderPFP : 'light/img/profile.png';
         const seenIndicator = (message.values.seen && message.values.user_id == '{{ session.get("user") }}') ?
@@ -101,3 +103,5 @@
         fetchMessages();
     };
 </script>
+
+{% endblock %}

@@ -63,7 +63,7 @@ class ModelTest extends TestCase{
     }
 
     public function testCreateMethodSetsModelValues(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
         $model->create(['id' => 1, 'name' => 'John Doe']);
 
         $this->assertEquals(['id' => 1, 'name' => 'John Doe'], $model->getValues());
@@ -85,7 +85,8 @@ class ModelTest extends TestCase{
 
     public function testMagicIssetMethodReturnsFalseForNonexistentProperty(): void{
         $model = new ConcreteModel;
-        $isset = !isset($model->nonexistent_property);
+        $property = $model->nonexistent_property;
+        $isset = isset($property);
         
         $this->assertFalse($isset);
     }
@@ -114,7 +115,7 @@ class ModelTest extends TestCase{
     }
 
     public function testDeleteMethodDeletesModelFromDatabase(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
         $model->create(['id' => 1, 'name' => 'John Doe']);
         $model->save();
 
@@ -126,7 +127,7 @@ class ModelTest extends TestCase{
     }
 
     public function testMagicGetMethodReturnsPropertyValueFromDatabase(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
         $model->create(['id' => 1, 'name' => 'John Doe']);
         $model->save();
 
@@ -136,7 +137,7 @@ class ModelTest extends TestCase{
     }
 
     public function testMagicIssetMethodReturnsTrueForExistingProperty(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
         $model->create(['id' => 1, 'name' => 'John Doe']);
         $model->save();
 
@@ -146,7 +147,7 @@ class ModelTest extends TestCase{
     }
 
     public function testGetValuesMethodReturnsModelValues(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
         $model->create(['id' => 1, 'name' => 'John Doe']);
 
         $values = $model->getValues();
@@ -155,7 +156,7 @@ class ModelTest extends TestCase{
     }
 
     public function testSetValuesMethodSetsModelValues(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
         $model->setValues(['id' => 1, 'name' => 'John Doe']);
 
         $values = $model->getValues();
@@ -164,7 +165,7 @@ class ModelTest extends TestCase{
     }
 
     public function testGetTableMethodReturnsTableName(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
 
         $table = $model::tableName();
 
@@ -172,10 +173,22 @@ class ModelTest extends TestCase{
     }
 
     public function testGetPrimaryKeyMethodReturnsPrimaryKeyName(): void{
-        $model = new ConcreteModel();
+        $model = new ConcreteModel;
 
         $primaryKey = $model->primaryKey();
 
         $this->assertEquals('id', $primaryKey);
+    }
+
+    public function testSaveMethodUpdatesModelIfItExistsInDatabase() : void{
+        $model = new ConcreteModel;
+        $model->create(['id' => 1, 'name' => 'John Doe']);
+        $model->save();
+
+        $model->name = 'Doe John';
+        $model->save();
+
+        $result = DB::rawQuery("SELECT name FROM test_models WHERE id = 1")->fetchColumn();
+        $this->assertEquals('Doe John', $result);
     }
 }

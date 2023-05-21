@@ -51,8 +51,8 @@ function loadMessagesOnScreen(response) {
         dateHeader.textContent = date;
         messagesContainer.appendChild(dateHeader);
 
-        messages.forEach((message, idx) => {
-            processMessage(response, messagesContainer, message, idx);
+        messages.forEach(message => {
+            processMessage(response, message);
         });
     }
     if(chat.scrollTop + messageHeight + 1000 === chat.scrollHeight){

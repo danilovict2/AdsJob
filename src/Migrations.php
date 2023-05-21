@@ -6,7 +6,7 @@ $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 DB::connect();
-if($argv[1] === 'fresh'){
+if(isset($argv[1]) && $argv[1] === 'fresh'){
     DB::migrateFresh();
 }else{
     DB::migrate();
