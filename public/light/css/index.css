@@ -121,6 +121,7 @@ select , option{
     border: 5px solid rgb(11, 135, 237) ;
     outline: none;
     scrollbar-width: 100px;
+    text-align: center;
 }
 
 .mesto-label{

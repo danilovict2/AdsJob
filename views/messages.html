@@ -5,20 +5,20 @@
 
 <div class="container">
     <div class="header">
-        <h1><b>Poruke:</b></h1>
+        <h1><b>Konverzacije:</b></h1>
         <h1>{{ chatRooms|length }}</h1>
     </div>
     <div class="chats-container">
-    {% for chatRoom in chatRooms %}
-    
+        {% for chatRoom in chatRooms %}
         <a href="/chat/{{ chatRoom.id }}/{{ chatRoom.job().id }}">
             <div class="chat-tab">
                 <h2 class="title"><b>{{ chatRoom.job().name }}</b></h2>
                 <h2><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ chatRoom.job().location}}</h2>
+                {% if unreadMessages[chatRoom.id] %}
+                <h2 class="unread">3+</h2>
+                {% endif %}
             </div>
-            {% if unreadMessages[chatRoom.id] %}
-                <h1>IMAS PORUKU MAJMUNE</h1>
-            {% endif %}
+            
         </a>    
     {% endfor %}
 </div>

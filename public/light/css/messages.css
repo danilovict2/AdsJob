@@ -59,6 +59,16 @@ h1{
     margin-left: -120px;
 }
 
+.seen-indicator{
+    color: black;
+}
+
+.scroll-indicator{
+    margin-right: 1000px;
+    margin-bottom: 600px;
+    display: block;
+}
+
 .username{
     text-align: center;
     border-bottom: 2px solid rgb(11, 135, 237);
@@ -69,7 +79,6 @@ h1{
     margin: 10px auto 0px auto;
     color: rgb(11, 135, 237);
 }
-
 
 .in-msg-content{
     background-color: rgb(255, 255, 255);
@@ -110,13 +119,12 @@ h1{
     flex-direction: row;
     align-items: flex-end;
     margin: 20px;
-    background-color: rgb(255, 255, 255);
     max-width: 50%;
     word-wrap: break-word;
     height: max-content;
     margin: 20px;
     padding: 10px;
-    border-radius: 20px 30px 30px 5px;
+    border-radius: 20px 30px 30px 20px;
     font-size: 18pt;
 }
 
