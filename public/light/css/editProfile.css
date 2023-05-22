@@ -259,7 +259,8 @@ label{
         padding: 10px;
     }
     input[type=submit]{
-        margin-right: 30px;
+        margin-right: 10px;
+        font-size: 16pt;
     }
     #openModal{
         margin-left: 100px;
@@ -296,7 +297,8 @@ label{
         padding: 10px;
     }
     input[type=submit]{
-        margin-right: 20px;
+        margin-right: 10px;
+        font-size: 16pt;
     }
     #openModal{
         margin-left: 160px;
@@ -345,7 +347,8 @@ label{
         margin-right: -40px;
     }
     input[type=submit]{
-        margin-right: 30px;
+        margin-right: 10px;
+        font-size: 16pt;
     }
     #openModal{
         margin-left: 110px;

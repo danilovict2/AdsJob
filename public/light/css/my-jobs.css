@@ -1,439 +1,211 @@
 .container{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+    margin: 0px 100px 100px 100px;
+}
+
+.header{
+    padding-top: 100px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    width: 100%;
+    position: fixed;
+    justify-content: center;
+    background-color: white;
+    border-bottom: rgb(11, 135, 237);
+    margin-left: -100px;
+
+}
+
+.jobs-container{
+    padding-top: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 400px 400px 400px 400px;
+    column-gap: 20px;
+    row-gap: 30px;
+    scrollbar-width: none;
+}
+
+.jobs-container::-webkit-scrollbar{
+    display: none;
+  }
+
+.job-image{
+    width: 398px;
+    height: 200px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.job-tab{
+    width: 400px;
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info{
+    padding: 0px 20px 20px 20px;
+}
+
+h1{
+    color: rgb(11, 135, 237);
+    font-weight: bold;
+    z-index: 0;
+}
+
+h2{
+    color: rgb(11, 135, 237);
+    font-weight: bold;
+    padding: 0px 10px 10px 10px;
+}
+
+h3{
+    color: rgb(11, 135, 237);
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.message{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(11, 135, 237);
+    width: max-content;
+    padding: 10px;
     border-radius: 20px;
-    width: 1700px;
-    height: max-content;
+    font-size: 18pt;
 }
 
 a{
     text-decoration: none;
 }
 
-h1{
-    color: rgb(11, 135, 237);
-    font-weight: bold;
-    margin-left: 400px;
-}
-
-.description-content{
-    max-width: 800px;
-    word-break: break-all;
-    margin-left: 50px;
-    text-align: left;
-}
-
-.mesto{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-}
-
-.sve-usluge, .archived{
-    color: rgb(11, 135, 237);
-    text-align: center;
-}
-
-.header{
-    display: flex;
-    flex-direction: row;
-    gap: 200px;
-    border-bottom: 2px solid rgb(11, 135, 237);
-    padding: 30px;
-}
-
-.buttons{
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    position: absolute;
-    right: 100px;
-}
-
-.active{
-    background-color: rgb(11, 135, 237);
-    color: white;
-    border-radius: 40px; 
-    text-align: center;
-    cursor: pointer;
-    width: 300px;
-}
-
-.archived{
-    border: 2px solid rgb(11, 135, 237);
-    color: rgb(11, 135, 237);
-    border-radius: 40px; 
-    text-align: center;
-    cursor: pointer;
-    width: 300px;
-}
-
-.archived:hover, .active:hover{
-    background-color: rgb(75, 168, 245);
-    color: white;
-}
-
-.oglasi{
-    margin: 50px;
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
-
-.oglasi::-webkit-scrollbar{
+h1 .dropdown-content{
     display: none;
 }
 
-.oglas{
-    border: 1px solid rgb(11, 135, 237);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80em;
-    height: 10em;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    z-index: 1;
+h1.dropbtn{
+    text-align: right;
+    margin-right: 20px;
 }
 
-.oglas i{
-    padding: 10px;
-    margin-top: 30px;
-    cursor: pointer;
+li{
+    list-style:none;
+    font-size: 13pt;
 }
 
-.slika img{
-    width: 250px;
-    border-radius: 8px 0px 0px 8px;
-    height: 9.9em;
-}
-
-.dropdown-content{
-    display: none;
-    background-color: rgb(11, 135, 237);
-    width: max-content;
-    margin-top: -120px;
-    margin-left: 1150px;
-    z-index: 3;
-    border-radius: 20px 0px 20px 20px;
-
-}
-
-.dropdown-content a {
+h1:hover .dropdown-content{
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    background-color: rgb(11, 135, 237);
+    z-index: 1;
+    border: 2px solid white;
+    border-radius: 20px 20px 0px 20px;
+    width: max-content;
+    margin-top: -120px;
+    margin-left: 230px;
 }
 
-.dropdown-content a:hover {
-    background-color:rgb(35, 130, 207)č
+.dropdown-content li:hover {
+    background-color:rgb(30, 103, 163);
+    display: block;
+    z-index: 1;
 }
 
 .show {
     display:block;
 }
 
-@media screen and (max-width: 1640px){
-    .container{
-        width: 80em;
-    }
-    .oglasi, .oglas{
-        width: 73em;
-    }
-    h1{
-        font-size:17pt;
-    }
-    h2, h3{
-        font-size: 15pt;
-    }
-    .description-content{
-        max-width: 35em;
+@media screen and (max-width:1870px){
+    .jobs-container{
+        grid-template-columns:400px 400px 400px ;
+        justify-content: center;
     }
 }
 
-@media screen and (max-width: 1230px){
-    .container{
-        width: 70em;
+@media screen and (max-width:1650px){
+    .pretraga{
+        width: fit-content;
+        padding: 10px;
     }
-    .oglasi, .oglas{
-        width: 63em;
-    }
-    h1{
-        font-size:15pt;
-    }
-    h2, h3{
-        font-size: 13pt;
-    }
-    .active,.archived{
-        width: 200px;
-    }
-    .description-content{
-        max-width: 30em;
-        font-size: 10pt;
-    }
-}
-
-@media screen and (max-width: 1090px){
-    .container{
-        width: 60em;
-    }
-    .oglasi, .oglas{
-        width: 53em;
-    }
-    h1{
-        font-size:15pt;
-    }
-    h2, h3{
-        font-size: 13pt;
-    }
-    .active,.archived{
-        width: 200px;
-    }
-    .description-content{
-        max-width: 25em;
-        margin-left: 10px;
-        font-size: 10pt;
-    }
-    .mesto{
-        margin-right: 20px;
-    }
-}
-
-@media screen and (max-width: 930px){
-    .container{
-        width: 50em;
-    }
-    .oglasi, .oglas{
-        width: 43em;
-    }
-    h1{
-        font-size:15pt;
-    }
-    h2, h3{
-        font-size: 13pt;
-    }
-    .active,.archived{
-        width: 200px;
-    }
-    .description-content{
-        max-width: 22em;
-        font-size: 10pt;
-    }
-    .mesto{
-        margin-right: 20px;
-    }
-}
-
-@media screen and (max-width: 780px){
-    .container{
-        width: 800px;
-        padding-top: 50px;
-        overflow: hidden;
-    }
-    .oglasi{
-        width: 53em;
-        margin: 0px;
-        height: 700px;
-    }
-    .oglas{
-        width: 50em;
-        margin: 0px;
-        margin-left: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-
-    }
-    h1{
-        font-size:15pt;
-    }
-    h2, h3{
+    .search,.city{
         font-size: 12pt;
+        width: 350px;
     }
-    .active,.archived{
-        width: 150px;
-    }
-    .description-content{
-        max-width: 22em;
-        font-size: 10pt;
-    }
-    .mesto{
-        margin-right: 20px;
+    select{
+        float: right;
     }
 }
 
-@media screen and (max-width: 730px){
-    .container{
-        width: 600px;
-        padding-top: 50px;
-        overflow: hidden;
-    }
-    .oglasi{
-        width: 40em;
-        margin: 0px;
-        height: 700px;
-    }
-    .oglas{
-        width: 37em;
-        margin: 0px;
-        margin-left: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-
-    }
-    h1{
-        font-size:15pt;
-    }
-    h2, h3{
-        font-size: 12pt;
-    }
-    .active,.archived{
-        width: 150px;
-    }
-    .description-content{
-        max-width: 22em;
-        max-height: 1em;
-        font-size: 10pt;
-    }
-    .mesto{
-        margin-right: 20px;
-    }
-}
-
-@media screen and (max-width: 625px){
-    .container{
-        width: 550px;
-        padding-top: 50px;
-        overflow: hidden;
-    }
-    .oglasi{
-        width: 40em;
-        margin: 0px;
-        height: 700px;
-    }
-    .oglas{
-        width: 37em;
-        margin: 0px;
-        margin-left: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-
-    }
-    h1{
-        font-size:15pt;
-    }
-    h2, h3{
-        font-size: 12pt;
-    }
-    .active,.archived{
-        width: 150px;
-    }
-    .description-content{
-        max-width: 22em;
-        max-height: 1em;
-        font-size: 10pt;
-    }
-    .mesto{
-        margin-right: 20px;
-    }
-}
-
-@media screen and (max-width: 430px){
-    .container{
-        width: 420px;
-        padding-top: 50px;
-        overflow: hidden;
-    }
-    .buttons{
-        right: 10px;
-    }
-    .oglasi{
-        width: 27em;
-        margin: 0px;
-        height: 700px;
-    }
-    .oglas{
-        width: 25em;
-        height: 100px;
-        margin: 0px;
-        margin-left: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-    .buttons{
-        gap: 0px;
-    }
-    h1{
-        font-size:12pt;
-    }
-    h2, h3{
-        font-size: 12pt;
-    }
-    .active,.archived{
-        width: 130px;
-        background-color: transparent;
-        border: none;
-        color: rgb(78, 170, 245);
-    }
-    .description-content{
-        display: none;
-    }
-    .mesto{
-        margin-top: -10px;
-    }
-    .slika img{
-        width: 120px;
-        height: 99px;
-    }
-}
-
-@media screen and (max-width: 360px){
-    .container{
-        width: 325px;
-        padding-top: 50px;
-        overflow: hidden;
-        margin: 0px;
+@media screen and (max-width:1450px){
+    .jobs-container{
+        grid-template-columns:400px 400px;
     }
     .header{
-        padding-left: 30px;
+        gap: 20px;
+        margin-left: -30px;
     }
-    .oglasi{
-        width: 400px;
-        margin: 0px;
-        height: 700px;
+}
+
+@media screen and (max-width:1030px){
+    .jobs-container{
+        column-gap: 0px;
+        row-gap: 15px;
+        padding-left: 40px;
     }
-    .oglas{
-        width: 290px;
-        height: 70px;
-        margin: 0px;
-        margin-left: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
+    .header{
+        margin-left: -100px;
     }
-    h1{
-        font-size:12pt;
+    .search,.city{
+        font-size: 11pt;
+        width: 320px;
     }
-    h2, h3{
-        font-size: 10pt;
+    .pretraga{
+        font-size: 13pt;
+        padding: 5px;
     }
-    .active,.archived{
-        display: none;
+    .job-tab{
+        width: 350px;
     }
-    .description-content{
-        display: none;
+    .job-image{
+        width: 348px;
+        height: 150px;
     }
-    .mesto{
-        margin-right: 0px;
-        margin-top: -20px;
+}
+
+@media screen and (max-width:970px){
+    .header{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
     }
-    .slika img{
-        width: 100px;
-        height: 69px;
+    .jobs-container{
+        padding-top: 300px;
+        grid-template-columns: 400px;
     }
+    .container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (max-width:380px){
+    .job-tab{
+        width: 300px;
+        margin-left: 30px;
+    }
+    .job-image{
+        width: 298px;
+        height: 150px;
+    }
+    .job-tab h1, .job-tab a, .job-tab h2{
+        font-size: 15pt;
+    }
+
 }

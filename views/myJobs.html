@@ -5,37 +5,31 @@
 
 <div class="container">
     <div class="header">
-        <div class="sve-usluge">
-            <h2>Sve usluge:<h3> ({{ jobCount }})</h3>
-            </h2>
-        </div>
+        <h1>Moje usluge:<h3> ({{ jobCount }})</h3></h1>
     </div>
-    <div class="oglasi">
+    <div class="jobs-container">
         {% for job in jobs %}
-        <div class="oglas">
+        <div class="job-tab">
             <a href="/p/{{job.id}}">
-            <div class="slika">
-                <img src="/{{ job.images()[0].imagePath }}">
-            </div>
-        </a>
-            <a href="/p/{{job.id}}"><div class="description">
-                <h1>{{ job.name }}</h1>
-                <p class="description-content">dasdasd</p>
-            </div></a>
-            <div class="mesto">
-                <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> dasd</h1>
-                <i class="fa-solid fa-ellipsis-vertical fa-2xl dropbtn" onclick="toggleDropdown()" style="color: #0b87ed;"></i>
+                <img src="/{{ job.images()[0].imagePath }}" class="job-image">
+                <div class="info">
+                    <h1>{{ job.name }}</h1>
+                    <p class="description-content">dasdasd</p>
+                </div>
+            </a>
+                <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> Mesto <h1 class="dropbtn"><i class="fa-solid fa-ellipsis-vertical fa-xs" style="color: #0b87ed;"></i><ul class="dropdown-content">
+                    <li><a href="/p/{job_id}/edit">Izmeni oglas</a></li>
+                    <li><a href="#delete">Obriši oglas</a></li>
+                </ul></h1></h1>
                 
-            </div> 
-            
-        </div>
-        <div id="dropdown" class="dropdown-content">
-            <a href="/p/{job_id}/edit">Izmeni oglas</a>
-            <a href="#delete">Obriši oglas</a>
-        </div>
+        </div> 
+    
+     
+   
     {% endfor %}
-    </div>
 </div>
+
+</div> 
 
 <script>
     function toggleDropdown() {

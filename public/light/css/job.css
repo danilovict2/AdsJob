@@ -183,7 +183,6 @@ button{
     transition: 0.2s;
     cursor: pointer;
     text-align: center;
-
 }
 
 button:hover{
@@ -193,7 +192,7 @@ button:hover{
 
 a{
     text-decoration: none;
-    font-size: 20pt;
+    font-size: 16pt;
     margin-top: 150px;
 }
 
@@ -307,8 +306,11 @@ input[type=submit]{
 
 
 @media screen and (max-width: 1905px){
-    .ad-description{
+    .ad-description, .add-review{
         width: 1100px;
+    }
+    textarea{
+        width: 1000px;
     }
     button{
         width: 200px;
@@ -317,8 +319,11 @@ input[type=submit]{
 }
 
 @media screen and (max-width: 1700px){
-    .ad-description{
+    .ad-description, .add-review{
         width: 1000px;
+    }
+    textarea{
+        width: 900px;
     }
     div .userInfo{
         padding-left: 10px;
@@ -327,5 +332,482 @@ input[type=submit]{
         width: 350px;
         margin-left: 60px;
         margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    .ad-description{
+        width: 1000px;
+        margin-left: 220px;
+    }
+    .add-review{
+        width: 1000px;
+        margin-left: 220px;
+    }
+    textarea{
+        width: 900px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 320px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 1000px;
+        max-height: 500px;
+        margin-left: 220px;
+        margin-right: 30px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .ad-description{
+        width: 1000px;
+        margin-left: 130px;
+    }
+    .add-review{
+        width: 1000px;
+        margin-left: 130px;
+    }
+    
+    .info{
+        margin-left: 320px;  
+    }
+
+    .reviews-container{
+        margin-left: 130px;
+        top: 200%;
+        bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 1250px){
+    .ad-description{
+        width: 600px;
+        margin-left: 300px;
+    }
+    .add-review{
+        width: 600px;
+        margin-left: 300px;
+    }
+    textarea{
+        width: 560px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 300px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 600px;
+        max-height: 500px;
+        margin-left: 300px;
+        margin-right: 30px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    div.images-title{
+        width: 900px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .ad-description{
+        width: 600px;
+        margin-left: 150px;
+    }
+    .add-review{
+        width: 600px;
+        margin-left: 150px;
+    }
+    textarea{
+        width: 560px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 250px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 600px;
+        max-height: 500px;
+        margin-left: 150px;
+        margin-right: 30px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    div.images-title{
+        width: 900px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 940px){
+    .ad-description{
+        width: 600px;
+        margin-left: 150px;
+    }
+    .add-review{
+        width: 600px;
+        margin-left: 150px;
+    }
+    textarea{
+        width: 560px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 150px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 600px;
+        max-height: 500px;
+        margin-left: 150px;
+        margin-right: 30px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    div.images-title{
+        width: 600px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .ad-description{
+        width: 400px;
+        margin-left: 230px;
+    }
+    .add-review{
+        width: 500px;
+        margin-left: 150px;
+    }
+    textarea{
+        width: 400px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 150px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 500px;
+        max-height: 300px;
+        margin-left: 150px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    .star-rating label{
+        font-size: 20pt;
+    }
+
+    div.images-title{
+        width: 600px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .ad-description{
+        width: 500px;
+        margin-left: 150px;
+    }
+    .add-review{
+        width: 500px;
+        margin-left: 150px;
+    }
+    textarea{
+        width: 400px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 150px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 500px;
+        max-height: 300px;
+        margin-left: 150px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    .star-rating label{
+        font-size: 20pt;
+    }
+
+    div.images-title{
+        width: 600px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 680px){
+    .ad-description{
+        width: 500px;
+        margin-left: 60px;
+    }
+    .add-review{
+        width: 500px;
+        margin-left: 60px;
+    }
+    textarea{
+        width: 400px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 100px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 500px;
+        max-height: 300px;
+        margin-left: 60px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    .star-rating label{
+        font-size: 20pt;
+    }
+
+    div.images-title{
+        width: 500px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .ad-description{
+        width: 400px;
+        margin-left: 60px;
+    }
+    .add-review{
+        width: 400px;
+        margin-left: 60px;
+    }
+    textarea{
+        width: 350px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 40px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 400px;
+        max-height: 300px;
+        margin-left: 60px;
+        position: absolute;
+        top: 200%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    .star-rating label{
+        font-size: 20pt;
+    }
+
+    div.images-title{
+        width: 400px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .ad-description{
+        width: 360px;
+        margin-left: 60px;
+    }
+    .add-review{
+        width: 360px;
+        margin-left: 60px;
+    }
+
+    .add-review h3{
+        font-size: 13pt;
+    }
+
+    textarea{
+        width: 300px;
+    }
+    div .userInfo{
+        padding-left: 10px; 
+    }
+    
+    .info{
+        margin-left: 0px;  
+    }
+
+    a{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container{
+        width: 350px;
+        max-height: 300px;
+        margin-left: 60px;
+        position: absolute;
+        top: 180%;
+        bottom: 50px;
+    }
+    .wrapper, .container{
+        display: grid;
+        place-self: center;
+        margin: 80px 0px 0px 0px;
+    }
+    .arrows{
+        top: 30%;
+    }
+
+    .star-rating label{
+        font-size: 20pt;
+    }
+
+    div.images-title{
+        width: 400px;
+        margin-left: -20px;
     }
 }
