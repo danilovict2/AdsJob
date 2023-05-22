@@ -4,9 +4,6 @@ namespace AdsJob\Controllers;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 use AdsJob\Models\Message;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 class MessageController extends Controller{
 
@@ -17,7 +14,7 @@ class MessageController extends Controller{
             $chatRoom = new ChatRoom;
             $chatRoom->create([
                 'user_1_id' => $this->auth->user()->id,
-                'user_2_id' => $job->id,
+                'user_2_id' => $job->user()->id,
                 'job_id' => $params['job_id']
             ]);
             $chatRoom->save();

@@ -1,5 +1,7 @@
 {% extends 'navbar.html' %}
 
+{% block title %}Poruke - {{ parent() }}{% endblock %}
+
 {% block body %}
 <link rel="stylesheet" href="/light/css/chats.css?v=3.0">
 
@@ -15,7 +17,14 @@
                 <h2 class="title"><b>{{ chatRoom.job().name }}</b></h2>
                 <h2><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ chatRoom.job().location}}</h2>
                 {% if unreadMessages[chatRoom.id] %}
-                <h2 class="unread">3+</h2>
+                    <h2 class="unread">
+                        {% if unreadMessages[chatRoom.id] < 9 %}
+                            {{ unreadMessages[chatRoom.id] }}
+                        {% else %}
+                            9+
+                        {% endif %}
+
+                    </h2>
                 {% endif %}
             </div>
             

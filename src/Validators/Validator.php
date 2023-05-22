@@ -97,7 +97,7 @@ class Validator{
             self::RULE_MAX => 'Maksimalna dužina mora biti {max}',
             self::RULE_MATCH => 'Ovo polje biti isto kao {match}',
             self::RULE_UNIQUE => 'Nalog sa ovim {field} već postoji',
-            self::RULE_USER_PASSWORD => 'Šifra koju ste uneli je netačna',
+            self::RULE_USER_PASSWORD => 'Šifra koju ste uneli nije tačna',
         ];
     }
 

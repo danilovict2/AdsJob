@@ -1,5 +1,8 @@
 {% extends 'navbar.html' %}
 
+{% block title %}{{ job.name }} - {{ parent() }}{% endblock %}
+
+
 {% block body %}
 
 <link rel="stylesheet" href="/light/css/job.css?v=3.0">

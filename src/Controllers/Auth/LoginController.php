@@ -24,7 +24,7 @@ class LoginController extends Controller{
         
         $user = User::findOne(['email' => $formData['email']]);
         if (!$user) {
-            $validator->addError('email', 'Korisnik sa ovim E-mail ne postoji');
+            $validator->addError('email', 'Korisnik sa ovim E-mail-om ne postoji');
             $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/login');
             return;
@@ -39,7 +39,7 @@ class LoginController extends Controller{
         
         $passwordValid = password_verify($formData['password'], $user->password);
         if (!$passwordValid) {
-            $validator->addError('password', 'Lozinka koju ste uneli je netačna');
+            $validator->addError('password', 'Lozinka koju ste uneli nije tačna');
             $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/login');
             return;
