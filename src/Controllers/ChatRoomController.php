@@ -19,8 +19,7 @@ class ChatRoomController extends Controller{
         $unreadMessages = [];
         
         foreach($chatRooms as $chatRoom){
-            $hasUnreadMessage = $this->hasUnreadMessage($chatRoom, $this->auth->user()->id);
-            $unreadMessages[$chatRoom->id] = $hasUnreadMessage;
+            $unreadMessages[$chatRoom->id] = $this->getCountOfUnreadMessages($chatRoom, $this->auth->user()->id);
         }
         
         usort($chatRooms, function ($a, $b) use ($unreadMessages){
@@ -45,6 +44,17 @@ class ChatRoomController extends Controller{
         
         $html = $this->renderer->render('messages.html', array_merge($this->requiredData, compact('chatRooms', 'unreadMessages')));
         $this->response->setContent($html);
+    }
+
+    private function getCountOfUnreadMessages($chatRoom, $userId) : int{
+        $user1Id = $chatRoom->user_1_id;
+        $user2Id = $chatRoom->user_2_id;
+        
+        if ($user1Id !== $userId){
+            return (int) Message::count('*',['chat_room_id' => $chatRoom->id, 'seen' => 0, 'user_id' => $user1Id]);
+        }else{
+            return (int) Message::count('*',['chat_room_id' => $chatRoom->id, 'seen' => 0, 'user_id' => $user2Id]);
+        }
     }
 
     public function show(array $params){
@@ -81,15 +91,5 @@ class ChatRoomController extends Controller{
         
         $this->response->setContent(json_encode($messages));
     }
-    
-    private function hasUnreadMessage($chatRoom, $userId){
-        $user1Id = $chatRoom->user_1_id;
-        $user2Id = $chatRoom->user_2_id;
-        
-        if ($user1Id !== $userId){
-            return (bool) Message::findOne(['chat_room_id' => $chatRoom->id, 'seen' => 0, 'user_id' => $user1Id]);
-        }else{
-            return (bool) Message::findOne(['chat_room_id' => $chatRoom->id, 'seen' => 0, 'user_id' => $user2Id]);
-        }
-    }
+
 }

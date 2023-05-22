@@ -17,7 +17,7 @@ class MessageController extends Controller{
             $chatRoom = new ChatRoom;
             $chatRoom->create([
                 'user_1_id' => $this->auth->user()->id,
-                'user_2_id' => $job->id,
+                'user_2_id' => $job->user()->id,
                 'job_id' => $params['job_id']
             ]);
             $chatRoom->save();

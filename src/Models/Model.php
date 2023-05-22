@@ -117,6 +117,17 @@ abstract class Model implements \JsonSerializable{
         }
         return DB::rawQuery("SELECT AVG($column) FROM $tableName WHERE $whereClause LIMIT 1",$values)->fetchColumn();
     }
+
+    public static function count(string $column, array $where){
+        $tableName = static::$tableName;
+        $attributes = array_keys($where);
+        $whereClause = implode(' AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
+        $values = [];
+        foreach($where as $key => $value){
+            $values["$key"] = $value;
+        }
+        return DB::rawQuery("SELECT COUNT($column) FROM $tableName WHERE $whereClause LIMIT 1",$values)->fetchColumn();
+    }
     
     public function jsonSerialize() : mixed{
         return [
