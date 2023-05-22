@@ -13,12 +13,12 @@
        
         <h1> <i class="fa-solid fa-circle-user" style="color: #0b87ed;"></i>  Podešavanje naloga</h1>
         <a href="/user/profile/edit"><h2>Izmena podataka</h2></a>
-        <h3>Ime, prezime, e-adresa, lozinka</h3>
+        <h3>Ime, prezime, lozinka, profilna slika</h3>
     </div>
     <div class="job-settings">
         <h1><i class="fa-solid fa-folder-open" style="color: #0b87ed;"></i> Podešavanje usluga</h1>
         <a href="/user/jobs"><h2>Pregled usluga</h2></a>
-        <h3>Pregled aktivnih i arhiviranih usluga</h3>
+        <h3>Pregled aktivnih usluga</h3>
     </div>
     <div class="notifications">
         <h1><i class="fa-solid fa-bell" style="color: #0b87ed;"></i> Obaveštenja</h1>
@@ -26,16 +26,21 @@
         <div class="modal" id="modal">
             <div class="modalContent">
                 {% if user.email_notifications_enabled %}
-                <h1>OVO ZNACI DA USER IMA ENABLE-OVAN EMAIL NOTIFICATION POSTO CE BITI TOGGLE PA DA TI BUDE LAKSE</h1>
+                <h1><label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </h1>
                 {% else %}
-                <h1>OVO ZNACI DA USER NEMA ENABLE-OVAN EMAIL NOTIFICATION POSTO CE BITI TOGGLE PA DA TI BUDE LAKSE</h1>
+                <h1><label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </h1>
                 {% endif %}
                 <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
-                <h3><b> DEJANE SMISLI BOLJI TEKST</b></h3>
-                <h3><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i> DEJANE SMISLI BOLJI TEKST <i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></h3>
                 <div class="buttons">
-                <a href="" id="close2" onclick="event.preventDefault();document.getElementById('email-notifications-form').submit();">DEJANE SMISLI BOLJI TEKST</a>
-                <button id="close3" type="button" class="cancel">Ne, DEJANE SMISLI BOLJI TEKST</button>
+                <a href="" id="close2" onclick="event.preventDefault();document.getElementById('email-notifications-form').submit();">Sačuvaj</a>
                 <form action="/user/enable-email-verifications" method="POST" style="display: none;" id="email-notifications-form">
                     {{ session.csrf_token() }}
                 </form>
