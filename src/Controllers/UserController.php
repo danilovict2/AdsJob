@@ -168,7 +168,7 @@ class UserController extends Controller{
             $verification_code .= $value;
         }
         if($user->verification_code !== $verification_code){
-            $validator->addError('invalid', 'Kod koji ste uneli je pogresan');
+            $validator->addError('invalid', 'Kod koji ste uneli nije tačan');
             $this->setValidationErrors($validator->getErrors());
             $this->response->redirect('/verify/' . $params['user_id']);
             return;

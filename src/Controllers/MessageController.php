@@ -4,9 +4,6 @@ namespace AdsJob\Controllers;
 use AdsJob\Models\ChatRoom;
 use AdsJob\Models\Job;
 use AdsJob\Models\Message;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 class MessageController extends Controller{
 
