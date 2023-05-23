@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="messages"></div>
-    <div class="scroll-indicator" style="display: none;"><i class="fa-solid fa-circle-chevron-down" style="color: #0080ff;" onclick="scrollToBottom()"></i></div>
+    <div class="scroll-indicator" id="scroll-indicator" style="display: none; cursor: pointer;"><i class="fa-solid fa-circle-chevron-down fa-2xl" style="color: #0080ff;" onclick="scrollToBottom()"></i></div>
     <div class="input-message"> 
         <input type="text" placeholder="Ukucaj poruku" name="message" id="message"
             onkeypress="sendMessageOnEnter(event)">
@@ -29,6 +29,17 @@
 <script src="/javascript/chatHelper.js"></script>
 <script>
     var prevResponseLength = 0;
+    
+    function enableScrollIndicator(){
+        const chat = document.querySelector('.chat');
+        if(chat.scrollTop + 1000 !== chat.scrollHeight){
+            document.getElementById("scroll-indicator").style.display = "block";
+        }else{
+            document.getElementById("scroll-indicator").style.display = "none";
+        }
+        setTimeout(enableScrollIndicator, 1);
+    }
+
 
     function scrollToBottom(){
         const chat = document.querySelector('.chat');
@@ -104,6 +115,7 @@
 
     window.onload = () => {
         fetchMessages();
+        enableScrollIndicator();
     };
 </script>
 

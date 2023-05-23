@@ -25,6 +25,8 @@
         <a href="#" id="openModal"><h2>E-mail obaveštenja</h2></a>
         <div class="modal" id="modal">
             <div class="modalContent">
+                <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
+                <h2>Da li zelite da primate obavestenja putem e-maila</h2>
                 {% if user.email_notifications_enabled %}
                 <h1><label class="switch">
                     <input type="checkbox" checked>
@@ -38,7 +40,6 @@
                   </label>
                 </h1>
                 {% endif %}
-                <i class="fa-solid fa-xmark" style="color: #1a55bc;" id="close"></i>
                 <div class="buttons">
                 <a href="" id="close2" onclick="event.preventDefault();document.getElementById('email-notifications-form').submit();">Sačuvaj</a>
                 <form action="/user/enable-email-verifications" method="POST" style="display: none;" id="email-notifications-form">

@@ -38,12 +38,17 @@
     border-radius: 10px 10px 0px 0px;
 }
 
+.description-content{
+    color: rgb(11, 135, 237);
+}
+
 .job-tab{
     width: 400px;
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 10px;
     text-align: center;
+    height: 480px;
 }
 
 .info{

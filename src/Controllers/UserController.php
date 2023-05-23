@@ -34,7 +34,7 @@ class UserController extends Controller{
         }
         $user = new User;
         $user->create($this->request->getBodyParameters());
-        //$this->sendVerificationEmail($user);
+        $this->sendVerificationEmail($user);
         $user->save();
         setcookie('unverified_user_id', "$user->id", time() + 604800, secure:true, path:'/');
         $this->response->redirect('/verify/' . $user->id);

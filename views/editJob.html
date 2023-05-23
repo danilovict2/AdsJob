@@ -14,14 +14,14 @@
             <label for="name">
                 <h2>Naziv usluge:</h2>
             </label>
-            <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}">
+            <input type="text" name="name" id="title" class="{% if errors.name %}is-invalid{% endif %}" value="{{ job.name }}">
             <div class="invalid-feedback">
                 {{errors.name}}
             </div>
             <label for="location" class="mestoSearch">
                 <h2>Mesto: </h2>
                 <select name="location" id="location" class="{% if errors.location %}is-invalid{% endif %}">
-                    <option selected></option>
+                    <option></option>
                     <option value='Ada'>Ada</option>
                     <option value='Aleksinac'>Aleksinac</option>
                     <option value='Apatin'>Apatin</option>
@@ -106,13 +106,7 @@
                     <option value='Tornjos'>Tornjoš</option>
                     <option value='Ugrinovci'>Ugrinovci</option>
                     <option value='Umcari'>Umčari</option>
-                    <option value='Umka'>Umka</option>
-                    <option value='Vajska'>Vajska</option>
-                    <option value='Valjevo'>Valjevo</option>
-                    <option value='Veternik'>Veternik</option>
-                    <option value='Vrbas'>Vrbas</option>
-                    <option value='Zajecar'>Zaječar</option>
-                    <option value='Zemun Polje'>Zemun Polje</option>
+                    <option value='Umka'>Umka</option>preview
                     <option value='Zlatibor'>Zlatibor</option>
                     <option value='Zrenjanin'>Zrenjanin</option>
                 </select>
@@ -124,7 +118,7 @@
                 <h2>Opis: </h2>
             </label>
             <textarea name="description" id="description" cols="70" rows="8"
-                class="{% if errors.description %}is-invalid{% endif %}" style="resize: none;"></textarea>
+                class="{% if errors.description %}is-invalid{% endif %}" style="resize: none;" textContent="{{ job.description }}"></textarea>
             <div class="invalid-feedback">
                 {{errors.description}}
             </div>
@@ -140,7 +134,7 @@
                     <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
                 </label>
                 <div class="preview">
-                    <img id="preview-selected-image1" />
+                    <img id="preview-selected-image1" src="{% if job.images()[0].imagePath %}/{{job.images()[0].imagePath}}{% endif %}" />
                 </div>
             </div>
             <div class="input-container">
@@ -149,7 +143,7 @@
                     <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
                 </label>
                 <div class="preview2">
-                    <img id="preview-selected-image2"/>
+                    <img id="preview-selected-image2" src="{% if job.images()[1].imagePath %}/{{job.images()[1].imagePath}}{% endif %}"/>
                 </div>
             </div>
             <div class="input-container">
@@ -158,7 +152,7 @@
                     <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
                 </label>
                 <div class="preview">
-                    <img id="preview-selected-image3"/>
+                    <img id="preview-selected-image3" src="{% if job.images()[2].imagePath %}/{{job.images()[2].imagePath}}{% endif %}"/>
                 </div>
             </div>
             <div class="input-container">
@@ -167,7 +161,7 @@
                     <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
                 </label>
                 <div class="preview">
-                    <img id="preview-selected-image4"/>
+                    <img id="preview-selected-image4" src="{% if job.images()[3].imagePath %}/{{job.images()[3].imagePath}}{% endif %}"/>
                 </div>
             </div>
             <div class="input-container">
@@ -176,7 +170,7 @@
                     <i class="fa-solid fa-circle-plus fa-2xl" style="color: #0b87ed;"></i>
                 </label>
                 <div class="preview">
-                    <img id="preview-selected-image5"/>
+                    <img id="preview-selected-image5" src="{% if job.images()[4].imagePath %}/{{job.images()[4].imagePath}}{% endif %}"/>
                 </div>
             </div>
 
@@ -186,5 +180,14 @@
 </div>
 
 <script src="/javascript/showImage.js?v=3.0"></script>
+<script>
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    selectElement('location', '{{ job.location }}');
+    document.getElementById('description').textContent= "{{ job.description }}"
+
+</script>
 
 {% endblock %}

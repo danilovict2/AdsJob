@@ -36,7 +36,7 @@
                 <a href="/login" class="sidebar-link"><li><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Prijavi se</li></a>
                 <a href="/register" class="sidebar-link"><li><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Registruj se</li></a>
                 {% if unverifiedUserId %}
-                    <a href="/verify/{{ unverifiedUserId }}">Verifikacioni kod</a>
+                    <a href="/verify/{{ unverifiedUserId }}" class="sidebar-link"><li><i class="fa-solid fa-envelope" style="color: #ffffff;"></i> Verifikacioni kod</li></a>
                 {% endif %}
             {% else %}
                 <a href="/user/profile" class="sidebar-link"><li><i class="fa-solid fa-user" style="color: #ffffff;"></i> Moj Profil</li></a>

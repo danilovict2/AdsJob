@@ -223,7 +223,7 @@ p.description{
     background-color: white;
     border: 1px solid rgb(11, 135, 237);
     border-radius: 20px;
-    width: auto;
+
     margin: 0px 60px 60px 0px;
     padding: 20px;
     display: flex;
@@ -304,10 +304,9 @@ input[type=submit]{
     opacity: 0.4; 
 }
 
-
 @media screen and (max-width: 1905px){
     .ad-description, .add-review{
-        width: 1100px;
+        width: 1400px;
     }
     textarea{
         width: 1000px;
@@ -320,10 +319,10 @@ input[type=submit]{
 
 @media screen and (max-width: 1700px){
     .ad-description, .add-review{
-        width: 1000px;
+        width: 1200px;
     }
     textarea{
-        width: 900px;
+        width: 1100px;
     }
     div .userInfo{
         padding-left: 10px;
