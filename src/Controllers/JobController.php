@@ -46,8 +46,57 @@ class JobController extends Controller{
             return;
         }
 
-        $html = $this->renderer->render('editJob.html', $this->requiredData);
+        $html = $this->renderer->render('editJob.html', array_merge($this->requiredData,compact('job')));
         $this->response->setContent($html);
+    }
+
+    public function update(array $params) : void{
+        $job = Job::findOne(['id' => $params['job_id']]);
+        if($job){
+            $validator = new \AdsJob\Validators\Validator([
+                'name' => ['required', ['max' => 30]],
+                'location' => ['required', ['max' => 30]],
+                'description' => [['max' => 255]],
+            ]);
+    
+            $hasImage = $this->checkImageFiles();
+
+            if(!$hasImage){
+                $validator->addError("image", 'Jedna slika je obavezna');
+            }
+    
+            if(!$validator->validateForm($this->request->getBodyParameters()) || !$hasImage){
+                $this->setValidationErrors($validator->getErrors());
+                $this->response->redirect("/p/$job->id/edit");
+                return;
+            }
+
+            $job->update([
+                'name' => $this->request->getBodyParameter('name'),
+                'location' => $this->request->getBodyParameter('location'),
+                'description' => $this->request->getBodyParameter('description'),
+            ]);
+
+            foreach($job->images() as $jobImage){
+                if(file_exists($jobImage->imagePath)){
+                    unlink($jobImage->imagePath);
+                }
+                $jobImage->delete();
+            }
+
+            foreach($this->request->getFiles() as $file){
+                $this->storeJobImage($file, $job);
+            }
+        }
+        $this->response->redirect('/user/jobs');
+    }
+
+    public function delete(array $params) : void{
+        $job = Job::findOne(['id' => $params['job_id']]);
+        if($job){
+            $job->delete();
+        }
+        $this->response->redirect('/user/jobs');
     }
 
     public function store(): void{
@@ -63,6 +112,10 @@ class JobController extends Controller{
         ]);
 
         $hasImage = $this->checkImageFiles();
+
+        if(!$hasImage){
+            $validator->addError("image", 'Jedna slika je obavezna');
+        }
 
         if(!$validator->validateForm($this->request->getBodyParameters()) || !$hasImage){
             $this->setValidationErrors($validator->getErrors());

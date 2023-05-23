@@ -16,12 +16,15 @@
                 <img src="/{{ job.images()[0].imagePath }}" class="job-image">
                 <div class="info">
                     <h1>{{ job.name }}</h1>
-                    <p class="description-content">dasdasd</p>
+                    <p class="description-content">{{ job.description }}</p>
                 </div>
             </a>
-                <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> Mesto <h1 class="dropbtn"><i class="fa-solid fa-ellipsis-vertical fa-xs" style="color: #0b87ed;"></i><ul class="dropdown-content">
-                    <li><a href="/p/{job_id}/edit">Izmeni oglas</a></li>
-                    <li><a href="#delete">Obriši oglas</a></li>
+                <h1><i class="fa-solid fa-location-dot" style="color: #0b87ed;"></i> {{ job.location }} <h1 class="dropbtn"><i class="fa-solid fa-ellipsis-vertical fa-xs" style="color: #0b87ed;"></i><ul class="dropdown-content">
+                    <li><a href="/p/{{ job.id }}/edit">Izmeni oglas</a></li>
+                    <li><a href="" onclick="event.preventDefault(); document.getElementById('delete-job-form').submit();">Obriši oglas</a></li>
+                    <form action="/p/{{ job.id }}/delete" method="POST" style="display: none;" id="delete-job-form">
+
+                    </form>
                 </ul></h1></h1>
                 
         </div> 
